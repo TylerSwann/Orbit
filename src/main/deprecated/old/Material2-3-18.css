@@ -1,0 +1,220 @@
+/*    MUIMenuBar    */
+.mui-menu-bar
+{
+    -fx-background-color: rgb(0, 188, 212);
+    -fx-font-size: 14;
+    -fx-text-fill: rgba(0, 0, 0, 0.87);
+}
+.mui-menu-bar .menu,
+.mui-menu-bar .menu-item,
+.mui-menu-bar .menu .arrow,
+.mui-menu-bar .menu .context-menu
+{
+    -fx-padding: 0;
+}
+.mui-menu-bar .menu:hover,
+.mui-menu-bar .menu:showing,
+.mui-menu-bar .menu-item:focused
+{
+    -fx-background-color: rgba(100, 100, 100, 0.2);
+}
+
+.mui-menu-button
+{
+    -fx-text-fill: white;
+    -fx-font-family: "Roboto Black";
+}
+.mui-submenu-button
+{
+    -fx-opacity: 1.0;
+    -fx-text-fill: rgba(0, 0, 0, 0.87);
+}
+
+.mui-menu-bar,
+.mui-menu-bar .menu-item,
+.mui-menu-bar .context-menu-item,
+.mui-submenu-button
+{
+    -fx-font-family: "Roboto Light";
+}
+
+/*    SplitPane    */
+.split-pane .split-pane-divider
+{
+    -fx-background-color: rgb(0, 188, 212);
+    -fx-padding: 0.1;
+}
+
+/*    MUITreeView   */
+.mui-tree-view, .table-view
+{
+    -fx-background-color: white;
+    -fx-border-color: white;
+    -fx-border-width: 0.0;
+    -fx-padding: 0;
+}
+.mui-tree-view .column-header
+{
+    -fx-background-color: rgba(235, 235, 235, 1.0);
+    -fx-font-family: "Roboto Black";
+    -fx-border-color: rgba(235, 235, 235, 1.0);
+}
+.mui-tree-view .tree-table-row-cell,
+.mui-tree-view .column-header
+{
+    -fx-font-size: 15;
+    -fx-text-fill: rgba(0, 0, 0, 0.87);
+}
+.mui-tree-view .tree-table-row-cell
+{
+    -fx-background-color: white;
+    -fx-font-family: "Roboto Medium";
+}
+.mui-tree-view .tree-table-row-cell:selected
+{
+    -fx-background-color: rgba(26, 103, 255, 0.2);
+}
+
+.mui-tree-view .scroll-bar .increment-button .increment-arrow,
+.mui-tree-view .scroll-bar .decrement-button .decrement-arrow,
+.mui-tree-view .scroll-bar .corner,
+.mui-tree-view .scroll-bar
+{
+    -fx-background-color: transparent;
+    -fx-background: transparent;
+    -fx-opacity: 1.0;
+}
+.mui-tree-view .scroll-bar .thumb
+{
+    -fx-background-color: rgba(230, 230, 230, 0.7);
+    -fx-background-radius: 5em;
+}
+
+/*    MUINavigationBar   */
+.mui-navigation-bar
+{
+    -fx-background-color: rgba(240, 240, 240, 1.0);
+    -fx-padding: 0 0 1 0;
+}
+.mui-nav-button-selected
+{
+    -fx-font-family: "Roboto Medium";
+}
+.mui-nav-button-unselected
+{
+    -fx-font-family: "Roboto Light";
+}
+.mui-nav-button-unselected,
+.mui-nav-button-selected
+{
+    -fx-font-size: 12.0;
+    -fx-padding: 2 0 2 0;
+}
+.mui-nav-item .jfx-rippler
+{
+    -jfx-rippler-fill: rgb(100, 100, 100);
+}
+
+
+/*    Buttons   */
+
+.primary
+{
+    -fx-background-color: rgba(26, 103, 255, 1.0);
+    -fx-text-fill: white;
+    -fx-font-family: "Roboto Black";
+    -fx-font-size: 14.0;
+}
+
+.secondary
+{
+    -fx-font-family: "Roboto Black";
+    -fx-font-size: 14.0;
+}
+
+/*  MUITabBar  */
+
+.mui-tab-bar
+{
+    -fx-background-color: rgba(235, 235, 235, 1.0);
+}
+.mui-tab
+{
+    -fx-background-color: rgba(235, 235, 235, 1.0);
+    -jfx-rippler-fill: rgba(100, 100, 100, 0.4);
+    -fx-font-family: "Roboto Black";
+    -fx-font-size: 15.0;
+}
+.mui-tab-close
+{
+    -fx-fill: rgb(0, 188, 212);
+}
+.mui-tab-close .ikonli-font-icon
+{
+    -fx-padding: 50;
+}
+.mui-tab-bar-line
+{
+    -fx-background-color: rgb(13, 128, 255);
+}
+
+/*  MUIIconBar  */
+
+.mui-icon-button
+{
+}
+.mui-icon-button .jfx-rippler
+{
+    -jfx-rippler-fill: rgba(100, 100, 100, 0.8);
+}
+.mui-icon
+{
+    -fx-fill: rgb(77, 77, 77);
+}
+.mui-icon-bar
+{
+    -fx-background-color: rgba(235, 235, 235, 1.0);
+}
+
+/*  ContextMenu  */
+.menu,
+.menu-item,
+.menu .arrow,
+.menu .context-menu
+{
+    -fx-padding: 0;
+}
+.menu:hover,
+.menu:showing,
+.menu-item:focused
+{
+    -fx-background-color: rgba(100, 100, 100, 0.2);
+}
+
+
+.menu-item,
+.context-menu-item
+{
+    -fx-font-family: Roboto;
+    -fx-font-size: 15.0;
+}
+
+
+/*  Code Editor  */
+
+.mui-line-button
+{
+    -fx-background-color: rgb(0, 188, 212);
+    -fx-border-radius: 0;
+    -fx-cursor: default;
+}
+.mui-line-label
+{
+    -fx-text-fill: white;
+    -fx-font-family: "Roboto Medium";
+}
+.mui-line-breakpoint
+{
+    -fx-fill: red;
+    -fx-font-size: 13.0;
+}

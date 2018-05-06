@@ -1,0 +1,76 @@
+package io.orbit.ui
+
+import com.jfoenix.controls.JFXButton
+import com.sun.javafx.css.converters.StringConverter
+import javafx.application.Platform
+import javafx.css.CssMetaData
+import javafx.css.SimpleStyleableStringProperty
+import javafx.css.Styleable
+import javafx.css.StyleableProperty
+import javafx.scene.control.Control
+import org.kordamp.ikonli.Ikon
+import org.kordamp.ikonli.javafx.FontIcon
+import java.util.*
+import javax.swing.Timer
+
+
+/**
+ * Created by Tyler Swann on Friday February 02, 2018 at 15:23
+ */
+class MUIMenuButton: JFXButton
+{
+    private val iconView: FontIcon?
+    private val icon: Ikon?
+
+    constructor(text: String): super(text)
+    {
+        // TODO - allow icons to be changed with get/set
+        this.iconView = null
+        this.icon = null
+        this.labelTextProperty().addListener({_ -> this.text = this.getLabelText()})
+    }
+    constructor(icon: Ikon)
+    {
+        this.icon = icon
+        this.iconView = FontIcon(icon)
+        this.graphic = iconView
+    }
+
+    init
+    {
+        // TODO - figure out CSS API
+        this.styleClass.add("mui-menu-button2")
+    }
+
+
+    /**
+     * Styling
+     */
+
+    private val labelText: SimpleStyleableStringProperty = SimpleStyleableStringProperty(StyleableProperties.LABEL_TEXT, this, "labelText")
+
+    public fun labelTextProperty(): SimpleStyleableStringProperty = labelText
+    public fun getLabelText(): String = labelText.get()
+    public fun setLabelText(value: String) = labelText.set(value)
+
+    public override fun getControlCssMetaData(): List<CssMetaData<out Styleable, *>> = StyleableProperties.STYLEABLES
+
+
+
+    private companion object StyleableProperties
+    {
+        internal val STYLEABLES: MutableList<CssMetaData<out Styleable, *>>
+
+        internal val LABEL_TEXT = object: CssMetaData<MUIMenuButton, String>("-label-text", StringConverter.getInstance(), "Button") {
+            override fun isSettable(styleable: MUIMenuButton?): Boolean = true
+            override fun getStyleableProperty(styleable: MUIMenuButton?): StyleableProperty<String> = styleable?.labelTextProperty()!!
+        }
+
+        init
+        {
+            val styleables = MutableList<CssMetaData<out Styleable, *>>(Control.getClassCssMetaData().size, {index -> Control.getClassCssMetaData()[index]})
+            Collections.addAll(styleables, LABEL_TEXT)
+            STYLEABLES = Collections.unmodifiableList(styleables)
+        }
+    }
+}

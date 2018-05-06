@@ -1,0 +1,5558 @@
+[
+    {
+        "option": "width",
+        "insertedText": "width: ",
+        "subOptions": [
+            {
+                "option": "auto",
+                "insertedText": "auto;",
+                "subOptions": []
+            },
+            {
+                "option": "inherit",
+                "insertedText": "inherit;",
+                "subOptions": []
+            }
+        ]
+    },
+    {
+        "option": "height",
+        "insertedText": "height: ",
+        "subOptions": [
+            {
+                "option": "auto",
+                "insertedText": "auto;",
+                "subOptions": []
+            },
+            {
+                "option": "inherit",
+                "insertedText": "inherit;",
+                "subOptions": []
+            }
+        ]
+    },
+    {
+        "option": "margin",
+        "insertedText": "margin: ",
+        "subOptions": [
+            {
+                "option": "auto",
+                "insertedText": "auto;",
+                "subOptions": []
+            },
+            {
+                "option": "inherit",
+                "insertedText": "inherit;",
+                "subOptions": []
+            }
+        ]
+    },
+    {
+        "option": "margin-left",
+        "insertedText": "margin-left: ",
+        "subOptions": [
+            {
+                "option": "auto",
+                "insertedText": "auto;",
+                "subOptions": []
+            },
+            {
+                "option": "inherit",
+                "insertedText": "inherit;",
+                "subOptions": []
+            }
+        ]
+    },
+    {
+        "option": "margin-right",
+        "insertedText": "margin-right: ",
+        "subOptions": [
+            {
+                "option": "auto",
+                "insertedText": "auto;",
+                "subOptions": []
+            },
+            {
+                "option": "inherit",
+                "insertedText": "inherit;",
+                "subOptions": []
+            }
+        ]
+    },
+    {
+        "option": "margin-top",
+        "insertedText": "margin-top: ",
+        "subOptions": [
+            {
+                "option": "auto",
+                "insertedText": "auto;",
+                "subOptions": []
+            },
+            {
+                "option": "inherit",
+                "insertedText": "inherit;",
+                "subOptions": []
+            }
+        ]
+    },
+    {
+        "option": "margin-bottom",
+        "insertedText": "margin-bottom: ",
+        "subOptions": [
+            {
+                "option": "auto",
+                "insertedText": "auto;",
+                "subOptions": []
+            },
+            {
+                "option": "inherit",
+                "insertedText": "inherit;",
+                "subOptions": []
+            }
+        ]
+    },
+    {
+        "option": "padding",
+        "insertedText": "padding: ",
+        "subOptions": [
+            {
+                "option": "inherit",
+                "insertedText": "inherit;",
+                "subOptions": []
+            }
+        ]
+    },
+    {
+        "option": "padding-left",
+        "insertedText": "padding-left: ",
+        "subOptions": []
+    },
+    {
+        "option": "padding-right",
+        "insertedText": "padding-right: ",
+        "subOptions": []
+    },
+    {
+        "option": "padding-top",
+        "insertedText": "padding-top: ",
+        "subOptions": []
+    },
+    {
+        "option": "padding-bottom",
+        "insertedText": "padding-bottom: ",
+        "subOptions": []
+    },
+    {
+        "option": "font",
+        "insertedText": "font: ",
+        "subOptions": []
+    },
+    {
+        "option": "font-size",
+        "insertedText": "font-size: ",
+        "subOptions": []
+    },
+    {
+        "option": "font-style",
+        "insertedText": "font-style: ",
+        "subOptions": [
+            {
+                "option": "italic",
+                "insertedText": "italic;",
+                "subOptions": []
+            },
+            {
+                "option": "normal",
+                "insertedText": "normal;",
+                "subOptions": []
+            },
+            {
+                "option": "oblique",
+                "insertedText": "oblique;",
+                "subOptions": []
+            }
+        ]
+    },
+    {
+        "option": "font-weight",
+        "insertedText": "font-weight: ",
+        "subOptions": [
+            {
+                "option": "bold",
+                "insertedText": "bold;",
+                "subOptions": []
+            },
+            {
+                "option": "bolder",
+                "insertedText": "bolder;",
+                "subOptions": []
+            },
+            {
+                "option": "lighter",
+                "insertedText": "lighter;",
+                "subOptions": []
+            },
+            {
+                "option": "normal",
+                "insertedText": "normal;",
+                "subOptions": []
+            },
+            {
+                "option": "100",
+                "insertedText": "100;",
+                "subOptions": []
+            },
+            {
+                "option": "200",
+                "insertedText": "200;",
+                "subOptions": []
+            },
+            {
+                "option": "300",
+                "insertedText": "300;",
+                "subOptions": []
+            },
+            {
+                "option": "400",
+                "insertedText": "400;",
+                "subOptions": []
+            },
+            {
+                "option": "500",
+                "insertedText": "500;",
+                "subOptions": []
+            },
+            {
+                "option": "600",
+                "insertedText": "600;",
+                "subOptions": []
+            },
+            {
+                "option": "700",
+                "insertedText": "700;",
+                "subOptions": []
+            },
+            {
+                "option": "800",
+                "insertedText": "800;",
+                "subOptions": []
+            },
+            {
+                "option": "900",
+                "insertedText": "900;",
+                "subOptions": []
+            },
+            {
+                "option": "inherit",
+                "insertedText": "inherit;",
+                "subOptions": []
+            }
+        ]
+    },
+    {
+        "option": "font-family",
+        "insertedText": "font-family: ",
+        "subOptions": [
+            {
+                "option": "cursive",
+                "insertedText": "cursive;",
+                "subOptions": []
+            },
+            {
+                "option": "fantasy",
+                "insertedText": "fantasy;",
+                "subOptions": []
+            },
+            {
+                "option": "inherit",
+                "insertedText": "inherit;",
+                "subOptions": []
+            },
+            {
+                "option": "monospace",
+                "insertedText": "monospace;",
+                "subOptions": []
+            },
+            {
+                "option": "sans-serif",
+                "insertedText": "sans-serif;",
+                "subOptions": []
+            },
+            {
+                "option": "serif",
+                "insertedText": "serif;",
+                "subOptions": []
+            }
+        ]
+    },
+    {
+        "option": "border",
+        "insertedText": "border: ",
+        "subOptions": []
+    },
+    {
+        "option": "border-radius",
+        "insertedText": "border-radius: ",
+        "subOptions": []
+    },
+    {
+        "option": "border-top",
+        "insertedText": "border-top: ",
+        "subOptions": []
+    },
+    {
+        "option": "border-bottom",
+        "insertedText": "border-bottom: ",
+        "subOptions": []
+    },
+    {
+        "option": "border-left",
+        "insertedText": "border-left: ",
+        "subOptions": []
+    },
+    {
+        "option": "border-right",
+        "insertedText": "border-right: ",
+        "subOptions": []
+    },
+    {
+        "option": "border-color",
+        "insertedText": "border-color: ",
+        "subOptions": [
+            {
+                "option": "inherit",
+                "insertedText": "inherit;",
+                "subOptions": []
+            }
+        ]
+    },
+    {
+        "option": "border-width",
+        "insertedText": "border-width: ",
+        "subOptions": [
+            {
+                "option": "medium",
+                "insertedText": "medium;",
+                "subOptions": []
+            },
+            {
+                "option": "thin",
+                "insertedText": "thin;",
+                "subOptions": []
+            },
+            {
+                "option": "thick",
+                "insertedText": "thick;",
+                "subOptions": []
+            },
+            {
+                "option": "inherit",
+                "insertedText": "inherit;",
+                "subOptions": []
+            }
+        ]
+    },
+    {
+        "option": "position",
+        "insertedText": "position: ",
+        "subOptions": [
+            {
+                "option": "absolute",
+                "insertedText": "absolute;",
+                "subOptions": []
+            },
+            {
+                "option": "fixed",
+                "insertedText": "fixed;",
+                "subOptions": []
+            },
+            {
+                "option": "relative",
+                "insertedText": "relative;",
+                "subOptions": []
+            },
+            {
+                "option": "static",
+                "insertedText": "static;",
+                "subOptions": []
+            },
+            {
+                "option": "sticky",
+                "insertedText": "sticky;",
+                "subOptions": []
+            },
+            {
+                "option": "inherit",
+                "insertedText": "inherit;",
+                "subOptions": []
+            }
+        ]
+    },
+    {
+        "option": "text-align",
+        "insertedText": "text-align: ",
+        "subOptions": [
+            {
+                "option": "center",
+                "insertedText": "center;",
+                "subOptions": []
+            },
+            {
+                "option": "left",
+                "insertedText": "left;",
+                "subOptions": []
+            },
+            {
+                "option": "justify",
+                "insertedText": "justify;",
+                "subOptions": []
+            },
+            {
+                "option": "right",
+                "insertedText": "right;",
+                "subOptions": []
+            },
+            {
+                "option": "inherit",
+                "insertedText": "inherit;",
+                "subOptions": []
+            }
+        ]
+    },
+    {
+        "option": "background",
+        "insertedText": "background: ",
+        "subOptions": []
+    },
+    {
+        "option": "background-color",
+        "insertedText": "background-color: ",
+        "subOptions": [
+            {
+                "option": "inherit",
+                "insertedText": "inherit;",
+                "subOptions": []
+            }
+        ]
+    },
+    {
+        "option": "background-position",
+        "insertedText": "background-position: ",
+        "subOptions": [
+            {
+                "option": "left",
+                "insertedText": "left;",
+                "subOptions": []
+            },
+            {
+                "option": "center",
+                "insertedText": "center;",
+                "subOptions": []
+            },
+            {
+                "option": "right",
+                "insertedText": "right;",
+                "subOptions": []
+            },
+            {
+                "option": "bottom",
+                "insertedText": "bottom;",
+                "subOptions": []
+            },
+            {
+                "option": "top",
+                "insertedText": "top;",
+                "subOptions": []
+            }
+        ]
+    },
+    {
+        "option": "background-repeat",
+        "insertedText": "background-repeat: ",
+        "subOptions": [
+            {
+                "option": "no-repeat",
+                "insertedText": "no-repeat;",
+                "subOptions": []
+            },
+            {
+                "option": "repeat",
+                "insertedText": "repeat;",
+                "subOptions": []
+            },
+            {
+                "option": "repeat-x",
+                "insertedText": "repeat-x;",
+                "subOptions": []
+            },
+            {
+                "option": "repeat-y",
+                "insertedText": "repeat-y;",
+                "subOptions": []
+            },
+            {
+                "option": "round",
+                "insertedText": "round;",
+                "subOptions": []
+            },
+            {
+                "option": "space",
+                "insertedText": "space;",
+                "subOptions": []
+            }
+        ]
+    },
+    {
+        "option": "background-image",
+        "insertedText": "background-image: ",
+        "subOptions": [
+            {
+                "option": "image()",
+                "insertedText": "image();",
+                "subOptions": []
+            },
+            {
+                "option": "linear-gradient()",
+                "insertedText": "linear-gradient();",
+                "subOptions": []
+            },
+            {
+                "option": "radial-gradient()",
+                "insertedText": "radial-gradient();",
+                "subOptions": []
+            },
+            {
+                "option": "repeating-linear-gradient()",
+                "insertedText": "repeating-linear-gradient();",
+                "subOptions": []
+            },
+            {
+                "option": "repeating-radial-gradient()",
+                "insertedText": "repeating-radial-gradient();",
+                "subOptions": []
+            },
+            {
+                "option": "url()",
+                "insertedText": "url();",
+                "subOptions": []
+            }
+        ]
+    },
+    {
+        "option": "background-size",
+        "insertedText": "background-size: ",
+        "subOptions": [
+            {
+                "option": "auto",
+                "insertedText": "auto;",
+                "subOptions": []
+            },
+            {
+                "option": "contain",
+                "insertedText": "contain;",
+                "subOptions": []
+            },
+            {
+                "option": "cover",
+                "insertedText": "cover;",
+                "subOptions": []
+            }
+        ]
+    },
+    {
+        "option": "background-clip",
+        "insertedText": "background-clip: ",
+        "subOptions": [
+            {
+                "option": "border-box",
+                "insertedText": "border-box;",
+                "subOptions": []
+            },
+            {
+                "option": "content-box",
+                "insertedText": "content-box;",
+                "subOptions": []
+            },
+            {
+                "option": "padding-box",
+                "insertedText": "padding-box;",
+                "subOptions": []
+            },
+            {
+                "option": "inherit",
+                "insertedText": "inherit;",
+                "subOptions": []
+            }
+        ]
+    },
+    {
+        "option": "right",
+        "insertedText": "right: ",
+        "subOptions": [
+            {
+                "option": "auto",
+                "insertedText": "auto;",
+                "subOptions": []
+            },
+            {
+                "option": "inherit",
+                "insertedText": "inherit;",
+                "subOptions": []
+            }
+        ]
+    },
+    {
+        "option": "left",
+        "insertedText": "left: ",
+        "subOptions": [
+            {
+                "option": "auto",
+                "insertedText": "auto;",
+                "subOptions": []
+            },
+            {
+                "option": "inherit",
+                "insertedText": "inherit;",
+                "subOptions": []
+            }
+        ]
+    },
+    {
+        "option": "top",
+        "insertedText": "top: ",
+        "subOptions": [
+            {
+                "option": "auto",
+                "insertedText": "auto;",
+                "subOptions": []
+            },
+            {
+                "option": "inherit",
+                "insertedText": "inherit;",
+                "subOptions": []
+            }
+        ]
+    },
+    {
+        "option": "bottom",
+        "insertedText": "bottom: ",
+        "subOptions": [
+            {
+                "option": "auto",
+                "insertedText": "auto;",
+                "subOptions": []
+            },
+            {
+                "option": "inherit",
+                "insertedText": "inherit;",
+                "subOptions": []
+            }
+        ]
+    },
+    {
+        "option": "overflow",
+        "insertedText": "overflow: ",
+        "subOptions": [
+            {
+                "option": "auto",
+                "insertedText": "auto;",
+                "subOptions": []
+            },
+            {
+                "option": "hidden",
+                "insertedText": "hidden;",
+                "subOptions": []
+            },
+            {
+                "option": "scroll",
+                "insertedText": "scroll;",
+                "subOptions": []
+            },
+            {
+                "option": "visible",
+                "insertedText": "visible;",
+                "subOptions": []
+            },
+            {
+                "option": "inherit",
+                "insertedText": "inherit;",
+                "subOptions": []
+            }
+        ]
+    },
+    {
+        "option": "overflow-x",
+        "insertedText": "overflow-x: ",
+        "subOptions": [
+            {
+                "option": "auto",
+                "insertedText": "auto;",
+                "subOptions": []
+            },
+            {
+                "option": "hidden",
+                "insertedText": "hidden;",
+                "subOptions": []
+            },
+            {
+                "option": "scroll",
+                "insertedText": "scroll;",
+                "subOptions": []
+            },
+            {
+                "option": "visible",
+                "insertedText": "visible;",
+                "subOptions": []
+            },
+            {
+                "option": "inherit",
+                "insertedText": "inherit;",
+                "subOptions": []
+            }
+        ]
+    },
+    {
+        "option": "overflow-y",
+        "insertedText": "overflow-y: ",
+        "subOptions": [
+            {
+                "option": "auto",
+                "insertedText": "auto;",
+                "subOptions": []
+            },
+            {
+                "option": "hidden",
+                "insertedText": "hidden;",
+                "subOptions": []
+            },
+            {
+                "option": "scroll",
+                "insertedText": "scroll;",
+                "subOptions": []
+            },
+            {
+                "option": "visible",
+                "insertedText": "visible;",
+                "subOptions": []
+            },
+            {
+                "option": "inherit",
+                "insertedText": "inherit;",
+                "subOptions": []
+            }
+        ]
+    },
+    {
+        "option": "opacity",
+        "insertedText": "opacity: ",
+        "subOptions": [
+            {
+                "option": "inherit",
+                "insertedText": "inherit;",
+                "subOptions": []
+            }
+        ]
+    },
+    {
+        "option": "cursor",
+        "insertedText": "cursor: ",
+        "subOptions": [
+            {
+                "option": "alias",
+                "insertedText": "alias;",
+                "subOptions": []
+            },
+            {
+                "option": "all-scroll",
+                "insertedText": "all-scroll;",
+                "subOptions": []
+            },
+            {
+                "option": "auto",
+                "insertedText": "auto;",
+                "subOptions": []
+            },
+            {
+                "option": "cell",
+                "insertedText": "cell;",
+                "subOptions": []
+            },
+            {
+                "option": "col-resize",
+                "insertedText": "col-resize;",
+                "subOptions": []
+            },
+            {
+                "option": "context-menu",
+                "insertedText": "context-menu;",
+                "subOptions": []
+            },
+            {
+                "option": "copy",
+                "insertedText": "copy;",
+                "subOptions": []
+            },
+            {
+                "option": "crosshair",
+                "insertedText": "crosshair;",
+                "subOptions": []
+            },
+            {
+                "option": "default",
+                "insertedText": "default;",
+                "subOptions": []
+            },
+            {
+                "option": "e-resize",
+                "insertedText": "e-resize;",
+                "subOptions": []
+            },
+            {
+                "option": "ew-resize",
+                "insertedText": "ew-resize;",
+                "subOptions": []
+            },
+            {
+                "option": "grab",
+                "insertedText": "grab;",
+                "subOptions": []
+            },
+            {
+                "option": "grabbing",
+                "insertedText": "grabbing;",
+                "subOptions": []
+            },
+            {
+                "option": "help",
+                "insertedText": "help;",
+                "subOptions": []
+            },
+            {
+                "option": "inherit",
+                "insertedText": "inherit;",
+                "subOptions": []
+            },
+            {
+                "option": "move",
+                "insertedText": "move;",
+                "subOptions": []
+            },
+            {
+                "option": "n-resize",
+                "insertedText": "n-resize;",
+                "subOptions": []
+            },
+            {
+                "option": "ne-resize",
+                "insertedText": "ne-resize;",
+                "subOptions": []
+            },
+            {
+                "option": "nesw-resize",
+                "insertedText": "nesw-resize;",
+                "subOptions": []
+            },
+            {
+                "option": "no-drop",
+                "insertedText": "no-drop;",
+                "subOptions": []
+            },
+            {
+                "option": "none",
+                "insertedText": "none;",
+                "subOptions": []
+            },
+            {
+                "option": "not-allowed",
+                "insertedText": "not-allowed;",
+                "subOptions": []
+            },
+            {
+                "option": "ns-resize",
+                "insertedText": "ns-resize;",
+                "subOptions": []
+            },
+            {
+                "option": "nw-resize",
+                "insertedText": "nw-resize;",
+                "subOptions": []
+            },
+            {
+                "option": "nwse-resize",
+                "insertedText": "nwse-resize;",
+                "subOptions": []
+            },
+            {
+                "option": "pointer",
+                "insertedText": "pointer;",
+                "subOptions": []
+            },
+            {
+                "option": "progress",
+                "insertedText": "progress;",
+                "subOptions": []
+            },
+            {
+                "option": "row-resize",
+                "insertedText": "row-resize;",
+                "subOptions": []
+            },
+            {
+                "option": "s-resize",
+                "insertedText": "s-resize;",
+                "subOptions": []
+            },
+            {
+                "option": "se-resize",
+                "insertedText": "se-resize;",
+                "subOptions": []
+            },
+            {
+                "option": "sw-resize",
+                "insertedText": "sw-resize;",
+                "subOptions": []
+            },
+            {
+                "option": "text",
+                "insertedText": "text;",
+                "subOptions": []
+            },
+            {
+                "option": "vertical-text",
+                "insertedText": "vertical-text;",
+                "subOptions": []
+            },
+            {
+                "option": "w-resize",
+                "insertedText": "w-resize;",
+                "subOptions": []
+            },
+            {
+                "option": "wait",
+                "insertedText": "wait;",
+                "subOptions": []
+            },
+            {
+                "option": "zoom-in",
+                "insertedText": "zoom-in;",
+                "subOptions": []
+            },
+            {
+                "option": "zoom-out",
+                "insertedText": "zoom-out;",
+                "subOptions": []
+            }
+        ]
+    },
+    {
+        "option": "display",
+        "insertedText": "display: ",
+        "subOptions": [
+            {
+                "option": "block",
+                "insertedText": "block;",
+                "subOptions": []
+            },
+            {
+                "option": "contents",
+                "insertedText": "contents;",
+                "subOptions": []
+            },
+            {
+                "option": "flex",
+                "insertedText": "flex;",
+                "subOptions": []
+            },
+            {
+                "option": "flow-root",
+                "insertedText": "flow-root;",
+                "subOptions": []
+            },
+            {
+                "option": "grid",
+                "insertedText": "grid;",
+                "subOptions": []
+            },
+            {
+                "option": "inline",
+                "insertedText": "inline;",
+                "subOptions": []
+            },
+            {
+                "option": "inline-block",
+                "insertedText": "inline-block;",
+                "subOptions": []
+            },
+            {
+                "option": "inline-flex",
+                "insertedText": "inline-flex;",
+                "subOptions": []
+            },
+            {
+                "option": "inline-grid",
+                "insertedText": "inline-grid;",
+                "subOptions": []
+            },
+            {
+                "option": "inline-table",
+                "insertedText": "inline-table;",
+                "subOptions": []
+            },
+            {
+                "option": "list-item",
+                "insertedText": "list-item;",
+                "subOptions": []
+            },
+            {
+                "option": "none",
+                "insertedText": "none;",
+                "subOptions": []
+            },
+            {
+                "option": "run-in",
+                "insertedText": "run-in;",
+                "subOptions": []
+            },
+            {
+                "option": "subgrid",
+                "insertedText": "subgrid;",
+                "subOptions": []
+            },
+            {
+                "option": "table",
+                "insertedText": "table;",
+                "subOptions": []
+            },
+            {
+                "option": "table-caption",
+                "insertedText": "table-caption;",
+                "subOptions": []
+            },
+            {
+                "option": "table-cell",
+                "insertedText": "table-cell;",
+                "subOptions": []
+            },
+            {
+                "option": "table-column",
+                "insertedText": "table-column;",
+                "subOptions": []
+            },
+            {
+                "option": "table-column-group",
+                "insertedText": "table-column-group;",
+                "subOptions": []
+            },
+            {
+                "option": "table-footer-group",
+                "insertedText": "table-footer-group;",
+                "subOptions": []
+            },
+            {
+                "option": "table-header-group",
+                "insertedText": "table-header-group;",
+                "subOptions": []
+            },
+            {
+                "option": "table-row",
+                "insertedText": "table-row;",
+                "subOptions": []
+            },
+            {
+                "option": "table-row-group",
+                "insertedText": "table-row-group;",
+                "subOptions": []
+            },
+            {
+                "option": "inherit",
+                "insertedText": "inherit;",
+                "subOptions": []
+            }
+        ]
+    },
+    {
+        "option": "color",
+        "insertedText": "color: ",
+        "subOptions": [
+            {
+                "option": "inherit",
+                "insertedText": "inherit;",
+                "subOptions": []
+            }
+        ]
+    },
+    {
+        "option": "visibility",
+        "insertedText": "visibility: ",
+        "subOptions": [
+            {
+                "option": "collapse",
+                "insertedText": "collapse;",
+                "subOptions": []
+            },
+            {
+                "option": "hidden",
+                "insertedText": "hidden;",
+                "subOptions": []
+            },
+            {
+                "option": "visible",
+                "insertedText": "visible;",
+                "subOptions": []
+            },
+            {
+                "option": "inherit",
+                "insertedText": "inherit;",
+                "subOptions": []
+            }
+        ]
+    },
+    {
+        "option": "float",
+        "insertedText": "float: ",
+        "subOptions": [
+            {
+                "option": "left",
+                "insertedText": "left;",
+                "subOptions": []
+            },
+            {
+                "option": "right",
+                "insertedText": "right;",
+                "subOptions": []
+            },
+            {
+                "option": "none",
+                "insertedText": "none;",
+                "subOptions": []
+            },
+            {
+                "option": "inherit",
+                "insertedText": "inherit;",
+                "subOptions": []
+            }
+        ]
+    },
+    {
+        "option": "text-decoration",
+        "insertedText": "text-decoration: ",
+        "subOptions": [
+            {
+                "option": "line-through",
+                "insertedText": "line-through;",
+                "subOptions": []
+            },
+            {
+                "option": "none",
+                "insertedText": "none;",
+                "subOptions": []
+            },
+            {
+                "option": "overline",
+                "insertedText": "overline;",
+                "subOptions": []
+            },
+            {
+                "option": "underline",
+                "insertedText": "underline;",
+                "subOptions": []
+            },
+            {
+                "option": "inherit",
+                "insertedText": "inherit;",
+                "subOptions": []
+            }
+        ]
+    },
+    {
+        "option": "line-height",
+        "insertedText": "line-height: ",
+        "subOptions": [
+            {
+                "option": "normal",
+                "insertedText": "normal;",
+                "subOptions": []
+            },
+            {
+                "option": "inherit",
+                "insertedText": "inherit;",
+                "subOptions": []
+            }
+        ]
+    },
+    {
+        "option": "z-index",
+        "insertedText": "z-index: ",
+        "subOptions": [
+            {
+                "option": "auto",
+                "insertedText": "auto;",
+                "subOptions": []
+            },
+            {
+                "option": "inherit",
+                "insertedText": "inherit;",
+                "subOptions": []
+            }
+        ]
+    },
+    {
+        "option": "vertical-align",
+        "insertedText": "vertical-align: ",
+        "subOptions": [
+            {
+                "option": "baseline",
+                "insertedText": "baseline;",
+                "subOptions": []
+            },
+            {
+                "option": "bottom",
+                "insertedText": "bottom;",
+                "subOptions": []
+            },
+            {
+                "option": "middle",
+                "insertedText": "middle;",
+                "subOptions": []
+            },
+            {
+                "option": "sub",
+                "insertedText": "sub;",
+                "subOptions": []
+            },
+            {
+                "option": "super",
+                "insertedText": "super;",
+                "subOptions": []
+            },
+            {
+                "option": "text-bottom",
+                "insertedText": "text-bottom;",
+                "subOptions": []
+            },
+            {
+                "option": "text-top",
+                "insertedText": "text-top;",
+                "subOptions": []
+            },
+            {
+                "option": "top",
+                "insertedText": "top;",
+                "subOptions": []
+            },
+            {
+                "option": "inherit",
+                "insertedText": "inherit;",
+                "subOptions": []
+            }
+        ]
+    },
+    {
+        "option": "box-sizing",
+        "insertedText": "box-sizing: ",
+        "subOptions": [
+            {
+                "option": "border-box",
+                "insertedText": "border-box;",
+                "subOptions": []
+            },
+            {
+                "option": "content-box",
+                "insertedText": "content-box;",
+                "subOptions": []
+            },
+            {
+                "option": "inherit",
+                "insertedText": "inherit;",
+                "subOptions": []
+            }
+        ]
+    },
+    {
+        "option": "clear",
+        "insertedText": "clear: ",
+        "subOptions": [
+            {
+                "option": "both",
+                "insertedText": "both;",
+                "subOptions": []
+            },
+            {
+                "option": "left",
+                "insertedText": "left;",
+                "subOptions": []
+            },
+            {
+                "option": "none",
+                "insertedText": "none;",
+                "subOptions": []
+            },
+            {
+                "option": "right",
+                "insertedText": "right;",
+                "subOptions": []
+            },
+            {
+                "option": "inherit",
+                "insertedText": "inherit;",
+                "subOptions": []
+            }
+        ]
+    },
+    {
+        "option": "white-space",
+        "insertedText": "white-space: ",
+        "subOptions": [
+            {
+                "option": "normal",
+                "insertedText": "normal;",
+                "subOptions": []
+            },
+            {
+                "option": "nowrap",
+                "insertedText": "nowrap;",
+                "subOptions": []
+            },
+            {
+                "option": "pre",
+                "insertedText": "pre;",
+                "subOptions": []
+            },
+            {
+                "option": "pre-line",
+                "insertedText": "pre-line;",
+                "subOptions": []
+            },
+            {
+                "option": "pre-wrap",
+                "insertedText": "pre-wrap;",
+                "subOptions": []
+            },
+            {
+                "option": "inherit",
+                "insertedText": "inherit;",
+                "subOptions": []
+            }
+        ]
+    },
+    {
+        "option": "max-width",
+        "insertedText": "max-width: ",
+        "subOptions": [
+            {
+                "option": "none",
+                "insertedText": "none;",
+                "subOptions": []
+            },
+            {
+                "option": "inherit",
+                "insertedText": "inherit;",
+                "subOptions": []
+            }
+        ]
+    },
+    {
+        "option": "outline",
+        "insertedText": "outline: ",
+        "subOptions": [
+            {
+                "option": "inherit",
+                "insertedText": "inherit;",
+                "subOptions": []
+            }
+        ]
+    },
+    {
+        "option": "content",
+        "insertedText": "content: ",
+        "subOptions": [
+            {
+                "option": "attr()",
+                "insertedText": "attr();",
+                "subOptions": []
+            },
+            {
+                "option": "close-quote",
+                "insertedText": "close-quote;",
+                "subOptions": []
+            },
+            {
+                "option": "no-close-quote",
+                "insertedText": "no-close-quote;",
+                "subOptions": []
+            },
+            {
+                "option": "no-open-quote",
+                "insertedText": "no-open-quote;",
+                "subOptions": []
+            },
+            {
+                "option": "normal",
+                "insertedText": "normal;",
+                "subOptions": []
+            },
+            {
+                "option": "none",
+                "insertedText": "none;",
+                "subOptions": []
+            },
+            {
+                "option": "open-quote",
+                "insertedText": "open-quote;",
+                "subOptions": []
+            },
+            {
+                "option": "inherit",
+                "insertedText": "inherit;",
+                "subOptions": []
+            }
+        ]
+    },
+    {
+        "option": "min-width",
+        "insertedText": "min-width: ",
+        "subOptions": [
+            {
+                "option": "inherit",
+                "insertedText": "inherit;",
+                "subOptions": []
+            }
+        ]
+    },
+    {
+        "option": "min-height",
+        "insertedText": "min-height: ",
+        "subOptions": [
+            {
+                "option": "inherit",
+                "insertedText": "inherit;",
+                "subOptions": []
+            }
+        ]
+    },
+    {
+        "option": "list-style",
+        "insertedText": "list-style: ",
+        "subOptions": [
+            {
+                "option": "none",
+                "insertedText": "none;",
+                "subOptions": []
+            },
+            {
+                "option": "inherit",
+                "insertedText": "inherit;",
+                "subOptions": []
+            },
+            {
+                "option": "initial",
+                "insertedText": "initial;",
+                "subOptions": []
+            },
+            {
+                "option": "unset",
+                "insertedText": "unset;",
+                "subOptions": []
+            },
+            {
+                "option": "url()",
+                "insertedText": "url();",
+                "subOptions": []
+            },
+            {
+                "option": "armenian",
+                "insertedText": "armenian;",
+                "subOptions": []
+            },
+            {
+                "option": "circle",
+                "insertedText": "circle;",
+                "subOptions": []
+            },
+            {
+                "option": "decimal",
+                "insertedText": "decimal;",
+                "subOptions": []
+            },
+            {
+                "option": "decimal-leading-zero",
+                "insertedText": "decimal-leading-zero;",
+                "subOptions": []
+            },
+            {
+                "option": "disc",
+                "insertedText": "disc;",
+                "subOptions": []
+            },
+            {
+                "option": "georgian",
+                "insertedText": "georgian;",
+                "subOptions": []
+            },
+            {
+                "option": "inside",
+                "insertedText": "inside;",
+                "subOptions": []
+            },
+            {
+                "option": "lower-alpha",
+                "insertedText": "lower-alpha;",
+                "subOptions": []
+            },
+            {
+                "option": "lower-greek",
+                "insertedText": "lower-greek;",
+                "subOptions": []
+            },
+            {
+                "option": "lower-latin",
+                "insertedText": "lower-latin;",
+                "subOptions": []
+            },
+            {
+                "option": "lower-roman",
+                "insertedText": "lower-roman;",
+                "subOptions": []
+            },
+            {
+                "option": "outside",
+                "insertedText": "outside;",
+                "subOptions": []
+            },
+            {
+                "option": "square",
+                "insertedText": "square;",
+                "subOptions": []
+            },
+            {
+                "option": "upper-alpha",
+                "insertedText": "upper-alpha;",
+                "subOptions": []
+            },
+            {
+                "option": "upper-latin",
+                "insertedText": "upper-latin;",
+                "subOptions": []
+            },
+            {
+                "option": "upper-roman",
+                "insertedText": "upper-roman;",
+                "subOptions": []
+            }
+        ]
+    },
+    {
+        "option": "box-shadow",
+        "insertedText": "box-shadow: ",
+        "subOptions": []
+    },
+    {
+        "option": "text-shadow",
+        "insertedText": "text-shadow: ",
+        "subOptions": []
+    },
+    {
+        "option": "text-indent",
+        "insertedText": "text-indent: ",
+        "subOptions": [
+            {
+                "option": "inherit",
+                "insertedText": "inherit;",
+                "subOptions": []
+            }
+        ]
+    },
+    {
+        "option": "max-height",
+        "insertedText": "max-height: ",
+        "subOptions": [
+            {
+                "option": "none",
+                "insertedText": "none;",
+                "subOptions": []
+            },
+            {
+                "option": "inherit",
+                "insertedText": "inherit;",
+                "subOptions": []
+            }
+        ]
+    },
+    {
+        "option": "text-overflow",
+        "insertedText": "text-overflow: ",
+        "subOptions": [
+            {
+                "option": "clip",
+                "insertedText": "clip;",
+                "subOptions": []
+            },
+            {
+                "option": "ellipsis",
+                "insertedText": "ellipsis;",
+                "subOptions": []
+            },
+            {
+                "option": "inherit",
+                "insertedText": "inherit;",
+                "subOptions": []
+            }
+        ]
+    },
+    {
+        "option": "border-style",
+        "insertedText": "border-style: ",
+        "subOptions": [
+            {
+                "option": "dashed",
+                "insertedText": "dashed;",
+                "subOptions": []
+            },
+            {
+                "option": "dotted",
+                "insertedText": "dotted;",
+                "subOptions": []
+            },
+            {
+                "option": "double",
+                "insertedText": "double;",
+                "subOptions": []
+            },
+            {
+                "option": "groove",
+                "insertedText": "groove;",
+                "subOptions": []
+            },
+            {
+                "option": "hidden",
+                "insertedText": "hidden;",
+                "subOptions": []
+            },
+            {
+                "option": "inset",
+                "insertedText": "inset;",
+                "subOptions": []
+            },
+            {
+                "option": "none",
+                "insertedText": "none;",
+                "subOptions": []
+            },
+            {
+                "option": "outset",
+                "insertedText": "outset;",
+                "subOptions": []
+            },
+            {
+                "option": "ridge",
+                "insertedText": "ridge;",
+                "subOptions": []
+            },
+            {
+                "option": "solid",
+                "insertedText": "solid;",
+                "subOptions": []
+            },
+            {
+                "option": "inherit",
+                "insertedText": "inherit;",
+                "subOptions": []
+            }
+        ]
+    },
+    {
+        "option": "border-spacing",
+        "insertedText": "border-spacing: ",
+        "subOptions": [
+            {
+                "option": "inherit",
+                "insertedText": "inherit;",
+                "subOptions": []
+            }
+        ]
+    },
+    {
+        "option": "border-collapse",
+        "insertedText": "border-collapse: ",
+        "subOptions": [
+            {
+                "option": "collapse",
+                "insertedText": "collapse;",
+                "subOptions": []
+            },
+            {
+                "option": "separate",
+                "insertedText": "separate;",
+                "subOptions": []
+            },
+            {
+                "option": "inherit",
+                "insertedText": "inherit;",
+                "subOptions": []
+            }
+        ]
+    },
+    {
+        "option": "border-left-color",
+        "insertedText": "border-left-color: ",
+        "subOptions": [
+            {
+                "option": "inherit",
+                "insertedText": "inherit;",
+                "subOptions": []
+            }
+        ]
+    },
+    {
+        "option": "border-left-style",
+        "insertedText": "border-left-style: ",
+        "subOptions": [
+            {
+                "option": "dashed",
+                "insertedText": "dashed;",
+                "subOptions": []
+            },
+            {
+                "option": "dotted",
+                "insertedText": "dotted;",
+                "subOptions": []
+            },
+            {
+                "option": "double",
+                "insertedText": "double;",
+                "subOptions": []
+            },
+            {
+                "option": "groove",
+                "insertedText": "groove;",
+                "subOptions": []
+            },
+            {
+                "option": "hidden",
+                "insertedText": "hidden;",
+                "subOptions": []
+            },
+            {
+                "option": "inset",
+                "insertedText": "inset;",
+                "subOptions": []
+            },
+            {
+                "option": "none",
+                "insertedText": "none;",
+                "subOptions": []
+            },
+            {
+                "option": "outset",
+                "insertedText": "outset;",
+                "subOptions": []
+            },
+            {
+                "option": "ridge",
+                "insertedText": "ridge;",
+                "subOptions": []
+            },
+            {
+                "option": "solid",
+                "insertedText": "solid;",
+                "subOptions": []
+            },
+            {
+                "option": "inherit",
+                "insertedText": "inherit;",
+                "subOptions": []
+            }
+        ]
+    },
+    {
+        "option": "border-left-width",
+        "insertedText": "border-left-width: ",
+        "subOptions": [
+            {
+                "option": "medium",
+                "insertedText": "medium;",
+                "subOptions": []
+            },
+            {
+                "option": "thin",
+                "insertedText": "thin;",
+                "subOptions": []
+            },
+            {
+                "option": "thick",
+                "insertedText": "thick;",
+                "subOptions": []
+            },
+            {
+                "option": "inherit",
+                "insertedText": "inherit;",
+                "subOptions": []
+            }
+        ]
+    },
+    {
+        "option": "border-right-color",
+        "insertedText": "border-right-color: ",
+        "subOptions": [
+            {
+                "option": "inherit",
+                "insertedText": "inherit;",
+                "subOptions": []
+            }
+        ]
+    },
+    {
+        "option": "border-right-style",
+        "insertedText": "border-right-style: ",
+        "subOptions": [
+            {
+                "option": "dashed",
+                "insertedText": "dashed;",
+                "subOptions": []
+            },
+            {
+                "option": "dotted",
+                "insertedText": "dotted;",
+                "subOptions": []
+            },
+            {
+                "option": "double",
+                "insertedText": "double;",
+                "subOptions": []
+            },
+            {
+                "option": "groove",
+                "insertedText": "groove;",
+                "subOptions": []
+            },
+            {
+                "option": "hidden",
+                "insertedText": "hidden;",
+                "subOptions": []
+            },
+            {
+                "option": "inset",
+                "insertedText": "inset;",
+                "subOptions": []
+            },
+            {
+                "option": "none",
+                "insertedText": "none;",
+                "subOptions": []
+            },
+            {
+                "option": "outset",
+                "insertedText": "outset;",
+                "subOptions": []
+            },
+            {
+                "option": "ridge",
+                "insertedText": "ridge;",
+                "subOptions": []
+            },
+            {
+                "option": "solid",
+                "insertedText": "solid;",
+                "subOptions": []
+            },
+            {
+                "option": "inherit",
+                "insertedText": "inherit;",
+                "subOptions": []
+            }
+        ]
+    },
+    {
+        "option": "border-right-width",
+        "insertedText": "border-right-width: ",
+        "subOptions": [
+            {
+                "option": "medium",
+                "insertedText": "medium;",
+                "subOptions": []
+            },
+            {
+                "option": "thin",
+                "insertedText": "thin;",
+                "subOptions": []
+            },
+            {
+                "option": "thick",
+                "insertedText": "thick;",
+                "subOptions": []
+            },
+            {
+                "option": "inherit",
+                "insertedText": "inherit;",
+                "subOptions": []
+            }
+        ]
+    },
+    {
+        "option": "border-top-color",
+        "insertedText": "border-top-color: ",
+        "subOptions": [
+            {
+                "option": "inherit",
+                "insertedText": "inherit;",
+                "subOptions": []
+            }
+        ]
+    },
+    {
+        "option": "border-top-style",
+        "insertedText": "border-top-style: ",
+        "subOptions": [
+            {
+                "option": "dashed",
+                "insertedText": "dashed;",
+                "subOptions": []
+            },
+            {
+                "option": "dotted",
+                "insertedText": "dotted;",
+                "subOptions": []
+            },
+            {
+                "option": "double",
+                "insertedText": "double;",
+                "subOptions": []
+            },
+            {
+                "option": "groove",
+                "insertedText": "groove;",
+                "subOptions": []
+            },
+            {
+                "option": "hidden",
+                "insertedText": "hidden;",
+                "subOptions": []
+            },
+            {
+                "option": "inset",
+                "insertedText": "inset;",
+                "subOptions": []
+            },
+            {
+                "option": "none",
+                "insertedText": "none;",
+                "subOptions": []
+            },
+            {
+                "option": "outset",
+                "insertedText": "outset;",
+                "subOptions": []
+            },
+            {
+                "option": "ridge",
+                "insertedText": "ridge;",
+                "subOptions": []
+            },
+            {
+                "option": "solid",
+                "insertedText": "solid;",
+                "subOptions": []
+            },
+            {
+                "option": "inherit",
+                "insertedText": "inherit;",
+                "subOptions": []
+            }
+        ]
+    },
+    {
+        "option": "border-top-width",
+        "insertedText": "border-top-width: ",
+        "subOptions": [
+            {
+                "option": "medium",
+                "insertedText": "medium;",
+                "subOptions": []
+            },
+            {
+                "option": "thin",
+                "insertedText": "thin;",
+                "subOptions": []
+            },
+            {
+                "option": "thick",
+                "insertedText": "thick;",
+                "subOptions": []
+            },
+            {
+                "option": "inherit",
+                "insertedText": "inherit;",
+                "subOptions": []
+            }
+        ]
+    },
+    {
+        "option": "border-bottom-color",
+        "insertedText": "border-bottom-color: ",
+        "subOptions": [
+            {
+                "option": "inherit",
+                "insertedText": "inherit;",
+                "subOptions": []
+            }
+        ]
+    },
+    {
+        "option": "border-bottom-style",
+        "insertedText": "border-bottom-style: ",
+        "subOptions": [
+            {
+                "option": "dashed",
+                "insertedText": "dashed;",
+                "subOptions": []
+            },
+            {
+                "option": "dotted",
+                "insertedText": "dotted;",
+                "subOptions": []
+            },
+            {
+                "option": "double",
+                "insertedText": "double;",
+                "subOptions": []
+            },
+            {
+                "option": "groove",
+                "insertedText": "groove;",
+                "subOptions": []
+            },
+            {
+                "option": "hidden",
+                "insertedText": "hidden;",
+                "subOptions": []
+            },
+            {
+                "option": "inset",
+                "insertedText": "inset;",
+                "subOptions": []
+            },
+            {
+                "option": "none",
+                "insertedText": "none;",
+                "subOptions": []
+            },
+            {
+                "option": "outset",
+                "insertedText": "outset;",
+                "subOptions": []
+            },
+            {
+                "option": "ridge",
+                "insertedText": "ridge;",
+                "subOptions": []
+            },
+            {
+                "option": "solid",
+                "insertedText": "solid;",
+                "subOptions": []
+            },
+            {
+                "option": "inherit",
+                "insertedText": "inherit;",
+                "subOptions": []
+            }
+        ]
+    },
+    {
+        "option": "border-bottom-width",
+        "insertedText": "border-bottom-width: ",
+        "subOptions": [
+            {
+                "option": "medium",
+                "insertedText": "medium;",
+                "subOptions": []
+            },
+            {
+                "option": "thin",
+                "insertedText": "thin;",
+                "subOptions": []
+            },
+            {
+                "option": "thick",
+                "insertedText": "thick;",
+                "subOptions": []
+            },
+            {
+                "option": "inherit",
+                "insertedText": "inherit;",
+                "subOptions": []
+            }
+        ]
+    },
+    {
+        "option": "border-top-left-radius",
+        "insertedText": "border-top-left-radius: ",
+        "subOptions": []
+    },
+    {
+        "option": "border-top-right-radius",
+        "insertedText": "border-top-right-radius: ",
+        "subOptions": []
+    },
+    {
+        "option": "border-bottom-left-radius",
+        "insertedText": "border-bottom-left-radius: ",
+        "subOptions": []
+    },
+    {
+        "option": "border-bottom-right-radius",
+        "insertedText": "border-bottom-right-radius: ",
+        "subOptions": []
+    },
+    {
+        "option": "user-select",
+        "insertedText": "user-select: ",
+        "subOptions": [
+            {
+                "option": "all",
+                "insertedText": "all;",
+                "subOptions": []
+            },
+            {
+                "option": "auto",
+                "insertedText": "auto;",
+                "subOptions": []
+            },
+            {
+                "option": "contain",
+                "insertedText": "contain;",
+                "subOptions": []
+            },
+            {
+                "option": "none",
+                "insertedText": "none;",
+                "subOptions": []
+            },
+            {
+                "option": "text",
+                "insertedText": "text;",
+                "subOptions": []
+            }
+        ]
+    },
+    {
+        "option": "text-transform",
+        "insertedText": "text-transform: ",
+        "subOptions": [
+            {
+                "option": "capitalize",
+                "insertedText": "capitalize;",
+                "subOptions": []
+            },
+            {
+                "option": "full-width",
+                "insertedText": "full-width;",
+                "subOptions": []
+            },
+            {
+                "option": "lowercase",
+                "insertedText": "lowercase;",
+                "subOptions": []
+            },
+            {
+                "option": "none",
+                "insertedText": "none;",
+                "subOptions": []
+            },
+            {
+                "option": "uppercase",
+                "insertedText": "uppercase;",
+                "subOptions": []
+            },
+            {
+                "option": "inherit",
+                "insertedText": "inherit;",
+                "subOptions": []
+            }
+        ]
+    },
+    {
+        "option": "list-style-type",
+        "insertedText": "list-style-type: ",
+        "subOptions": [
+            {
+                "option": "armenian",
+                "insertedText": "armenian;",
+                "subOptions": []
+            },
+            {
+                "option": "circle",
+                "insertedText": "circle;",
+                "subOptions": []
+            },
+            {
+                "option": "decimal",
+                "insertedText": "decimal;",
+                "subOptions": []
+            },
+            {
+                "option": "decimal-leading-zero",
+                "insertedText": "decimal-leading-zero;",
+                "subOptions": []
+            },
+            {
+                "option": "disc",
+                "insertedText": "disc;",
+                "subOptions": []
+            },
+            {
+                "option": "georgian",
+                "insertedText": "georgian;",
+                "subOptions": []
+            },
+            {
+                "option": "lower-alpha",
+                "insertedText": "lower-alpha;",
+                "subOptions": []
+            },
+            {
+                "option": "lower-greek",
+                "insertedText": "lower-greek;",
+                "subOptions": []
+            },
+            {
+                "option": "lower-latin",
+                "insertedText": "lower-latin;",
+                "subOptions": []
+            },
+            {
+                "option": "lower-roman",
+                "insertedText": "lower-roman;",
+                "subOptions": []
+            },
+            {
+                "option": "none",
+                "insertedText": "none;",
+                "subOptions": []
+            },
+            {
+                "option": "square",
+                "insertedText": "square;",
+                "subOptions": []
+            },
+            {
+                "option": "upper-alpha",
+                "insertedText": "upper-alpha;",
+                "subOptions": []
+            },
+            {
+                "option": "upper-latin",
+                "insertedText": "upper-latin;",
+                "subOptions": []
+            },
+            {
+                "option": "upper-roman",
+                "insertedText": "upper-roman;",
+                "subOptions": []
+            },
+            {
+                "option": "inherit",
+                "insertedText": "inherit;",
+                "subOptions": []
+            }
+        ]
+    },
+    {
+        "option": "word-wrap",
+        "insertedText": "word-wrap: ",
+        "subOptions": [
+            {
+                "option": "break-word",
+                "insertedText": "break-word;",
+                "subOptions": []
+            },
+            {
+                "option": "normal",
+                "insertedText": "normal;",
+                "subOptions": []
+            }
+        ]
+    },
+    {
+        "option": "transition",
+        "insertedText": "transition: ",
+        "subOptions": []
+    },
+    {
+        "option": "letter-spacing",
+        "insertedText": "letter-spacing: ",
+        "subOptions": [
+            {
+                "option": "normal",
+                "insertedText": "normal;",
+                "subOptions": []
+            },
+            {
+                "option": "inherit",
+                "insertedText": "inherit;",
+                "subOptions": []
+            }
+        ]
+    },
+    {
+        "option": "transform",
+        "insertedText": "transform: ",
+        "subOptions": [
+            {
+                "option": "matrix()",
+                "insertedText": "matrix();",
+                "subOptions": []
+            },
+            {
+                "option": "matrix3d()",
+                "insertedText": "matrix3d();",
+                "subOptions": []
+            },
+            {
+                "option": "none",
+                "insertedText": "none;",
+                "subOptions": []
+            },
+            {
+                "option": "perspective()",
+                "insertedText": "perspective();",
+                "subOptions": []
+            },
+            {
+                "option": "rotate()",
+                "insertedText": "rotate();",
+                "subOptions": []
+            },
+            {
+                "option": "rotate3d()",
+                "insertedText": "rotate3d();",
+                "subOptions": []
+            },
+            {
+                "option": "rotateX()",
+                "insertedText": "rotateX();",
+                "subOptions": []
+            },
+            {
+                "option": "rotateY()",
+                "insertedText": "rotateY();",
+                "subOptions": []
+            },
+            {
+                "option": "rotateZ()",
+                "insertedText": "rotateZ();",
+                "subOptions": []
+            },
+            {
+                "option": "scale()",
+                "insertedText": "scale();",
+                "subOptions": []
+            },
+            {
+                "option": "scale3d()",
+                "insertedText": "scale3d();",
+                "subOptions": []
+            },
+            {
+                "option": "scaleX()",
+                "insertedText": "scaleX();",
+                "subOptions": []
+            },
+            {
+                "option": "scaleY()",
+                "insertedText": "scaleY();",
+                "subOptions": []
+            },
+            {
+                "option": "scaleZ()",
+                "insertedText": "scaleZ();",
+                "subOptions": []
+            },
+            {
+                "option": "skewX()",
+                "insertedText": "skewX();",
+                "subOptions": []
+            },
+            {
+                "option": "skewY()",
+                "insertedText": "skewY();",
+                "subOptions": []
+            },
+            {
+                "option": "translate()",
+                "insertedText": "translate();",
+                "subOptions": []
+            },
+            {
+                "option": "translate3d()",
+                "insertedText": "translate3d();",
+                "subOptions": []
+            },
+            {
+                "option": "translateX()",
+                "insertedText": "translateX();",
+                "subOptions": []
+            },
+            {
+                "option": "translateY()",
+                "insertedText": "translateY();",
+                "subOptions": []
+            },
+            {
+                "option": "translateZ()",
+                "insertedText": "translateZ();",
+                "subOptions": []
+            }
+        ]
+    },
+    {
+        "option": "pointer-events",
+        "insertedText": "pointer-events: ",
+        "subOptions": [
+            {
+                "option": "all",
+                "insertedText": "all;",
+                "subOptions": []
+            },
+            {
+                "option": "auto",
+                "insertedText": "auto;",
+                "subOptions": []
+            },
+            {
+                "option": "fill",
+                "insertedText": "fill;",
+                "subOptions": []
+            },
+            {
+                "option": "inherit",
+                "insertedText": "inherit;",
+                "subOptions": []
+            },
+            {
+                "option": "none",
+                "insertedText": "none;",
+                "subOptions": []
+            },
+            {
+                "option": "painted",
+                "insertedText": "painted;",
+                "subOptions": []
+            },
+            {
+                "option": "stroke",
+                "insertedText": "stroke;",
+                "subOptions": []
+            },
+            {
+                "option": "visible",
+                "insertedText": "visible;",
+                "subOptions": []
+            },
+            {
+                "option": "visibleFill",
+                "insertedText": "visibleFill;",
+                "subOptions": []
+            },
+            {
+                "option": "visiblePainted",
+                "insertedText": "visiblePainted;",
+                "subOptions": []
+            },
+            {
+                "option": "visibleStroke",
+                "insertedText": "visibleStroke;",
+                "subOptions": []
+            }
+        ]
+    },
+    {
+        "option": "direction",
+        "insertedText": "direction: ",
+        "subOptions": [
+            {
+                "option": "ltr",
+                "insertedText": "ltr;",
+                "subOptions": []
+            },
+            {
+                "option": "rtl",
+                "insertedText": "rtl;",
+                "subOptions": []
+            },
+            {
+                "option": "inherit",
+                "insertedText": "inherit;",
+                "subOptions": []
+            }
+        ]
+    },
+    {
+        "option": "clip",
+        "insertedText": "clip: ",
+        "subOptions": [
+            {
+                "option": "auto",
+                "insertedText": "auto;",
+                "subOptions": []
+            },
+            {
+                "option": "inherit",
+                "insertedText": "inherit;",
+                "subOptions": []
+            }
+        ]
+    },
+    {
+        "option": "table-layout",
+        "insertedText": "table-layout: ",
+        "subOptions": [
+            {
+                "option": "auto",
+                "insertedText": "auto;",
+                "subOptions": []
+            },
+            {
+                "option": "fixed",
+                "insertedText": "fixed;",
+                "subOptions": []
+            },
+            {
+                "option": "inherit",
+                "insertedText": "inherit;",
+                "subOptions": []
+            }
+        ]
+    },
+    {
+        "option": "src",
+        "insertedText": "src: ",
+        "subOptions": [
+            {
+                "option": "url()",
+                "insertedText": "url();",
+                "subOptions": []
+            }
+        ]
+    },
+    {
+        "option": "resize",
+        "insertedText": "resize: ",
+        "subOptions": [
+            {
+                "option": "both",
+                "insertedText": "both;",
+                "subOptions": []
+            },
+            {
+                "option": "horizontal",
+                "insertedText": "horizontal;",
+                "subOptions": []
+            },
+            {
+                "option": "none",
+                "insertedText": "none;",
+                "subOptions": []
+            },
+            {
+                "option": "vertical",
+                "insertedText": "vertical;",
+                "subOptions": []
+            },
+            {
+                "option": "inherit",
+                "insertedText": "inherit;",
+                "subOptions": []
+            }
+        ]
+    },
+    {
+        "option": "word-break",
+        "insertedText": "word-break: ",
+        "subOptions": [
+            {
+                "option": "normal",
+                "insertedText": "normal;",
+                "subOptions": []
+            },
+            {
+                "option": "break-all",
+                "insertedText": "break-all;",
+                "subOptions": []
+            },
+            {
+                "option": "keep-all",
+                "insertedText": "keep-all;",
+                "subOptions": []
+            }
+        ]
+    },
+    {
+        "option": "filter",
+        "insertedText": "filter: ",
+        "subOptions": [
+            {
+                "option": "blur()",
+                "insertedText": "blur();",
+                "subOptions": []
+            },
+            {
+                "option": "brightness()",
+                "insertedText": "brightness();",
+                "subOptions": []
+            },
+            {
+                "option": "contrast()",
+                "insertedText": "contrast();",
+                "subOptions": []
+            },
+            {
+                "option": "custom()",
+                "insertedText": "custom();",
+                "subOptions": []
+            },
+            {
+                "option": "drop-shadow()",
+                "insertedText": "drop-shadow();",
+                "subOptions": []
+            },
+            {
+                "option": "grayscale()",
+                "insertedText": "grayscale();",
+                "subOptions": []
+            },
+            {
+                "option": "hue-rotate()",
+                "insertedText": "hue-rotate();",
+                "subOptions": []
+            },
+            {
+                "option": "invert()",
+                "insertedText": "invert();",
+                "subOptions": []
+            },
+            {
+                "option": "none",
+                "insertedText": "none;",
+                "subOptions": []
+            },
+            {
+                "option": "opacity()",
+                "insertedText": "opacity();",
+                "subOptions": []
+            },
+            {
+                "option": "sepia()",
+                "insertedText": "sepia();",
+                "subOptions": []
+            },
+            {
+                "option": "saturate()",
+                "insertedText": "saturate();",
+                "subOptions": []
+            },
+            {
+                "option": "url()",
+                "insertedText": "url();",
+                "subOptions": []
+            }
+        ]
+    },
+    {
+        "option": "transform-origin",
+        "insertedText": "transform-origin: ",
+        "subOptions": [
+            {
+                "option": "bottom",
+                "insertedText": "bottom;",
+                "subOptions": []
+            },
+            {
+                "option": "center",
+                "insertedText": "center;",
+                "subOptions": []
+            },
+            {
+                "option": "left",
+                "insertedText": "left;",
+                "subOptions": []
+            },
+            {
+                "option": "right",
+                "insertedText": "right;",
+                "subOptions": []
+            },
+            {
+                "option": "top",
+                "insertedText": "top;",
+                "subOptions": []
+            }
+        ]
+    },
+    {
+        "option": "font-variant",
+        "insertedText": "font-variant: ",
+        "subOptions": [
+            {
+                "option": "normal",
+                "insertedText": "normal;",
+                "subOptions": []
+            },
+            {
+                "option": "small-caps",
+                "insertedText": "small-caps;",
+                "subOptions": []
+            },
+            {
+                "option": "inherit",
+                "insertedText": "inherit;",
+                "subOptions": []
+            }
+        ]
+    },
+    {
+        "option": "quotes",
+        "insertedText": "quotes: ",
+        "subOptions": [
+            {
+                "option": "none",
+                "insertedText": "none;",
+                "subOptions": []
+            },
+            {
+                "option": "inherit",
+                "insertedText": "inherit;",
+                "subOptions": []
+            }
+        ]
+    },
+    {
+        "option": "unicode-bidi",
+        "insertedText": "unicode-bidi: ",
+        "subOptions": [
+            {
+                "option": "bidi-override",
+                "insertedText": "bidi-override;",
+                "subOptions": []
+            },
+            {
+                "option": "embed",
+                "insertedText": "embed;",
+                "subOptions": []
+            },
+            {
+                "option": "normal",
+                "insertedText": "normal;",
+                "subOptions": []
+            },
+            {
+                "option": "inherit",
+                "insertedText": "inherit;",
+                "subOptions": []
+            }
+        ]
+    },
+    {
+        "option": "word-spacing",
+        "insertedText": "word-spacing: ",
+        "subOptions": [
+            {
+                "option": "normal",
+                "insertedText": "normal;",
+                "subOptions": []
+            },
+            {
+                "option": "inherit",
+                "insertedText": "inherit;",
+                "subOptions": []
+            }
+        ]
+    },
+    {
+        "option": "text-rendering",
+        "insertedText": "text-rendering: ",
+        "subOptions": [
+            {
+                "option": "auto",
+                "insertedText": "auto;",
+                "subOptions": []
+            },
+            {
+                "option": "geometricPrecision",
+                "insertedText": "geometricPrecision;",
+                "subOptions": []
+            },
+            {
+                "option": "optimizeLegibility",
+                "insertedText": "optimizeLegibility;",
+                "subOptions": []
+            },
+            {
+                "option": "optimizeSpeed",
+                "insertedText": "optimizeSpeed;",
+                "subOptions": []
+            }
+        ]
+    },
+    {
+        "option": "outline-color",
+        "insertedText": "outline-color: ",
+        "subOptions": [
+            {
+                "option": "invert",
+                "insertedText": "invert;",
+                "subOptions": []
+            },
+            {
+                "option": "inherit",
+                "insertedText": "inherit;",
+                "subOptions": []
+            }
+        ]
+    },
+    {
+        "option": "list-style-position",
+        "insertedText": "list-style-position: ",
+        "subOptions": [
+            {
+                "option": "inside",
+                "insertedText": "inside;",
+                "subOptions": []
+            },
+            {
+                "option": "outside",
+                "insertedText": "outside;",
+                "subOptions": []
+            },
+            {
+                "option": "inherit",
+                "insertedText": "inherit;",
+                "subOptions": []
+            }
+        ]
+    },
+    {
+        "option": "outline-offset",
+        "insertedText": "outline-offset: ",
+        "subOptions": [
+            {
+                "option": "inherit",
+                "insertedText": "inherit;",
+                "subOptions": []
+            }
+        ]
+    },
+    {
+        "option": "orphans",
+        "insertedText": "orphans: ",
+        "subOptions": [
+            {
+                "option": "inherit",
+                "insertedText": "inherit;",
+                "subOptions": []
+            }
+        ]
+    },
+    {
+        "option": "outline-style",
+        "insertedText": "outline-style: ",
+        "subOptions": [
+            {
+                "option": "dashed",
+                "insertedText": "dashed;",
+                "subOptions": []
+            },
+            {
+                "option": "dotted",
+                "insertedText": "dotted;",
+                "subOptions": []
+            },
+            {
+                "option": "double",
+                "insertedText": "double;",
+                "subOptions": []
+            },
+            {
+                "option": "groove",
+                "insertedText": "groove;",
+                "subOptions": []
+            },
+            {
+                "option": "hidden",
+                "insertedText": "hidden;",
+                "subOptions": []
+            },
+            {
+                "option": "inset",
+                "insertedText": "inset;",
+                "subOptions": []
+            },
+            {
+                "option": "none",
+                "insertedText": "none;",
+                "subOptions": []
+            },
+            {
+                "option": "outset",
+                "insertedText": "outset;",
+                "subOptions": []
+            },
+            {
+                "option": "ridge",
+                "insertedText": "ridge;",
+                "subOptions": []
+            },
+            {
+                "option": "solid",
+                "insertedText": "solid;",
+                "subOptions": []
+            },
+            {
+                "option": "inherit",
+                "insertedText": "inherit;",
+                "subOptions": []
+            }
+        ]
+    },
+    {
+        "option": "outline-width",
+        "insertedText": "outline-width: ",
+        "subOptions": [
+            {
+                "option": "medium",
+                "insertedText": "medium;",
+                "subOptions": []
+            },
+            {
+                "option": "thin",
+                "insertedText": "thin;",
+                "subOptions": []
+            },
+            {
+                "option": "thick",
+                "insertedText": "thick;",
+                "subOptions": []
+            },
+            {
+                "option": "inherit",
+                "insertedText": "inherit;",
+                "subOptions": []
+            }
+        ]
+    },
+    {
+        "option": "flex",
+        "insertedText": "flex: ",
+        "subOptions": [
+            {
+                "option": "auto",
+                "insertedText": "auto;",
+                "subOptions": []
+            },
+            {
+                "option": "initial",
+                "insertedText": "initial;",
+                "subOptions": []
+            },
+            {
+                "option": "none",
+                "insertedText": "none;",
+                "subOptions": []
+            }
+        ]
+    },
+    {
+        "option": "flex-grow",
+        "insertedText": "flex-grow: ",
+        "subOptions": []
+    },
+    {
+        "option": "flex-direction",
+        "insertedText": "flex-direction: ",
+        "subOptions": [
+            {
+                "option": "column",
+                "insertedText": "column;",
+                "subOptions": []
+            },
+            {
+                "option": "column-reverse",
+                "insertedText": "column-reverse;",
+                "subOptions": []
+            },
+            {
+                "option": "row",
+                "insertedText": "row;",
+                "subOptions": []
+            },
+            {
+                "option": "row-reverse",
+                "insertedText": "row-reverse;",
+                "subOptions": []
+            }
+        ]
+    },
+    {
+        "option": "flex-flow",
+        "insertedText": "flex-flow: ",
+        "subOptions": [
+            {
+                "option": "column",
+                "insertedText": "column;",
+                "subOptions": []
+            },
+            {
+                "option": "column-reverse",
+                "insertedText": "column-reverse;",
+                "subOptions": []
+            },
+            {
+                "option": "nowrap",
+                "insertedText": "nowrap;",
+                "subOptions": []
+            },
+            {
+                "option": "row",
+                "insertedText": "row;",
+                "subOptions": []
+            },
+            {
+                "option": "row-reverse",
+                "insertedText": "row-reverse;",
+                "subOptions": []
+            },
+            {
+                "option": "wrap",
+                "insertedText": "wrap;",
+                "subOptions": []
+            },
+            {
+                "option": "wrap-reverse",
+                "insertedText": "wrap-reverse;",
+                "subOptions": []
+            }
+        ]
+    },
+    {
+        "option": "flex-wrap",
+        "insertedText": "flex-wrap: ",
+        "subOptions": [
+            {
+                "option": "nowrap",
+                "insertedText": "nowrap;",
+                "subOptions": []
+            },
+            {
+                "option": "wrap",
+                "insertedText": "wrap;",
+                "subOptions": []
+            },
+            {
+                "option": "wrap-reverse",
+                "insertedText": "wrap-reverse;",
+                "subOptions": []
+            }
+        ]
+    },
+    {
+        "option": "flex-shrink",
+        "insertedText": "flex-shrink: ",
+        "subOptions": []
+    },
+    {
+        "option": "flex-basis",
+        "insertedText": "flex-basis: ",
+        "subOptions": [
+            {
+                "option": "auto",
+                "insertedText": "auto;",
+                "subOptions": []
+            }
+        ]
+    },
+    {
+        "option": "list-style-image",
+        "insertedText": "list-style-image: ",
+        "subOptions": [
+            {
+                "option": "none",
+                "insertedText": "none;",
+                "subOptions": []
+            },
+            {
+                "option": "url()",
+                "insertedText": "url();",
+                "subOptions": []
+            },
+            {
+                "option": "inherit",
+                "insertedText": "inherit;",
+                "subOptions": []
+            }
+        ]
+    },
+    {
+        "option": "unicode-range",
+        "insertedText": "unicode-range: ",
+        "subOptions": []
+    },
+    {
+        "option": "align-items",
+        "insertedText": "align-items: ",
+        "subOptions": [
+            {
+                "option": "baseline",
+                "insertedText": "baseline;",
+                "subOptions": []
+            },
+            {
+                "option": "center",
+                "insertedText": "center;",
+                "subOptions": []
+            },
+            {
+                "option": "flex-end",
+                "insertedText": "flex-end;",
+                "subOptions": []
+            },
+            {
+                "option": "flex-start",
+                "insertedText": "flex-start;",
+                "subOptions": []
+            },
+            {
+                "option": "stretch",
+                "insertedText": "stretch;",
+                "subOptions": []
+            }
+        ]
+    },
+    {
+        "option": "transition-delay",
+        "insertedText": "transition-delay: ",
+        "subOptions": []
+    },
+    {
+        "option": "transition-duration",
+        "insertedText": "transition-duration: ",
+        "subOptions": []
+    },
+    {
+        "option": "justify-content",
+        "insertedText": "justify-content: ",
+        "subOptions": [
+            {
+                "option": "center",
+                "insertedText": "center;",
+                "subOptions": []
+            },
+            {
+                "option": "flex-end",
+                "insertedText": "flex-end;",
+                "subOptions": []
+            },
+            {
+                "option": "flex-start",
+                "insertedText": "flex-start;",
+                "subOptions": []
+            },
+            {
+                "option": "space-around",
+                "insertedText": "space-around;",
+                "subOptions": []
+            },
+            {
+                "option": "space-between",
+                "insertedText": "space-between;",
+                "subOptions": []
+            }
+        ]
+    },
+    {
+        "option": "transition-property",
+        "insertedText": "transition-property: ",
+        "subOptions": [
+            {
+                "option": "all",
+                "insertedText": "all;",
+                "subOptions": []
+            },
+            {
+                "option": "none",
+                "insertedText": "none;",
+                "subOptions": []
+            }
+        ]
+    },
+    {
+        "option": "order",
+        "insertedText": "order: ",
+        "subOptions": []
+    },
+    {
+        "option": "transition-timing-function",
+        "insertedText": "transition-timing-function: ",
+        "subOptions": [
+            {
+                "option": "cubic-bezier()",
+                "insertedText": "cubic-bezier();",
+                "subOptions": []
+            },
+            {
+                "option": "ease",
+                "insertedText": "ease;",
+                "subOptions": []
+            },
+            {
+                "option": "ease-in",
+                "insertedText": "ease-in;",
+                "subOptions": []
+            },
+            {
+                "option": "ease-in-out",
+                "insertedText": "ease-in-out;",
+                "subOptions": []
+            },
+            {
+                "option": "ease-out",
+                "insertedText": "ease-out;",
+                "subOptions": []
+            },
+            {
+                "option": "linear",
+                "insertedText": "linear;",
+                "subOptions": []
+            },
+            {
+                "option": "step-end",
+                "insertedText": "step-end;",
+                "subOptions": []
+            },
+            {
+                "option": "step-start",
+                "insertedText": "step-start;",
+                "subOptions": []
+            },
+            {
+                "option": "steps()",
+                "insertedText": "steps();",
+                "subOptions": []
+            }
+        ]
+    },
+    {
+        "option": "background-attachment",
+        "insertedText": "background-attachment: ",
+        "subOptions": [
+            {
+                "option": "fixed",
+                "insertedText": "fixed;",
+                "subOptions": []
+            },
+            {
+                "option": "local",
+                "insertedText": "local;",
+                "subOptions": []
+            },
+            {
+                "option": "scroll",
+                "insertedText": "scroll;",
+                "subOptions": []
+            },
+            {
+                "option": "inherit",
+                "insertedText": "inherit;",
+                "subOptions": []
+            }
+        ]
+    },
+    {
+        "option": "background-origin",
+        "insertedText": "background-origin: ",
+        "subOptions": [
+            {
+                "option": "border-box",
+                "insertedText": "border-box;",
+                "subOptions": []
+            },
+            {
+                "option": "content-box",
+                "insertedText": "content-box;",
+                "subOptions": []
+            },
+            {
+                "option": "padding-box",
+                "insertedText": "padding-box;",
+                "subOptions": []
+            },
+            {
+                "option": "inherit",
+                "insertedText": "inherit;",
+                "subOptions": []
+            }
+        ]
+    },
+    {
+        "option": "backface-visibility",
+        "insertedText": "backface-visibility: ",
+        "subOptions": [
+            {
+                "option": "hidden",
+                "insertedText": "hidden;",
+                "subOptions": []
+            },
+            {
+                "option": "visible",
+                "insertedText": "visible;",
+                "subOptions": []
+            }
+        ]
+    },
+    {
+        "option": "page-break-inside",
+        "insertedText": "page-break-inside: ",
+        "subOptions": [
+            {
+                "option": "auto",
+                "insertedText": "auto;",
+                "subOptions": []
+            },
+            {
+                "option": "avoid",
+                "insertedText": "avoid;",
+                "subOptions": []
+            },
+            {
+                "option": "inherit",
+                "insertedText": "inherit;",
+                "subOptions": []
+            }
+        ]
+    },
+    {
+        "option": "page-break-after",
+        "insertedText": "page-break-after: ",
+        "subOptions": [
+            {
+                "option": "always",
+                "insertedText": "always;",
+                "subOptions": []
+            },
+            {
+                "option": "auto",
+                "insertedText": "auto;",
+                "subOptions": []
+            },
+            {
+                "option": "avoid",
+                "insertedText": "avoid;",
+                "subOptions": []
+            },
+            {
+                "option": "left",
+                "insertedText": "left;",
+                "subOptions": []
+            },
+            {
+                "option": "right",
+                "insertedText": "right;",
+                "subOptions": []
+            },
+            {
+                "option": "inherit",
+                "insertedText": "inherit;",
+                "subOptions": []
+            }
+        ]
+    },
+    {
+        "option": "widows",
+        "insertedText": "widows: ",
+        "subOptions": [
+            {
+                "option": "inherit",
+                "insertedText": "inherit;",
+                "subOptions": []
+            }
+        ]
+    },
+    {
+        "option": "counter-increment",
+        "insertedText": "counter-increment: ",
+        "subOptions": [
+            {
+                "option": "none",
+                "insertedText": "none;",
+                "subOptions": []
+            },
+            {
+                "option": "inherit",
+                "insertedText": "inherit;",
+                "subOptions": []
+            }
+        ]
+    },
+    {
+        "option": "counter-reset",
+        "insertedText": "counter-reset: ",
+        "subOptions": [
+            {
+                "option": "none",
+                "insertedText": "none;",
+                "subOptions": []
+            },
+            {
+                "option": "inherit",
+                "insertedText": "inherit;",
+                "subOptions": []
+            }
+        ]
+    },
+    {
+        "option": "perspective-origin",
+        "insertedText": "perspective-origin: ",
+        "subOptions": [
+            {
+                "option": "bottom",
+                "insertedText": "bottom;",
+                "subOptions": []
+            },
+            {
+                "option": "center",
+                "insertedText": "center;",
+                "subOptions": []
+            },
+            {
+                "option": "left",
+                "insertedText": "left;",
+                "subOptions": []
+            },
+            {
+                "option": "right",
+                "insertedText": "right;",
+                "subOptions": []
+            },
+            {
+                "option": "top",
+                "insertedText": "top;",
+                "subOptions": []
+            }
+        ]
+    },
+    {
+        "option": "perspective",
+        "insertedText": "perspective: ",
+        "subOptions": [
+            {
+                "option": "none",
+                "insertedText": "none;",
+                "subOptions": []
+            }
+        ]
+    },
+    {
+        "option": "empty-cells",
+        "insertedText": "empty-cells: ",
+        "subOptions": [
+            {
+                "option": "hide",
+                "insertedText": "hide;",
+                "subOptions": []
+            },
+            {
+                "option": "show",
+                "insertedText": "show;",
+                "subOptions": []
+            },
+            {
+                "option": "inherit",
+                "insertedText": "inherit;",
+                "subOptions": []
+            }
+        ]
+    },
+    {
+        "option": "caption-side",
+        "insertedText": "caption-side: ",
+        "subOptions": [
+            {
+                "option": "bottom",
+                "insertedText": "bottom;",
+                "subOptions": []
+            },
+            {
+                "option": "top",
+                "insertedText": "top;",
+                "subOptions": []
+            },
+            {
+                "option": "inherit",
+                "insertedText": "inherit;",
+                "subOptions": []
+            }
+        ]
+    },
+    {
+        "option": "transform-style",
+        "insertedText": "transform-style: ",
+        "subOptions": [
+            {
+                "option": "flat",
+                "insertedText": "flat;",
+                "subOptions": []
+            },
+            {
+                "option": "preserve-3d",
+                "insertedText": "preserve-3d;",
+                "subOptions": []
+            }
+        ]
+    },
+    {
+        "option": "border-image",
+        "insertedText": "border-image: ",
+        "subOptions": [
+            {
+                "option": "url()",
+                "insertedText": "url();",
+                "subOptions": []
+            }
+        ]
+    },
+    {
+        "option": "font-stretch",
+        "insertedText": "font-stretch: ",
+        "subOptions": [
+            {
+                "option": "condensed",
+                "insertedText": "condensed;",
+                "subOptions": []
+            },
+            {
+                "option": "expanded",
+                "insertedText": "expanded;",
+                "subOptions": []
+            },
+            {
+                "option": "extra-condensed",
+                "insertedText": "extra-condensed;",
+                "subOptions": []
+            },
+            {
+                "option": "extra-expanded",
+                "insertedText": "extra-expanded;",
+                "subOptions": []
+            },
+            {
+                "option": "normal",
+                "insertedText": "normal;",
+                "subOptions": []
+            },
+            {
+                "option": "semi-condensed",
+                "insertedText": "semi-condensed;",
+                "subOptions": []
+            },
+            {
+                "option": "semi-expanded",
+                "insertedText": "semi-expanded;",
+                "subOptions": []
+            },
+            {
+                "option": "ultra-condensed",
+                "insertedText": "ultra-condensed;",
+                "subOptions": []
+            },
+            {
+                "option": "ultra-expanded",
+                "insertedText": "ultra-expanded;",
+                "subOptions": []
+            }
+        ]
+    },
+    {
+        "option": "will-change",
+        "insertedText": "will-change: ",
+        "subOptions": [
+            {
+                "option": "auto",
+                "insertedText": "auto;",
+                "subOptions": []
+            },
+            {
+                "option": "contents",
+                "insertedText": "contents;",
+                "subOptions": []
+            },
+            {
+                "option": "opacity",
+                "insertedText": "opacity;",
+                "subOptions": []
+            },
+            {
+                "option": "scroll-position",
+                "insertedText": "scroll-position;",
+                "subOptions": []
+            },
+            {
+                "option": "transform",
+                "insertedText": "transform;",
+                "subOptions": []
+            },
+            {
+                "option": "inherit",
+                "insertedText": "inherit;",
+                "subOptions": []
+            },
+            {
+                "option": "initial",
+                "insertedText": "initial;",
+                "subOptions": []
+            },
+            {
+                "option": "unset",
+                "insertedText": "unset;",
+                "subOptions": []
+            }
+        ]
+    },
+    {
+        "option": "animation",
+        "insertedText": "animation: ",
+        "subOptions": []
+    },
+    {
+        "option": "page-break-before",
+        "insertedText": "page-break-before: ",
+        "subOptions": [
+            {
+                "option": "always",
+                "insertedText": "always;",
+                "subOptions": []
+            },
+            {
+                "option": "auto",
+                "insertedText": "auto;",
+                "subOptions": []
+            },
+            {
+                "option": "avoid",
+                "insertedText": "avoid;",
+                "subOptions": []
+            },
+            {
+                "option": "left",
+                "insertedText": "left;",
+                "subOptions": []
+            },
+            {
+                "option": "right",
+                "insertedText": "right;",
+                "subOptions": []
+            },
+            {
+                "option": "inherit",
+                "insertedText": "inherit;",
+                "subOptions": []
+            }
+        ]
+    },
+    {
+        "option": "align-self",
+        "insertedText": "align-self: ",
+        "subOptions": [
+            {
+                "option": "auto",
+                "insertedText": "auto;",
+                "subOptions": []
+            },
+            {
+                "option": "baseline",
+                "insertedText": "baseline;",
+                "subOptions": []
+            },
+            {
+                "option": "center",
+                "insertedText": "center;",
+                "subOptions": []
+            },
+            {
+                "option": "flex-end",
+                "insertedText": "flex-end;",
+                "subOptions": []
+            },
+            {
+                "option": "flex-start",
+                "insertedText": "flex-start;",
+                "subOptions": []
+            },
+            {
+                "option": "stretch",
+                "insertedText": "stretch;",
+                "subOptions": []
+            }
+        ]
+    },
+    {
+        "option": "align-content",
+        "insertedText": "align-content: ",
+        "subOptions": [
+            {
+                "option": "center",
+                "insertedText": "center;",
+                "subOptions": []
+            },
+            {
+                "option": "flex-end",
+                "insertedText": "flex-end;",
+                "subOptions": []
+            },
+            {
+                "option": "flex-start",
+                "insertedText": "flex-start;",
+                "subOptions": []
+            },
+            {
+                "option": "space-around",
+                "insertedText": "space-around;",
+                "subOptions": []
+            },
+            {
+                "option": "space-between",
+                "insertedText": "space-between;",
+                "subOptions": []
+            },
+            {
+                "option": "stretch",
+                "insertedText": "stretch;",
+                "subOptions": []
+            }
+        ]
+    },
+    {
+        "option": "border-image-slice",
+        "insertedText": "border-image-slice: ",
+        "subOptions": []
+    },
+    {
+        "option": "border-image-width",
+        "insertedText": "border-image-width: ",
+        "subOptions": [
+            {
+                "option": "auto",
+                "insertedText": "auto;",
+                "subOptions": []
+            }
+        ]
+    },
+    {
+        "option": "border-image-outset",
+        "insertedText": "border-image-outset: ",
+        "subOptions": []
+    },
+    {
+        "option": "border-image-repeat",
+        "insertedText": "border-image-repeat: ",
+        "subOptions": [
+            {
+                "option": "repeat",
+                "insertedText": "repeat;",
+                "subOptions": []
+            },
+            {
+                "option": "round",
+                "insertedText": "round;",
+                "subOptions": []
+            },
+            {
+                "option": "space",
+                "insertedText": "space;",
+                "subOptions": []
+            },
+            {
+                "option": "stretch",
+                "insertedText": "stretch;",
+                "subOptions": []
+            }
+        ]
+    },
+    {
+        "option": "tab-size",
+        "insertedText": "tab-size: ",
+        "subOptions": []
+    },
+    {
+        "option": "object-fit",
+        "insertedText": "object-fit: ",
+        "subOptions": [
+            {
+                "option": "contain",
+                "insertedText": "contain;",
+                "subOptions": []
+            },
+            {
+                "option": "cover",
+                "insertedText": "cover;",
+                "subOptions": []
+            },
+            {
+                "option": "fill",
+                "insertedText": "fill;",
+                "subOptions": []
+            },
+            {
+                "option": "none",
+                "insertedText": "none;",
+                "subOptions": []
+            },
+            {
+                "option": "scale-down",
+                "insertedText": "scale-down;",
+                "subOptions": []
+            }
+        ]
+    },
+    {
+        "option": "font-kerning",
+        "insertedText": "font-kerning: ",
+        "subOptions": [
+            {
+                "option": "auto",
+                "insertedText": "auto;",
+                "subOptions": []
+            },
+            {
+                "option": "none",
+                "insertedText": "none;",
+                "subOptions": []
+            },
+            {
+                "option": "normal",
+                "insertedText": "normal;",
+                "subOptions": []
+            }
+        ]
+    },
+    {
+        "option": "animation-name",
+        "insertedText": "animation-name: ",
+        "subOptions": [
+            {
+                "option": "none",
+                "insertedText": "none;",
+                "subOptions": []
+            }
+        ]
+    },
+    {
+        "option": "animation-duration",
+        "insertedText": "animation-duration: ",
+        "subOptions": []
+    },
+    {
+        "option": "border-image-source",
+        "insertedText": "border-image-source: ",
+        "subOptions": []
+    },
+    {
+        "option": "animation-fill-mode",
+        "insertedText": "animation-fill-mode: ",
+        "subOptions": [
+            {
+                "option": "backwards",
+                "insertedText": "backwards;",
+                "subOptions": []
+            },
+            {
+                "option": "both",
+                "insertedText": "both;",
+                "subOptions": []
+            },
+            {
+                "option": "forwards",
+                "insertedText": "forwards;",
+                "subOptions": []
+            },
+            {
+                "option": "none",
+                "insertedText": "none;",
+                "subOptions": []
+            }
+        ]
+    },
+    {
+        "option": "animation-timing-function",
+        "insertedText": "animation-timing-function: ",
+        "subOptions": [
+            {
+                "option": "cubic-bezier()",
+                "insertedText": "cubic-bezier();",
+                "subOptions": []
+            },
+            {
+                "option": "ease",
+                "insertedText": "ease;",
+                "subOptions": []
+            },
+            {
+                "option": "ease-in",
+                "insertedText": "ease-in;",
+                "subOptions": []
+            },
+            {
+                "option": "ease-in-out",
+                "insertedText": "ease-in-out;",
+                "subOptions": []
+            },
+            {
+                "option": "ease-out",
+                "insertedText": "ease-out;",
+                "subOptions": []
+            },
+            {
+                "option": "linear",
+                "insertedText": "linear;",
+                "subOptions": []
+            },
+            {
+                "option": "step-end",
+                "insertedText": "step-end;",
+                "subOptions": []
+            },
+            {
+                "option": "step-start",
+                "insertedText": "step-start;",
+                "subOptions": []
+            },
+            {
+                "option": "steps()",
+                "insertedText": "steps();",
+                "subOptions": []
+            }
+        ]
+    },
+    {
+        "option": "animation-iteration-count",
+        "insertedText": "animation-iteration-count: ",
+        "subOptions": [
+            {
+                "option": "infinite",
+                "insertedText": "infinite;",
+                "subOptions": []
+            }
+        ]
+    },
+    {
+        "option": "animation-delay",
+        "insertedText": "animation-delay: ",
+        "subOptions": []
+    },
+    {
+        "option": "font-variant-ligatures",
+        "insertedText": "font-variant-ligatures: ",
+        "subOptions": [
+            {
+                "option": "normal",
+                "insertedText": "normal;",
+                "subOptions": []
+            },
+            {
+                "option": "none",
+                "insertedText": "none;",
+                "subOptions": []
+            }
+        ]
+    },
+    {
+        "option": "background-blend-mode",
+        "insertedText": "background-blend-mode: ",
+        "subOptions": [
+            {
+                "option": "color",
+                "insertedText": "color;",
+                "subOptions": []
+            },
+            {
+                "option": "color-burn",
+                "insertedText": "color-burn;",
+                "subOptions": []
+            },
+            {
+                "option": "color-dodge",
+                "insertedText": "color-dodge;",
+                "subOptions": []
+            },
+            {
+                "option": "darken",
+                "insertedText": "darken;",
+                "subOptions": []
+            },
+            {
+                "option": "difference",
+                "insertedText": "difference;",
+                "subOptions": []
+            },
+            {
+                "option": "exclusion",
+                "insertedText": "exclusion;",
+                "subOptions": []
+            },
+            {
+                "option": "hard-light",
+                "insertedText": "hard-light;",
+                "subOptions": []
+            },
+            {
+                "option": "hue",
+                "insertedText": "hue;",
+                "subOptions": []
+            },
+            {
+                "option": "lighten",
+                "insertedText": "lighten;",
+                "subOptions": []
+            },
+            {
+                "option": "luminosity",
+                "insertedText": "luminosity;",
+                "subOptions": []
+            },
+            {
+                "option": "multiply",
+                "insertedText": "multiply;",
+                "subOptions": []
+            },
+            {
+                "option": "normal",
+                "insertedText": "normal;",
+                "subOptions": []
+            },
+            {
+                "option": "overlay",
+                "insertedText": "overlay;",
+                "subOptions": []
+            },
+            {
+                "option": "saturation",
+                "insertedText": "saturation;",
+                "subOptions": []
+            },
+            {
+                "option": "screen",
+                "insertedText": "screen;",
+                "subOptions": []
+            },
+            {
+                "option": "soft-light",
+                "insertedText": "soft-light;",
+                "subOptions": []
+            }
+        ]
+    },
+    {
+        "option": "object-position",
+        "insertedText": "object-position: ",
+        "subOptions": [
+            {
+                "option": "left",
+                "insertedText": "left;",
+                "subOptions": []
+            },
+            {
+                "option": "center",
+                "insertedText": "center;",
+                "subOptions": []
+            },
+            {
+                "option": "right",
+                "insertedText": "right;",
+                "subOptions": []
+            },
+            {
+                "option": "bottom",
+                "insertedText": "bottom;",
+                "subOptions": []
+            },
+            {
+                "option": "top",
+                "insertedText": "top;",
+                "subOptions": []
+            }
+        ]
+    },
+    {
+        "option": "mix-blend-mode",
+        "insertedText": "mix-blend-mode: ",
+        "subOptions": [
+            {
+                "option": "color",
+                "insertedText": "color;",
+                "subOptions": []
+            },
+            {
+                "option": "color-burn",
+                "insertedText": "color-burn;",
+                "subOptions": []
+            },
+            {
+                "option": "color-dodge",
+                "insertedText": "color-dodge;",
+                "subOptions": []
+            },
+            {
+                "option": "darken",
+                "insertedText": "darken;",
+                "subOptions": []
+            },
+            {
+                "option": "difference",
+                "insertedText": "difference;",
+                "subOptions": []
+            },
+            {
+                "option": "exclusion",
+                "insertedText": "exclusion;",
+                "subOptions": []
+            },
+            {
+                "option": "hard-light",
+                "insertedText": "hard-light;",
+                "subOptions": []
+            },
+            {
+                "option": "hue",
+                "insertedText": "hue;",
+                "subOptions": []
+            },
+            {
+                "option": "lighten",
+                "insertedText": "lighten;",
+                "subOptions": []
+            },
+            {
+                "option": "luminosity",
+                "insertedText": "luminosity;",
+                "subOptions": []
+            },
+            {
+                "option": "multiply",
+                "insertedText": "multiply;",
+                "subOptions": []
+            },
+            {
+                "option": "normal",
+                "insertedText": "normal;",
+                "subOptions": []
+            },
+            {
+                "option": "overlay",
+                "insertedText": "overlay;",
+                "subOptions": []
+            },
+            {
+                "option": "saturation",
+                "insertedText": "saturation;",
+                "subOptions": []
+            },
+            {
+                "option": "screen",
+                "insertedText": "screen;",
+                "subOptions": []
+            },
+            {
+                "option": "soft-light",
+                "insertedText": "soft-light;",
+                "subOptions": []
+            }
+        ]
+    },
+    {
+        "option": "shape-outside",
+        "insertedText": "shape-outside: ",
+        "subOptions": [
+            {
+                "option": "none",
+                "insertedText": "none;",
+                "subOptions": []
+            },
+            {
+                "option": "inherit",
+                "insertedText": "inherit;",
+                "subOptions": []
+            },
+            {
+                "option": "circle()",
+                "insertedText": "circle();",
+                "subOptions": []
+            },
+            {
+                "option": "ellipse()",
+                "insertedText": "ellipse();",
+                "subOptions": []
+            },
+            {
+                "option": "polygon()",
+                "insertedText": "polygon();",
+                "subOptions": []
+            },
+            {
+                "option": "inset()",
+                "insertedText": "inset();",
+                "subOptions": []
+            },
+            {
+                "option": "margin-box",
+                "insertedText": "margin-box;",
+                "subOptions": []
+            },
+            {
+                "option": "border-box",
+                "insertedText": "border-box;",
+                "subOptions": []
+            },
+            {
+                "option": "padding-box",
+                "insertedText": "padding-box;",
+                "subOptions": []
+            },
+            {
+                "option": "content-box",
+                "insertedText": "content-box;",
+                "subOptions": []
+            },
+            {
+                "option": "url()",
+                "insertedText": "url();",
+                "subOptions": []
+            },
+            {
+                "option": "image()",
+                "insertedText": "image();",
+                "subOptions": []
+            },
+            {
+                "option": "linear-gradient()",
+                "insertedText": "linear-gradient();",
+                "subOptions": []
+            },
+            {
+                "option": "radial-gradient()",
+                "insertedText": "radial-gradient();",
+                "subOptions": []
+            },
+            {
+                "option": "repeating-linear-gradient()",
+                "insertedText": "repeating-linear-gradient();",
+                "subOptions": []
+            },
+            {
+                "option": "repeating-radial-gradient()",
+                "insertedText": "repeating-radial-gradient();",
+                "subOptions": []
+            }
+        ]
+    },
+    {
+        "option": "shape-margin",
+        "insertedText": "shape-margin: ",
+        "subOptions": []
+    },
+    {
+        "option": "isolation",
+        "insertedText": "isolation: ",
+        "subOptions": [
+            {
+                "option": "auto",
+                "insertedText": "auto;",
+                "subOptions": []
+            },
+            {
+                "option": "isolate",
+                "insertedText": "isolate;",
+                "subOptions": []
+            }
+        ]
+    },
+    {
+        "option": "shape-image-threshold",
+        "insertedText": "shape-image-threshold: ",
+        "subOptions": []
+    },
+    {
+        "option": "animation-direction",
+        "insertedText": "animation-direction: ",
+        "subOptions": [
+            {
+                "option": "alternate",
+                "insertedText": "alternate;",
+                "subOptions": []
+            },
+            {
+                "option": "alternate-reverse",
+                "insertedText": "alternate-reverse;",
+                "subOptions": []
+            },
+            {
+                "option": "normal",
+                "insertedText": "normal;",
+                "subOptions": []
+            },
+            {
+                "option": "reverse",
+                "insertedText": "reverse;",
+                "subOptions": []
+            }
+        ]
+    },
+    {
+        "option": "animation-play-state",
+        "insertedText": "animation-play-state: ",
+        "subOptions": [
+            {
+                "option": "paused",
+                "insertedText": "paused;",
+                "subOptions": []
+            },
+            {
+                "option": "running",
+                "insertedText": "running;",
+                "subOptions": []
+            }
+        ]
+    },
+    {
+        "option": "all",
+        "insertedText": "all: ",
+        "subOptions": []
+    },
+    {
+        "option": "column-fill",
+        "insertedText": "column-fill: ",
+        "subOptions": [
+            {
+                "option": "auto",
+                "insertedText": "auto;",
+                "subOptions": []
+            },
+            {
+                "option": "balance",
+                "insertedText": "balance;",
+                "subOptions": []
+            }
+        ]
+    },
+    {
+        "option": "text-align-last",
+        "insertedText": "text-align-last: ",
+        "subOptions": [
+            {
+                "option": "center",
+                "insertedText": "center;",
+                "subOptions": []
+            },
+            {
+                "option": "left",
+                "insertedText": "left;",
+                "subOptions": []
+            },
+            {
+                "option": "justify",
+                "insertedText": "justify;",
+                "subOptions": []
+            },
+            {
+                "option": "right",
+                "insertedText": "right;",
+                "subOptions": []
+            },
+            {
+                "option": "inherit",
+                "insertedText": "inherit;",
+                "subOptions": []
+            }
+        ]
+    },
+    {
+        "option": "text-decoration-color",
+        "insertedText": "text-decoration-color: ",
+        "subOptions": []
+    },
+    {
+        "option": "text-decoration-style",
+        "insertedText": "text-decoration-style: ",
+        "subOptions": [
+            {
+                "option": "dashed",
+                "insertedText": "dashed;",
+                "subOptions": []
+            },
+            {
+                "option": "dotted",
+                "insertedText": "dotted;",
+                "subOptions": []
+            },
+            {
+                "option": "double",
+                "insertedText": "double;",
+                "subOptions": []
+            },
+            {
+                "option": "solid",
+                "insertedText": "solid;",
+                "subOptions": []
+            },
+            {
+                "option": "wavy",
+                "insertedText": "wavy;",
+                "subOptions": []
+            }
+        ]
+    },
+    {
+        "option": "text-decoration-line",
+        "insertedText": "text-decoration-line: ",
+        "subOptions": [
+            {
+                "option": "line-through",
+                "insertedText": "line-through;",
+                "subOptions": []
+            },
+            {
+                "option": "none",
+                "insertedText": "none;",
+                "subOptions": []
+            },
+            {
+                "option": "overline",
+                "insertedText": "overline;",
+                "subOptions": []
+            },
+            {
+                "option": "underline",
+                "insertedText": "underline;",
+                "subOptions": []
+            }
+        ]
+    },
+    {
+        "option": "font-size-adjust",
+        "insertedText": "font-size-adjust: ",
+        "subOptions": [
+            {
+                "option": "auto",
+                "insertedText": "auto;",
+                "subOptions": []
+            },
+            {
+                "option": "none",
+                "insertedText": "none;",
+                "subOptions": []
+            }
+        ]
+    },
+    {
+        "option": "text-underline-position",
+        "insertedText": "text-underline-position: ",
+        "subOptions": [
+            {
+                "option": "alphabetic",
+                "insertedText": "alphabetic;",
+                "subOptions": []
+            },
+            {
+                "option": "auto",
+                "insertedText": "auto;",
+                "subOptions": []
+            },
+            {
+                "option": "below",
+                "insertedText": "below;",
+                "subOptions": []
+            },
+            {
+                "option": "left",
+                "insertedText": "left;",
+                "subOptions": []
+            },
+            {
+                "option": "right",
+                "insertedText": "right;",
+                "subOptions": []
+            }
+        ]
+    },
+    {
+        "option": "scroll-behavior",
+        "insertedText": "scroll-behavior: ",
+        "subOptions": [
+            {
+                "option": "auto",
+                "insertedText": "auto;",
+                "subOptions": []
+            },
+            {
+                "option": "smooth",
+                "insertedText": "smooth;",
+                "subOptions": []
+            }
+        ]
+    },
+    {
+        "option": "grid-column",
+        "insertedText": "grid-column: ",
+        "subOptions": [
+            {
+                "option": "auto",
+                "insertedText": "auto;",
+                "subOptions": []
+            }
+        ]
+    },
+    {
+        "option": "grid-row",
+        "insertedText": "grid-row: ",
+        "subOptions": [
+            {
+                "option": "auto",
+                "insertedText": "auto;",
+                "subOptions": []
+            }
+        ]
+    },
+    {
+        "option": "grid-template",
+        "insertedText": "grid-template: ",
+        "subOptions": [
+            {
+                "option": "none",
+                "insertedText": "none;",
+                "subOptions": []
+            }
+        ]
+    },
+    {
+        "option": "caret-color",
+        "insertedText": "caret-color: ",
+        "subOptions": [
+            {
+                "option": "auto",
+                "insertedText": "auto;",
+                "subOptions": []
+            }
+        ]
+    },
+    {
+        "option": "grid-template-columns",
+        "insertedText": "grid-template-columns: ",
+        "subOptions": [
+            {
+                "option": "auto",
+                "insertedText": "auto;",
+                "subOptions": []
+            }
+        ]
+    },
+    {
+        "option": "grid-auto-columns",
+        "insertedText": "grid-auto-columns: ",
+        "subOptions": []
+    },
+    {
+        "option": "grid-auto-flow",
+        "insertedText": "grid-auto-flow: ",
+        "subOptions": [
+            {
+                "option": "row",
+                "insertedText": "row;",
+                "subOptions": []
+            },
+            {
+                "option": "column",
+                "insertedText": "column;",
+                "subOptions": []
+            },
+            {
+                "option": "dense",
+                "insertedText": "dense;",
+                "subOptions": []
+            }
+        ]
+    },
+    {
+        "option": "grid-auto-rows",
+        "insertedText": "grid-auto-rows: ",
+        "subOptions": []
+    },
+    {
+        "option": "grid-column-start",
+        "insertedText": "grid-column-start: ",
+        "subOptions": []
+    },
+    {
+        "option": "grid-template-rows",
+        "insertedText": "grid-template-rows: ",
+        "subOptions": [
+            {
+                "option": "auto",
+                "insertedText": "auto;",
+                "subOptions": []
+            }
+        ]
+    },
+    {
+        "option": "grid-row-end",
+        "insertedText": "grid-row-end: ",
+        "subOptions": []
+    },
+    {
+        "option": "grid-column-end",
+        "insertedText": "grid-column-end: ",
+        "subOptions": []
+    },
+    {
+        "option": "grid-row-start",
+        "insertedText": "grid-row-start: ",
+        "subOptions": []
+    },
+    {
+        "option": "box-decoration-break",
+        "insertedText": "box-decoration-break: ",
+        "subOptions": [
+            {
+                "option": "clone",
+                "insertedText": "clone;",
+                "subOptions": []
+            },
+            {
+                "option": "slice",
+                "insertedText": "slice;",
+                "subOptions": []
+            }
+        ]
+    },
+    {
+        "option": "break-after",
+        "insertedText": "break-after: ",
+        "subOptions": [
+            {
+                "option": "always",
+                "insertedText": "always;",
+                "subOptions": []
+            },
+            {
+                "option": "auto",
+                "insertedText": "auto;",
+                "subOptions": []
+            },
+            {
+                "option": "avoid",
+                "insertedText": "avoid;",
+                "subOptions": []
+            },
+            {
+                "option": "avoid-column",
+                "insertedText": "avoid-column;",
+                "subOptions": []
+            },
+            {
+                "option": "avoid-page",
+                "insertedText": "avoid-page;",
+                "subOptions": []
+            },
+            {
+                "option": "avoid-region",
+                "insertedText": "avoid-region;",
+                "subOptions": []
+            },
+            {
+                "option": "column",
+                "insertedText": "column;",
+                "subOptions": []
+            },
+            {
+                "option": "left",
+                "insertedText": "left;",
+                "subOptions": []
+            },
+            {
+                "option": "page",
+                "insertedText": "page;",
+                "subOptions": []
+            },
+            {
+                "option": "region",
+                "insertedText": "region;",
+                "subOptions": []
+            },
+            {
+                "option": "right",
+                "insertedText": "right;",
+                "subOptions": []
+            }
+        ]
+    },
+    {
+        "option": "break-before",
+        "insertedText": "break-before: ",
+        "subOptions": [
+            {
+                "option": "always",
+                "insertedText": "always;",
+                "subOptions": []
+            },
+            {
+                "option": "auto",
+                "insertedText": "auto;",
+                "subOptions": []
+            },
+            {
+                "option": "avoid",
+                "insertedText": "avoid;",
+                "subOptions": []
+            },
+            {
+                "option": "avoid-column",
+                "insertedText": "avoid-column;",
+                "subOptions": []
+            },
+            {
+                "option": "avoid-page",
+                "insertedText": "avoid-page;",
+                "subOptions": []
+            },
+            {
+                "option": "avoid-region",
+                "insertedText": "avoid-region;",
+                "subOptions": []
+            },
+            {
+                "option": "column",
+                "insertedText": "column;",
+                "subOptions": []
+            },
+            {
+                "option": "left",
+                "insertedText": "left;",
+                "subOptions": []
+            },
+            {
+                "option": "page",
+                "insertedText": "page;",
+                "subOptions": []
+            },
+            {
+                "option": "region",
+                "insertedText": "region;",
+                "subOptions": []
+            },
+            {
+                "option": "right",
+                "insertedText": "right;",
+                "subOptions": []
+            }
+        ]
+    },
+    {
+        "option": "break-inside",
+        "insertedText": "break-inside: ",
+        "subOptions": [
+            {
+                "option": "auto",
+                "insertedText": "auto;",
+                "subOptions": []
+            },
+            {
+                "option": "avoid",
+                "insertedText": "avoid;",
+                "subOptions": []
+            },
+            {
+                "option": "avoid-column",
+                "insertedText": "avoid-column;",
+                "subOptions": []
+            },
+            {
+                "option": "avoid-page",
+                "insertedText": "avoid-page;",
+                "subOptions": []
+            },
+            {
+                "option": "avoid-region",
+                "insertedText": "avoid-region;",
+                "subOptions": []
+            }
+        ]
+    },
+    {
+        "option": "columns",
+        "insertedText": "columns: ",
+        "subOptions": []
+    },
+    {
+        "option": "column-count",
+        "insertedText": "column-count: ",
+        "subOptions": []
+    },
+    {
+        "option": "column-gap",
+        "insertedText": "column-gap: ",
+        "subOptions": [
+            {
+                "option": "normal",
+                "insertedText": "normal;",
+                "subOptions": []
+            }
+        ]
+    },
+    {
+        "option": "column-rule",
+        "insertedText": "column-rule: ",
+        "subOptions": []
+    },
+    {
+        "option": "column-rule-color",
+        "insertedText": "column-rule-color: ",
+        "subOptions": []
+    },
+    {
+        "option": "column-rule-style",
+        "insertedText": "column-rule-style: ",
+        "subOptions": [
+            {
+                "option": "dashed",
+                "insertedText": "dashed;",
+                "subOptions": []
+            },
+            {
+                "option": "dotted",
+                "insertedText": "dotted;",
+                "subOptions": []
+            },
+            {
+                "option": "double",
+                "insertedText": "double;",
+                "subOptions": []
+            },
+            {
+                "option": "groove",
+                "insertedText": "groove;",
+                "subOptions": []
+            },
+            {
+                "option": "hidden",
+                "insertedText": "hidden;",
+                "subOptions": []
+            },
+            {
+                "option": "inset",
+                "insertedText": "inset;",
+                "subOptions": []
+            },
+            {
+                "option": "none",
+                "insertedText": "none;",
+                "subOptions": []
+            },
+            {
+                "option": "outset",
+                "insertedText": "outset;",
+                "subOptions": []
+            },
+            {
+                "option": "ridge",
+                "insertedText": "ridge;",
+                "subOptions": []
+            },
+            {
+                "option": "solid",
+                "insertedText": "solid;",
+                "subOptions": []
+            },
+            {
+                "option": "inherit",
+                "insertedText": "inherit;",
+                "subOptions": []
+            }
+        ]
+    },
+    {
+        "option": "column-rule-width",
+        "insertedText": "column-rule-width: ",
+        "subOptions": [
+            {
+                "option": "medium",
+                "insertedText": "medium;",
+                "subOptions": []
+            },
+            {
+                "option": "thin",
+                "insertedText": "thin;",
+                "subOptions": []
+            },
+            {
+                "option": "thick",
+                "insertedText": "thick;",
+                "subOptions": []
+            },
+            {
+                "option": "inherit",
+                "insertedText": "inherit;",
+                "subOptions": []
+            }
+        ]
+    },
+    {
+        "option": "column-span",
+        "insertedText": "column-span: ",
+        "subOptions": [
+            {
+                "option": "all",
+                "insertedText": "all;",
+                "subOptions": []
+            },
+            {
+                "option": "none",
+                "insertedText": "none;",
+                "subOptions": []
+            }
+        ]
+    },
+    {
+        "option": "column-width",
+        "insertedText": "column-width: ",
+        "subOptions": [
+            {
+                "option": "auto",
+                "insertedText": "auto;",
+                "subOptions": []
+            },
+            {
+                "option": "inherit",
+                "insertedText": "inherit;",
+                "subOptions": []
+            }
+        ]
+    },
+    {
+        "option": "flow-into",
+        "insertedText": "flow-into: ",
+        "subOptions": [
+            {
+                "option": "none",
+                "insertedText": "none;",
+                "subOptions": []
+            }
+        ]
+    },
+    {
+        "option": "flow-from",
+        "insertedText": "flow-from: ",
+        "subOptions": [
+            {
+                "option": "none",
+                "insertedText": "none;",
+                "subOptions": []
+            },
+            {
+                "option": "inherit",
+                "insertedText": "inherit;",
+                "subOptions": []
+            }
+        ]
+    },
+    {
+        "option": "font-feature-settings",
+        "insertedText": "font-feature-settings: ",
+        "subOptions": [
+            {
+                "option": "normal",
+                "insertedText": "normal;",
+                "subOptions": []
+            }
+        ]
+    },
+    {
+        "option": "font-language-override",
+        "insertedText": "font-language-override: ",
+        "subOptions": [
+            {
+                "option": "normal",
+                "insertedText": "normal;",
+                "subOptions": []
+            }
+        ]
+    },
+    {
+        "option": "font-synthesis",
+        "insertedText": "font-synthesis: ",
+        "subOptions": [
+            {
+                "option": "none",
+                "insertedText": "none;",
+                "subOptions": []
+            },
+            {
+                "option": "style",
+                "insertedText": "style;",
+                "subOptions": []
+            },
+            {
+                "option": "weight",
+                "insertedText": "weight;",
+                "subOptions": []
+            }
+        ]
+    },
+    {
+        "option": "font-variant-alternates",
+        "insertedText": "font-variant-alternates: ",
+        "subOptions": [
+            {
+                "option": "normal",
+                "insertedText": "normal;",
+                "subOptions": []
+            }
+        ]
+    },
+    {
+        "option": "font-variant-caps",
+        "insertedText": "font-variant-caps: ",
+        "subOptions": [
+            {
+                "option": "normal",
+                "insertedText": "normal;",
+                "subOptions": []
+            },
+            {
+                "option": "small-caps",
+                "insertedText": "small-caps;",
+                "subOptions": []
+            },
+            {
+                "option": "all-small-caps",
+                "insertedText": "all-small-caps;",
+                "subOptions": []
+            },
+            {
+                "option": "petite-caps",
+                "insertedText": "petite-caps;",
+                "subOptions": []
+            },
+            {
+                "option": "all-petite-caps",
+                "insertedText": "all-petite-caps;",
+                "subOptions": []
+            },
+            {
+                "option": "unicase",
+                "insertedText": "unicase;",
+                "subOptions": []
+            },
+            {
+                "option": "titling-caps",
+                "insertedText": "titling-caps;",
+                "subOptions": []
+            }
+        ]
+    },
+    {
+        "option": "font-variant-east-asian",
+        "insertedText": "font-variant-east-asian: ",
+        "subOptions": [
+            {
+                "option": "normal",
+                "insertedText": "normal;",
+                "subOptions": []
+            }
+        ]
+    },
+    {
+        "option": "font-variant-numeric",
+        "insertedText": "font-variant-numeric: ",
+        "subOptions": [
+            {
+                "option": "normal",
+                "insertedText": "normal;",
+                "subOptions": []
+            }
+        ]
+    },
+    {
+        "option": "font-variant-position",
+        "insertedText": "font-variant-position: ",
+        "subOptions": [
+            {
+                "option": "normal",
+                "insertedText": "normal;",
+                "subOptions": []
+            },
+            {
+                "option": "sub",
+                "insertedText": "sub;",
+                "subOptions": []
+            },
+            {
+                "option": "super",
+                "insertedText": "super;",
+                "subOptions": []
+            }
+        ]
+    },
+    {
+        "option": "hyphens",
+        "insertedText": "hyphens: ",
+        "subOptions": [
+            {
+                "option": "auto",
+                "insertedText": "auto;",
+                "subOptions": []
+            },
+            {
+                "option": "manual",
+                "insertedText": "manual;",
+                "subOptions": []
+            },
+            {
+                "option": "none",
+                "insertedText": "none;",
+                "subOptions": []
+            }
+        ]
+    },
+    {
+        "option": "image-orientation",
+        "insertedText": "image-orientation: ",
+        "subOptions": []
+    },
+    {
+        "option": "image-resolution",
+        "insertedText": "image-resolution: ",
+        "subOptions": [
+            {
+                "option": "from-image",
+                "insertedText": "from-image;",
+                "subOptions": []
+            },
+            {
+                "option": "snap",
+                "insertedText": "snap;",
+                "subOptions": []
+            }
+        ]
+    },
+    {
+        "option": "region-break-after",
+        "insertedText": "region-break-after: ",
+        "subOptions": [
+            {
+                "option": "always",
+                "insertedText": "always;",
+                "subOptions": []
+            },
+            {
+                "option": "auto",
+                "insertedText": "auto;",
+                "subOptions": []
+            },
+            {
+                "option": "avoid",
+                "insertedText": "avoid;",
+                "subOptions": []
+            },
+            {
+                "option": "avoid-column",
+                "insertedText": "avoid-column;",
+                "subOptions": []
+            },
+            {
+                "option": "avoid-page",
+                "insertedText": "avoid-page;",
+                "subOptions": []
+            },
+            {
+                "option": "avoid-region",
+                "insertedText": "avoid-region;",
+                "subOptions": []
+            },
+            {
+                "option": "column",
+                "insertedText": "column;",
+                "subOptions": []
+            },
+            {
+                "option": "left",
+                "insertedText": "left;",
+                "subOptions": []
+            },
+            {
+                "option": "page",
+                "insertedText": "page;",
+                "subOptions": []
+            },
+            {
+                "option": "region",
+                "insertedText": "region;",
+                "subOptions": []
+            },
+            {
+                "option": "right",
+                "insertedText": "right;",
+                "subOptions": []
+            }
+        ]
+    },
+    {
+        "option": "region-break-before",
+        "insertedText": "region-break-before: ",
+        "subOptions": [
+            {
+                "option": "always",
+                "insertedText": "always;",
+                "subOptions": []
+            },
+            {
+                "option": "auto",
+                "insertedText": "auto;",
+                "subOptions": []
+            },
+            {
+                "option": "avoid",
+                "insertedText": "avoid;",
+                "subOptions": []
+            },
+            {
+                "option": "avoid-column",
+                "insertedText": "avoid-column;",
+                "subOptions": []
+            },
+            {
+                "option": "avoid-page",
+                "insertedText": "avoid-page;",
+                "subOptions": []
+            },
+            {
+                "option": "avoid-region",
+                "insertedText": "avoid-region;",
+                "subOptions": []
+            },
+            {
+                "option": "column",
+                "insertedText": "column;",
+                "subOptions": []
+            },
+            {
+                "option": "left",
+                "insertedText": "left;",
+                "subOptions": []
+            },
+            {
+                "option": "page",
+                "insertedText": "page;",
+                "subOptions": []
+            },
+            {
+                "option": "region",
+                "insertedText": "region;",
+                "subOptions": []
+            },
+            {
+                "option": "right",
+                "insertedText": "right;",
+                "subOptions": []
+            }
+        ]
+    },
+    {
+        "option": "region-break-inside",
+        "insertedText": "region-break-inside: ",
+        "subOptions": [
+            {
+                "option": "auto",
+                "insertedText": "auto;",
+                "subOptions": []
+            },
+            {
+                "option": "avoid",
+                "insertedText": "avoid;",
+                "subOptions": []
+            },
+            {
+                "option": "avoid-column",
+                "insertedText": "avoid-column;",
+                "subOptions": []
+            },
+            {
+                "option": "avoid-page",
+                "insertedText": "avoid-page;",
+                "subOptions": []
+            },
+            {
+                "option": "avoid-region",
+                "insertedText": "avoid-region;",
+                "subOptions": []
+            }
+        ]
+    },
+    {
+        "option": "region-fragment",
+        "insertedText": "region-fragment: ",
+        "subOptions": [
+            {
+                "option": "auto",
+                "insertedText": "auto;",
+                "subOptions": []
+            },
+            {
+                "option": "break",
+                "insertedText": "break;",
+                "subOptions": []
+            }
+        ]
+    },
+    {
+        "option": "shape-inside",
+        "insertedText": "shape-inside: ",
+        "subOptions": [
+            {
+                "option": "auto",
+                "insertedText": "auto;",
+                "subOptions": []
+            },
+            {
+                "option": "circle()",
+                "insertedText": "circle();",
+                "subOptions": []
+            },
+            {
+                "option": "ellipse()",
+                "insertedText": "ellipse();",
+                "subOptions": []
+            },
+            {
+                "option": "inherit",
+                "insertedText": "inherit;",
+                "subOptions": []
+            },
+            {
+                "option": "outside-shape",
+                "insertedText": "outside-shape;",
+                "subOptions": []
+            },
+            {
+                "option": "polygon()",
+                "insertedText": "polygon();",
+                "subOptions": []
+            },
+            {
+                "option": "rectangle()",
+                "insertedText": "rectangle();",
+                "subOptions": []
+            }
+        ]
+    },
+    {
+        "option": "text-decoration-skip",
+        "insertedText": "text-decoration-skip: ",
+        "subOptions": [
+            {
+                "option": "edges",
+                "insertedText": "edges;",
+                "subOptions": []
+            },
+            {
+                "option": "ink",
+                "insertedText": "ink;",
+                "subOptions": []
+            },
+            {
+                "option": "none",
+                "insertedText": "none;",
+                "subOptions": []
+            },
+            {
+                "option": "objects",
+                "insertedText": "objects;",
+                "subOptions": []
+            },
+            {
+                "option": "spaces",
+                "insertedText": "spaces;",
+                "subOptions": []
+            }
+        ]
+    },
+    {
+        "option": "text-emphasis",
+        "insertedText": "text-emphasis: ",
+        "subOptions": []
+    },
+    {
+        "option": "text-emphasis-color",
+        "insertedText": "text-emphasis-color: ",
+        "subOptions": []
+    },
+    {
+        "option": "text-emphasis-position",
+        "insertedText": "text-emphasis-position: ",
+        "subOptions": [
+            {
+                "option": "above",
+                "insertedText": "above;",
+                "subOptions": []
+            },
+            {
+                "option": "below",
+                "insertedText": "below;",
+                "subOptions": []
+            },
+            {
+                "option": "left",
+                "insertedText": "left;",
+                "subOptions": []
+            },
+            {
+                "option": "right",
+                "insertedText": "right;",
+                "subOptions": []
+            }
+        ]
+    },
+    {
+        "option": "text-emphasis-style",
+        "insertedText": "text-emphasis-style: ",
+        "subOptions": [
+            {
+                "option": "circle",
+                "insertedText": "circle;",
+                "subOptions": []
+            },
+            {
+                "option": "dot",
+                "insertedText": "dot;",
+                "subOptions": []
+            },
+            {
+                "option": "double-circle",
+                "insertedText": "double-circle;",
+                "subOptions": []
+            },
+            {
+                "option": "filled",
+                "insertedText": "filled;",
+                "subOptions": []
+            },
+            {
+                "option": "none",
+                "insertedText": "none;",
+                "subOptions": []
+            },
+            {
+                "option": "open",
+                "insertedText": "open;",
+                "subOptions": []
+            },
+            {
+                "option": "sesame",
+                "insertedText": "sesame;",
+                "subOptions": []
+            },
+            {
+                "option": "triangle",
+                "insertedText": "triangle;",
+                "subOptions": []
+            }
+        ]
+    },
+    {
+        "option": "font-display",
+        "insertedText": "font-display: ",
+        "subOptions": [
+            {
+                "option": "auto",
+                "insertedText": "auto;",
+                "subOptions": []
+            },
+            {
+                "option": "block",
+                "insertedText": "block;",
+                "subOptions": []
+            },
+            {
+                "option": "swap",
+                "insertedText": "swap;",
+                "subOptions": []
+            },
+            {
+                "option": "fallback",
+                "insertedText": "fallback;",
+                "subOptions": []
+            },
+            {
+                "option": "optional",
+                "insertedText": "optional;",
+                "subOptions": []
+            }
+        ]
+    },
+    {
+        "option": "grid",
+        "insertedText": "grid: ",
+        "subOptions": []
+    },
+    {
+        "option": "grid-area",
+        "insertedText": "grid-area: ",
+        "subOptions": []
+    },
+    {
+        "option": "grid-column-gap",
+        "insertedText": "grid-column-gap: ",
+        "subOptions": []
+    },
+    {
+        "option": "grid-gap",
+        "insertedText": "grid-gap: ",
+        "subOptions": []
+    },
+    {
+        "option": "grid-row-gap",
+        "insertedText": "grid-row-gap: ",
+        "subOptions": []
+    },
+    {
+        "option": "grid-template-areas",
+        "insertedText": "grid-template-areas: ",
+        "subOptions": []
+    },
+    {
+        "option": "hanging-punctuation",
+        "insertedText": "hanging-punctuation: ",
+        "subOptions": [
+            {
+                "option": "allow-end",
+                "insertedText": "allow-end;",
+                "subOptions": []
+            },
+            {
+                "option": "first",
+                "insertedText": "first;",
+                "subOptions": []
+            },
+            {
+                "option": "force-end",
+                "insertedText": "force-end;",
+                "subOptions": []
+            },
+            {
+                "option": "last",
+                "insertedText": "last;",
+                "subOptions": []
+            },
+            {
+                "option": "none",
+                "insertedText": "none;",
+                "subOptions": []
+            }
+        ]
+    }
+]

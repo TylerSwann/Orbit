@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXSlider?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox alignment="BOTTOM_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="570.0" prefWidth="914.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="io.orbit.controllers.ThemeSettingsPage">
+   <children>
+      <HBox alignment="CENTER_LEFT" prefHeight="79.0" prefWidth="1019.0" spacing="20.0">
+         <children>
+            <Label prefHeight="36.0" prefWidth="168.0" text="Application Theme:">
+               <font>
+                  <Font name="Roboto Light" size="17.0" />
+               </font>
+               <padding>
+                  <Insets left="10.0" />
+               </padding>
+            </Label>
+            <JFXComboBox fx:id="appThemeBox" prefHeight="36.0" prefWidth="166.0" />
+            <JFXButton prefHeight="36.0" prefWidth="280.0" styleClass="button-secondary" text="Get Additional Themes Online">
+               <font>
+                  <Font name="Roboto Medium" size="14.0" />
+               </font>
+            </JFXButton>
+            <VBox alignment="CENTER_RIGHT" prefHeight="79.0" prefWidth="243.0">
+               <children>
+                  <JFXButton fx:id="editAppCssButton" prefHeight="36.0" prefWidth="159.0" styleClass="button-secondary" text="EDIT STYLESHEET">
+                     <font>
+                        <Font name="Roboto Black" size="14.0" />
+                     </font>
+                  </JFXButton>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" prefHeight="79.0" prefWidth="1019.0" spacing="20.0">
+         <children>
+            <Label prefHeight="36.0" prefWidth="168.0" text="Syntax Theme:">
+               <font>
+                  <Font name="Roboto Light" size="17.0" />
+               </font>
+               <padding>
+                  <Insets left="10.0" />
+               </padding>
+            </Label>
+            <JFXComboBox fx:id="syntaxThemeBox" prefHeight="36.0" prefWidth="166.0" />
+            <JFXButton prefHeight="36.0" prefWidth="280.0" styleClass="button-secondary" text="Get Additional Syntax Themes Online">
+               <font>
+                  <Font name="Roboto Medium" size="14.0" />
+               </font>
+            </JFXButton>
+            <VBox alignment="CENTER_RIGHT" prefHeight="79.0" prefWidth="243.0">
+               <children>
+                  <JFXButton fx:id="editSyntaxCssButton" prefHeight="36.0" prefWidth="159.0" styleClass="button-secondary" text="EDIT STYLESHEET">
+                     <font>
+                        <Font name="Roboto Black" size="14.0" />
+                     </font>
+                  </JFXButton>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+      <HBox alignment="CENTER_LEFT" prefHeight="79.0" prefWidth="1019.0" spacing="20.0">
+         <children>
+            <Label prefHeight="36.0" prefWidth="166.0" text="Syntax Font Family:">
+               <font>
+                  <Font name="Roboto Light" size="17.0" />
+               </font>
+               <padding>
+                  <Insets left="10.0" />
+               </padding>
+            </Label>
+            <JFXComboBox fx:id="fontFamilyBox" prefHeight="36.0" prefWidth="166.0" />
+         </children>
+      </HBox>
+      <HBox alignment="CENTER_LEFT" prefHeight="79.0" prefWidth="1019.0" spacing="20.0">
+         <children>
+            <Label prefHeight="36.0" prefWidth="226.0" text="Font Size:">
+               <font>
+                  <Font name="Roboto Light" size="18.0" />
+               </font>
+               <padding>
+                  <Insets left="10.0" />
+               </padding>
+            </Label>
+            <JFXTextField fx:id="fontSizeField" alignment="CENTER" prefHeight="36.0" prefWidth="36.0" styleClass="mui-text-field" text="15">
+               <HBox.margin>
+                  <Insets right="100.0" />
+               </HBox.margin>
+            </JFXTextField>
+            <JFXSlider fx:id="fontSizeSlider" blockIncrement="1.0" prefHeight="14.0" prefWidth="514.0" value="15.0" />
+         </children>
+      </HBox>
+      <HBox alignment="BOTTOM_RIGHT" prefHeight="161.0" prefWidth="1019.0" spacing="20.0">
+         <children>
+            <JFXButton fx:id="cancelButton" prefHeight="36.0" prefWidth="88.0" styleClass="button-secondary" text="CANCEL">
+               <font>
+                  <Font name="Roboto Bold" size="14.0" />
+               </font>
+            </JFXButton>
+            <JFXButton fx:id="saveButton" buttonType="RAISED" prefHeight="36.0" prefWidth="88.0" styleClass="button-primary" text="SAVE">
+               <font>
+                  <Font name="Roboto Black" size="14.0" />
+               </font>
+            </JFXButton>
+         </children>
+         <padding>
+            <Insets bottom="20.0" right="40.0" />
+         </padding>
+      </HBox>
+   </children>
+</VBox>

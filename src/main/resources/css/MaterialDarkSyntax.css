@@ -1,0 +1,91 @@
+
+@font-face {
+    font-family: "Source Code Pro";
+    src: url("/fonts/SourceCodePro-Regular.otf.woff");
+}
+
+*
+{
+    -fx-light-green: #009688;
+    -fx-faded-green: rgba(0, 150, 136, 0.73);
+    -fx-off-white: #a8b7b9;
+    -fx-light-dark: #304045;
+    -fx-medium-dark: #303c41;
+    -fx-dark: #262338;
+    -fx-button-ripple: rgba(162, 176, 178, 0.67);
+    -fx-button-hover: rgba(48, 63, 69, 0.69);
+    -color-light-grey: #B2CCD6;
+    -color-grey: #373b41; /*  Background/Base  */
+    -color-dark-grey: #282a2e;
+    -color-very-dark-grey: #263238;/*  Hover  */
+    -color-green: #C3E88D;
+    -color-teal: #009688;/*  Selected  */
+    -color-light-teal: #73d1c8;
+}
+
+
+
+.paragraph-box:has-caret
+{
+    /*-fx-background-color: #555b64;*/
+    -fx-background-color: #3b4046;
+    /*-fx-background-color: #373b41;*/
+}
+.styled-text-area
+{
+    -fx-background-color: -color-grey;
+    -fx-font-family: "Source Code Pro";
+    -fx-font-size: 18.0;
+    -fx-highlight-fill: #28509f;
+}
+.styled-text-area .text
+{
+    -fx-fill: -fx-off-white;
+}
+
+
+.styled-text-area .text.keyword
+{
+    -fx-fill: rgb(199,137,234);
+}
+
+.styled-text-area .text.error
+{
+    -rtfx-background-color: rgba(255, 0, 48, 0.95);
+    -fx-strikethrough: true;
+}
+.styled-text-area .text.type
+{
+    -fx-fill: -color-green;
+}
+
+.styled-text-area .text.block-comment
+{
+    -fx-fill: -fx-button-ripple;
+}
+
+.styled-text-area .text.line-comment
+{
+    -fx-fill: rgb(27, 207, 0);
+}
+.styled-text-area .text.string
+{
+    -fx-fill: rgb(106, 135, 89);
+}
+.styled-text-area .text.number
+{
+    -fx-fill: rgb(184,95,105);
+}
+.styled-text-area .text.semi-colon
+{
+    -fx-fill: -fx-off-white;
+}
+.styled-text-area .text.annotation
+{
+    -fx-fill: #cbff90;
+}
+
+.styled-text-area .text.operator
+{
+    -fx-fill: -color-light-grey;
+}

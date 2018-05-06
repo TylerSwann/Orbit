@@ -1,0 +1,63 @@
+
+
+@font-face {
+    font-family: "Source Code Pro";
+    src: url("/fonts/SourceCodePro-Regular.otf.woff");
+}
+
+.styled-text-area
+{
+    -fx-font-family: "Source Code Pro";
+    -fx-font-size: 18.0;
+}
+
+.paragraph-box:has-caret
+{
+    -fx-background-color: rgb(217, 217, 217);
+}
+
+.keyword
+{
+    -fx-fill: rgb(50, 66, 255);
+}
+
+.error
+{
+    -rtfx-background-color: rgba(255, 0, 48, 0.95);
+    -fx-strikethrough: true;
+}
+.type
+{
+    -fx-fill: rgb(63, 146, 176);
+}
+
+.block-comment
+{
+    -fx-fill: rgb(255, 145, 50);
+}
+
+.line-comment
+{
+    -fx-fill: rgb(27, 207, 0);
+}
+.string
+{
+    -fx-fill: rgb(106, 135, 89);
+}
+.number
+{
+    -fx-fill: rgb(104, 151, 187);
+}
+.semi-colon
+{
+    -fx-fill: rgb(130, 84, 49);
+}
+.annotation
+{
+    -fx-fill: rgb(161, 191, 9);
+}
+
+.operator
+{
+    -fx-fill: rgb(0, 48, 59);
+}

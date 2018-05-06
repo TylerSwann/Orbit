@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXCheckBox?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="88.0" prefWidth="786.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="io.orbit.ui.FindAndReplace">
+   <children>
+      <HBox alignment="BOTTOM_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="746.0" spacing="15.0" styleClass="find-and-replace-dialog">
+         <children>
+            <JFXButton fx:id="dropDownButton" prefHeight="30.0" prefWidth="30.0" styleClass="find-and-replace-button" text="&gt;">
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+            </JFXButton>
+            <JFXTextField fx:id="search" prefHeight="33.0" prefWidth="345.0" promptText="Search..." styleClass="mui-text-field">
+               <HBox.margin>
+                  <Insets bottom="10.0" />
+               </HBox.margin></JFXTextField>
+            <JFXButton fx:id="clearButton" prefHeight="30.0" prefWidth="30.0" styleClass="find-and-replace-button" text="X" />
+            <JFXButton fx:id="previousButton" prefHeight="30.0" prefWidth="30.0" styleClass="find-and-replace-button" text="&gt;" />
+            <JFXButton fx:id="nextButton" prefHeight="30.0" prefWidth="30.0" styleClass="find-and-replace-button" text="&lt;" />
+            <JFXCheckBox fx:id="matchBox" prefHeight="30.0" prefWidth="55.0" styleClass="mui-check-box" text="Match" />
+            <JFXCheckBox fx:id="regexBox" prefHeight="30.0" prefWidth="55.0" styleClass="mui-check-box" text="Regex" />
+            <JFXButton fx:id="closeButton" prefHeight="30.0" prefWidth="30.0" styleClass="find-and-replace-button" text="X">
+               <HBox.margin>
+                  <Insets left="25.0" />
+               </HBox.margin>
+            </JFXButton>
+         </children>
+      </HBox>
+      <HBox fx:id="replacePane" alignment="BOTTOM_LEFT" prefHeight="40.0" prefWidth="721.0" spacing="20.0">
+         <children>
+            <JFXTextField fx:id="replace" prefHeight="33.0" prefWidth="345.0" promptText="Search..." styleClass="mui-text-field">
+               <HBox.margin>
+                  <Insets bottom="10.0" />
+               </HBox.margin></JFXTextField>
+            <JFXButton fx:id="replaceButton" prefHeight="36.0" prefWidth="88.0" styleClass="button-secondary" text="Replace" />
+            <JFXButton fx:id="replaceAllButton" prefHeight="36.0" prefWidth="100.0" styleClass="button-secondary" text="Replace All" />
+         </children>
+         <VBox.margin>
+            <Insets left="45.0" />
+         </VBox.margin>
+      </HBox>
+   </children>
+   <padding>
+      <Insets left="10.0" top="5.0" />
+   </padding>
+</VBox>

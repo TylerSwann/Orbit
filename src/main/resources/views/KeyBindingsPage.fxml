@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox fx:id="root" alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="619.0" prefWidth="954.0" spacing="10.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="io.orbit.controllers.KeyBindingsPageController">
+   <children>
+      <Label alignment="CENTER" contentDisplay="CENTER" lineSpacing="1.0" prefHeight="64.0" prefWidth="583.0" text="You can override the key bindings by clicking the keys' button under key/combination and then selecting the desired key" textAlignment="CENTER" wrapText="true">
+         <font>
+            <Font name="Roboto Light" size="15.0" />
+         </font>
+      </Label>
+      <HBox alignment="CENTER" prefHeight="484.0" prefWidth="827.0">
+         <children>
+            <VBox alignment="TOP_CENTER" prefHeight="484.0" prefWidth="400.0" spacing="10.0">
+               <children>
+                  <Label text="Command">
+                     <font>
+                        <Font name="Roboto Black" size="15.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefHeight="55.0" prefWidth="434.0" styleClass="even" text="Save all documents in project">
+                     <font>
+                        <Font name="Roboto Medium" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefHeight="55.0" prefWidth="418.0" styleClass="uneven" text="Show find and replace">
+                     <font>
+                        <Font name="Roboto Medium" size="14.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+            <VBox alignment="TOP_CENTER" prefHeight="484.0" prefWidth="400.0" spacing="10.0">
+               <children>
+                  <Label text="Key/Combination">
+                     <font>
+                        <Font name="Roboto Black" size="15.0" />
+                     </font>
+                  </Label>
+                  <HBox alignment="CENTER" prefHeight="55.0" prefWidth="300.0" spacing="10.0" styleClass="even">
+                     <children>
+                        <JFXButton fx:id="saveAllPrimary" prefHeight="50.0" prefWidth="75.0" styleClass="button-secondary" text="Control">
+                           <font>
+                              <Font name="Roboto Bold" size="14.0" />
+                           </font>
+                        </JFXButton>
+                        <JFXButton fx:id="saveAllSecondary" prefHeight="50.0" prefWidth="75.0" styleClass="button-secondary" text="S">
+                           <font>
+                              <Font name="Roboto Bold" size="14.0" />
+                           </font>
+                        </JFXButton>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="55.0" prefWidth="300.0" spacing="10.0" styleClass="uneven">
+                     <children>
+                        <JFXButton fx:id="findAndRPrimary" prefHeight="50.0" prefWidth="75.0" styleClass="button-secondary" text="Control">
+                           <font>
+                              <Font name="Roboto Bold" size="14.0" />
+                           </font>
+                        </JFXButton>
+                        <JFXButton fx:id="findAndRSecondary" prefHeight="50.0" prefWidth="75.0" styleClass="button-secondary" text="R">
+                           <font>
+                              <Font name="Roboto Bold" size="14.0" />
+                           </font>
+                        </JFXButton>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+      <Label fx:id="listeningLabel" alignment="CENTER" prefHeight="47.0" prefWidth="222.0" text="Listening for key...">
+         <font>
+            <Font name="Roboto" size="14.0" />
+         </font>
+      </Label>
+   </children>
+</VBox>

@@ -1,0 +1,59 @@
+
+
+.tree-table-view, .table-view
+{
+    -fx-background-color: white;
+    -fx-border-color: white;
+    -fx-border-width: 0.0;
+    -fx-padding: 0;
+}
+
+.column-header
+{
+    -fx-background-color: rgba(235, 235, 235, 1.0);
+    -fx-text-fill: rgba(0, 0, 0, 0.87);
+    -fx-font-family: "Roboto Black";
+    -fx-font-size: 15;
+    -fx-border-color: rgba(235, 235, 235, 1.0);
+}
+
+.tree-table-row-cell
+{
+    -fx-background-color: white;
+    -fx-text-fill: rgba(0, 0, 0, 0.87);
+    -fx-font-family: "Roboto Medium";
+    -fx-font-size: 15;
+}
+.tree-table-row-cell:selected
+{
+    -fx-background-color: rgba(26, 103, 255, 0.2);
+}
+.scroll-pane
+{
+    -fx-background: transparent;
+    -fx-background-color: transparent;
+}
+
+
+.scroll-bar, .increment-button, .increment-arrow,
+.scroll-bar, .decrement-button, .decrement-arrow
+{
+    -fx-background-color: transparent;
+}
+.scroll-bar, .corner
+{
+    -fx-background-color: transparent;
+}
+
+.scroll-bar .thumb
+{
+    -fx-background-color: rgba(230, 230, 230, 0.7);
+    -fx-background-radius: 5em;
+}
+.scroll-bar
+{
+    -fx-background-color: transparent;
+    -fx-opacity: 1.0;
+}
+
+
