@@ -1,7 +1,13 @@
 
 
 
-'area' | 'base' | 'br' | 'col' | 'command' | 'embed' | 'hr' | 'img' | 'input' | 'keygen' | 'link' | 'menuitem' | 'meta' | 'param' | 'source' | 'track' | 'wbr'
+https://www.google.com
+http://www.google.com
+www.google.com
+htt://www.google.com
+://www.google.com
+https://fontawesome.com/icons?d=gallery&q=download
+http://www.fun.orbit-editor.com
 
 
 

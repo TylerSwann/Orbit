@@ -1,19 +1,13 @@
-package io.orbit.controllers.pluginui;
+package io.orbit.controllers.marketplaceui;
 
 import com.jfoenix.controls.JFXButton;
 import io.orbit.App;
-import io.orbit.ui.UtilityStage;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
-import javafx.scene.effect.BlurType;
-import javafx.scene.effect.DropShadow;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
-import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
@@ -24,7 +18,7 @@ import java.net.URL;
 /**
  * Created by Tyler Swann on Sunday April 01, 2018 at 16:59
  */
-public class PluginsPageController
+public class MarketPlacePageController
 {
     public JFXButton installedPluginsButton;
     public JFXButton installedThemesButton;
@@ -33,6 +27,7 @@ public class PluginsPageController
     public AnchorPane root;
 
     private AnchorPane installedPluginsPage;
+    private AnchorPane browsePluginsPage;
 
     private Pane activePage;
 
@@ -42,7 +37,7 @@ public class PluginsPageController
         AnchorPane root = null;
         try
         {
-            URL url = App.class.getClassLoader().getResource("plugins_view/PluginsPage.fxml");
+            URL url = App.class.getClassLoader().getResource("marketplace_views/MarketPlacePage.fxml");
             if (url != null)
                 root = FXMLLoader.load(url);
         }
@@ -63,6 +58,7 @@ public class PluginsPageController
     
     public void initialize()
     {
+        this.showInstalledPluginsPage();
         installedPluginsButton.setOnAction(event -> this.showInstalledPluginsPage());
         installedThemesButton.setOnAction(event -> this.showInstalledThemesPage());
         updateButton.setOnAction(event -> this.showUpdatesPage());
@@ -91,7 +87,15 @@ public class PluginsPageController
     }
     private void showBrowsePage()
     {
-
+        if (browsePluginsPage == null)
+        {
+            browsePluginsPage = BrowseMarketPlacePage.load();
+            applyContentAnchors(browsePluginsPage);
+        }
+        if (activePage != null)
+            root.getChildren().remove(activePage);
+        activePage = browsePluginsPage;
+        root.getChildren().add(browsePluginsPage);
     }
 
     private void applyContentAnchors(Node node)

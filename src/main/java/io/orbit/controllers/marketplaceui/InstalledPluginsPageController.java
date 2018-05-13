@@ -1,9 +1,8 @@
-package io.orbit.controllers.pluginui;
+package io.orbit.controllers.marketplaceui;
 
 import io.orbit.App;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.VBox;
 
 import java.io.IOException;
 import java.net.URL;
@@ -18,7 +17,7 @@ public class InstalledPluginsPageController
         AnchorPane root = null;
         try
         {
-            URL url = App.class.getClassLoader().getResource("plugins_view/InstalledPluginsPage.fxml");
+            URL url = App.class.getClassLoader().getResource("marketplace_views/InstalledPluginsPage.fxml");
             if (url != null)
                 root = FXMLLoader.load(url);
         }
