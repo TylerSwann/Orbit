@@ -1,9 +1,9 @@
 package io.orbit.controllers;
 
 import io.orbit.App;
-import io.orbit.LocalUser;
-import io.orbit.OrbitFile;
-import io.orbit.UnownedProjectFile;
+import io.orbit.settings.LocalUser;
+import io.orbit.settings.OrbitFile;
+import io.orbit.settings.UnownedProjectFile;
 import io.orbit.controllers.events.ApplicationEvent;
 import io.orbit.api.event.DocumentEvent;
 import io.orbit.controllers.events.IOEvent;

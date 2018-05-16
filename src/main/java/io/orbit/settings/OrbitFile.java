@@ -1,4 +1,4 @@
-package io.orbit;
+package io.orbit.settings;
 
 import javafx.beans.value.ObservableValue;
 
@@ -14,14 +14,29 @@ import java.nio.file.Paths;
 public class OrbitFile extends File
 {
     protected ObservableValue<String> textProperty;
+    private String extension;
 
     public OrbitFile(String path)
     {
         super(path);
+        setExtension();
     }
     public OrbitFile(File physicalFile)
     {
         super(physicalFile.getPath());
+        setExtension();
+    }
+
+    private void setExtension()
+    {
+        if (this.isDirectory())
+            extension = "";
+        else
+        {
+            int index = this.getName().lastIndexOf('.');
+            if (index > 0)
+                extension = this.getName().substring(index + 1);
+        }
     }
 
     public void setTextProperty(ObservableValue<String> textProperty)
@@ -47,4 +62,6 @@ public class OrbitFile extends File
             ex.printStackTrace();
         }
     }
+
+    public String getExtension() {  return extension;  }
 }

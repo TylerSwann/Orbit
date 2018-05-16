@@ -1,8 +1,8 @@
 package io.orbit.text;
 
-import io.orbit.OrbitFile;
-import io.orbit.ProjectFile;
-import io.orbit.UnownedProjectFile;
+import io.orbit.settings.OrbitFile;
+import io.orbit.settings.ProjectFile;
+import io.orbit.settings.UnownedProjectFile;
 import io.orbit.api.EditorController;
 import io.orbit.api.LanguageDelegate;
 import io.orbit.api.PluginController;
@@ -20,7 +20,6 @@ import javafx.scene.input.KeyEvent;
 import org.fxmisc.richtext.model.PlainTextChange;
 import org.fxmisc.richtext.model.StyleSpans;
 import org.reactfx.EventStream;
-import org.reactfx.EventStreams;
 
 import java.io.File;
 import java.util.ArrayList;

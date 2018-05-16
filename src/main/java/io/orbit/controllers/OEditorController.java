@@ -2,6 +2,10 @@ package io.orbit.controllers;
 
 import io.orbit.*;
 import io.orbit.api.event.CodeEditorEvent;
+import io.orbit.settings.LocalUser;
+import io.orbit.settings.OrbitFile;
+import io.orbit.settings.ProjectData;
+import io.orbit.settings.ProjectFile;
 import io.orbit.text.TextEditorPane;
 import io.orbit.controllers.events.ApplicationEvent;
 import io.orbit.api.event.DocumentEvent;

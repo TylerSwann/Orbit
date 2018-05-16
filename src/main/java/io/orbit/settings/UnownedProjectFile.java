@@ -1,4 +1,4 @@
-package io.orbit;
+package io.orbit.settings;
 
 import java.io.File;
 

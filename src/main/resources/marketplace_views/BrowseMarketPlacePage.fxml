@@ -37,11 +37,15 @@
         </VBox>
         <ScrollPane fx:id="scrollPane" hbarPolicy="NEVER" layoutX="363.0" layoutY="344.0" prefHeight="418.0" prefWidth="531.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="140.0">
          <content>
-            <VBox fx:id="marketPlaceItemsContainer" alignment="TOP_CENTER" prefHeight="509.0" prefWidth="996.0" spacing="50.0">
-               <padding>
-                  <Insets left="100.0" right="100.0" top="50.0" />
-               </padding>
-            </VBox>
+            <AnchorPane fx:id="contentRoot" prefHeight="511.0" prefWidth="983.0">
+               <children>
+                  <VBox fx:id="marketPlaceItemsContainer" alignment="TOP_CENTER" prefHeight="509.0" prefWidth="996.0" spacing="50.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <padding>
+                        <Insets bottom="50.0" left="100.0" right="100.0" top="50.0" />
+                     </padding>
+                  </VBox>
+               </children>
+            </AnchorPane>
          </content>
         </ScrollPane>
     </children>

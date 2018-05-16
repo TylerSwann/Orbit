@@ -2,22 +2,15 @@ package io.orbit.controllers.marketplaceui;
 
 import com.jfoenix.controls.JFXButton;
 import io.orbit.ui.HyperlinkButton;
-import javafx.application.Platform;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
-import javafx.scene.control.ContentDisplay;
 import javafx.scene.control.Label;
-import javafx.scene.effect.BlurType;
-import javafx.scene.effect.DropShadow;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
-import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.TextAlignment;
 import org.kordamp.ikonli.fontawesome5.FontAwesomeSolid;
 import org.kordamp.ikonli.javafx.FontIcon;
-
 import java.net.URI;
 import java.net.URISyntaxException;
 
@@ -65,7 +58,7 @@ public class MarketPlaceItem extends VBox
         this.descriptionLabel.prefWidthProperty().bind(this.widthProperty());
 
         this.creatorNameLabel = new Label("Tyler Swann");
-        this.creatorNameLabel.setFont(new Font("Roboto Regular", 13.0));
+        this.creatorNameLabel.setFont(new Font("Roboto Regular", 15.0));
 
         double scale = 1.25;
 
@@ -121,6 +114,7 @@ public class MarketPlaceItem extends VBox
                 this.bottomInfoContainer
         );
         this.setPrefHeight(100.0);
+        this.maxWidth(950.0);
         this.getStyleClass().add("market-place-item");
     }
 

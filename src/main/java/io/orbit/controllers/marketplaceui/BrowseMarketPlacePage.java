@@ -3,13 +3,10 @@ package io.orbit.controllers.marketplaceui;
 import com.jfoenix.controls.JFXTextField;
 import io.orbit.App;
 import javafx.fxml.FXMLLoader;
-import javafx.geometry.Insets;
-import javafx.scene.control.ScrollBar;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
-
 import java.net.URL;
 
 /**
@@ -24,6 +21,7 @@ public class BrowseMarketPlacePage
     public JFXTextField searchMarketplaceField;
     public HBox headerContainer;
     public AnchorPane root;
+    public AnchorPane contentRoot;
 
     public static AnchorPane load()
     {
@@ -43,10 +41,7 @@ public class BrowseMarketPlacePage
 
     public void initialize()
     {
-        this.scrollPane.widthProperty().addListener(event -> {
-            double width = this.scrollPane.getWidth() - this.scrollPane.getViewportBounds().getWidth();
-            this.marketPlaceItemsContainer.setPrefWidth(width);
-        });
+        this.contentRoot.prefWidthProperty().bind(this.scrollPane.widthProperty());
         this.marketPlaceItemsContainer.getChildren().add(new MarketPlaceItem());
         this.marketPlaceItemsContainer.getChildren().add(new MarketPlaceItem());
         this.marketPlaceItemsContainer.getChildren().add(new MarketPlaceItem());

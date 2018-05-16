@@ -1,0 +1,82 @@
+*
+{
+    -color-base: #fdf6e3;
+    -color-active-base: #f0f7ea;
+    -color-base-light: #dfd4b1;
+    -color-base-dark: #eee8d5;
+    -color-base-very-dark: #657b83;
+    -color-accent: #009688;
+    -color-accent-light: rgba(101, 123, 131, 0.65);
+    -color-accent-blue: #638dff;
+    -color-accent-green: #26a69a;
+}
+
+
+
+/*******************************************************************************
+ *                                                                             *
+ *                        Containers / Root Background                         *
+ *                                                                             *
+ ******************************************************************************/
+.root
+{
+    -fx-background-color: -color-base;
+}
+.anchor-pane,
+.split-pane
+{
+    -fx-background-color: -color-base, -fx-control-inner-background;
+}
+.split-pane .split-pane-divider
+{
+    -fx-background-color:  -color-accent;
+    -fx-border-color: -color-accent;
+}
+
+/*******************************************************************************
+ *                                                                             *
+ *                                  Menu Bar                                   *
+ *                                                                             *
+ ******************************************************************************/
+.menu-bar
+{
+    -fx-background-color: -color-base;
+    -fx-background: -color-base;
+}
+.menu-bar .menu,
+.menu-bar .menu .label
+{
+    -fx-text-fill: -color-accent-blue;
+    -fx-font-weight: 700;
+    -fx-font-family: "Roboto";
+    -fx-font-size: 14px;
+}
+.menu-bar .menu:hover .label,
+.menu-bar .menu:focused .label,
+.menu-bar .menu:hover .label,
+.menu-bar .menu:showing .label,
+.menu-bar .menu .menu-item:pressed .label,
+.menu-bar .menu:pressed .label
+{
+    -fx-text-fill: -color-base;
+}
+.menu-bar .menu:hover,
+.menu-bar .menu:focused
+{
+    -fx-background-color: -color-accent;
+}
+.menu-bar .menu:hover,
+.menu-bar .menu:showing
+{
+    -fx-background-color: -color-accent;
+}
+.menu-bar .menu .menu-item:pressed,
+.menu-bar .menu:pressed
+{
+    -fx-background-color: -color-accent;
+}
+.ikonli-font-icon
+{
+    -fx-icon-color: -color-accent-blue;
+}
+

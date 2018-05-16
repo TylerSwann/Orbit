@@ -1,12 +1,13 @@
 package io.orbit;
 
 import io.orbit.controllers.events.ApplicationEvent;
+import io.orbit.settings.LocalUser;
+import io.orbit.settings.UserSetting;
 import io.orbit.util.JSON;
 import javafx.application.Platform;
 
 import javax.swing.JFileChooser;
 import java.io.File;
-import java.io.IOException;
 import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -27,7 +28,7 @@ public class Directory
     public static final File SYNTAX_THEMES_FOLDER = new File(String.format("%s\\themes\\syntax", APPLICATION_ROOT));
     public static final File APP_THEMES_FOLDER = new File(String.format("%s\\themes\\application", APPLICATION_ROOT));
     public static final File DEFAULT_THEME = new File(String.format("%s\\Default.css", APP_THEMES_FOLDER.getPath()));
-    public static final File DEFAULT_SYNTAX_THEME = new File(String.format("%s\\MaterialSyntax.css", SYNTAX_THEMES_FOLDER.getPath()));
+    public static final File DEFAULT_SYNTAX_THEME = new File(String.format("%s\\DefaultSyntax.css", SYNTAX_THEMES_FOLDER.getPath()));
     public static final File FONTS_FOLDER = new File(String.format("%s\\fonts", THEMES));
 
     private static boolean hasInitialized = false;
@@ -73,7 +74,7 @@ public class Directory
         {
             List<URL> syntaxThemeUrls = new ArrayList<>(Arrays.asList(
                     App.class.getClassLoader().getResource("css/MaterialDarkSyntax.css"),
-                    App.class.getClassLoader().getResource("css/MaterialSyntax.css")));
+                    App.class.getClassLoader().getResource("css/DefaultSyntax.css")));
             for (URL stylesheetUrl : syntaxThemeUrls)
                 copyFilesToFolder(stylesheetUrl, SYNTAX_THEMES_FOLDER);
         }

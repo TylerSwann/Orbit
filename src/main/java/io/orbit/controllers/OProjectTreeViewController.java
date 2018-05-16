@@ -2,14 +2,16 @@ package io.orbit.controllers;
 
 
 import io.orbit.App;
-import io.orbit.LocalUser;
-import io.orbit.ProjectFile;
+import io.orbit.settings.LocalUser;
+import io.orbit.settings.OrbitFile;
+import io.orbit.settings.ProjectFile;
 import io.orbit.api.event.CodeEditorEvent;
 import io.orbit.controllers.events.ApplicationEvent;
 import io.orbit.api.event.DocumentEvent;
 import io.orbit.controllers.events.IOEvent;
 import io.orbit.controllers.events.StatelessEventTargetObject;
 import io.orbit.controllers.events.menubar.MenuBarFileEvent;
+import io.orbit.ui.LanguageIcons;
 import io.orbit.ui.MUITreeItem;
 import io.orbit.ui.MUITreeTableView;
 import javafx.application.Platform;
@@ -20,6 +22,7 @@ import javafx.css.PseudoClass;
 import javafx.event.EventType;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
+
 import java.io.File;
 
 /**
@@ -103,7 +106,15 @@ public class OProjectTreeViewController extends StatelessEventTargetObject
                 if (newVal == null)
                     cell.setText("");
                 else
+                {
                     cell.setText(newVal);
+                    MUITreeItem<String> item = (MUITreeItem<String>) cell.getTreeItem();
+                    if (item != null && item.getUserData() != null && item.getUserData() instanceof OrbitFile)
+                    {
+                        OrbitFile file = (OrbitFile) item.getUserData();
+                        cell.setGraphic(LanguageIcons.iconForFile(file));
+                    }
+                }
             });
             this.modifiedFiles.addListener((ListChangeListener<File>) c -> {
                 MUITreeItem<String> treeItem = (MUITreeItem<String>) cell.getTreeItem();

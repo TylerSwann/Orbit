@@ -2,13 +2,11 @@ package io.orbit.controllers;
 
 import io.orbit.App;
 import io.orbit.ApplicationController;
-import io.orbit.LocalUser;
+import io.orbit.settings.LocalUser;
 import io.orbit.controllers.events.ApplicationEvent;
 import io.orbit.controllers.events.menubar.MenuBarViewEvent;
 import io.orbit.ui.MUITerminalPane;
 import javafx.application.Platform;
-import javafx.collections.ListChangeListener;
-import javafx.scene.control.SplitPane;
 import javafx.scene.layout.AnchorPane;
 
 /**

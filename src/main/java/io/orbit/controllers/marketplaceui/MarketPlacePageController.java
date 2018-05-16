@@ -7,10 +7,8 @@ import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
-import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-
 import java.io.IOException;
 import java.net.URL;
 
@@ -47,12 +45,13 @@ public class MarketPlacePageController
             ex.printStackTrace();
         }
         assert root != null;
-        Scene scene = new Scene(root, 1406.0, 802.0);
+        Scene scene = new Scene(root, 1506.0, 902.0);
         App.appTheme.sync(scene.getStylesheets());
         Stage stage = new Stage();
         stage.setScene(scene);
-        stage.setTitle("Plugins");
+        stage.setTitle("Market Place");
         stage.initStyle(StageStyle.UTILITY);
+        stage.setResizable(false);
         stage.show();
     }
     

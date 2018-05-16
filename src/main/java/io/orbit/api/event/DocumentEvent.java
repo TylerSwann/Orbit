@@ -1,11 +1,10 @@
 package io.orbit.api.event;
 
-import io.orbit.OrbitFile;
+import io.orbit.settings.OrbitFile;
 import javafx.event.Event;
 import javafx.event.EventTarget;
 import javafx.event.EventType;
 
-import java.io.File;
 import java.util.Optional;
 
 /**

@@ -1,12 +1,8 @@
-package io.orbit;
+package io.orbit.settings;
 
 import javafx.beans.value.ObservableValue;
 
 import java.io.File;
-import java.io.IOException;
-import java.nio.charset.Charset;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 
 /**
  * Created by Tyler Swann on Thursday April 12, 2018 at 13:55

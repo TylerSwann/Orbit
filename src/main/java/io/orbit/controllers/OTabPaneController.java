@@ -1,7 +1,7 @@
 package io.orbit.controllers;
 
-import io.orbit.ProjectFile;
-import io.orbit.UnownedProjectFile;
+import io.orbit.settings.ProjectFile;
+import io.orbit.settings.UnownedProjectFile;
 import io.orbit.api.event.DocumentEvent;
 import io.orbit.text.TextEditorPane;
 import io.orbit.text.OrbitEditor;

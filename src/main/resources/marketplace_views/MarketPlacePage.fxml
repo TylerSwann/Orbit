@@ -8,7 +8,7 @@
 
 <AnchorPane fx:id="root" prefHeight="802.0" prefWidth="1406.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="io.orbit.controllers.marketplaceui.MarketPlacePageController">
    <children>
-      <VBox alignment="CENTER" prefHeight="802.0" prefWidth="264.0" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="1142.0" AnchorPane.topAnchor="0.0">
+      <VBox alignment="CENTER" prefHeight="802.0" prefWidth="264.0" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <JFXButton fx:id="installedPluginsButton" prefHeight="57.0" prefWidth="244.0" styleClass="button-secondary" text="Installed Plugins">
                <font>

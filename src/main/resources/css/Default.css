@@ -95,7 +95,11 @@
 {
     -fx-background-color: rgba(235, 235, 235, 1.0);
 }
-
+.menu-bar
+{
+    -fx-background-color: white;
+    -fx-background: white;
+}
 /*******************************************************************************
  *                                                                             *
  *                                  ComboBox                                   *

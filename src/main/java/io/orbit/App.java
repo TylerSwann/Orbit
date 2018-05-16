@@ -3,6 +3,8 @@ package io.orbit;
 import io.orbit.controllers.OSplashPageController;
 import io.orbit.controllers.events.ApplicationEvent;
 import io.orbit.controllers.events.EventProperty;
+import io.orbit.settings.LocalUser;
+import io.orbit.settings.UserSetting;
 import io.orbit.util.JSON;
 import io.orbit.util.SerializableFont;
 import io.orbit.util.SyncedObservableList;
@@ -12,7 +14,6 @@ import javafx.application.Platform;
 import javafx.beans.property.ReadOnlyObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
-import javafx.concurrent.Task;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.Scene;
@@ -29,7 +30,6 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.nio.file.Paths;
 import java.util.Arrays;
-import java.util.concurrent.Executors;
 
 /**
  * Created by Tyler Swann on Friday January 05, 2018 at 16:14
@@ -47,7 +47,6 @@ public class App extends Application
 
     public void start(Stage stage)
     {
-
         stage.setTitle("Orbit");
         performInitialSetup();
         StatusLogger.getLogger().setLevel(Level.OFF);
@@ -58,9 +57,9 @@ public class App extends Application
         if (width >= screenSize.getWidth() && height >= screenSize.getHeight())
             stage.setMaximized(true);
         AnchorPane root = new AnchorPane();
-        InputStream taskbarIcon = getClass().getClassLoader().getResourceAsStream("images/taskbar-icon.png");
+        InputStream taskbarIcon = getClass().getClassLoader().getResourceAsStream("images/orbit_taskbar_icon.png");
         URL defaultCss = getClass().getClassLoader().getResource("css/Default.css");
-        URL defaultSyntax = getClass().getClassLoader().getResource("css/MaterialSyntax.css");
+        URL defaultSyntax = getClass().getClassLoader().getResource("css/DefaultSyntax.css");
         assert defaultCss != null && defaultSyntax != null && taskbarIcon != null;
         stage.getIcons().add(new Image(taskbarIcon));
         appTheme.append(defaultCss.toExternalForm());
@@ -85,6 +84,7 @@ public class App extends Application
         if (PRIMARY_STAGE == null)
             PRIMARY_STAGE = new SimpleObjectProperty<>(stage);
         loadingDemo();
+//        App.setApplicationTheme(new File(getClass().getClassLoader().getResource("css/SolarOrbit.css").getFile()));
     }
 
     private void loadingDemo()

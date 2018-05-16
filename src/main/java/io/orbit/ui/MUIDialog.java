@@ -184,8 +184,3 @@ public class MUIDialog extends PopupControl
     public Consumer<Optional<String>> getOnPrimaryClick() { return onPrimaryClick; }
     public Runnable getOnSecondaryClick() { return onSecondaryClick; }
 }
-/*
-    private Consumer<Optional<String>> onPrimaryClick = input -> {};
-    private Runnable onCancel = () -> {};
-
-* */
