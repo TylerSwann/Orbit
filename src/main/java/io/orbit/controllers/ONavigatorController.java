@@ -1,11 +1,11 @@
 package io.orbit.controllers;
 
+import com.jfoenix.controls.JFXTabPane;
 import io.orbit.App;
 import io.orbit.ApplicationController;
 import io.orbit.settings.LocalUser;
 import io.orbit.controllers.events.ApplicationEvent;
 import io.orbit.controllers.events.menubar.MenuBarViewEvent;
-import io.orbit.ui.MUITabPane;
 import javafx.application.Platform;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -22,7 +22,7 @@ import org.kordamp.ikonli.javafx.FontIcon;
  */
 public class ONavigatorController
 {
-    private MUITabPane navigatorTabPane;
+    private JFXTabPane navigatorTabPane;
     private AnchorPane container;
 
     public ONavigatorController(AnchorPane container)
@@ -59,7 +59,7 @@ public class ONavigatorController
 
     private void build()
     {
-        this.navigatorTabPane = new MUITabPane();
+        this.navigatorTabPane = new JFXTabPane();
         Tab gitTab = new Tab();
         Tab projectStructureTab = new Tab();
         FontIcon gitIcon = new FontIcon(FontAwesomeBrands.GITHUB_SQUARE);
@@ -88,7 +88,7 @@ public class ONavigatorController
         projectStructureTab.setGraphic(projectIconContainer);
         this.navigatorTabPane.setPadding(Insets.EMPTY);
         navigatorTabPane.getTabs().addAll(projectStructureTab, gitTab);
-        navigatorTabPane.getStyleClass().add("project-tab-pane");
+        navigatorTabPane.getStyleClass().add("navigator-tab-pane");
 
         AnchorPane.setTopAnchor(this.navigatorTabPane, 0.0);
         AnchorPane.setBottomAnchor(this.navigatorTabPane, 0.0);

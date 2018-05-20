@@ -1,7 +1,9 @@
 package io.orbit;
 
+import com.jfoenix.controls.JFXTabPane;
 import io.orbit.controllers.*;
 import io.orbit.ui.MUITabPane;
+import io.orbit.util.FontLoader;
 import javafx.scene.control.SplitPane;
 import javafx.scene.layout.AnchorPane;
 
@@ -33,11 +35,12 @@ public class ApplicationController
 
     public void open()
     {
+        FontLoader.loadFonts();
         this.terminalController = new OTerminalController(this.terminalContainer);
         this.menuBarController = new OMenuBarController(this.container);
         this.projectNavigatorController = new ONavigatorController(this.navigatorContainer);
         this.projectTreeViewController = new OProjectTreeViewController();
-        this.tabPaneController = new OTabPaneController(new MUITabPane(), this.editorContainer);
+        this.tabPaneController = new OTabPaneController(new JFXTabPane(), this.editorContainer);
         this.editorController = new OEditorController(this.tabPaneController.getTabPane());
         this.statusBarController = new OStatusBarController(this.container);
         this.rootSplitPane.widthProperty().addListener(event -> this.rootSplitPane.getDividers().forEach(div -> div.setPosition(0.1911)));

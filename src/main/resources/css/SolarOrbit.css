@@ -12,7 +12,6 @@
 }
 
 
-
 /*******************************************************************************
  *                                                                             *
  *                        Containers / Root Background                         *
@@ -47,8 +46,7 @@
 .menu-bar .menu .label
 {
     -fx-text-fill: -color-accent-blue;
-    -fx-font-weight: 700;
-    -fx-font-family: "Roboto";
+    -fx-font-family: "Raleway SemiBold";
     -fx-font-size: 14px;
 }
 .menu-bar .menu:hover .label,
@@ -80,3 +78,240 @@
     -fx-icon-color: -color-accent-blue;
 }
 
+/*******************************************************************************
+ *                                                                             *
+ *                                  TabPanes                                   *
+ *                                                                             *
+ ******************************************************************************/
+
+/*******************************************************************************
+ *                                                                             *
+ *                           Navigator Tab Pane                                *
+ *                                                                             *
+ *       (TabPane that contains all files and directories in the project)      *
+ *                                                                             *
+ *******************************************************************************/
+
+.navigator-tab-pane .ikonli-font-icon
+{
+    -fx-icon-color: -color-accent-blue;
+}
+.navigator-tab-pane
+{
+    -fx-background-color: -color-base;
+}
+.navigator-tab-pane .headers-region
+{
+    /* Background of tab bar */
+    -fx-background-color: -color-base;
+}
+.navigator-tab-pane .tab-header-background
+{
+    /* Background of the tabs */
+    -fx-background-color: -color-base;
+}
+.navigator-tab-pane .tab-selected-line
+{   /* Color of line under selected tab */
+    -fx-background-color: -color-accent-blue;
+}
+
+.navigator-tab-pane .tab .tab-label
+{
+    -fx-text-fill: -color-accent-blue;
+    -fx-opacity: 0.5;
+}
+
+.navigator-tab-pane .tab:selected .tab-label
+{
+    -fx-text-fill: -color-accent-blue;
+    -fx-opacity: 1.0;
+}
+
+/*******************************************************************************
+ *                                                                             *
+ *                              Project Tab Pane                               *
+ *                                                                             *
+ *               (TabPane the contains currently open files)                   *
+ *                                                                             *
+ *******************************************************************************/
+
+.project-tab-pane .ikonli-font-icon
+{
+    -fx-icon-color: -color-accent-blue;
+}
+.project-tab-pane
+{
+    -fx-background-color: -color-base;
+}
+.project-tab-pane .headers-region
+{
+    /* Background of tab bar */
+    -fx-background-color: -color-base;
+}
+.project-tab-pane .tab-header-background
+{
+    /* Background of the tabs */
+    -fx-background-color: -color-base;
+}
+.project-tab-pane .tab-selected-line
+{   /* Color of line under selected tab */
+    -fx-background-color: -color-accent-blue;
+}
+
+.project-tab-pane .tab .tab-label
+{
+    -fx-text-fill: -color-accent-blue;
+    -fx-opacity: 0.5;
+}
+
+.project-tab-pane .tab:selected .tab-label
+{
+    -fx-text-fill: -color-accent-blue;
+    -fx-opacity: 1.0;
+}
+
+
+/*******************************************************************************
+ *                                                                             *
+ *                                  TreeViews                                  *
+ *                                                                             *
+ ******************************************************************************/
+.tree-cell
+{
+    -fx-padding: 0.9em 0.0em 0.9em 0.4em;
+}
+.tree-view
+{
+    -fx-background-color: -color-base, -fx-control-inner-background;
+}
+
+.tree-view .tree-cell,
+.tree-view .tree-cell:focused
+{
+    -fx-background-color: -color-base;
+    -fx-text-fill: black;
+    -fx-font: 15px "Raleway Semibold";
+}
+
+.tree-view .tree-cell:highlighted
+{
+    -fx-font: 15px "Raleway Bold";
+}
+
+.tree-view:focused
+{
+    -fx-background-color: -color-base;
+}
+
+.tree-view .tree-cell:empty:hover
+{
+    -fx-background-color: -color-base;
+}
+
+.tree-view .tree-cell:hover
+{
+    -fx-background-color: -fx-box-border, -color-base-dark;
+}
+
+.tree-view .tree-cell:filled:selected:hover
+{
+    -fx-background-color: -fx-box-border, -color-base-dark;
+}
+
+.tree-view:focused .tree-cell:focused
+{
+    -fx-background-color: -fx-box-border, -color-base;
+}
+
+.tree-view:focused .tree-cell:focused:hover
+{
+    -fx-background-color: -fx-box-border,-color-base-light;
+}
+
+.tree-view:focused .tree-cell:filled:focused:selected,
+.tree-view:focused .tree-cell:filled:focused:selected:hover
+{
+    -fx-background-color: -fx-box-border, -color-base-light;
+}
+
+.tree-cell:filled:selected:focused, .tree-cell:filled:selected
+{
+    -fx-background-color: -fx-box-border, -color-base-light;
+}
+
+.tree-cell .tree-disclosure-node .arrow
+{
+    -fx-background-color: -fx-mark-highlight-color, black;
+}
+
+.tree-cell:filled:hover .tree-disclosure-node .arrow
+{
+    -fx-background-color: -fx-mark-highlight-color, white;
+}
+
+.tree-view .corner
+{
+    -fx-background-color: -color-base;
+    -fx-border-color: -color-base;
+    -fx-background: -color-base;
+}
+
+
+
+/*******************************************************************************
+ *                                                                             *
+ *                               Context Menus                                 *
+ *                                                                             *
+ ******************************************************************************/
+
+.context-menu
+{
+    -fx-background-color: -color-active-base;
+    -fx-background-radius: 2px;
+    -fx-padding: 0px;
+}
+
+.context-menu .menu .menu-item, .context-menu .menu-item
+{
+    -fx-padding: 15px 25px 5px 20px;
+}
+
+.context-menu .menu .menu-item .label,
+.context-menu .menu-item .label
+{
+    -fx-text-fill: black;
+    -fx-fill: black;
+    -fx-font-family: "Raleway SemiBold";
+    -fx-font-size: 14px;
+}
+
+.context-menu .menu .menu-item:focused, .context-menu .menu-item:focused
+{
+    -fx-background-color: -color-base-light;
+}
+.context-menu .menu .menu-item:focused .label, .context-menu .menu-item:focused .label
+{
+    -fx-text-fill: black;
+}
+
+.context-menu .menu .menu-item:focused .label, .context-menu .menu-item:focused .label
+{
+    -fx-text-fill: black;
+}
+
+.context-menu:showing .menu-item .label
+{
+    -fx-text-fill: black;
+}
+.context-menu .menu .label
+{
+    -fx-text-fill: black;
+    -fx-font-weight: 800;
+    -fx-font-size: 12px;
+}
+.context-menu .menu .menu-item:pressed,
+.context-menu .menu:pressed,
+.context-menu .menu-item:pressed
+{
+    -fx-background-color: -color-base-dark;
+}

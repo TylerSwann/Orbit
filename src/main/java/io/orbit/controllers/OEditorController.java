@@ -1,5 +1,6 @@
 package io.orbit.controllers;
 
+import com.jfoenix.controls.JFXTabPane;
 import io.orbit.*;
 import io.orbit.api.event.CodeEditorEvent;
 import io.orbit.settings.LocalUser;
@@ -30,12 +31,12 @@ import java.util.*;
 public class OEditorController extends StatelessEventTargetObject
 {
     private ProjectFile previouslyOpenedDocument;
-    private MUITabPane tabPane;
+    private JFXTabPane tabPane;
     public static final ObservableList<OrbitEditor> OPEN_EDITORS = FXCollections.observableArrayList();
     private static final SimpleObjectProperty<OrbitEditor> ACTIVE_EDITOR = new SimpleObjectProperty<>();
     public static final OrbitEditor getActiveEditor() { return ACTIVE_EDITOR.get(); }
 
-    public OEditorController(MUITabPane tabPane)
+    public OEditorController(JFXTabPane tabPane)
     {
         this.tabPane = tabPane;
         App.appEventsProperty.addEventListener(ApplicationEvent.WILL_CLOSE, event -> this.saveUserSettings());

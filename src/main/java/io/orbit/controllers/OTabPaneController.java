@@ -1,5 +1,6 @@
 package io.orbit.controllers;
 
+import com.jfoenix.controls.JFXTabPane;
 import io.orbit.settings.ProjectFile;
 import io.orbit.settings.UnownedProjectFile;
 import io.orbit.api.event.DocumentEvent;
@@ -18,9 +19,9 @@ import java.io.File;
  */
 public class OTabPaneController
 {
-    private MUITabPane tabPane;
+    private JFXTabPane tabPane;
 
-    public OTabPaneController(MUITabPane tabPane, AnchorPane container)
+    public OTabPaneController(JFXTabPane tabPane, AnchorPane container)
     {
         AnchorPane.setRightAnchor(tabPane, 0.0);
         AnchorPane.setLeftAnchor(tabPane, 0.0);
@@ -28,8 +29,8 @@ public class OTabPaneController
         AnchorPane.setBottomAnchor(tabPane, 0.0);
         container.getChildren().add(tabPane);
         tabPane.setDisableAnimation(true);
+        tabPane.getStyleClass().add("project-tab-pane");
         this.tabPane = tabPane;
-
     }
 
     public void openTab(ProjectFile projectFile)
@@ -119,5 +120,5 @@ public class OTabPaneController
         tab.setContextMenu(contextMenu);
     }
 
-    public MUITabPane getTabPane() { return tabPane; }
+    public JFXTabPane getTabPane() { return tabPane; }
 }
