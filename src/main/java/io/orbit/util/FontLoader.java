@@ -14,15 +14,6 @@ public class FontLoader
 
     public static void loadFonts()
     {
-//        URL ralewayBlackURL = App.class.getClassLoader().getResource("fonts/raleway/Raleway-Black.ttf");
-//        URL ralewayBoldURL = App.class.getClassLoader().getResource("fonts/raleway/Raleway-Bold.ttf");
-//        URL ralewayExtraBoldURL = App.class.getClassLoader().getResource("fonts/raleway/Raleway-ExtraBold.ttf");
-//        URL ralewaySemiBoldURL = App.class.getClassLoader().getResource("fonts/raleway/Raleway-SemiBold.ttf");
-//        URL ralewayMediumURL = App.class.getClassLoader().getResource("fonts/raleway/Raleway-Medium.ttf");
-//        URL ralewayRegularURL = App.class.getClassLoader().getResource("fonts/raleway/Raleway-Regular.ttf");
-//        URL ralewayLightURL = App.class.getClassLoader().getResource("fonts/raleway/Raleway-Light.ttf");
-//        URL ralewayExtraLightURL = App.class.getClassLoader().getResource("fonts/raleway/Raleway-ExtraLight.ttf");
-//        URL ralewayThinURL = App.class.getClassLoader().getResource("fonts/raleway/Raleway-Thin.ttf");
         URL[] ralewayFonts = new URL[]{
                 App.class.getClassLoader().getResource("fonts/raleway/Raleway-Black.ttf"),
                 App.class.getClassLoader().getResource("fonts/raleway/Raleway-Bold.ttf"),

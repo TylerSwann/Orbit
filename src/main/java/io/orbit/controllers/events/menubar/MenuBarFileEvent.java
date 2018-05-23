@@ -22,6 +22,7 @@ public class MenuBarFileEvent extends Event
 
     public Optional<OrbitFile> selectedFile = Optional.empty();
 
+
     public MenuBarFileEvent(EventType<? extends Event> eventType, OrbitFile selectedFile)
     {
         this(null, null, eventType);

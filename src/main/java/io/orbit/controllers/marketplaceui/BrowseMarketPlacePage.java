@@ -41,14 +41,7 @@ public class BrowseMarketPlacePage
 
     public void initialize()
     {
+        MarketplaceLoader.load(items -> items.forEach(item -> this.marketPlaceItemsContainer.getChildren().add(new MarketPlaceItem(item))));
         this.contentRoot.prefWidthProperty().bind(this.scrollPane.widthProperty());
-        this.marketPlaceItemsContainer.getChildren().add(new MarketPlaceItem());
-        this.marketPlaceItemsContainer.getChildren().add(new MarketPlaceItem());
-        this.marketPlaceItemsContainer.getChildren().add(new MarketPlaceItem());
-        this.marketPlaceItemsContainer.getChildren().add(new MarketPlaceItem());
-        this.marketPlaceItemsContainer.getChildren().add(new MarketPlaceItem());
-        this.marketPlaceItemsContainer.getChildren().add(new MarketPlaceItem());
-        this.marketPlaceItemsContainer.getChildren().add(new MarketPlaceItem());
-
     }
 }

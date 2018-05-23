@@ -22,12 +22,22 @@
                         <Font name="Roboto Black" size="15.0" />
                      </font>
                   </Label>
-                  <Label alignment="CENTER" prefHeight="55.0" prefWidth="434.0" styleClass="even" text="Save all documents in project">
+                  <Label alignment="CENTER" prefHeight="55.0" prefWidth="434.0" styleClass="even" text="Save All">
                      <font>
                         <Font name="Roboto Medium" size="14.0" />
                      </font>
                   </Label>
-                  <Label alignment="CENTER" prefHeight="55.0" prefWidth="418.0" styleClass="uneven" text="Show find and replace">
+                  <Label alignment="CENTER" prefHeight="55.0" prefWidth="418.0" styleClass="uneven" text="Save">
+                     <font>
+                        <Font name="Roboto Medium" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefHeight="55.0" prefWidth="418.0" styleClass="even" text="Find">
+                     <font>
+                        <Font name="Roboto Medium" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefHeight="55.0" prefWidth="418.0" styleClass="uneven" text="Find and Replace">
                      <font>
                         <Font name="Roboto Medium" size="14.0" />
                      </font>
@@ -43,12 +53,12 @@
                   </Label>
                   <HBox alignment="CENTER" prefHeight="55.0" prefWidth="300.0" spacing="10.0" styleClass="even">
                      <children>
-                        <JFXButton fx:id="saveAllPrimary" prefHeight="50.0" prefWidth="75.0" styleClass="button-secondary" text="Control">
+                        <JFXButton fx:id="saveAllPrimary" prefHeight="50.0" prefWidth="75.0" styleClass="button-secondary" text="Ctrl">
                            <font>
                               <Font name="Roboto Bold" size="14.0" />
                            </font>
                         </JFXButton>
-                        <JFXButton fx:id="saveAllSecondary" prefHeight="50.0" prefWidth="75.0" styleClass="button-secondary" text="S">
+                        <JFXButton fx:id="saveAllSecondary" prefHeight="50.0" prefWidth="75.0" styleClass="button-secondary" text="A">
                            <font>
                               <Font name="Roboto Bold" size="14.0" />
                            </font>
@@ -57,7 +67,35 @@
                   </HBox>
                   <HBox alignment="CENTER" prefHeight="55.0" prefWidth="300.0" spacing="10.0" styleClass="uneven">
                      <children>
-                        <JFXButton fx:id="findAndRPrimary" prefHeight="50.0" prefWidth="75.0" styleClass="button-secondary" text="Control">
+                        <JFXButton fx:id="savePrimary" prefHeight="50.0" prefWidth="75.0" styleClass="button-secondary" text="Ctrl">
+                           <font>
+                              <Font name="Roboto Bold" size="14.0" />
+                           </font>
+                        </JFXButton>
+                        <JFXButton fx:id="saveSecondary" prefHeight="50.0" prefWidth="75.0" styleClass="button-secondary" text="S">
+                           <font>
+                              <Font name="Roboto Bold" size="14.0" />
+                           </font>
+                        </JFXButton>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="55.0" prefWidth="300.0" spacing="10.0" styleClass="even">
+                     <children>
+                        <JFXButton fx:id="findPrimary" prefHeight="50.0" prefWidth="75.0" styleClass="button-secondary" text="Ctrl">
+                           <font>
+                              <Font name="Roboto Bold" size="14.0" />
+                           </font>
+                        </JFXButton>
+                        <JFXButton fx:id="findSecondary" prefHeight="50.0" prefWidth="75.0" styleClass="button-secondary" text="F">
+                           <font>
+                              <Font name="Roboto Bold" size="14.0" />
+                           </font>
+                        </JFXButton>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="55.0" prefWidth="300.0" spacing="10.0" styleClass="uneven">
+                     <children>
+                        <JFXButton fx:id="findAndRPrimary" prefHeight="50.0" prefWidth="75.0" styleClass="button-secondary" text="Ctrl">
                            <font>
                               <Font name="Roboto Bold" size="14.0" />
                            </font>

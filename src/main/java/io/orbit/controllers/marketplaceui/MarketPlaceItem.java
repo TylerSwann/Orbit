@@ -5,6 +5,7 @@ import io.orbit.ui.HyperlinkButton;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Label;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
@@ -24,11 +25,9 @@ public class MarketPlaceItem extends VBox
     private Label descriptionLabel;
     private Label creatorNameLabel;
     private Label downloadsLabel;
-    private HyperlinkButton visitWebsiteButton;
     private URI websiteURL;
-    private JFXButton installButton;
 
-    public MarketPlaceItem()
+    public MarketPlaceItem(MarketPlaceItemData data)
     {
         try
         {
@@ -36,36 +35,36 @@ public class MarketPlaceItem extends VBox
         }
         catch (URISyntaxException ex)
         {
-            System.out.println("ERROR Invalid URI format for MarketPlaceItem");
+            System.out.println("ERROR Invalid URI format for MarketPlaceItemData");
             ex.printStackTrace();
         }
         this.setAlignment(Pos.CENTER);
         this.setSpacing(30.0);
         this.setPadding(new Insets(20.0));
 
-        this.downloadsLabel = new Label(String.valueOf(123));
+        this.downloadsLabel = new Label(String.valueOf(data.getDownloads()));
         this.downloadsLabel.setFont(new Font("Roboto Light", 15.0));
 
-        this.titleLabel = new Label("Plugin Title");
+        this.titleLabel = new Label(data.getTitle());
         this.titleLabel.setFont(new Font("Roboto Black", 23.0));
         this.titleLabel.setAlignment(Pos.CENTER_LEFT);
         this.titleLabel.setTextAlignment(TextAlignment.LEFT);
 
-        this.descriptionLabel = new Label("Description Label");
+        this.descriptionLabel = new Label(data.getDescription());
         this.descriptionLabel.setFont(new Font("Roboto Light Italic", 16.0));
         this.descriptionLabel.setAlignment(Pos.CENTER_LEFT);
         this.descriptionLabel.setTextAlignment(TextAlignment.LEFT);
         this.descriptionLabel.prefWidthProperty().bind(this.widthProperty());
 
         this.creatorNameLabel = new Label("Tyler Swann");
-        this.creatorNameLabel.setFont(new Font("Roboto Regular", 15.0));
+        this.creatorNameLabel.setFont(new Font("Roboto Regular", 18.0));
 
         double scale = 1.25;
 
-        this.installButton = new JFXButton("INSTALL", new FontIcon(FontAwesomeSolid.DOWNLOAD));
-        this.installButton.getStyleClass().addAll("button-primary", "install-button");
-        this.installButton.setPadding(new Insets(8.0, 8.0, 8.0, 8.0));
-        this.installButton.setPrefSize(100.0, 36.0);
+        JFXButton installButton = new JFXButton("INSTALL", new FontIcon(FontAwesomeSolid.DOWNLOAD));
+        installButton.getStyleClass().addAll("button-primary", "install-button");
+        installButton.setPadding(new Insets(8.0, 8.0, 8.0, 8.0));
+        installButton.setPrefSize(100.0, 36.0);
 
         this.bottomInfoContainer = new HBox();
         this.bottomInfoContainer.setAlignment(Pos.CENTER);
@@ -77,14 +76,17 @@ public class MarketPlaceItem extends VBox
         FontIcon visitIcon = new FontIcon(FontAwesomeSolid.EXTERNAL_LINK_ALT);
         visitIcon.setScaleX(scale);
         visitIcon.setScaleY(scale);
-        this.visitWebsiteButton = new HyperlinkButton("Visit Website", visitIcon, this.websiteURL);
-        this.visitWebsiteButton.getStyleClass().add("button-secondary");
-
+        HyperlinkButton visitWebsiteButton = new HyperlinkButton("Visit Website", visitIcon, this.websiteURL);
+        visitWebsiteButton.getStyleClass().add("button-secondary");
+        ImageView userImage = new ImageView(data.getUserImage());
+        userImage.setPreserveRatio(true);
+        userImage.setFitWidth(30.0);
+        userImage.setFitHeight(30.0);
 
         HBox headerInfoContainer = new HBox();
         headerInfoContainer.setAlignment(Pos.CENTER_RIGHT);
         headerInfoContainer.setSpacing(10.0);
-        headerInfoContainer.getChildren().addAll(downloadIcon, this.downloadsLabel, this.visitWebsiteButton);
+        headerInfoContainer.getChildren().addAll(downloadIcon, this.downloadsLabel, visitWebsiteButton);
 
         HBox headerContainer = new HBox();
         headerContainer.setAlignment(Pos.CENTER);
@@ -92,7 +94,7 @@ public class MarketPlaceItem extends VBox
 
         HBox leftInfoContainer = new HBox();
         leftInfoContainer.setSpacing(20.0);
-        leftInfoContainer.getChildren().addAll(this.creatorNameLabel);
+        leftInfoContainer.getChildren().addAll(userImage, this.creatorNameLabel);
         leftInfoContainer.setAlignment(Pos.CENTER_LEFT);
 
         HBox rightInfoContainer = new HBox();

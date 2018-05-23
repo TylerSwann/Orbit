@@ -1,8 +1,7 @@
-package io.orbit;
+package io.orbit.settings;
 
+import io.orbit.App;
 import io.orbit.controllers.events.ApplicationEvent;
-import io.orbit.settings.LocalUser;
-import io.orbit.settings.UserSetting;
 import io.orbit.util.JSON;
 import javafx.application.Platform;
 

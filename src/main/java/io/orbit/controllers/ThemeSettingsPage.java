@@ -5,7 +5,7 @@ import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXSlider;
 import com.jfoenix.controls.JFXTextField;
 import io.orbit.App;
-import io.orbit.Directory;
+import io.orbit.settings.Directory;
 import io.orbit.settings.LocalUser;
 import io.orbit.settings.UserSetting;
 import io.orbit.util.SerializableFont;

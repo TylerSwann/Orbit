@@ -1,6 +1,5 @@
 package io.orbit.settings;
 
-import io.orbit.Directory;
 import io.orbit.util.SerializableFont;
 import io.orbit.util.Size;
 import javafx.beans.property.ObjectProperty;

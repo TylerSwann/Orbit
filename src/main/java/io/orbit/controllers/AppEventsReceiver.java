@@ -35,10 +35,9 @@ import java.util.function.Consumer;
 public class AppEventsReceiver
 {
     private static final DataFormat FILE_PATH = new DataFormat("file/path");
-
-    private static SettingsWindow settingsWindow;
     private OStatusBarController statusBarController;
     private Clipboard clipboard;
+    private SettingsWindow settingsWindow;
 
     public AppEventsReceiver()
     {
@@ -63,12 +62,23 @@ public class AppEventsReceiver
         menuBarController.addEventHandler(MenuBarViewEvent.PLUGINS, event -> Platform.runLater(MarketPlacePageController::show));
         menuBarController.addEventHandler(MenuBarFileEvent.SETTINGS, event -> this.showSettingsPage());
         menuBarController.addEventHandler(MenuBarEditEvent.FIND, event -> this.showFindAndReplaceDialog());
+        menuBarController.addEventHandler(MenuBarFileEvent.SAVE_ALL, event -> this.saveAll());
+        menuBarController.addEventHandler(MenuBarFileEvent.SAVE, event -> event.selectedFile.ifPresent(this::saveFile));
         App.appEventsProperty.addEventListener(ApplicationEvent.WILL_CLOSE, event -> this.saveWindowSizeToSettings());
-        editorController.addEventHandler(DocumentEvent.SAVE_FILE, event -> event.getSourceFile().ifPresent(file -> event.getContents().ifPresent(source -> this.saveFile(file, source))));
+        editorController.addEventHandler(DocumentEvent.SAVE_FILE, event -> event.getSourceFile().ifPresent(this::saveFile));
+        editorController.addEventHandler(DocumentEvent.SAVE_ALL, event -> this.saveAll());
         editorController.addEventHandler(DocumentEvent.SAVE_NON_PROJECT_FILE, event -> event.getSourceFile().ifPresent(this::saveNonProjectFile));
 
     }
-
+/*
+            menuBarController.addEventHandler(MenuBarFileEvent.SAVE_ALL, event -> {
+                this.getOpenProjectFiles().forEach(projectFile -> {
+                    if (projectFile.wasModified())
+                        projectFile.save();
+                });
+                App.applicationController().getStatusBarController().showSnackBarMessage("Saved All!", 2000);
+            });
+* */
     private void showFindAndReplaceDialog()
     {
         TextEditorPane pane = (TextEditorPane) App.applicationController()
@@ -76,21 +86,21 @@ public class AppEventsReceiver
                 .getTabPane()
                 .getSelectionModel()
                 .getSelectedItem().getContent();
-        pane.showFindAndReplaceDialog();
+        pane.showFindAndReplaceDialog(false);
     }
 
     private void showSettingsPage()
     {
-        if (settingsWindow == null)
-        {
-            Setting themeAndFonts = new Setting("Themes and Fonts", ThemeSettingsPage.load());
-            Setting editorSettings = new Setting("Editor", new Setting[]{
-                    new Setting("Key Bindings", KeyBindingsPageController.load())
-            });
-            settingsWindow = new SettingsWindow(new Setting[]{ themeAndFonts, editorSettings });
-            ThemeSettingsPage.CONTROLLER.setOnEditSyntaxTheme(this::openSyntaxThemeFile);
-            ThemeSettingsPage.CONTROLLER.setOnEditUITheme(this::openUIThemeFile);
-        }
+        if (settingsWindow != null)
+            return;
+        Setting themeAndFonts = new Setting("Themes and Fonts", ThemeSettingsPage.load());
+        Setting editorSettings = new Setting("Editor", new Setting[]{
+                new Setting("Key Bindings", KeyBindingsPageController.load())
+        });
+        settingsWindow = new SettingsWindow(new Setting[]{ themeAndFonts, editorSettings });
+        ThemeSettingsPage.CONTROLLER.setOnEditSyntaxTheme(this::openSyntaxThemeFile);
+        ThemeSettingsPage.CONTROLLER.setOnEditUITheme(this::openUIThemeFile);
+        settingsWindow.setOnCloseRequest(event -> settingsWindow = null);
         settingsWindow.show();
     }
 
@@ -291,6 +301,21 @@ public class AppEventsReceiver
             alert("ERROR", String.format("Couldn't save file at path %s", file.getPath()));
             ex.printStackTrace();
         }
+    }
+
+    private void saveFile(OrbitFile file)
+    {
+        file.save();
+        this.statusBarController.showSnackBarMessage(String.format("Saved %s!", file.getName()), 500);
+    }
+
+    private void saveAll()
+    {
+        App.applicationController().getEditorController().getOpenProjectFiles().forEach(file -> {
+            if (file.wasModified())
+                file.save();
+        });
+        this.statusBarController.showSnackBarMessage("Saved All!", 500);
     }
 
     private void saveWindowSizeToSettings()

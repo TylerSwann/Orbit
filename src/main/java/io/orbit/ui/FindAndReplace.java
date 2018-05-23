@@ -16,6 +16,7 @@ import javafx.scene.control.IndexRange;
 import javafx.scene.control.PopupControl;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
@@ -68,11 +69,17 @@ public class FindAndReplace
     private final RequiredFieldValidator noMatchesValidator = new RequiredFieldValidator();
     private VirtualizedScrollPane<CodeEditor> scrollPane;
     private boolean replaceIsShowing = true;
-    private Consumer<Boolean> onReplaceDialogChange = shouldShowReplaceDialog -> {};
     public static FindAndReplace controller;
+    public Mode mode = Mode.FIND;
+
+    public enum Mode
+    {
+        FIND,
+        FIND_REPLACE
+    }
 
 
-    public static VBox load(CodeEditor editor, VirtualizedScrollPane<CodeEditor> scrollPane)
+    public static VBox load(CodeEditor editor, boolean withReplaceShowing, VirtualizedScrollPane<CodeEditor> scrollPane)
     {
         try
         {
@@ -83,7 +90,7 @@ public class FindAndReplace
             controller = loader.getController();
             controller.editor = (OrbitEditor) editor;
             controller.scrollPane = scrollPane;
-            controller.registerListeners();
+            controller.registerListeners(withReplaceShowing);
             return root;
         }
         catch (Exception ex) {  ex.printStackTrace(); }
@@ -118,6 +125,45 @@ public class FindAndReplace
         this.previousButton.getGraphic().setScaleX(scaleX);
         this.closeButton.getGraphic().setScaleY(scaleY);
         this.closeButton.getGraphic().setScaleX(scaleX);
+        regexValidator.setMessage("Invalid Regex Pattern");
+        noMatchesValidator.setMessage("No Matches Found!");
+    }
+
+    public void toggleReplacePane()
+    {
+        if (this.replaceIsShowing)
+        {
+            mode = Mode.FIND;
+            this.root.getChildren().remove(this.replacePane);
+            this.root.setPrefHeight(this.root.getPrefHeight() / 2.0);
+            this.dropDownButton.setGraphic(new FontIcon(FontAwesomeSolid.ARROW_RIGHT));
+        }
+        else
+        {
+            mode = Mode.FIND_REPLACE;
+            this.root.setPrefHeight(this.root.getPrefHeight() * 2.0);
+            this.root.getChildren().add(this.replacePane);
+            this.dropDownButton.setGraphic(new FontIcon(FontAwesomeSolid.ARROW_DOWN));
+        }
+        this.dropDownButton.getGraphic().setScaleY(1.50);
+        this.dropDownButton.getGraphic().setScaleX(1.50);
+        this.replaceIsShowing = !this.replaceIsShowing;
+    }
+
+    private void registerListeners(boolean withReplaceShowing)
+    {
+
+         this.subscription = this.searchTextChange
+                                 .successionEnds(Duration.ofMillis(500))
+                                 .subscribe(text -> {
+                                     if (!this.search.getValidators().isEmpty())
+                                         this.search.getValidators().clear();
+                                     this.find(text);
+                                 });
+         this.search.addEventHandler(KeyEvent.KEY_PRESSED, event -> {
+             if (event.getCode() == KeyCode.BACK_SPACE)
+                 this.editor.forceReHighlighting();
+         });
         this.closeButton.setOnAction(event -> {
             this.editor.forceReHighlighting();
             this.subscription.unsubscribe();
@@ -137,7 +183,10 @@ public class FindAndReplace
         });
         this.dropDownButton.setOnAction(event -> {
             this.toggleReplacePane();
-            this.onReplaceDialogChange.accept(this.replaceIsShowing);
+            if (replaceIsShowing)
+                AnchorPane.setTopAnchor(scrollPane, 88.0);
+            else
+                AnchorPane.setTopAnchor(scrollPane, 50.0);
         });
         this.replaceButton.setOnAction(event -> {
             if (!this.replaceIsShowing)
@@ -152,42 +201,8 @@ public class FindAndReplace
             while (this.matchRanges.size() > 0)
                 this.replace(this.matchRanges.get(0));
         });
-        regexValidator.setMessage("Invalid Regex Pattern");
-        noMatchesValidator.setMessage("No Matches Found!");
-    }
-
-    private void toggleReplacePane()
-    {
-        if (this.replaceIsShowing)
-        {
-            this.root.getChildren().remove(this.replacePane);
-            this.root.setPrefHeight(this.root.getPrefHeight() / 2.0);
-            this.dropDownButton.setGraphic(new FontIcon(FontAwesomeSolid.ARROW_RIGHT));
-        }
-        else
-        {
-            this.root.setPrefHeight(this.root.getPrefHeight() * 2.0);
-            this.root.getChildren().add(this.replacePane);
-            this.dropDownButton.setGraphic(new FontIcon(FontAwesomeSolid.ARROW_DOWN));
-        }
-        this.dropDownButton.getGraphic().setScaleY(1.50);
-        this.dropDownButton.getGraphic().setScaleX(1.50);
-        this.replaceIsShowing = !this.replaceIsShowing;
-    }
-
-    private void registerListeners()
-    {
-         this.subscription = this.searchTextChange
-                                 .successionEnds(Duration.ofMillis(500))
-                                 .subscribe(text -> {
-                                     if (!this.search.getValidators().isEmpty())
-                                         this.search.getValidators().clear();
-                                     this.find(text);
-                                 });
-         this.search.addEventHandler(KeyEvent.KEY_PRESSED, event -> {
-             if (event.getCode() == KeyCode.BACK_SPACE)
-                 this.editor.forceReHighlighting();
-         });
+        if (withReplaceShowing)
+            toggleReplacePane();
     }
 
     private void replace(IndexRange range)
@@ -287,11 +302,5 @@ public class FindAndReplace
     {
         Objects.requireNonNull(closeRequest);
         this.onCloseRequest = closeRequest;
-    }
-
-    public void setOnReplaceDialogChange(Consumer<Boolean> onReplaceDialogChange)
-    {
-        Objects.requireNonNull(onReplaceDialogChange);
-        this.onReplaceDialogChange = onReplaceDialogChange;
     }
 }

@@ -3,6 +3,7 @@ package io.orbit;
 import io.orbit.controllers.OSplashPageController;
 import io.orbit.controllers.events.ApplicationEvent;
 import io.orbit.controllers.events.EventProperty;
+import io.orbit.settings.Directory;
 import io.orbit.settings.LocalUser;
 import io.orbit.settings.UserSetting;
 import io.orbit.util.JSON;
@@ -84,7 +85,7 @@ public class App extends Application
         if (PRIMARY_STAGE == null)
             PRIMARY_STAGE = new SimpleObjectProperty<>(stage);
         loadingDemo();
-        App.setApplicationTheme(new File(getClass().getClassLoader().getResource("css/SolarOrbit.css").getFile()));
+//        App.setApplicationTheme(new File(getClass().getClassLoader().getResource("css/SolarOrbit.css").getFile()));
     }
 
     private void loadingDemo()

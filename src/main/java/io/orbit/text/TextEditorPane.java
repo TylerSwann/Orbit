@@ -15,7 +15,7 @@ public class TextEditorPane extends AnchorPane
 {
     private VirtualizedScrollPane<CodeEditor> scrollPane;
     private CodeEditor editor;
-    private boolean findAndReplaceIsShowing = false;
+    private FindAndReplace findAndReplace;
 
     public TextEditorPane(CodeEditor editor)
     {
@@ -31,27 +31,38 @@ public class TextEditorPane extends AnchorPane
 
     private void registerListeners()
     {
-        this.editor.addEventHandler(DocumentEvent.FIND_AND_REPLACE, event -> this.showFindAndReplaceDialog());
+        this.editor.addEventHandler(DocumentEvent.FIND_AND_REPLACE, event -> this.showFindAndReplaceDialog(true));
+        this.editor.addEventHandler(DocumentEvent.FIND, event -> this.showFindAndReplaceDialog(false));
     }
 
-    public void showFindAndReplaceDialog()
+    public void showFindAndReplaceDialog(boolean withReplaceShowing)
     {
-        if (findAndReplaceIsShowing)
+        if (findAndReplace != null )
+        {
+            if (findAndReplace.mode == FindAndReplace.Mode.FIND && withReplaceShowing)
+            {
+                findAndReplace.toggleReplacePane();
+                AnchorPane.setTopAnchor(scrollPane, 88.0);
+            }
+            else if (findAndReplace.mode == FindAndReplace.Mode.FIND_REPLACE && !withReplaceShowing)
+            {
+                findAndReplace.toggleReplacePane();
+                AnchorPane.setTopAnchor(scrollPane, 50.0);
+            }
+        }
+        if (findAndReplace != null)
             return;
-        findAndReplaceIsShowing = true;
-        VBox findAndReplacePane = FindAndReplace.load(editor, this.scrollPane);
+        VBox findAndReplacePane = FindAndReplace.load(editor, withReplaceShowing, this.scrollPane);
+        this.findAndReplace = FindAndReplace.controller;
         FindAndReplace.controller.setOnCloseRequest( () -> {
-            findAndReplaceIsShowing = false;
+            this.findAndReplace = null;
             this.getChildren().remove(0);
             AnchorPane.setTopAnchor(scrollPane, 0.0);
         });
-        FindAndReplace.controller.setOnReplaceDialogChange(showReplace -> {
-            if (showReplace)
-                AnchorPane.setTopAnchor(scrollPane, 88.0);
-            else
-                AnchorPane.setTopAnchor(scrollPane, 50.0);
-        });
-        AnchorPane.setTopAnchor(scrollPane, 60.0);
+        if (withReplaceShowing)
+            AnchorPane.setTopAnchor(scrollPane, 88.0);
+        else
+            AnchorPane.setTopAnchor(scrollPane, 50.0);
         AnchorPane.setRightAnchor(findAndReplacePane, 0.0);
         this.getChildren().add(0, findAndReplacePane);
     }

@@ -98,11 +98,11 @@ public class OTabPaneController
                     MUIDialog dialog = new MUIDialog("Unsaved Changes", "Don't Save", "Save", message);
                     dialog.setOnPrimaryClick(unused -> {
                         projectFile.save();
-                        editor.fireEvent(new DocumentEvent(projectFile, editor.getText(), this, editor, DocumentEvent.SAVE_FILE));
+                        editor.fireEvent(new DocumentEvent(DocumentEvent.SAVE_FILE, projectFile));
                         tabPane.getTabs().remove(tab);
                     });
                     dialog.setOnSecondaryClick(() -> {
-                        editor.fireEvent(new DocumentEvent(projectFile, this, editor, DocumentEvent.CLOSE_UNSAVED_FILE));
+                        editor.fireEvent(new DocumentEvent(DocumentEvent.CLOSE_UNSAVED_FILE, projectFile));
                         tabPane.getTabs().remove(tab);
                     });
                     dialog.show(editor.getScene().getWindow());

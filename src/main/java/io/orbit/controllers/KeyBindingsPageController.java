@@ -23,6 +23,11 @@ public class KeyBindingsPageController
     public JFXButton saveAllSecondary;
     public JFXButton findAndRPrimary;
     public JFXButton findAndRSecondary;
+    public JFXButton savePrimary;
+    public JFXButton saveSecondary;
+    public JFXButton findPrimary;
+    public JFXButton findSecondary;
+
     public Label listeningLabel;
     public VBox root;
     private KeyBinding currentBinding = KeyBinding.BLANK;
@@ -33,6 +38,10 @@ public class KeyBindingsPageController
         BLANK,
         SAVE_ALL_PRIMARY,
         SAVE_ALL_SECONDARY,
+        SAVE_PRIMARY,
+        SAVE_SECONDARY,
+        FIND_PRIMARY,
+        FIND_SECONDARY,
         FIND_AND_REPLACE_PRIMARY,
         FIND_AND_REPLACE_SECONDARY
     }
@@ -60,13 +69,21 @@ public class KeyBindingsPageController
         JFXButton[] buttons = new JFXButton[]{
                 this.saveAllPrimary,
                 this.saveAllSecondary,
+                this.savePrimary,
+                this.saveSecondary,
                 this.findAndRPrimary,
-                this.findAndRSecondary
+                this.findAndRSecondary,
+                this.findPrimary,
+                this.findSecondary
         };
         this.saveAllPrimary.setUserData(KeyBinding.SAVE_ALL_PRIMARY);
         this.saveAllSecondary.setUserData(KeyBinding.SAVE_ALL_SECONDARY);
+        this.savePrimary.setUserData(KeyBinding.SAVE_PRIMARY);
+        this.saveSecondary.setUserData(KeyBinding.SAVE_SECONDARY);
         this.findAndRPrimary.setUserData(KeyBinding.FIND_AND_REPLACE_PRIMARY);
         this.findAndRSecondary.setUserData(KeyBinding.FIND_AND_REPLACE_SECONDARY);
+        this.findPrimary.setUserData(KeyBinding.FIND_PRIMARY);
+        this.findSecondary.setUserData(KeyBinding.FIND_SECONDARY);
         Arrays.stream(buttons).forEach(this::addEventsToButton);
         this.root.addEventFilter(KeyEvent.KEY_PRESSED, event -> this.applyNewBinding(event.getCode(), this.currentBinding));
     }

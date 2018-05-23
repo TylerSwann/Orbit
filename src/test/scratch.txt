@@ -1,15 +1,17 @@
 
 
 
-https://www.google.com
-http://www.google.com
-www.google.com
-htt://www.google.com
-://www.google.com
-https://fontawesome.com/icons?d=gallery&q=download
-http://www.fun.orbit-editor.com
 
 
+App.class.getClassLoader().getResource("fonts/raleway/Raleway-Black.ttf"),
+App.class.getClassLoader().getResource("fonts/raleway/Raleway-Bold.ttf"),
+App.class.getClassLoader().getResource("fonts/raleway/Raleway-ExtraBold.ttf"),
+App.class.getClassLoader().getResource("fonts/raleway/Raleway-SemiBold.ttf"),
+App.class.getClassLoader().getResource("fonts/raleway/Raleway-Medium.ttf"),
+App.class.getClassLoader().getResource("fonts/raleway/Raleway-Regular.ttf"),
+App.class.getClassLoader().getResource("fonts/raleway/Raleway-Light.ttf"),
+App.class.getClassLoader().getResource("fonts/raleway/Raleway-ExtraLight.ttf"),
+App.class.getClassLoader().getResource("fonts/raleway/Raleway-Thin.ttf")
 
 
 

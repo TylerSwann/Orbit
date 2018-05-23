@@ -1,9 +1,7 @@
 package io.orbit.controllers;
 
-import com.jfoenix.controls.JFXButton;
-import com.jfoenix.controls.JFXTextField;
 import io.orbit.App;
-import io.orbit.Directory;
+import io.orbit.settings.Directory;
 import io.orbit.api.Project;
 import io.orbit.api.SVGIcon;
 import io.orbit.ui.MUIMenuButton;

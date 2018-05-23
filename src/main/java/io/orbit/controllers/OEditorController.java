@@ -42,16 +42,16 @@ public class OEditorController extends StatelessEventTargetObject
         App.appEventsProperty.addEventListener(ApplicationEvent.WILL_CLOSE, event -> this.saveUserSettings());
         registerSelectionListeners();
         loadUserSettings();
-        App.appEventsProperty.addEventListener(ApplicationEvent.WILL_LOAD, appEvent -> {
-            OMenuBarController menuBarController = App.applicationController().getMenuBarController();
-            menuBarController.addEventHandler(MenuBarFileEvent.SAVE_ALL, event -> {
-                this.getOpenProjectFiles().forEach(projectFile -> {
-                    if (projectFile.wasModified())
-                        projectFile.save();
-                });
-                App.applicationController().getStatusBarController().showSnackBarMessage("Saved!", 2000);
-            });
-        });
+//        App.appEventsProperty.addEventListener(ApplicationEvent.WILL_LOAD, appEvent -> {
+//            OMenuBarController menuBarController = App.applicationController().getMenuBarController();
+//            menuBarController.addEventHandler(MenuBarFileEvent.SAVE_ALL, event -> {
+//                this.getOpenProjectFiles().forEach(projectFile -> {
+//                    if (projectFile.wasModified())
+//                        projectFile.save();
+//                });
+//                App.applicationController().getStatusBarController().showSnackBarMessage("Saved All!", 2000);
+//            });
+//        });
     }
 
     private void loadUserSettings()
@@ -82,7 +82,7 @@ public class OEditorController extends StatelessEventTargetObject
             LocalUser.userSettings.getLastModifiedProject().setOpenFile(((ProjectFile)openTab.getUserData()));
     }
 
-    private List<ProjectFile> getOpenProjectFiles()
+    public List<ProjectFile> getOpenProjectFiles()
     {
         List<ProjectFile> projectFiles = new ArrayList<>();
         this.tabPane.getTabs().forEach(tab -> {
@@ -126,11 +126,11 @@ public class OEditorController extends StatelessEventTargetObject
                 ACTIVE_EDITOR.set(((OrbitEditor)pane.getEditor()));
             }
             if (this.previouslyOpenedDocument != null)
-                this.fireEvent(new DocumentEvent(this.previouslyOpenedDocument, this, this, DocumentEvent.DOCUMENT_WAS_CLOSED));
+                this.fireEvent(new DocumentEvent(DocumentEvent.DOCUMENT_WAS_CLOSED, this.previouslyOpenedDocument));
             if (tab != null && tab.getUserData() != null && tab.getUserData() instanceof ProjectFile)
             {
                 ProjectFile file = ((ProjectFile)tab.getUserData());
-                this.fireEvent(new DocumentEvent(file, this, this, DocumentEvent.DOCUMENT_WAS_OPENED));
+                this.fireEvent(new DocumentEvent(DocumentEvent.DOCUMENT_WAS_OPENED, file));
                 this.previouslyOpenedDocument = file;
             }
         });

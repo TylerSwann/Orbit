@@ -58,7 +58,7 @@ public class OMenuBarController extends StatelessEventTargetObject
         MenuItem open = new MenuItem("Open");
         MenuItem openFolder = new MenuItem("Open Folder");
         MenuItem settings = new MenuItem("Settings");
-        save.setOnAction(event -> this.fireEvent(new MenuBarFileEvent(this, this, MenuBarFileEvent.SAVE)));
+        save.setOnAction(event -> this.fireEvent(new MenuBarFileEvent(MenuBarFileEvent.SAVE, OEditorController.getActiveEditor().file)));
         save_all.setOnAction(event -> this.fireEvent(new MenuBarFileEvent(this, this, MenuBarFileEvent.SAVE_ALL)));
         settings.setOnAction(event -> this.fireEvent(new MenuBarFileEvent(this, this, MenuBarFileEvent.SETTINGS)));
         open.setOnAction(event -> this.showFileChooserDialog());

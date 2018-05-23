@@ -11,11 +11,14 @@ import io.orbit.api.highlighting.SyntaxHighlighter;
 import io.orbit.api.text.CodeEditor;
 import io.orbit.api.event.DocumentEvent;
 import io.orbit.plugin.PluginDispatch;
+import io.orbit.settings.UserHotKeys;
 import javafx.application.Platform;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.concurrent.Task;
 import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyCodeCombination;
+import javafx.scene.input.KeyCombination;
 import javafx.scene.input.KeyEvent;
 import org.fxmisc.richtext.model.PlainTextChange;
 import org.fxmisc.richtext.model.StyleSpans;
@@ -52,25 +55,32 @@ public class OrbitEditor extends CodeEditor
 
     private void registerEvents()
     {
-        this.plainTextChanges().addObserver(event -> {
+        Platform.runLater(() -> this.plainTextChanges().addObserver(event -> {
             if (!hasUnsavedChanges)
             {
                 this.fireEvent(new CodeEditorEvent(CodeEditorEvent.FILE_WAS_MODIFIED, this.file));
                 this.hasUnsavedChanges = true;
             }
-        });
+        }));
+        addHotKeyEvents();
+    }
+
+    private void addHotKeyEvents()
+    {
         this.addEventHandler(KeyEvent.KEY_PRESSED, event -> {
-            if (event.getCode() == KeyCode.S && event.isControlDown())
+            if (UserHotKeys.SAVE_COMBO().match(event))
             {
                 if (this.file instanceof ProjectFile)
-                    this.fireEvent(new DocumentEvent(this.file, this.textProperty().getValue(), this, this, DocumentEvent.SAVE_FILE));
+                    this.fireEvent(new DocumentEvent( DocumentEvent.SAVE_FILE, this.file));
                 else if (this.file instanceof UnownedProjectFile)
-                    this.fireEvent(new DocumentEvent(this.file, this.textProperty().getValue(), this, this, DocumentEvent.SAVE_NON_PROJECT_FILE));
+                    this.fireEvent(new DocumentEvent(DocumentEvent.SAVE_NON_PROJECT_FILE, this.file ));
                 this.hasUnsavedChanges = false;
             }
-        });
-        this.addEventHandler(KeyEvent.KEY_PRESSED, event -> {
-            if (event.getCode() == KeyCode.F && event.isControlDown())
+            else if (UserHotKeys.SAVE_ALL_COMBO().match(event))
+                this.fireEvent(new DocumentEvent(this, this, DocumentEvent.SAVE_ALL));
+            else if (UserHotKeys.FIND_COMBO().match(event))
+                this.fireEvent(new DocumentEvent(this, this, DocumentEvent.FIND));
+            else if (UserHotKeys.FIND_REPLACE_COMBO().match(event))
                 this.fireEvent(new DocumentEvent(this, this, DocumentEvent.FIND_AND_REPLACE));
         });
     }
