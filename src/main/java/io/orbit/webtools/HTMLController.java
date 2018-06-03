@@ -4,6 +4,8 @@ import io.orbit.api.EditorController;
 
 import io.orbit.api.text.CodeEditor;
 import io.orbit.api.formatting.CodeFormatter;
+import io.orbit.ui.AutoCompletionModal;
+import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import java.io.File;
 
@@ -13,19 +15,12 @@ import java.io.File;
 public class HTMLController implements EditorController
 {
     private CodeEditor editor;
-    private CodeFormatter formatter;
-    //private final HTMLIndentationMap map = new HTMLIndentationMap();
 
     @Override
     public void start(File file, CodeEditor editor)
     {
         this.editor = editor;
-        //  this.formatter = new CodeFormatter(this.editor, this.map);
-        // formatter.play();
-        //this.map.debugIndentation(((OrbitEditor)this.editor));
-        //this.editor.ignoreDefaultBehaviorOf(KeyCode.TAB);
-        //this.editor.addEventHandler(DocumentEvent.REFORMAT_DOCUMENT, event -> this.formatter.reformatDocument());
-        //registerEvents();
+        registerEvents();
     }
 
     private void registerEvents()
@@ -34,7 +29,6 @@ public class HTMLController implements EditorController
             switch (event.getCode())
             {
                 case TAB:
-                    this.formatter.pause();
                     int caretPos = this.editor.getCaretPosition();
                     String left = this.editor.getTextLeftOfCaret();
                     String[] segments = left == null ? new String[0] : left.split("\\s+");
@@ -46,14 +40,13 @@ public class HTMLController implements EditorController
                         {
                             shouldInsertTab = false;
                             String tag = String.format("<%s></%s>", textLeftOfCaret, textLeftOfCaret);
-                            this.editor.replaceText(caretPos - textLeftOfCaret.length(), caretPos, tag);
+                            this.editor.replaceText((caretPos - 1) - textLeftOfCaret.length(), caretPos, tag);
                             caretPos = this.editor.getCaretPosition();
                             this.editor.moveTo((caretPos - 1) - (tag.length() / 2));
                         }
                     }
                     if (shouldInsertTab)
                         this.editor.replaceText(caretPos, caretPos, "    ");
-                    this.formatter.play();
                     break;
                 default: break;
             }

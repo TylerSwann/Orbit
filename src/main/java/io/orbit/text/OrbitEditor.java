@@ -121,7 +121,7 @@ public class OrbitEditor extends CodeEditor
                 .supplyTask(this::highlightAsynchronously)
                 .awaitLatest(changes)
                 .filterMap(attempt -> {
-                    if (attempt == null || attempt.isFailure())
+                    if (attempt == null || attempt.isFailure() || attempt.get() == null)
                         return Optional.empty();
                     return Optional.of(attempt.get());
                 })

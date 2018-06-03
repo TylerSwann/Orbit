@@ -2,6 +2,8 @@ package io.orbit.plugin;
 
 import io.orbit.api.PluginController;
 import io.orbit.webtools.WebToolsController;
+import io.orbit.webtools.test.PlainTextController;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -24,6 +26,7 @@ public final class PluginDispatch
     static {
         plugins = new ArrayList<>();
         plugins.add(new WebToolsController());
+        plugins.add(new PlainTextController());
     }
 
     public static void open()
