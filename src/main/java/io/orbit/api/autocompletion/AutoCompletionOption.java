@@ -9,14 +9,14 @@ import java.util.List;
 public class AutoCompletionOption extends AutoCompletionBase
 {
 
-    public AutoCompletionOption(String option, String insertedText, List<? extends AutoCompletionBase> subOptions)
+    public AutoCompletionOption(String text, String insertedText, List<? extends AutoCompletionBase> subOptions)
     {
-        this(option, insertedText);
+        this(text, insertedText);
         this.subOptions = subOptions;
     }
-    public AutoCompletionOption(String option, String insertedText)
+    public AutoCompletionOption(String text, String insertedText)
     {
-        this.option = option;
+        this.text = text;
         this.insertedText = insertedText;
         this.subOptions = new ArrayList<>();
     }
@@ -25,7 +25,4 @@ public class AutoCompletionOption extends AutoCompletionBase
     {
 
     }
-
-    @Override
-    public boolean isTemplate() { return false; }
 }

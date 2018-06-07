@@ -8,7 +8,7 @@ import java.util.List;
 public class AutoCompletionBase
 {
 
-    protected String option;
+    protected String text;
     protected String insertedText;
     protected List<? extends AutoCompletionBase> subOptions;
 
@@ -16,7 +16,7 @@ public class AutoCompletionBase
      * The text preview of the unformattedOption that is displayed in
      * the AutoCompletionDialog window
      */
-    public String getOption() { return this.option; }
+    public String getText() { return this.text; }
 
     /**
      * The actual text that gets inserted into the document if selected
@@ -35,13 +35,4 @@ public class AutoCompletionBase
     public List<? extends AutoCompletionBase> getSubOptions() { return this.subOptions; }
 
     public AutoCompletionBase(){}
-
-    /**
-     *
-     * @return Boolean indicated whether or not this is a formatted template option. Ex: AutoCompletionTemplateOption
-     */
-    public boolean isTemplate()
-    {
-        return false;
-    }
 }

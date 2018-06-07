@@ -10,13 +10,10 @@ import io.orbit.api.highlighting.SyntaxHighlighter;
  */
 public class CSS3 implements LanguageDelegate
 {
-    private static AutoCompletionProvider autoCompletionProvider;
-
-
     @Override
     public SyntaxHighlighter getSyntaxHighlighter()
     {
-        return new RegexSyntaxHighlighter(CSS3RegexPattern.STYLE_PATTERN);
+        return new RegexSyntaxHighlighter(new CSS3RegexPattern());
     }
 
     @Override
@@ -24,13 +21,4 @@ public class CSS3 implements LanguageDelegate
     {
         return "css";
     }
-
-    @Override
-    public AutoCompletionProvider getAutoCompletionProvider()
-    {
-        if (autoCompletionProvider == null)
-            autoCompletionProvider = new CSS3AutoCompletionProvider();
-        return autoCompletionProvider;
-    }
-
 }

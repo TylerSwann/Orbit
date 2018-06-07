@@ -50,9 +50,9 @@ public class CSS3AutoCompletionProvider implements AutoCompletionProvider
 
         for (AutoCompletionOption option : CSS_PROPERTIES)
         {
-            if (word == null || option.getOption().length() < word.length())
+            if (word == null || option.getText().length() < word.length())
                 continue;
-            String substring = option.getOption().substring(0, word.length());
+            String substring = option.getText().substring(0, word.length());
             if (substring.equals(word))
                 options.add(option);
         }

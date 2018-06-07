@@ -9,7 +9,7 @@ import java.util.regex.Pattern;
 /**
  * Created by Tyler Swann on Saturday April 14, 2018 at 17:06
  */
-public class HTMLRegexPattern
+public class HTMLRegexPattern extends RegexStylePattern
 {
     private static final String COMMENT_PATTERN = "(\\<\\!\\-\\-)(.|\\\\n)+?(\\-\\-\\>)";
     private static final String DOUBLE_QUOTED_STRING = "\"(?:[^\"][a-zA-Z0-9]*(\\\\\")?)*\"";
@@ -18,10 +18,11 @@ public class HTMLRegexPattern
     private static final String TAG_PATTERN = "(<[a-zA-Z0-9\\-]+>?|>|<\\/[a-zA-Z0-9\\-]+>)" ;
     private static final String ATTRIBUTE_PATTERN = "(?<ATTRIBUTE>([a-zA-Z\\-]+))(?:=)";
     private static final String DOCTYPE_PATTERN = "<\\![a-zA-Z0-9\\s]*>";
-    public static final RegexStylePattern STYLE_PATTERN;
+    private static final Pattern regexPattern;
+    private static final Map<String, HighlightType> styleMap;
 
     static {
-        Pattern regexPattern = Pattern.compile(
+        regexPattern = Pattern.compile(
                  "(?<COMMENT>" + COMMENT_PATTERN + ")"
                 +"|(?<EQUAL>" + EQUAL_PATTERN + ")"
                 +"|(?<TAG>" + TAG_PATTERN + ")"
@@ -30,7 +31,7 @@ public class HTMLRegexPattern
                 +"|(?<DBLSTRING>" + DOUBLE_QUOTED_STRING + ")"
                 +"|(?<SNGLSTRING>" + SINGLE_QUOTED_STRING + ")"
         );
-        Map<String, HighlightType> styleMap = new HashMap<>();
+        styleMap = new HashMap<>();
         styleMap.put("COMMENT", HighlightType.BLOCK_COMMENT);
         styleMap.put("EQUAL", HighlightType.OPERATOR);
         styleMap.put("TAG", HighlightType.ANNOTATION);
@@ -38,8 +39,9 @@ public class HTMLRegexPattern
         styleMap.put("DBLSTRING", HighlightType.STRING);
         styleMap.put("SNGLSTRING", HighlightType.STRING);
         styleMap.put("ATTRIBUTE", HighlightType.TYPE);
-        STYLE_PATTERN = new RegexStylePattern(regexPattern, styleMap);
     }
-
-
+    public HTMLRegexPattern()
+    {
+        super(regexPattern, styleMap);
+    }
 }

@@ -10,7 +10,7 @@ import java.util.regex.Pattern;
 /**
  * Created by Tyler Swann on Thursday April 05, 2018 at 18:55
  */
-public class CSS3RegexPattern
+public class CSS3RegexPattern extends RegexStylePattern
 {
     private static final String ANNOTATED_PATTERN = "(\\@[a-zA-Z]+[a-zA-Z0-9?\\-?\\_?]*)";
     private static final String SELECTOR_PATTERN = "(?<SELECTOR>([\\.|\\#][a-z|A-Z|0-9|\\_\\\\-]+))(?:[\\n|\\:])(?<PSEUDOCLASS>([a-z|A-Z|0-9|\\-\\_]+))?";
@@ -47,10 +47,10 @@ public class CSS3RegexPattern
                     + "|(?<SINGLECOM>" + SINGLECOM_PATTERN + ")"
 
     );
-    public static final RegexStylePattern STYLE_PATTERN;
+    private static final Map<String, HighlightType> patternStyleMap;
 
     static {
-        Map<String, HighlightType> patternStyleMap = new HashMap<>();
+        patternStyleMap = new HashMap<>();
         patternStyleMap.put("PROPERTY", HighlightType.TYPE);
         patternStyleMap.put("ANNOTATION", HighlightType.ANNOTATION);
         patternStyleMap.put("SELECTOR", HighlightType.TYPE);
@@ -66,6 +66,10 @@ public class CSS3RegexPattern
         patternStyleMap.put("MULTICOM", HighlightType.BLOCK_COMMENT);
         patternStyleMap.put("SINGLECOM", HighlightType.LINE_COMMENT);
 
-        STYLE_PATTERN = new RegexStylePattern(PATTERN, patternStyleMap);
+    }
+
+    public CSS3RegexPattern()
+    {
+        super(PATTERN, patternStyleMap);
     }
 }

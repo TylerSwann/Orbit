@@ -26,7 +26,4 @@ public interface LanguageDelegate
      */
     @NotNullable
     String getFileNameExtension();
-
-    @Nullable
-    default AutoCompletionProvider getAutoCompletionProvider() {  return null;  }
 }

@@ -12,7 +12,7 @@ public class HTML implements LanguageDelegate
     @Override
     public SyntaxHighlighter getSyntaxHighlighter()
     {
-        return new RegexSyntaxHighlighter(HTMLRegexPattern.STYLE_PATTERN);
+        return new RegexSyntaxHighlighter(new HTMLRegexPattern());
     }
 
     @Override

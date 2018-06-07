@@ -1,46 +1,46 @@
 package io.orbit.ui;
 
-import com.jfoenix.controls.JFXListView;
-import javafx.beans.property.ObjectProperty;
-import javafx.beans.property.SimpleBooleanProperty;
-import javafx.beans.property.SimpleObjectProperty;
-import javafx.beans.value.ObservableBooleanValue;
+import io.orbit.api.event.AutoCompletionModalEvent;
+import javafx.collections.FXCollections;
+import javafx.collections.ListChangeListener;
+import javafx.collections.ObservableList;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
 import javafx.scene.control.PopupControl;
+import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Font;
 import java.util.ArrayList;
 import java.util.List;
+import io.orbit.api.autocompletion.AutoCompletionOption;
 
 /**
  * Created by Tyler Swann on Wednesday May 30, 2018 at 14:38
  */
 public class AutoCompletionModal extends PopupControl
 {
-    private JFXListView<Label> optionsView;
+    private ListView<Label> optionsView;
     private Node owner;
-    private final double xOffset = 10.0;
-    private final double yOffset = 0.0;
-    private int selectedIndex = 0;
+    private static final double xOffset = 15.0;
+    private static final double yOffset = 0.0;
 
-    private ObjectProperty<List<String>> options = new SimpleObjectProperty<>(new ArrayList<>());
-    public ObjectProperty<List<String>> optionsProperty() { return options; }
-    public List<String> getOptions() { return options.get(); }
-    public void setOptions(List<String> options) { this.options.setValue(options); }
+    private ObservableList<AutoCompletionOption> options = FXCollections.observableArrayList();
+    public ObservableList<AutoCompletionOption> getOptions() { return options; }
 
-    public AutoCompletionModal(List<String> options, Node owner)
+    public AutoCompletionModal(List<AutoCompletionOption> options, Node owner)
     {
         this(owner);
-        this.setOptions(options);
+        this.options.addAll(options);
     }
     public AutoCompletionModal(Node owner)
     {
         this.owner = owner;
-        this.optionsView = new JFXListView<>();
+        this.optionsView = new ListView<>();
         this.setAutoHide(true);
-        double width = 600.0;
+        this.optionsView.setFixedCellSize(41.5);
+        double width = 700.0;
         double height = 250.0;
         this.setPrefSize(width, height);
         this.optionsView.setPrefSize(width, height);
@@ -60,41 +60,26 @@ public class AutoCompletionModal extends PopupControl
 
     private void registerListeners()
     {
-        this.optionsProperty().addListener(change -> this.updateItems());
-        this.owner.addEventHandler(KeyEvent.KEY_PRESSED, event -> {
-            if (!(event.getCode().isArrowKey()))
-                return;
-            switch (event.getCode())
+        this.options.addListener((ListChangeListener<AutoCompletionOption>) c -> this.updateItems());
+        this.optionsView.addEventHandler(KeyEvent.KEY_PRESSED, event -> {
+            if (event.getCode() == KeyCode.ENTER)
             {
-                case UP:
-                    if (selectedIndex - 1 < 0)
-                        selectedIndex = this.options.get().size() - 1;
-                    else
-                        selectedIndex--;
-                    this.optionsView.getSelectionModel().select(selectedIndex);
-                    if (selectedIndex % 7 == 0)
-                        this.optionsView.scrollTo(selectedIndex);
-                    break;
-                case DOWN:
-                    if (selectedIndex + 1 > this.options.get().size() - 1)
-                        selectedIndex = 0;
-                    else
-                        selectedIndex++;
-                    this.optionsView.getSelectionModel().select(selectedIndex);
-                    if (selectedIndex % 7 == 0)
-                        this.optionsView.scrollTo(selectedIndex);
-                    break;
-                default: break;
+                AutoCompletionOption selectedOption = (AutoCompletionOption) this.optionsView.getSelectionModel().getSelectedItem().getUserData();
+                this.fireEvent(new AutoCompletionModalEvent(AutoCompletionModalEvent.OPTION_WAS_SELECTED, this, this, selectedOption));
             }
         });
     }
 
     public void show(double x, double y)
     {
-        super.show(this.owner.getScene().getWindow());
-        this.optionsView.getSelectionModel().selectFirst();
-        this.setX(x + this.xOffset);
-        this.setY(y + this.yOffset);
+        if (!this.isShowing())
+        {
+            super.show(this.owner.getScene().getWindow());
+            this.optionsView.getSelectionModel().selectFirst();
+            this.optionsView.requestFocus();
+        }
+        this.setX(x + xOffset);
+        this.setY(y + yOffset);
     }
 
     @Override
@@ -107,31 +92,24 @@ public class AutoCompletionModal extends PopupControl
     {
         if (this.optionsView.getItems().size() > 0)
             this.optionsView.getItems().removeAll(this.optionsView.getItems());
-        for (String option : this.options.get())
+        for (AutoCompletionOption option : this.options)
         {
-            Label label = new Label(option);
+            Label label = new Label(option.getText());
+            label.setUserData(option);
             label.getStyleClass().add("autocompletion-label");
             label.setFont(new Font("Roboto Medium", 15.0));
             this.optionsView.getItems().add(label);
         }
     }
 
-    private int indexOfSelectedItem()
-    {
-        Label selectedItem = this.optionsView.getSelectionModel().getSelectedItem();
-        if (selectedItem == null)
-            return -1;
-        return this.optionsView.getItems().indexOf(selectedItem);
-    }
-
     public void addRandomOptions(String id)
     {
-        List<String> options = new ArrayList<>();
+        List<AutoCompletionOption> options = new ArrayList<>();
         for (int i = 0; i < 100; i++)
         {
             String text = String.format("%s #%d", id, i);
-            options.add(text);
+            options.add(new AutoCompletionOption(text, text));
         }
-        this.setOptions(options);
+        this.options.addAll(options);
     }
 }

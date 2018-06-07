@@ -29,10 +29,4 @@ public class PlainText implements LanguageDelegate
     {
         return "txt";
     }
-
-    @Override
-    public AutoCompletionProvider getAutoCompletionProvider()
-    {
-        return null;
-    }
 }

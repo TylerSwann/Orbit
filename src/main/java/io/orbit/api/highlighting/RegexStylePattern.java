@@ -16,4 +16,9 @@ public class RegexStylePattern
         this.pattern = pattern;
         this.groupStyleMap = groupStyleMap;
     }
+    private RegexStylePattern()
+    {
+        this.pattern = null;
+        this.groupStyleMap = null;
+    }
 }

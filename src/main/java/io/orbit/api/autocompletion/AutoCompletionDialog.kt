@@ -18,6 +18,7 @@ import kotlin.collections.ArrayList
 /**
  * Created by Tyler Swann on Wednesday March 21, 2018 at 13:03
  */
+@Deprecated("This has been replaced with AutoCompletionModal")
 class AutoCompletionDialog: PopupControl
 {
     private val optionsContainer: VBox
@@ -170,7 +171,7 @@ class AutoCompletionDialog: PopupControl
             this.prefHeight = optionHeight
             this.alignment = Pos.CENTER_LEFT
             this.spacing = 5.0
-            this.primaryLabel = Label(option.option)
+            this.primaryLabel = Label(option.text)
             primaryLabel.padding = Insets(0.0, 0.0, 0.0, 25.0)
             this.children.add(primaryLabel)
             this.selectedProperty.addListener({_ -> this.pseudoClassStateChanged(SELECTED, this.isSelected) })
