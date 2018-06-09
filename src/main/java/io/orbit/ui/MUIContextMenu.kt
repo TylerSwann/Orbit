@@ -23,6 +23,7 @@ import java.util.*
 /**
  * Created by Tyler Swann on Thursday February 08, 2018 at 17:33
  */
+@Deprecated("This class is no longer needed as it is being replace with the default javafx ContextMenu. This is being done for simplicity")
 public class MUIContextMenu: PopupControl
 {
     private val root = AnchorPane()

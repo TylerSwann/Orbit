@@ -84,11 +84,11 @@ public class App extends Application
         stage.setOnCloseRequest(event -> appEventsProperty.fire(new ApplicationEvent(ApplicationEvent.WILL_CLOSE)));
         if (PRIMARY_STAGE == null)
             PRIMARY_STAGE = new SimpleObjectProperty<>(stage);
-        loadingDemo();
+        showSplashScreen();
 //        App.setApplicationTheme(new File(getClass().getClassLoader().getResource("css/SolarOrbit.css").getFile()));
     }
 
-    private void loadingDemo()
+    private void showSplashScreen()
     {
         OSplashPageController.show();
         PauseTransition part1 = new PauseTransition();

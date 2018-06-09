@@ -8,7 +8,11 @@ import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundFill;
+import javafx.scene.layout.CornerRadii;
 import javafx.scene.layout.HBox;
+import javafx.scene.paint.Color;
 
 import java.util.List;
 
@@ -33,6 +37,8 @@ public class MenuButtonBar extends HBox
         this.setAlignment(Pos.CENTER);
         this.rightBar.setAlignment(Pos.CENTER_RIGHT);
         this.getChildren().addAll(this.leftBar, this.rightBar);
+        this.rightBar.setBackground(new Background(new BackgroundFill(Color.TRANSPARENT, CornerRadii.EMPTY, Insets.EMPTY)));
+        this.leftBar.setBackground(new Background(new BackgroundFill(Color.TRANSPARENT, CornerRadii.EMPTY, Insets.EMPTY)));
     }
 
     public MenuButtonBar(List<Menu> leftMenus, List<Button> rightButtons)

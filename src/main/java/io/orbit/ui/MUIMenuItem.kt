@@ -6,6 +6,7 @@ import org.kordamp.ikonli.Ikon
 /**
  * Created by Tyler Swann on Thursday February 08, 2018 at 17:34
  */
+@Deprecated("This class is no longer needed as it is being replace with the default javafx MenuItem. This is being done for simplicity")
 public class MUIMenuItem: MUIMenuButton
 {
     constructor(): super()

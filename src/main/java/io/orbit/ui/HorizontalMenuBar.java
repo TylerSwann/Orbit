@@ -3,17 +3,23 @@ package io.orbit.ui;
 import javafx.collections.FXCollections;
 import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
+import javafx.geometry.Insets;
 import javafx.geometry.NodeOrientation;
 import javafx.geometry.Pos;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundFill;
+import javafx.scene.layout.CornerRadii;
 import javafx.scene.layout.HBox;
+import javafx.scene.paint.Color;
 
 import java.util.List;
 
 /**
  * Created by Tyler Swann on Sunday April 29, 2018 at 13:52
  */
+@Deprecated
 public class HorizontalMenuBar extends HBox
 {
     private MenuBar leftBar;
@@ -31,6 +37,8 @@ public class HorizontalMenuBar extends HBox
         this.setAlignment(Pos.CENTER);
         this.rightBar.setNodeOrientation(NodeOrientation.RIGHT_TO_LEFT);
         this.getChildren().addAll(this.leftBar, this.rightBar);
+        this.rightBar.setBackground(new Background(new BackgroundFill(Color.TRANSPARENT, CornerRadii.EMPTY, Insets.EMPTY)));
+        this.leftBar.setBackground(new Background(new BackgroundFill(Color.TRANSPARENT, CornerRadii.EMPTY, Insets.EMPTY)));
     }
 
     public HorizontalMenuBar(List<Menu> leftMenus, List<Menu> rightMenus)

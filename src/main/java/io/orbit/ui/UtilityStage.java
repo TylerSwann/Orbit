@@ -15,6 +15,7 @@ import javafx.stage.StageStyle;
 /**
  * Created by Tyler Swann on Thursday May 03, 2018 at 15:58
  */
+@Deprecated
 public class UtilityStage extends PopupControl
 {
     private static final double spread = 20.0;

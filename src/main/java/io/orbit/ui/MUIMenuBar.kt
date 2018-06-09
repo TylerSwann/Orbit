@@ -11,6 +11,7 @@ import javafx.scene.layout.HBox
 /**
  * Created by Tyler Swann on Friday February 02, 2018 at 15:21
  */
+@Deprecated("This class is no longer needed as it is being replace with the default javafx MenuBar. This is being done for simplicity")
 class MUIMenuBar: HBox
 {
     private val rightContainer = HBox()

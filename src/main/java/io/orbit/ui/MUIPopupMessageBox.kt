@@ -31,6 +31,7 @@ import java.util.*
 /**
  * Created by Tyler Swann on Sunday February 11, 2018 at 14:12
  */
+@Deprecated("This class is no longer being used and may be rewritten and eventually reincorporated into the application")
 class MUIPopupMessageBox: PopupControl
 {
     private val root: AnchorPane

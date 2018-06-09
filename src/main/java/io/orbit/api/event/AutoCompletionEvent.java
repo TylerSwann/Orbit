@@ -10,6 +10,7 @@ import java.util.Optional;
 /**
  * Created by Tyler Swann on Wednesday March 21, 2018 at 13:36
  */
+@Deprecated
 public class AutoCompletionEvent extends Event
 {
 

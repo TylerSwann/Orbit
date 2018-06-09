@@ -9,6 +9,7 @@ import org.kordamp.ikonli.fontawesome5.FontAwesomeSolid
 /**
  * Created by Tyler Swann on Thursday February 08, 2018 at 17:34
  */
+@Deprecated("This class is no longer being used")
 public class MUISubMenu: MUIMenuButton
 {
     private val subMenu: MUIContextMenu
