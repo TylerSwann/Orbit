@@ -45,7 +45,6 @@ public class CSSController implements EditorController
         registerListeners();
         this.editor.addEventHandler(CodeEditorEvent.ANY, event -> this.map.compute(this.editor.getDocument()));
         this.registerAutoCompletionListeners();
-        this.dialog.setVisible(false);
     }
 
     private void registerListeners()
@@ -106,13 +105,14 @@ public class CSSController implements EditorController
             List<? extends AutoCompletionBase> options = this.autocompleter.optionsFor(0, 0, position.line, change);
             if (options != null && options.size() > 0)
             {
-                this.dialog.updateOptions(options);
+                this.dialog.getOptions().removeAll(options);
+                this.dialog.getOptions().addAll(options);
                 this.updateDialogPosition();
             }
 
         });
-        this.dialog.getVisibilityProperty().addListener(event -> {
-            if (this.dialog.isVisible())
+        this.dialog.showingProperty().addListener(event -> {
+            if (this.dialog.isShowing())
                 this.state.setValue(State.AUTO_COMPLETING);
             else
                 this.state.setValue(State.FORMATTING);
@@ -126,7 +126,7 @@ public class CSSController implements EditorController
             int caretPos = this.editor.getCaretPosition();
             this.editor.replaceText(caretPos, caretPos, option.getInsertedText());
             this.updateDialogPosition();
-            Platform.runLater(() -> this.dialog.setVisible(false));
+            Platform.runLater(() -> this.dialog.hide());
         }));
         this.editor.addEventHandler(CodeEditorEvent.SEGMENT_LETTER_CHANGE, event -> event.oldSegment.ifPresent(segment -> {
             if (!segment.isEmpty() && !segment.matches("\\s*"))

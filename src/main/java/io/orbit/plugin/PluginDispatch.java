@@ -2,10 +2,9 @@ package io.orbit.plugin;
 
 import io.orbit.api.PluginController;
 import io.orbit.webtools.WebToolsController;
-import io.orbit.webtools.test.PlainTextController;
+import io.orbit.text.plaintext.PlainTextController;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -19,11 +18,11 @@ public final class PluginDispatch
 {
     private PluginDispatch() { }
 
-    //public static Plugin[] plugins = new Plugin[] { new Plugin(new WebToolsController()) };
     public static final List<PluginController> plugins;
     private static boolean hasOpened = false;
 
     static {
+        // Later these will be read from jar files stored in the users .Orbit folder
         plugins = new ArrayList<>();
         plugins.add(new WebToolsController());
         plugins.add(new PlainTextController());

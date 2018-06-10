@@ -1,6 +1,6 @@
-package io.orbit.ui;
+package io.orbit.api.autocompletion;
 
-import io.orbit.api.event.AutoCompletionModalEvent;
+import io.orbit.api.event.AutoCompletionEvent;
 import javafx.collections.FXCollections;
 import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
@@ -14,27 +14,26 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Font;
 import java.util.ArrayList;
 import java.util.List;
-import io.orbit.api.autocompletion.AutoCompletionOption;
 
 /**
  * Created by Tyler Swann on Wednesday May 30, 2018 at 14:38
  */
-public class AutoCompletionModal extends PopupControl
+public class AutoCompletionDialog extends PopupControl
 {
     private ListView<Label> optionsView;
     private Node owner;
     private static final double xOffset = 15.0;
     private static final double yOffset = 0.0;
 
-    private ObservableList<AutoCompletionOption> options = FXCollections.observableArrayList();
-    public ObservableList<AutoCompletionOption> getOptions() { return options; }
+    private ObservableList<AutoCompletionBase> options = FXCollections.observableArrayList();
+    public ObservableList<AutoCompletionBase> getOptions() { return options; }
 
-    public AutoCompletionModal(List<AutoCompletionOption> options, Node owner)
+    public AutoCompletionDialog(List<? extends AutoCompletionBase> options, Node owner)
     {
         this(owner);
         this.options.addAll(options);
     }
-    public AutoCompletionModal(Node owner)
+    public AutoCompletionDialog(Node owner)
     {
         this.owner = owner;
         this.optionsView = new ListView<>();
@@ -52,20 +51,18 @@ public class AutoCompletionModal extends PopupControl
         this.getScene().setRoot(this.optionsView);
         registerListeners();
         this.setStyle("-fx-background-color: transparent;");
-        this.optionsView.setStyle("-fx-background-radius: 5px; " +
-                                  "-fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.5), 10.0, 0.0, 1.5, 2.5);" +
-                                  "-fx-background-color: white;");
+        this.optionsView.getStyleClass().add("auto-completion-dialog");
     }
 
 
     private void registerListeners()
     {
-        this.options.addListener((ListChangeListener<AutoCompletionOption>) c -> this.updateItems());
+        this.options.addListener((ListChangeListener<AutoCompletionBase>) c -> this.updateItems());
         this.optionsView.addEventHandler(KeyEvent.KEY_PRESSED, event -> {
             if (event.getCode() == KeyCode.ENTER)
             {
-                AutoCompletionOption selectedOption = (AutoCompletionOption) this.optionsView.getSelectionModel().getSelectedItem().getUserData();
-                this.fireEvent(new AutoCompletionModalEvent(AutoCompletionModalEvent.OPTION_WAS_SELECTED, this, this, selectedOption));
+                AutoCompletionBase selectedOption = (AutoCompletionBase) this.optionsView.getSelectionModel().getSelectedItem().getUserData();
+                this.fireEvent(new AutoCompletionEvent(AutoCompletionEvent.OPTION_WAS_SELECTED, this, this, selectedOption));
             }
         });
     }
@@ -92,7 +89,7 @@ public class AutoCompletionModal extends PopupControl
     {
         if (this.optionsView.getItems().size() > 0)
             this.optionsView.getItems().removeAll(this.optionsView.getItems());
-        for (AutoCompletionOption option : this.options)
+        for (AutoCompletionBase option : this.options)
         {
             Label label = new Label(option.getText());
             label.setUserData(option);

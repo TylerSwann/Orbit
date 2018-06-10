@@ -1,5555 +1,5555 @@
 [
     {
-        "text": "width",
+        "option": "width",
         "insertedText": "width: ",
         "subOptions": [
             {
-                "text": "auto",
+                "option": "auto",
                 "insertedText": "auto;",
                 "subOptions": []
             },
             {
-                "text": "inherit",
+                "option": "inherit",
                 "insertedText": "inherit;",
                 "subOptions": []
             }
         ]
     },
     {
-        "text": "height",
+        "option": "height",
         "insertedText": "height: ",
         "subOptions": [
             {
-                "text": "auto",
+                "option": "auto",
                 "insertedText": "auto;",
                 "subOptions": []
             },
             {
-                "text": "inherit",
+                "option": "inherit",
                 "insertedText": "inherit;",
                 "subOptions": []
             }
         ]
     },
     {
-        "text": "margin",
+        "option": "margin",
         "insertedText": "margin: ",
         "subOptions": [
             {
-                "text": "auto",
+                "option": "auto",
                 "insertedText": "auto;",
                 "subOptions": []
             },
             {
-                "text": "inherit",
+                "option": "inherit",
                 "insertedText": "inherit;",
                 "subOptions": []
             }
         ]
     },
     {
-        "text": "margin-left",
+        "option": "margin-left",
         "insertedText": "margin-left: ",
         "subOptions": [
             {
-                "text": "auto",
+                "option": "auto",
                 "insertedText": "auto;",
                 "subOptions": []
             },
             {
-                "text": "inherit",
+                "option": "inherit",
                 "insertedText": "inherit;",
                 "subOptions": []
             }
         ]
     },
     {
-        "text": "margin-right",
+        "option": "margin-right",
         "insertedText": "margin-right: ",
         "subOptions": [
             {
-                "text": "auto",
+                "option": "auto",
                 "insertedText": "auto;",
                 "subOptions": []
             },
             {
-                "text": "inherit",
+                "option": "inherit",
                 "insertedText": "inherit;",
                 "subOptions": []
             }
         ]
     },
     {
-        "text": "margin-top",
+        "option": "margin-top",
         "insertedText": "margin-top: ",
         "subOptions": [
             {
-                "text": "auto",
+                "option": "auto",
                 "insertedText": "auto;",
                 "subOptions": []
             },
             {
-                "text": "inherit",
+                "option": "inherit",
                 "insertedText": "inherit;",
                 "subOptions": []
             }
         ]
     },
     {
-        "text": "margin-bottom",
+        "option": "margin-bottom",
         "insertedText": "margin-bottom: ",
         "subOptions": [
             {
-                "text": "auto",
+                "option": "auto",
                 "insertedText": "auto;",
                 "subOptions": []
             },
             {
-                "text": "inherit",
+                "option": "inherit",
                 "insertedText": "inherit;",
                 "subOptions": []
             }
         ]
     },
     {
-        "text": "padding",
+        "option": "padding",
         "insertedText": "padding: ",
         "subOptions": [
             {
-                "text": "inherit",
+                "option": "inherit",
                 "insertedText": "inherit;",
                 "subOptions": []
             }
         ]
     },
     {
-        "text": "padding-left",
+        "option": "padding-left",
         "insertedText": "padding-left: ",
         "subOptions": []
     },
     {
-        "text": "padding-right",
+        "option": "padding-right",
         "insertedText": "padding-right: ",
         "subOptions": []
     },
     {
-        "text": "padding-top",
+        "option": "padding-top",
         "insertedText": "padding-top: ",
         "subOptions": []
     },
     {
-        "text": "padding-bottom",
+        "option": "padding-bottom",
         "insertedText": "padding-bottom: ",
         "subOptions": []
     },
     {
-        "text": "font",
+        "option": "font",
         "insertedText": "font: ",
         "subOptions": []
     },
     {
-        "text": "font-size",
+        "option": "font-size",
         "insertedText": "font-size: ",
         "subOptions": []
     },
     {
-        "text": "font-style",
+        "option": "font-style",
         "insertedText": "font-style: ",
         "subOptions": [
             {
-                "text": "italic",
+                "option": "italic",
                 "insertedText": "italic;",
                 "subOptions": []
             },
             {
-                "text": "normal",
+                "option": "normal",
                 "insertedText": "normal;",
                 "subOptions": []
             },
             {
-                "text": "oblique",
+                "option": "oblique",
                 "insertedText": "oblique;",
                 "subOptions": []
             }
         ]
     },
     {
-        "text": "font-weight",
+        "option": "font-weight",
         "insertedText": "font-weight: ",
         "subOptions": [
             {
-                "text": "bold",
+                "option": "bold",
                 "insertedText": "bold;",
                 "subOptions": []
             },
             {
-                "text": "bolder",
+                "option": "bolder",
                 "insertedText": "bolder;",
                 "subOptions": []
             },
             {
-                "text": "lighter",
+                "option": "lighter",
                 "insertedText": "lighter;",
                 "subOptions": []
             },
             {
-                "text": "normal",
+                "option": "normal",
                 "insertedText": "normal;",
                 "subOptions": []
             },
             {
-                "text": "100",
+                "option": "100",
                 "insertedText": "100;",
                 "subOptions": []
             },
             {
-                "text": "200",
+                "option": "200",
                 "insertedText": "200;",
                 "subOptions": []
             },
             {
-                "text": "300",
+                "option": "300",
                 "insertedText": "300;",
                 "subOptions": []
             },
             {
-                "text": "400",
+                "option": "400",
                 "insertedText": "400;",
                 "subOptions": []
             },
             {
-                "text": "500",
+                "option": "500",
                 "insertedText": "500;",
                 "subOptions": []
             },
             {
-                "text": "600",
+                "option": "600",
                 "insertedText": "600;",
                 "subOptions": []
             },
             {
-                "text": "700",
+                "option": "700",
                 "insertedText": "700;",
                 "subOptions": []
             },
             {
-                "text": "800",
+                "option": "800",
                 "insertedText": "800;",
                 "subOptions": []
             },
             {
-                "text": "900",
+                "option": "900",
                 "insertedText": "900;",
                 "subOptions": []
             },
             {
-                "text": "inherit",
+                "option": "inherit",
                 "insertedText": "inherit;",
                 "subOptions": []
             }
         ]
     },
     {
-        "text": "font-family",
+        "option": "font-family",
         "insertedText": "font-family: ",
         "subOptions": [
             {
-                "text": "cursive",
+                "option": "cursive",
                 "insertedText": "cursive;",
                 "subOptions": []
             },
             {
-                "text": "fantasy",
+                "option": "fantasy",
                 "insertedText": "fantasy;",
                 "subOptions": []
             },
             {
-                "text": "inherit",
+                "option": "inherit",
                 "insertedText": "inherit;",
                 "subOptions": []
             },
             {
-                "text": "monospace",
+                "option": "monospace",
                 "insertedText": "monospace;",
                 "subOptions": []
             },
             {
-                "text": "sans-serif",
+                "option": "sans-serif",
                 "insertedText": "sans-serif;",
                 "subOptions": []
             },
             {
-                "text": "serif",
+                "option": "serif",
                 "insertedText": "serif;",
                 "subOptions": []
             }
         ]
     },
     {
-        "text": "border",
+        "option": "border",
         "insertedText": "border: ",
         "subOptions": []
     },
     {
-        "text": "border-radius",
+        "option": "border-radius",
         "insertedText": "border-radius: ",
         "subOptions": []
     },
     {
-        "text": "border-top",
+        "option": "border-top",
         "insertedText": "border-top: ",
         "subOptions": []
     },
     {
-        "text": "border-bottom",
+        "option": "border-bottom",
         "insertedText": "border-bottom: ",
         "subOptions": []
     },
     {
-        "text": "border-left",
+        "option": "border-left",
         "insertedText": "border-left: ",
         "subOptions": []
     },
     {
-        "text": "border-right",
+        "option": "border-right",
         "insertedText": "border-right: ",
         "subOptions": []
     },
     {
-        "text": "border-color",
+        "option": "border-color",
         "insertedText": "border-color: ",
         "subOptions": [
             {
-                "text": "inherit",
+                "option": "inherit",
                 "insertedText": "inherit;",
                 "subOptions": []
             }
         ]
     },
     {
-        "text": "border-width",
+        "option": "border-width",
         "insertedText": "border-width: ",
         "subOptions": [
             {
-                "text": "medium",
+                "option": "medium",
                 "insertedText": "medium;",
                 "subOptions": []
             },
             {
-                "text": "thin",
+                "option": "thin",
                 "insertedText": "thin;",
                 "subOptions": []
             },
             {
-                "text": "thick",
+                "option": "thick",
                 "insertedText": "thick;",
                 "subOptions": []
             },
             {
-                "text": "inherit",
+                "option": "inherit",
                 "insertedText": "inherit;",
                 "subOptions": []
             }
         ]
     },
     {
-        "text": "position",
+        "option": "position",
         "insertedText": "position: ",
         "subOptions": [
             {
-                "text": "absolute",
+                "option": "absolute",
                 "insertedText": "absolute;",
                 "subOptions": []
             },
             {
-                "text": "fixed",
+                "option": "fixed",
                 "insertedText": "fixed;",
                 "subOptions": []
             },
             {
-                "text": "relative",
+                "option": "relative",
                 "insertedText": "relative;",
                 "subOptions": []
             },
             {
-                "text": "static",
+                "option": "static",
                 "insertedText": "static;",
                 "subOptions": []
             },
             {
-                "text": "sticky",
+                "option": "sticky",
                 "insertedText": "sticky;",
                 "subOptions": []
             },
             {
-                "text": "inherit",
+                "option": "inherit",
                 "insertedText": "inherit;",
                 "subOptions": []
             }
         ]
     },
     {
-        "text": "text-align",
+        "option": "text-align",
         "insertedText": "text-align: ",
         "subOptions": [
             {
-                "text": "center",
+                "option": "center",
                 "insertedText": "center;",
                 "subOptions": []
             },
             {
-                "text": "left",
+                "option": "left",
                 "insertedText": "left;",
                 "subOptions": []
             },
             {
-                "text": "justify",
+                "option": "justify",
                 "insertedText": "justify;",
                 "subOptions": []
             },
             {
-                "text": "right",
+                "option": "right",
                 "insertedText": "right;",
                 "subOptions": []
             },
             {
-                "text": "inherit",
+                "option": "inherit",
                 "insertedText": "inherit;",
                 "subOptions": []
             }
         ]
     },
     {
-        "text": "background",
+        "option": "background",
         "insertedText": "background: ",
         "subOptions": []
     },
     {
-        "text": "background-color",
+        "option": "background-color",
         "insertedText": "background-color: ",
         "subOptions": [
             {
-                "text": "inherit",
+                "option": "inherit",
                 "insertedText": "inherit;",
                 "subOptions": []
             }
         ]
     },
     {
-        "text": "background-position",
+        "option": "background-position",
         "insertedText": "background-position: ",
         "subOptions": [
             {
-                "text": "left",
+                "option": "left",
                 "insertedText": "left;",
                 "subOptions": []
             },
             {
-                "text": "center",
+                "option": "center",
                 "insertedText": "center;",
                 "subOptions": []
             },
             {
-                "text": "right",
+                "option": "right",
                 "insertedText": "right;",
                 "subOptions": []
             },
             {
-                "text": "bottom",
+                "option": "bottom",
                 "insertedText": "bottom;",
                 "subOptions": []
             },
             {
-                "text": "top",
+                "option": "top",
                 "insertedText": "top;",
                 "subOptions": []
             }
         ]
     },
     {
-        "text": "background-repeat",
+        "option": "background-repeat",
         "insertedText": "background-repeat: ",
         "subOptions": [
             {
-                "text": "no-repeat",
+                "option": "no-repeat",
                 "insertedText": "no-repeat;",
                 "subOptions": []
             },
             {
-                "text": "repeat",
+                "option": "repeat",
                 "insertedText": "repeat;",
                 "subOptions": []
             },
             {
-                "text": "repeat-x",
+                "option": "repeat-x",
                 "insertedText": "repeat-x;",
                 "subOptions": []
             },
             {
-                "text": "repeat-y",
+                "option": "repeat-y",
                 "insertedText": "repeat-y;",
                 "subOptions": []
             },
             {
-                "text": "round",
+                "option": "round",
                 "insertedText": "round;",
                 "subOptions": []
             },
             {
-                "text": "space",
+                "option": "space",
                 "insertedText": "space;",
                 "subOptions": []
             }
         ]
     },
     {
-        "text": "background-image",
+        "option": "background-image",
         "insertedText": "background-image: ",
         "subOptions": [
             {
-                "text": "image()",
+                "option": "image()",
                 "insertedText": "image();",
                 "subOptions": []
             },
             {
-                "text": "linear-gradient()",
+                "option": "linear-gradient()",
                 "insertedText": "linear-gradient();",
                 "subOptions": []
             },
             {
-                "text": "radial-gradient()",
+                "option": "radial-gradient()",
                 "insertedText": "radial-gradient();",
                 "subOptions": []
             },
             {
-                "text": "repeating-linear-gradient()",
+                "option": "repeating-linear-gradient()",
                 "insertedText": "repeating-linear-gradient();",
                 "subOptions": []
             },
             {
-                "text": "repeating-radial-gradient()",
+                "option": "repeating-radial-gradient()",
                 "insertedText": "repeating-radial-gradient();",
                 "subOptions": []
             },
             {
-                "text": "url()",
+                "option": "url()",
                 "insertedText": "url();",
                 "subOptions": []
             }
         ]
     },
     {
-        "text": "background-size",
+        "option": "background-size",
         "insertedText": "background-size: ",
         "subOptions": [
             {
-                "text": "auto",
+                "option": "auto",
                 "insertedText": "auto;",
                 "subOptions": []
             },
             {
-                "text": "contain",
+                "option": "contain",
                 "insertedText": "contain;",
                 "subOptions": []
             },
             {
-                "text": "cover",
+                "option": "cover",
                 "insertedText": "cover;",
                 "subOptions": []
             }
         ]
     },
     {
-        "text": "background-clip",
+        "option": "background-clip",
         "insertedText": "background-clip: ",
         "subOptions": [
             {
-                "text": "border-box",
+                "option": "border-box",
                 "insertedText": "border-box;",
                 "subOptions": []
             },
             {
-                "text": "content-box",
+                "option": "content-box",
                 "insertedText": "content-box;",
                 "subOptions": []
             },
             {
-                "text": "padding-box",
+                "option": "padding-box",
                 "insertedText": "padding-box;",
                 "subOptions": []
             },
             {
-                "text": "inherit",
+                "option": "inherit",
                 "insertedText": "inherit;",
                 "subOptions": []
             }
         ]
     },
     {
-        "text": "right",
+        "option": "right",
         "insertedText": "right: ",
         "subOptions": [
             {
-                "text": "auto",
+                "option": "auto",
                 "insertedText": "auto;",
                 "subOptions": []
             },
             {
-                "text": "inherit",
+                "option": "inherit",
                 "insertedText": "inherit;",
                 "subOptions": []
             }
         ]
     },
     {
-        "text": "left",
+        "option": "left",
         "insertedText": "left: ",
         "subOptions": [
             {
-                "text": "auto",
+                "option": "auto",
                 "insertedText": "auto;",
                 "subOptions": []
             },
             {
-                "text": "inherit",
+                "option": "inherit",
                 "insertedText": "inherit;",
                 "subOptions": []
             }
         ]
     },
     {
-        "text": "top",
+        "option": "top",
         "insertedText": "top: ",
         "subOptions": [
             {
-                "text": "auto",
+                "option": "auto",
                 "insertedText": "auto;",
                 "subOptions": []
             },
             {
-                "text": "inherit",
+                "option": "inherit",
                 "insertedText": "inherit;",
                 "subOptions": []
             }
         ]
     },
     {
-        "text": "bottom",
+        "option": "bottom",
         "insertedText": "bottom: ",
         "subOptions": [
             {
-                "text": "auto",
+                "option": "auto",
                 "insertedText": "auto;",
                 "subOptions": []
             },
             {
-                "text": "inherit",
+                "option": "inherit",
                 "insertedText": "inherit;",
                 "subOptions": []
             }
         ]
     },
     {
-        "text": "overflow",
+        "option": "overflow",
         "insertedText": "overflow: ",
         "subOptions": [
             {
-                "text": "auto",
+                "option": "auto",
                 "insertedText": "auto;",
                 "subOptions": []
             },
             {
-                "text": "hidden",
+                "option": "hidden",
                 "insertedText": "hidden;",
                 "subOptions": []
             },
             {
-                "text": "scroll",
+                "option": "scroll",
                 "insertedText": "scroll;",
                 "subOptions": []
             },
             {
-                "text": "visible",
+                "option": "visible",
                 "insertedText": "visible;",
                 "subOptions": []
             },
             {
-                "text": "inherit",
+                "option": "inherit",
                 "insertedText": "inherit;",
                 "subOptions": []
             }
         ]
     },
     {
-        "text": "overflow-x",
+        "option": "overflow-x",
         "insertedText": "overflow-x: ",
         "subOptions": [
             {
-                "text": "auto",
+                "option": "auto",
                 "insertedText": "auto;",
                 "subOptions": []
             },
             {
-                "text": "hidden",
+                "option": "hidden",
                 "insertedText": "hidden;",
                 "subOptions": []
             },
             {
-                "text": "scroll",
+                "option": "scroll",
                 "insertedText": "scroll;",
                 "subOptions": []
             },
             {
-                "text": "visible",
+                "option": "visible",
                 "insertedText": "visible;",
                 "subOptions": []
             },
             {
-                "text": "inherit",
+                "option": "inherit",
                 "insertedText": "inherit;",
                 "subOptions": []
             }
         ]
     },
     {
-        "text": "overflow-y",
+        "option": "overflow-y",
         "insertedText": "overflow-y: ",
         "subOptions": [
             {
-                "text": "auto",
+                "option": "auto",
                 "insertedText": "auto;",
                 "subOptions": []
             },
             {
-                "text": "hidden",
+                "option": "hidden",
                 "insertedText": "hidden;",
                 "subOptions": []
             },
             {
-                "text": "scroll",
+                "option": "scroll",
                 "insertedText": "scroll;",
                 "subOptions": []
             },
             {
-                "text": "visible",
+                "option": "visible",
                 "insertedText": "visible;",
                 "subOptions": []
             },
             {
-                "text": "inherit",
+                "option": "inherit",
                 "insertedText": "inherit;",
                 "subOptions": []
             }
         ]
     },
     {
-        "text": "opacity",
+        "option": "opacity",
         "insertedText": "opacity: ",
         "subOptions": [
             {
-                "text": "inherit",
+                "option": "inherit",
                 "insertedText": "inherit;",
                 "subOptions": []
             }
         ]
     },
     {
-        "text": "cursor",
+        "option": "cursor",
         "insertedText": "cursor: ",
         "subOptions": [
             {
-                "text": "alias",
+                "option": "alias",
                 "insertedText": "alias;",
                 "subOptions": []
             },
             {
-                "text": "all-scroll",
+                "option": "all-scroll",
                 "insertedText": "all-scroll;",
                 "subOptions": []
             },
             {
-                "text": "auto",
+                "option": "auto",
                 "insertedText": "auto;",
                 "subOptions": []
             },
             {
-                "text": "cell",
+                "option": "cell",
                 "insertedText": "cell;",
                 "subOptions": []
             },
             {
-                "text": "col-resize",
+                "option": "col-resize",
                 "insertedText": "col-resize;",
                 "subOptions": []
             },
             {
-                "text": "context-menu",
+                "option": "context-menu",
                 "insertedText": "context-menu;",
                 "subOptions": []
             },
             {
-                "text": "copy",
+                "option": "copy",
                 "insertedText": "copy;",
                 "subOptions": []
             },
             {
-                "text": "crosshair",
+                "option": "crosshair",
                 "insertedText": "crosshair;",
                 "subOptions": []
             },
             {
-                "text": "default",
+                "option": "default",
                 "insertedText": "default;",
                 "subOptions": []
             },
             {
-                "text": "e-resize",
+                "option": "e-resize",
                 "insertedText": "e-resize;",
                 "subOptions": []
             },
             {
-                "text": "ew-resize",
+                "option": "ew-resize",
                 "insertedText": "ew-resize;",
                 "subOptions": []
             },
             {
-                "text": "grab",
+                "option": "grab",
                 "insertedText": "grab;",
                 "subOptions": []
             },
             {
-                "text": "grabbing",
+                "option": "grabbing",
                 "insertedText": "grabbing;",
                 "subOptions": []
             },
             {
-                "text": "help",
+                "option": "help",
                 "insertedText": "help;",
                 "subOptions": []
             },
             {
-                "text": "inherit",
+                "option": "inherit",
                 "insertedText": "inherit;",
                 "subOptions": []
             },
             {
-                "text": "move",
+                "option": "move",
                 "insertedText": "move;",
                 "subOptions": []
             },
             {
-                "text": "n-resize",
+                "option": "n-resize",
                 "insertedText": "n-resize;",
                 "subOptions": []
             },
             {
-                "text": "ne-resize",
+                "option": "ne-resize",
                 "insertedText": "ne-resize;",
                 "subOptions": []
             },
             {
-                "text": "nesw-resize",
+                "option": "nesw-resize",
                 "insertedText": "nesw-resize;",
                 "subOptions": []
             },
             {
-                "text": "no-drop",
+                "option": "no-drop",
                 "insertedText": "no-drop;",
                 "subOptions": []
             },
             {
-                "text": "none",
+                "option": "none",
                 "insertedText": "none;",
                 "subOptions": []
             },
             {
-                "text": "not-allowed",
+                "option": "not-allowed",
                 "insertedText": "not-allowed;",
                 "subOptions": []
             },
             {
-                "text": "ns-resize",
+                "option": "ns-resize",
                 "insertedText": "ns-resize;",
                 "subOptions": []
             },
             {
-                "text": "nw-resize",
+                "option": "nw-resize",
                 "insertedText": "nw-resize;",
                 "subOptions": []
             },
             {
-                "text": "nwse-resize",
+                "option": "nwse-resize",
                 "insertedText": "nwse-resize;",
                 "subOptions": []
             },
             {
-                "text": "pointer",
+                "option": "pointer",
                 "insertedText": "pointer;",
                 "subOptions": []
             },
             {
-                "text": "progress",
+                "option": "progress",
                 "insertedText": "progress;",
                 "subOptions": []
             },
             {
-                "text": "row-resize",
+                "option": "row-resize",
                 "insertedText": "row-resize;",
                 "subOptions": []
             },
             {
-                "text": "s-resize",
+                "option": "s-resize",
                 "insertedText": "s-resize;",
                 "subOptions": []
             },
             {
-                "text": "se-resize",
+                "option": "se-resize",
                 "insertedText": "se-resize;",
                 "subOptions": []
             },
             {
-                "text": "sw-resize",
+                "option": "sw-resize",
                 "insertedText": "sw-resize;",
                 "subOptions": []
             },
             {
-                "text": "text",
+                "option": "text",
                 "insertedText": "text;",
                 "subOptions": []
             },
             {
-                "text": "vertical-text",
+                "option": "vertical-text",
                 "insertedText": "vertical-text;",
                 "subOptions": []
             },
             {
-                "text": "w-resize",
+                "option": "w-resize",
                 "insertedText": "w-resize;",
                 "subOptions": []
             },
             {
-                "text": "wait",
+                "option": "wait",
                 "insertedText": "wait;",
                 "subOptions": []
             },
             {
-                "text": "zoom-in",
+                "option": "zoom-in",
                 "insertedText": "zoom-in;",
                 "subOptions": []
             },
             {
-                "text": "zoom-out",
+                "option": "zoom-out",
                 "insertedText": "zoom-out;",
                 "subOptions": []
             }
         ]
     },
     {
-        "text": "display",
+        "option": "display",
         "insertedText": "display: ",
         "subOptions": [
             {
-                "text": "block",
+                "option": "block",
                 "insertedText": "block;",
                 "subOptions": []
             },
             {
-                "text": "contents",
+                "option": "contents",
                 "insertedText": "contents;",
                 "subOptions": []
             },
             {
-                "text": "flex",
+                "option": "flex",
                 "insertedText": "flex;",
                 "subOptions": []
             },
             {
-                "text": "flow-root",
+                "option": "flow-root",
                 "insertedText": "flow-root;",
                 "subOptions": []
             },
             {
-                "text": "grid",
+                "option": "grid",
                 "insertedText": "grid;",
                 "subOptions": []
             },
             {
-                "text": "inline",
+                "option": "inline",
                 "insertedText": "inline;",
                 "subOptions": []
             },
             {
-                "text": "inline-block",
+                "option": "inline-block",
                 "insertedText": "inline-block;",
                 "subOptions": []
             },
             {
-                "text": "inline-flex",
+                "option": "inline-flex",
                 "insertedText": "inline-flex;",
                 "subOptions": []
             },
             {
-                "text": "inline-grid",
+                "option": "inline-grid",
                 "insertedText": "inline-grid;",
                 "subOptions": []
             },
             {
-                "text": "inline-table",
+                "option": "inline-table",
                 "insertedText": "inline-table;",
                 "subOptions": []
             },
             {
-                "text": "list-item",
+                "option": "list-item",
                 "insertedText": "list-item;",
                 "subOptions": []
             },
             {
-                "text": "none",
+                "option": "none",
                 "insertedText": "none;",
                 "subOptions": []
             },
             {
-                "text": "run-in",
+                "option": "run-in",
                 "insertedText": "run-in;",
                 "subOptions": []
             },
             {
-                "text": "subgrid",
+                "option": "subgrid",
                 "insertedText": "subgrid;",
                 "subOptions": []
             },
             {
-                "text": "table",
+                "option": "table",
                 "insertedText": "table;",
                 "subOptions": []
             },
             {
-                "text": "table-caption",
+                "option": "table-caption",
                 "insertedText": "table-caption;",
                 "subOptions": []
             },
             {
-                "text": "table-cell",
+                "option": "table-cell",
                 "insertedText": "table-cell;",
                 "subOptions": []
             },
             {
-                "text": "table-column",
+                "option": "table-column",
                 "insertedText": "table-column;",
                 "subOptions": []
             },
             {
-                "text": "table-column-group",
+                "option": "table-column-group",
                 "insertedText": "table-column-group;",
                 "subOptions": []
             },
             {
-                "text": "table-footer-group",
+                "option": "table-footer-group",
                 "insertedText": "table-footer-group;",
                 "subOptions": []
             },
             {
-                "text": "table-header-group",
+                "option": "table-header-group",
                 "insertedText": "table-header-group;",
                 "subOptions": []
             },
             {
-                "text": "table-row",
+                "option": "table-row",
                 "insertedText": "table-row;",
                 "subOptions": []
             },
             {
-                "text": "table-row-group",
+                "option": "table-row-group",
                 "insertedText": "table-row-group;",
                 "subOptions": []
             },
             {
-                "text": "inherit",
+                "option": "inherit",
                 "insertedText": "inherit;",
                 "subOptions": []
             }
         ]
     },
     {
-        "text": "color",
+        "option": "color",
         "insertedText": "color: ",
         "subOptions": [
             {
-                "text": "inherit",
+                "option": "inherit",
                 "insertedText": "inherit;",
                 "subOptions": []
             }
         ]
     },
     {
-        "text": "visibility",
+        "option": "visibility",
         "insertedText": "visibility: ",
         "subOptions": [
             {
-                "text": "collapse",
+                "option": "collapse",
                 "insertedText": "collapse;",
                 "subOptions": []
             },
             {
-                "text": "hidden",
+                "option": "hidden",
                 "insertedText": "hidden;",
                 "subOptions": []
             },
             {
-                "text": "visible",
+                "option": "visible",
                 "insertedText": "visible;",
                 "subOptions": []
             },
             {
-                "text": "inherit",
+                "option": "inherit",
                 "insertedText": "inherit;",
                 "subOptions": []
             }
         ]
     },
     {
-        "text": "float",
+        "option": "float",
         "insertedText": "float: ",
         "subOptions": [
             {
-                "text": "left",
+                "option": "left",
                 "insertedText": "left;",
                 "subOptions": []
             },
             {
-                "text": "right",
+                "option": "right",
                 "insertedText": "right;",
                 "subOptions": []
             },
             {
-                "text": "none",
+                "option": "none",
                 "insertedText": "none;",
                 "subOptions": []
             },
             {
-                "text": "inherit",
+                "option": "inherit",
                 "insertedText": "inherit;",
                 "subOptions": []
             }
         ]
     },
     {
-        "text": "text-decoration",
+        "option": "text-decoration",
         "insertedText": "text-decoration: ",
         "subOptions": [
             {
-                "text": "line-through",
+                "option": "line-through",
                 "insertedText": "line-through;",
                 "subOptions": []
             },
             {
-                "text": "none",
+                "option": "none",
                 "insertedText": "none;",
                 "subOptions": []
             },
             {
-                "text": "overline",
+                "option": "overline",
                 "insertedText": "overline;",
                 "subOptions": []
             },
             {
-                "text": "underline",
+                "option": "underline",
                 "insertedText": "underline;",
                 "subOptions": []
             },
             {
-                "text": "inherit",
+                "option": "inherit",
                 "insertedText": "inherit;",
                 "subOptions": []
             }
         ]
     },
     {
-        "text": "line-height",
+        "option": "line-height",
         "insertedText": "line-height: ",
         "subOptions": [
             {
-                "text": "normal",
+                "option": "normal",
                 "insertedText": "normal;",
                 "subOptions": []
             },
             {
-                "text": "inherit",
+                "option": "inherit",
                 "insertedText": "inherit;",
                 "subOptions": []
             }
         ]
     },
     {
-        "text": "z-index",
+        "option": "z-index",
         "insertedText": "z-index: ",
         "subOptions": [
             {
-                "text": "auto",
+                "option": "auto",
                 "insertedText": "auto;",
                 "subOptions": []
             },
             {
-                "text": "inherit",
+                "option": "inherit",
                 "insertedText": "inherit;",
                 "subOptions": []
             }
         ]
     },
     {
-        "text": "vertical-align",
+        "option": "vertical-align",
         "insertedText": "vertical-align: ",
         "subOptions": [
             {
-                "text": "baseline",
+                "option": "baseline",
                 "insertedText": "baseline;",
                 "subOptions": []
             },
             {
-                "text": "bottom",
+                "option": "bottom",
                 "insertedText": "bottom;",
                 "subOptions": []
             },
             {
-                "text": "middle",
+                "option": "middle",
                 "insertedText": "middle;",
                 "subOptions": []
             },
             {
-                "text": "sub",
+                "option": "sub",
                 "insertedText": "sub;",
                 "subOptions": []
             },
             {
-                "text": "super",
+                "option": "super",
                 "insertedText": "super;",
                 "subOptions": []
             },
             {
-                "text": "text-bottom",
+                "option": "text-bottom",
                 "insertedText": "text-bottom;",
                 "subOptions": []
             },
             {
-                "text": "text-top",
+                "option": "text-top",
                 "insertedText": "text-top;",
                 "subOptions": []
             },
             {
-                "text": "top",
+                "option": "top",
                 "insertedText": "top;",
                 "subOptions": []
             },
             {
-                "text": "inherit",
+                "option": "inherit",
                 "insertedText": "inherit;",
                 "subOptions": []
             }
         ]
     },
     {
-        "text": "box-sizing",
+        "option": "box-sizing",
         "insertedText": "box-sizing: ",
         "subOptions": [
             {
-                "text": "border-box",
+                "option": "border-box",
                 "insertedText": "border-box;",
                 "subOptions": []
             },
             {
-                "text": "content-box",
+                "option": "content-box",
                 "insertedText": "content-box;",
                 "subOptions": []
             },
             {
-                "text": "inherit",
+                "option": "inherit",
                 "insertedText": "inherit;",
                 "subOptions": []
             }
         ]
     },
     {
-        "text": "clear",
+        "option": "clear",
         "insertedText": "clear: ",
         "subOptions": [
             {
-                "text": "both",
+                "option": "both",
                 "insertedText": "both;",
                 "subOptions": []
             },
             {
-                "text": "left",
+                "option": "left",
                 "insertedText": "left;",
                 "subOptions": []
             },
             {
-                "text": "none",
+                "option": "none",
                 "insertedText": "none;",
                 "subOptions": []
             },
             {
-                "text": "right",
+                "option": "right",
                 "insertedText": "right;",
                 "subOptions": []
             },
             {
-                "text": "inherit",
+                "option": "inherit",
                 "insertedText": "inherit;",
                 "subOptions": []
             }
         ]
     },
     {
-        "text": "white-space",
+        "option": "white-space",
         "insertedText": "white-space: ",
         "subOptions": [
             {
-                "text": "normal",
+                "option": "normal",
                 "insertedText": "normal;",
                 "subOptions": []
             },
             {
-                "text": "nowrap",
+                "option": "nowrap",
                 "insertedText": "nowrap;",
                 "subOptions": []
             },
             {
-                "text": "pre",
+                "option": "pre",
                 "insertedText": "pre;",
                 "subOptions": []
             },
             {
-                "text": "pre-line",
+                "option": "pre-line",
                 "insertedText": "pre-line;",
                 "subOptions": []
             },
             {
-                "text": "pre-wrap",
+                "option": "pre-wrap",
                 "insertedText": "pre-wrap;",
                 "subOptions": []
             },
             {
-                "text": "inherit",
+                "option": "inherit",
                 "insertedText": "inherit;",
                 "subOptions": []
             }
         ]
     },
     {
-        "text": "max-width",
+        "option": "max-width",
         "insertedText": "max-width: ",
         "subOptions": [
             {
-                "text": "none",
+                "option": "none",
                 "insertedText": "none;",
                 "subOptions": []
             },
             {
-                "text": "inherit",
+                "option": "inherit",
                 "insertedText": "inherit;",
                 "subOptions": []
             }
         ]
     },
     {
-        "text": "outline",
+        "option": "outline",
         "insertedText": "outline: ",
         "subOptions": [
             {
-                "text": "inherit",
+                "option": "inherit",
                 "insertedText": "inherit;",
                 "subOptions": []
             }
         ]
     },
     {
-        "text": "content",
+        "option": "content",
         "insertedText": "content: ",
         "subOptions": [
             {
-                "text": "attr()",
+                "option": "attr()",
                 "insertedText": "attr();",
                 "subOptions": []
             },
             {
-                "text": "close-quote",
+                "option": "close-quote",
                 "insertedText": "close-quote;",
                 "subOptions": []
             },
             {
-                "text": "no-close-quote",
+                "option": "no-close-quote",
                 "insertedText": "no-close-quote;",
                 "subOptions": []
             },
             {
-                "text": "no-open-quote",
+                "option": "no-open-quote",
                 "insertedText": "no-open-quote;",
                 "subOptions": []
             },
             {
-                "text": "normal",
+                "option": "normal",
                 "insertedText": "normal;",
                 "subOptions": []
             },
             {
-                "text": "none",
+                "option": "none",
                 "insertedText": "none;",
                 "subOptions": []
             },
             {
-                "text": "open-quote",
+                "option": "open-quote",
                 "insertedText": "open-quote;",
                 "subOptions": []
             },
             {
-                "text": "inherit",
+                "option": "inherit",
                 "insertedText": "inherit;",
                 "subOptions": []
             }
         ]
     },
     {
-        "text": "min-width",
+        "option": "min-width",
         "insertedText": "min-width: ",
         "subOptions": [
             {
-                "text": "inherit",
+                "option": "inherit",
                 "insertedText": "inherit;",
                 "subOptions": []
             }
         ]
     },
     {
-        "text": "min-height",
+        "option": "min-height",
         "insertedText": "min-height: ",
         "subOptions": [
             {
-                "text": "inherit",
+                "option": "inherit",
                 "insertedText": "inherit;",
                 "subOptions": []
             }
         ]
     },
     {
-        "text": "list-style",
+        "option": "list-style",
         "insertedText": "list-style: ",
         "subOptions": [
             {
-                "text": "none",
+                "option": "none",
                 "insertedText": "none;",
                 "subOptions": []
             },
             {
-                "text": "inherit",
+                "option": "inherit",
                 "insertedText": "inherit;",
                 "subOptions": []
             },
             {
-                "text": "initial",
+                "option": "initial",
                 "insertedText": "initial;",
                 "subOptions": []
             },
             {
-                "text": "unset",
+                "option": "unset",
                 "insertedText": "unset;",
                 "subOptions": []
             },
             {
-                "text": "url()",
+                "option": "url()",
                 "insertedText": "url();",
                 "subOptions": []
             },
             {
-                "text": "armenian",
+                "option": "armenian",
                 "insertedText": "armenian;",
                 "subOptions": []
             },
             {
-                "text": "circle",
+                "option": "circle",
                 "insertedText": "circle;",
                 "subOptions": []
             },
             {
-                "text": "decimal",
+                "option": "decimal",
                 "insertedText": "decimal;",
                 "subOptions": []
             },
             {
-                "text": "decimal-leading-zero",
+                "option": "decimal-leading-zero",
                 "insertedText": "decimal-leading-zero;",
                 "subOptions": []
             },
             {
-                "text": "disc",
+                "option": "disc",
                 "insertedText": "disc;",
                 "subOptions": []
             },
             {
-                "text": "georgian",
+                "option": "georgian",
                 "insertedText": "georgian;",
                 "subOptions": []
             },
             {
-                "text": "inside",
+                "option": "inside",
                 "insertedText": "inside;",
                 "subOptions": []
             },
             {
-                "text": "lower-alpha",
+                "option": "lower-alpha",
                 "insertedText": "lower-alpha;",
                 "subOptions": []
             },
             {
-                "text": "lower-greek",
+                "option": "lower-greek",
                 "insertedText": "lower-greek;",
                 "subOptions": []
             },
             {
-                "text": "lower-latin",
+                "option": "lower-latin",
                 "insertedText": "lower-latin;",
                 "subOptions": []
             },
             {
-                "text": "lower-roman",
+                "option": "lower-roman",
                 "insertedText": "lower-roman;",
                 "subOptions": []
             },
             {
-                "text": "outside",
+                "option": "outside",
                 "insertedText": "outside;",
                 "subOptions": []
             },
             {
-                "text": "square",
+                "option": "square",
                 "insertedText": "square;",
                 "subOptions": []
             },
             {
-                "text": "upper-alpha",
+                "option": "upper-alpha",
                 "insertedText": "upper-alpha;",
                 "subOptions": []
             },
             {
-                "text": "upper-latin",
+                "option": "upper-latin",
                 "insertedText": "upper-latin;",
                 "subOptions": []
             },
             {
-                "text": "upper-roman",
+                "option": "upper-roman",
                 "insertedText": "upper-roman;",
                 "subOptions": []
             }
         ]
     },
     {
-        "text": "box-shadow",
+        "option": "box-shadow",
         "insertedText": "box-shadow: ",
         "subOptions": []
     },
     {
-        "text": "text-shadow",
+        "option": "text-shadow",
         "insertedText": "text-shadow: ",
         "subOptions": []
     },
     {
-        "text": "text-indent",
+        "option": "text-indent",
         "insertedText": "text-indent: ",
         "subOptions": [
             {
-                "text": "inherit",
+                "option": "inherit",
                 "insertedText": "inherit;",
                 "subOptions": []
             }
         ]
     },
     {
-        "text": "max-height",
+        "option": "max-height",
         "insertedText": "max-height: ",
         "subOptions": [
             {
-                "text": "none",
+                "option": "none",
                 "insertedText": "none;",
                 "subOptions": []
             },
             {
-                "text": "inherit",
+                "option": "inherit",
                 "insertedText": "inherit;",
                 "subOptions": []
             }
         ]
     },
     {
-        "text": "text-overflow",
+        "option": "text-overflow",
         "insertedText": "text-overflow: ",
         "subOptions": [
             {
-                "text": "clip",
+                "option": "clip",
                 "insertedText": "clip;",
                 "subOptions": []
             },
             {
-                "text": "ellipsis",
+                "option": "ellipsis",
                 "insertedText": "ellipsis;",
                 "subOptions": []
             },
             {
-                "text": "inherit",
+                "option": "inherit",
                 "insertedText": "inherit;",
                 "subOptions": []
             }
         ]
     },
     {
-        "text": "border-style",
+        "option": "border-style",
         "insertedText": "border-style: ",
         "subOptions": [
             {
-                "text": "dashed",
+                "option": "dashed",
                 "insertedText": "dashed;",
                 "subOptions": []
             },
             {
-                "text": "dotted",
+                "option": "dotted",
                 "insertedText": "dotted;",
                 "subOptions": []
             },
             {
-                "text": "double",
+                "option": "double",
                 "insertedText": "double;",
                 "subOptions": []
             },
             {
-                "text": "groove",
+                "option": "groove",
                 "insertedText": "groove;",
                 "subOptions": []
             },
             {
-                "text": "hidden",
+                "option": "hidden",
                 "insertedText": "hidden;",
                 "subOptions": []
             },
             {
-                "text": "inset",
+                "option": "inset",
                 "insertedText": "inset;",
                 "subOptions": []
             },
             {
-                "text": "none",
+                "option": "none",
                 "insertedText": "none;",
                 "subOptions": []
             },
             {
-                "text": "outset",
+                "option": "outset",
                 "insertedText": "outset;",
                 "subOptions": []
             },
             {
-                "text": "ridge",
+                "option": "ridge",
                 "insertedText": "ridge;",
                 "subOptions": []
             },
             {
-                "text": "solid",
+                "option": "solid",
                 "insertedText": "solid;",
                 "subOptions": []
             },
             {
-                "text": "inherit",
+                "option": "inherit",
                 "insertedText": "inherit;",
                 "subOptions": []
             }
         ]
     },
     {
-        "text": "border-spacing",
+        "option": "border-spacing",
         "insertedText": "border-spacing: ",
         "subOptions": [
             {
-                "text": "inherit",
+                "option": "inherit",
                 "insertedText": "inherit;",
                 "subOptions": []
             }
         ]
     },
     {
-        "text": "border-collapse",
+        "option": "border-collapse",
         "insertedText": "border-collapse: ",
         "subOptions": [
             {
-                "text": "collapse",
+                "option": "collapse",
                 "insertedText": "collapse;",
                 "subOptions": []
             },
             {
-                "text": "separate",
+                "option": "separate",
                 "insertedText": "separate;",
                 "subOptions": []
             },
             {
-                "text": "inherit",
+                "option": "inherit",
                 "insertedText": "inherit;",
                 "subOptions": []
             }
         ]
     },
     {
-        "text": "border-left-color",
+        "option": "border-left-color",
         "insertedText": "border-left-color: ",
         "subOptions": [
             {
-                "text": "inherit",
+                "option": "inherit",
                 "insertedText": "inherit;",
                 "subOptions": []
             }
         ]
     },
     {
-        "text": "border-left-style",
+        "option": "border-left-style",
         "insertedText": "border-left-style: ",
         "subOptions": [
             {
-                "text": "dashed",
+                "option": "dashed",
                 "insertedText": "dashed;",
                 "subOptions": []
             },
             {
-                "text": "dotted",
+                "option": "dotted",
                 "insertedText": "dotted;",
                 "subOptions": []
             },
             {
-                "text": "double",
+                "option": "double",
                 "insertedText": "double;",
                 "subOptions": []
             },
             {
-                "text": "groove",
+                "option": "groove",
                 "insertedText": "groove;",
                 "subOptions": []
             },
             {
-                "text": "hidden",
+                "option": "hidden",
                 "insertedText": "hidden;",
                 "subOptions": []
             },
             {
-                "text": "inset",
+                "option": "inset",
                 "insertedText": "inset;",
                 "subOptions": []
             },
             {
-                "text": "none",
+                "option": "none",
                 "insertedText": "none;",
                 "subOptions": []
             },
             {
-                "text": "outset",
+                "option": "outset",
                 "insertedText": "outset;",
                 "subOptions": []
             },
             {
-                "text": "ridge",
+                "option": "ridge",
                 "insertedText": "ridge;",
                 "subOptions": []
             },
             {
-                "text": "solid",
+                "option": "solid",
                 "insertedText": "solid;",
                 "subOptions": []
             },
             {
-                "text": "inherit",
+                "option": "inherit",
                 "insertedText": "inherit;",
                 "subOptions": []
             }
         ]
     },
     {
-        "text": "border-left-width",
+        "option": "border-left-width",
         "insertedText": "border-left-width: ",
         "subOptions": [
             {
-                "text": "medium",
+                "option": "medium",
                 "insertedText": "medium;",
                 "subOptions": []
             },
             {
-                "text": "thin",
+                "option": "thin",
                 "insertedText": "thin;",
                 "subOptions": []
             },
             {
-                "text": "thick",
+                "option": "thick",
                 "insertedText": "thick;",
                 "subOptions": []
             },
             {
-                "text": "inherit",
+                "option": "inherit",
                 "insertedText": "inherit;",
                 "subOptions": []
             }
         ]
     },
     {
-        "text": "border-right-color",
+        "option": "border-right-color",
         "insertedText": "border-right-color: ",
         "subOptions": [
             {
-                "text": "inherit",
+                "option": "inherit",
                 "insertedText": "inherit;",
                 "subOptions": []
             }
         ]
     },
     {
-        "text": "border-right-style",
+        "option": "border-right-style",
         "insertedText": "border-right-style: ",
         "subOptions": [
             {
-                "text": "dashed",
+                "option": "dashed",
                 "insertedText": "dashed;",
                 "subOptions": []
             },
             {
-                "text": "dotted",
+                "option": "dotted",
                 "insertedText": "dotted;",
                 "subOptions": []
             },
             {
-                "text": "double",
+                "option": "double",
                 "insertedText": "double;",
                 "subOptions": []
             },
             {
-                "text": "groove",
+                "option": "groove",
                 "insertedText": "groove;",
                 "subOptions": []
             },
             {
-                "text": "hidden",
+                "option": "hidden",
                 "insertedText": "hidden;",
                 "subOptions": []
             },
             {
-                "text": "inset",
+                "option": "inset",
                 "insertedText": "inset;",
                 "subOptions": []
             },
             {
-                "text": "none",
+                "option": "none",
                 "insertedText": "none;",
                 "subOptions": []
             },
             {
-                "text": "outset",
+                "option": "outset",
                 "insertedText": "outset;",
                 "subOptions": []
             },
             {
-                "text": "ridge",
+                "option": "ridge",
                 "insertedText": "ridge;",
                 "subOptions": []
             },
             {
-                "text": "solid",
+                "option": "solid",
                 "insertedText": "solid;",
                 "subOptions": []
             },
             {
-                "text": "inherit",
+                "option": "inherit",
                 "insertedText": "inherit;",
                 "subOptions": []
             }
         ]
     },
     {
-        "text": "border-right-width",
+        "option": "border-right-width",
         "insertedText": "border-right-width: ",
         "subOptions": [
             {
-                "text": "medium",
+                "option": "medium",
                 "insertedText": "medium;",
                 "subOptions": []
             },
             {
-                "text": "thin",
+                "option": "thin",
                 "insertedText": "thin;",
                 "subOptions": []
             },
             {
-                "text": "thick",
+                "option": "thick",
                 "insertedText": "thick;",
                 "subOptions": []
             },
             {
-                "text": "inherit",
+                "option": "inherit",
                 "insertedText": "inherit;",
                 "subOptions": []
             }
         ]
     },
     {
-        "text": "border-top-color",
+        "option": "border-top-color",
         "insertedText": "border-top-color: ",
         "subOptions": [
             {
-                "text": "inherit",
+                "option": "inherit",
                 "insertedText": "inherit;",
                 "subOptions": []
             }
         ]
     },
     {
-        "text": "border-top-style",
+        "option": "border-top-style",
         "insertedText": "border-top-style: ",
         "subOptions": [
             {
-                "text": "dashed",
+                "option": "dashed",
                 "insertedText": "dashed;",
                 "subOptions": []
             },
             {
-                "text": "dotted",
+                "option": "dotted",
                 "insertedText": "dotted;",
                 "subOptions": []
             },
             {
-                "text": "double",
+                "option": "double",
                 "insertedText": "double;",
                 "subOptions": []
             },
             {
-                "text": "groove",
+                "option": "groove",
                 "insertedText": "groove;",
                 "subOptions": []
             },
             {
-                "text": "hidden",
+                "option": "hidden",
                 "insertedText": "hidden;",
                 "subOptions": []
             },
             {
-                "text": "inset",
+                "option": "inset",
                 "insertedText": "inset;",
                 "subOptions": []
             },
             {
-                "text": "none",
+                "option": "none",
                 "insertedText": "none;",
                 "subOptions": []
             },
             {
-                "text": "outset",
+                "option": "outset",
                 "insertedText": "outset;",
                 "subOptions": []
             },
             {
-                "text": "ridge",
+                "option": "ridge",
                 "insertedText": "ridge;",
                 "subOptions": []
             },
             {
-                "text": "solid",
+                "option": "solid",
                 "insertedText": "solid;",
                 "subOptions": []
             },
             {
-                "text": "inherit",
+                "option": "inherit",
                 "insertedText": "inherit;",
                 "subOptions": []
             }
         ]
     },
     {
-        "text": "border-top-width",
+        "option": "border-top-width",
         "insertedText": "border-top-width: ",
         "subOptions": [
             {
-                "text": "medium",
+                "option": "medium",
                 "insertedText": "medium;",
                 "subOptions": []
             },
             {
-                "text": "thin",
+                "option": "thin",
                 "insertedText": "thin;",
                 "subOptions": []
             },
             {
-                "text": "thick",
+                "option": "thick",
                 "insertedText": "thick;",
                 "subOptions": []
             },
             {
-                "text": "inherit",
+                "option": "inherit",
                 "insertedText": "inherit;",
                 "subOptions": []
             }
         ]
     },
     {
-        "text": "border-bottom-color",
+        "option": "border-bottom-color",
         "insertedText": "border-bottom-color: ",
         "subOptions": [
             {
-                "text": "inherit",
+                "option": "inherit",
                 "insertedText": "inherit;",
                 "subOptions": []
             }
         ]
     },
     {
-        "text": "border-bottom-style",
+        "option": "border-bottom-style",
         "insertedText": "border-bottom-style: ",
         "subOptions": [
             {
-                "text": "dashed",
+                "option": "dashed",
                 "insertedText": "dashed;",
                 "subOptions": []
             },
             {
-                "text": "dotted",
+                "option": "dotted",
                 "insertedText": "dotted;",
                 "subOptions": []
             },
             {
-                "text": "double",
+                "option": "double",
                 "insertedText": "double;",
                 "subOptions": []
             },
             {
-                "text": "groove",
+                "option": "groove",
                 "insertedText": "groove;",
                 "subOptions": []
             },
             {
-                "text": "hidden",
+                "option": "hidden",
                 "insertedText": "hidden;",
                 "subOptions": []
             },
             {
-                "text": "inset",
+                "option": "inset",
                 "insertedText": "inset;",
                 "subOptions": []
             },
             {
-                "text": "none",
+                "option": "none",
                 "insertedText": "none;",
                 "subOptions": []
             },
             {
-                "text": "outset",
+                "option": "outset",
                 "insertedText": "outset;",
                 "subOptions": []
             },
             {
-                "text": "ridge",
+                "option": "ridge",
                 "insertedText": "ridge;",
                 "subOptions": []
             },
             {
-                "text": "solid",
+                "option": "solid",
                 "insertedText": "solid;",
                 "subOptions": []
             },
             {
-                "text": "inherit",
+                "option": "inherit",
                 "insertedText": "inherit;",
                 "subOptions": []
             }
         ]
     },
     {
-        "text": "border-bottom-width",
+        "option": "border-bottom-width",
         "insertedText": "border-bottom-width: ",
         "subOptions": [
             {
-                "text": "medium",
+                "option": "medium",
                 "insertedText": "medium;",
                 "subOptions": []
             },
             {
-                "text": "thin",
+                "option": "thin",
                 "insertedText": "thin;",
                 "subOptions": []
             },
             {
-                "text": "thick",
+                "option": "thick",
                 "insertedText": "thick;",
                 "subOptions": []
             },
             {
-                "text": "inherit",
+                "option": "inherit",
                 "insertedText": "inherit;",
                 "subOptions": []
             }
         ]
     },
     {
-        "text": "border-top-left-radius",
+        "option": "border-top-left-radius",
         "insertedText": "border-top-left-radius: ",
         "subOptions": []
     },
     {
-        "text": "border-top-right-radius",
+        "option": "border-top-right-radius",
         "insertedText": "border-top-right-radius: ",
         "subOptions": []
     },
     {
-        "text": "border-bottom-left-radius",
+        "option": "border-bottom-left-radius",
         "insertedText": "border-bottom-left-radius: ",
         "subOptions": []
     },
     {
-        "text": "border-bottom-right-radius",
+        "option": "border-bottom-right-radius",
         "insertedText": "border-bottom-right-radius: ",
         "subOptions": []
     },
     {
-        "text": "user-select",
+        "option": "user-select",
         "insertedText": "user-select: ",
         "subOptions": [
             {
-                "text": "all",
+                "option": "all",
                 "insertedText": "all;",
                 "subOptions": []
             },
             {
-                "text": "auto",
+                "option": "auto",
                 "insertedText": "auto;",
                 "subOptions": []
             },
             {
-                "text": "contain",
+                "option": "contain",
                 "insertedText": "contain;",
                 "subOptions": []
             },
             {
-                "text": "none",
+                "option": "none",
                 "insertedText": "none;",
                 "subOptions": []
             },
             {
-                "text": "text",
+                "option": "text",
                 "insertedText": "text;",
                 "subOptions": []
             }
         ]
     },
     {
-        "text": "text-transform",
+        "option": "text-transform",
         "insertedText": "text-transform: ",
         "subOptions": [
             {
-                "text": "capitalize",
+                "option": "capitalize",
                 "insertedText": "capitalize;",
                 "subOptions": []
             },
             {
-                "text": "full-width",
+                "option": "full-width",
                 "insertedText": "full-width;",
                 "subOptions": []
             },
             {
-                "text": "lowercase",
+                "option": "lowercase",
                 "insertedText": "lowercase;",
                 "subOptions": []
             },
             {
-                "text": "none",
+                "option": "none",
                 "insertedText": "none;",
                 "subOptions": []
             },
             {
-                "text": "uppercase",
+                "option": "uppercase",
                 "insertedText": "uppercase;",
                 "subOptions": []
             },
             {
-                "text": "inherit",
+                "option": "inherit",
                 "insertedText": "inherit;",
                 "subOptions": []
             }
         ]
     },
     {
-        "text": "list-style-type",
+        "option": "list-style-type",
         "insertedText": "list-style-type: ",
         "subOptions": [
             {
-                "text": "armenian",
+                "option": "armenian",
                 "insertedText": "armenian;",
                 "subOptions": []
             },
             {
-                "text": "circle",
+                "option": "circle",
                 "insertedText": "circle;",
                 "subOptions": []
             },
             {
-                "text": "decimal",
+                "option": "decimal",
                 "insertedText": "decimal;",
                 "subOptions": []
             },
             {
-                "text": "decimal-leading-zero",
+                "option": "decimal-leading-zero",
                 "insertedText": "decimal-leading-zero;",
                 "subOptions": []
             },
             {
-                "text": "disc",
+                "option": "disc",
                 "insertedText": "disc;",
                 "subOptions": []
             },
             {
-                "text": "georgian",
+                "option": "georgian",
                 "insertedText": "georgian;",
                 "subOptions": []
             },
             {
-                "text": "lower-alpha",
+                "option": "lower-alpha",
                 "insertedText": "lower-alpha;",
                 "subOptions": []
             },
             {
-                "text": "lower-greek",
+                "option": "lower-greek",
                 "insertedText": "lower-greek;",
                 "subOptions": []
             },
             {
-                "text": "lower-latin",
+                "option": "lower-latin",
                 "insertedText": "lower-latin;",
                 "subOptions": []
             },
             {
-                "text": "lower-roman",
+                "option": "lower-roman",
                 "insertedText": "lower-roman;",
                 "subOptions": []
             },
             {
-                "text": "none",
+                "option": "none",
                 "insertedText": "none;",
                 "subOptions": []
             },
             {
-                "text": "square",
+                "option": "square",
                 "insertedText": "square;",
                 "subOptions": []
             },
             {
-                "text": "upper-alpha",
+                "option": "upper-alpha",
                 "insertedText": "upper-alpha;",
                 "subOptions": []
             },
             {
-                "text": "upper-latin",
+                "option": "upper-latin",
                 "insertedText": "upper-latin;",
                 "subOptions": []
             },
             {
-                "text": "upper-roman",
+                "option": "upper-roman",
                 "insertedText": "upper-roman;",
                 "subOptions": []
             },
             {
-                "text": "inherit",
+                "option": "inherit",
                 "insertedText": "inherit;",
                 "subOptions": []
             }
         ]
     },
     {
-        "text": "word-wrap",
+        "option": "word-wrap",
         "insertedText": "word-wrap: ",
         "subOptions": [
             {
-                "text": "break-word",
+                "option": "break-word",
                 "insertedText": "break-word;",
                 "subOptions": []
             },
             {
-                "text": "normal",
+                "option": "normal",
                 "insertedText": "normal;",
                 "subOptions": []
             }
         ]
     },
     {
-        "text": "transition",
+        "option": "transition",
         "insertedText": "transition: ",
         "subOptions": []
     },
     {
-        "text": "letter-spacing",
+        "option": "letter-spacing",
         "insertedText": "letter-spacing: ",
         "subOptions": [
             {
-                "text": "normal",
+                "option": "normal",
                 "insertedText": "normal;",
                 "subOptions": []
             },
             {
-                "text": "inherit",
+                "option": "inherit",
                 "insertedText": "inherit;",
                 "subOptions": []
             }
         ]
     },
     {
-        "text": "transform",
+        "option": "transform",
         "insertedText": "transform: ",
         "subOptions": [
             {
-                "text": "matrix()",
+                "option": "matrix()",
                 "insertedText": "matrix();",
                 "subOptions": []
             },
             {
-                "text": "matrix3d()",
+                "option": "matrix3d()",
                 "insertedText": "matrix3d();",
                 "subOptions": []
             },
             {
-                "text": "none",
+                "option": "none",
                 "insertedText": "none;",
                 "subOptions": []
             },
             {
-                "text": "perspective()",
+                "option": "perspective()",
                 "insertedText": "perspective();",
                 "subOptions": []
             },
             {
-                "text": "rotate()",
+                "option": "rotate()",
                 "insertedText": "rotate();",
                 "subOptions": []
             },
             {
-                "text": "rotate3d()",
+                "option": "rotate3d()",
                 "insertedText": "rotate3d();",
                 "subOptions": []
             },
             {
-                "text": "rotateX()",
+                "option": "rotateX()",
                 "insertedText": "rotateX();",
                 "subOptions": []
             },
             {
-                "text": "rotateY()",
+                "option": "rotateY()",
                 "insertedText": "rotateY();",
                 "subOptions": []
             },
             {
-                "text": "rotateZ()",
+                "option": "rotateZ()",
                 "insertedText": "rotateZ();",
                 "subOptions": []
             },
             {
-                "text": "scale()",
+                "option": "scale()",
                 "insertedText": "scale();",
                 "subOptions": []
             },
             {
-                "text": "scale3d()",
+                "option": "scale3d()",
                 "insertedText": "scale3d();",
                 "subOptions": []
             },
             {
-                "text": "scaleX()",
+                "option": "scaleX()",
                 "insertedText": "scaleX();",
                 "subOptions": []
             },
             {
-                "text": "scaleY()",
+                "option": "scaleY()",
                 "insertedText": "scaleY();",
                 "subOptions": []
             },
             {
-                "text": "scaleZ()",
+                "option": "scaleZ()",
                 "insertedText": "scaleZ();",
                 "subOptions": []
             },
             {
-                "text": "skewX()",
+                "option": "skewX()",
                 "insertedText": "skewX();",
                 "subOptions": []
             },
             {
-                "text": "skewY()",
+                "option": "skewY()",
                 "insertedText": "skewY();",
                 "subOptions": []
             },
             {
-                "text": "translate()",
+                "option": "translate()",
                 "insertedText": "translate();",
                 "subOptions": []
             },
             {
-                "text": "translate3d()",
+                "option": "translate3d()",
                 "insertedText": "translate3d();",
                 "subOptions": []
             },
             {
-                "text": "translateX()",
+                "option": "translateX()",
                 "insertedText": "translateX();",
                 "subOptions": []
             },
             {
-                "text": "translateY()",
+                "option": "translateY()",
                 "insertedText": "translateY();",
                 "subOptions": []
             },
             {
-                "text": "translateZ()",
+                "option": "translateZ()",
                 "insertedText": "translateZ();",
                 "subOptions": []
             }
         ]
     },
     {
-        "text": "pointer-events",
+        "option": "pointer-events",
         "insertedText": "pointer-events: ",
         "subOptions": [
             {
-                "text": "all",
+                "option": "all",
                 "insertedText": "all;",
                 "subOptions": []
             },
             {
-                "text": "auto",
+                "option": "auto",
                 "insertedText": "auto;",
                 "subOptions": []
             },
             {
-                "text": "fill",
+                "option": "fill",
                 "insertedText": "fill;",
                 "subOptions": []
             },
             {
-                "text": "inherit",
+                "option": "inherit",
                 "insertedText": "inherit;",
                 "subOptions": []
             },
             {
-                "text": "none",
+                "option": "none",
                 "insertedText": "none;",
                 "subOptions": []
             },
             {
-                "text": "painted",
+                "option": "painted",
                 "insertedText": "painted;",
                 "subOptions": []
             },
             {
-                "text": "stroke",
+                "option": "stroke",
                 "insertedText": "stroke;",
                 "subOptions": []
             },
             {
-                "text": "visible",
+                "option": "visible",
                 "insertedText": "visible;",
                 "subOptions": []
             },
             {
-                "text": "visibleFill",
+                "option": "visibleFill",
                 "insertedText": "visibleFill;",
                 "subOptions": []
             },
             {
-                "text": "visiblePainted",
+                "option": "visiblePainted",
                 "insertedText": "visiblePainted;",
                 "subOptions": []
             },
             {
-                "text": "visibleStroke",
+                "option": "visibleStroke",
                 "insertedText": "visibleStroke;",
                 "subOptions": []
             }
         ]
     },
     {
-        "text": "direction",
+        "option": "direction",
         "insertedText": "direction: ",
         "subOptions": [
             {
-                "text": "ltr",
+                "option": "ltr",
                 "insertedText": "ltr;",
                 "subOptions": []
             },
             {
-                "text": "rtl",
+                "option": "rtl",
                 "insertedText": "rtl;",
                 "subOptions": []
             },
             {
-                "text": "inherit",
+                "option": "inherit",
                 "insertedText": "inherit;",
                 "subOptions": []
             }
         ]
     },
     {
-        "text": "clip",
+        "option": "clip",
         "insertedText": "clip: ",
         "subOptions": [
             {
-                "text": "auto",
+                "option": "auto",
                 "insertedText": "auto;",
                 "subOptions": []
             },
             {
-                "text": "inherit",
+                "option": "inherit",
                 "insertedText": "inherit;",
                 "subOptions": []
             }
         ]
     },
     {
-        "text": "table-layout",
+        "option": "table-layout",
         "insertedText": "table-layout: ",
         "subOptions": [
             {
-                "text": "auto",
+                "option": "auto",
                 "insertedText": "auto;",
                 "subOptions": []
             },
             {
-                "text": "fixed",
+                "option": "fixed",
                 "insertedText": "fixed;",
                 "subOptions": []
             },
             {
-                "text": "inherit",
+                "option": "inherit",
                 "insertedText": "inherit;",
                 "subOptions": []
             }
         ]
     },
     {
-        "text": "src",
+        "option": "src",
         "insertedText": "src: ",
         "subOptions": [
             {
-                "text": "url()",
+                "option": "url()",
                 "insertedText": "url();",
                 "subOptions": []
             }
         ]
     },
     {
-        "text": "resize",
+        "option": "resize",
         "insertedText": "resize: ",
         "subOptions": [
             {
-                "text": "both",
+                "option": "both",
                 "insertedText": "both;",
                 "subOptions": []
             },
             {
-                "text": "horizontal",
+                "option": "horizontal",
                 "insertedText": "horizontal;",
                 "subOptions": []
             },
             {
-                "text": "none",
+                "option": "none",
                 "insertedText": "none;",
                 "subOptions": []
             },
             {
-                "text": "vertical",
+                "option": "vertical",
                 "insertedText": "vertical;",
                 "subOptions": []
             },
             {
-                "text": "inherit",
+                "option": "inherit",
                 "insertedText": "inherit;",
                 "subOptions": []
             }
         ]
     },
     {
-        "text": "word-break",
+        "option": "word-break",
         "insertedText": "word-break: ",
         "subOptions": [
             {
-                "text": "normal",
+                "option": "normal",
                 "insertedText": "normal;",
                 "subOptions": []
             },
             {
-                "text": "break-all",
+                "option": "break-all",
                 "insertedText": "break-all;",
                 "subOptions": []
             },
             {
-                "text": "keep-all",
+                "option": "keep-all",
                 "insertedText": "keep-all;",
                 "subOptions": []
             }
         ]
     },
     {
-        "text": "filter",
+        "option": "filter",
         "insertedText": "filter: ",
         "subOptions": [
             {
-                "text": "blur()",
+                "option": "blur()",
                 "insertedText": "blur();",
                 "subOptions": []
             },
             {
-                "text": "brightness()",
+                "option": "brightness()",
                 "insertedText": "brightness();",
                 "subOptions": []
             },
             {
-                "text": "contrast()",
+                "option": "contrast()",
                 "insertedText": "contrast();",
                 "subOptions": []
             },
             {
-                "text": "custom()",
+                "option": "custom()",
                 "insertedText": "custom();",
                 "subOptions": []
             },
             {
-                "text": "drop-shadow()",
+                "option": "drop-shadow()",
                 "insertedText": "drop-shadow();",
                 "subOptions": []
             },
             {
-                "text": "grayscale()",
+                "option": "grayscale()",
                 "insertedText": "grayscale();",
                 "subOptions": []
             },
             {
-                "text": "hue-rotate()",
+                "option": "hue-rotate()",
                 "insertedText": "hue-rotate();",
                 "subOptions": []
             },
             {
-                "text": "invert()",
+                "option": "invert()",
                 "insertedText": "invert();",
                 "subOptions": []
             },
             {
-                "text": "none",
+                "option": "none",
                 "insertedText": "none;",
                 "subOptions": []
             },
             {
-                "text": "opacity()",
+                "option": "opacity()",
                 "insertedText": "opacity();",
                 "subOptions": []
             },
             {
-                "text": "sepia()",
+                "option": "sepia()",
                 "insertedText": "sepia();",
                 "subOptions": []
             },
             {
-                "text": "saturate()",
+                "option": "saturate()",
                 "insertedText": "saturate();",
                 "subOptions": []
             },
             {
-                "text": "url()",
+                "option": "url()",
                 "insertedText": "url();",
                 "subOptions": []
             }
         ]
     },
     {
-        "text": "transform-origin",
+        "option": "transform-origin",
         "insertedText": "transform-origin: ",
         "subOptions": [
             {
-                "text": "bottom",
+                "option": "bottom",
                 "insertedText": "bottom;",
                 "subOptions": []
             },
             {
-                "text": "center",
+                "option": "center",
                 "insertedText": "center;",
                 "subOptions": []
             },
             {
-                "text": "left",
+                "option": "left",
                 "insertedText": "left;",
                 "subOptions": []
             },
             {
-                "text": "right",
+                "option": "right",
                 "insertedText": "right;",
                 "subOptions": []
             },
             {
-                "text": "top",
+                "option": "top",
                 "insertedText": "top;",
                 "subOptions": []
             }
         ]
     },
     {
-        "text": "font-variant",
+        "option": "font-variant",
         "insertedText": "font-variant: ",
         "subOptions": [
             {
-                "text": "normal",
+                "option": "normal",
                 "insertedText": "normal;",
                 "subOptions": []
             },
             {
-                "text": "small-caps",
+                "option": "small-caps",
                 "insertedText": "small-caps;",
                 "subOptions": []
             },
             {
-                "text": "inherit",
+                "option": "inherit",
                 "insertedText": "inherit;",
                 "subOptions": []
             }
         ]
     },
     {
-        "text": "quotes",
+        "option": "quotes",
         "insertedText": "quotes: ",
         "subOptions": [
             {
-                "text": "none",
+                "option": "none",
                 "insertedText": "none;",
                 "subOptions": []
             },
             {
-                "text": "inherit",
+                "option": "inherit",
                 "insertedText": "inherit;",
                 "subOptions": []
             }
         ]
     },
     {
-        "text": "unicode-bidi",
+        "option": "unicode-bidi",
         "insertedText": "unicode-bidi: ",
         "subOptions": [
             {
-                "text": "bidi-override",
+                "option": "bidi-override",
                 "insertedText": "bidi-override;",
                 "subOptions": []
             },
             {
-                "text": "embed",
+                "option": "embed",
                 "insertedText": "embed;",
                 "subOptions": []
             },
             {
-                "text": "normal",
+                "option": "normal",
                 "insertedText": "normal;",
                 "subOptions": []
             },
             {
-                "text": "inherit",
+                "option": "inherit",
                 "insertedText": "inherit;",
                 "subOptions": []
             }
         ]
     },
     {
-        "text": "word-spacing",
+        "option": "word-spacing",
         "insertedText": "word-spacing: ",
         "subOptions": [
             {
-                "text": "normal",
+                "option": "normal",
                 "insertedText": "normal;",
                 "subOptions": []
             },
             {
-                "text": "inherit",
+                "option": "inherit",
                 "insertedText": "inherit;",
                 "subOptions": []
             }
         ]
     },
     {
-        "text": "text-rendering",
+        "option": "text-rendering",
         "insertedText": "text-rendering: ",
         "subOptions": [
             {
-                "text": "auto",
+                "option": "auto",
                 "insertedText": "auto;",
                 "subOptions": []
             },
             {
-                "text": "geometricPrecision",
+                "option": "geometricPrecision",
                 "insertedText": "geometricPrecision;",
                 "subOptions": []
             },
             {
-                "text": "optimizeLegibility",
+                "option": "optimizeLegibility",
                 "insertedText": "optimizeLegibility;",
                 "subOptions": []
             },
             {
-                "text": "optimizeSpeed",
+                "option": "optimizeSpeed",
                 "insertedText": "optimizeSpeed;",
                 "subOptions": []
             }
         ]
     },
     {
-        "text": "outline-color",
+        "option": "outline-color",
         "insertedText": "outline-color: ",
         "subOptions": [
             {
-                "text": "invert",
+                "option": "invert",
                 "insertedText": "invert;",
                 "subOptions": []
             },
             {
-                "text": "inherit",
+                "option": "inherit",
                 "insertedText": "inherit;",
                 "subOptions": []
             }
         ]
     },
     {
-        "text": "list-style-position",
+        "option": "list-style-position",
         "insertedText": "list-style-position: ",
         "subOptions": [
             {
-                "text": "inside",
+                "option": "inside",
                 "insertedText": "inside;",
                 "subOptions": []
             },
             {
-                "text": "outside",
+                "option": "outside",
                 "insertedText": "outside;",
                 "subOptions": []
             },
             {
-                "text": "inherit",
+                "option": "inherit",
                 "insertedText": "inherit;",
                 "subOptions": []
             }
         ]
     },
     {
-        "text": "outline-offset",
+        "option": "outline-offset",
         "insertedText": "outline-offset: ",
         "subOptions": [
             {
-                "text": "inherit",
+                "option": "inherit",
                 "insertedText": "inherit;",
                 "subOptions": []
             }
         ]
     },
     {
-        "text": "orphans",
+        "option": "orphans",
         "insertedText": "orphans: ",
         "subOptions": [
             {
-                "text": "inherit",
+                "option": "inherit",
                 "insertedText": "inherit;",
                 "subOptions": []
             }
         ]
     },
     {
-        "text": "outline-style",
+        "option": "outline-style",
         "insertedText": "outline-style: ",
         "subOptions": [
             {
-                "text": "dashed",
+                "option": "dashed",
                 "insertedText": "dashed;",
                 "subOptions": []
             },
             {
-                "text": "dotted",
+                "option": "dotted",
                 "insertedText": "dotted;",
                 "subOptions": []
             },
             {
-                "text": "double",
+                "option": "double",
                 "insertedText": "double;",
                 "subOptions": []
             },
             {
-                "text": "groove",
+                "option": "groove",
                 "insertedText": "groove;",
                 "subOptions": []
             },
             {
-                "text": "hidden",
+                "option": "hidden",
                 "insertedText": "hidden;",
                 "subOptions": []
             },
             {
-                "text": "inset",
+                "option": "inset",
                 "insertedText": "inset;",
                 "subOptions": []
             },
             {
-                "text": "none",
+                "option": "none",
                 "insertedText": "none;",
                 "subOptions": []
             },
             {
-                "text": "outset",
+                "option": "outset",
                 "insertedText": "outset;",
                 "subOptions": []
             },
             {
-                "text": "ridge",
+                "option": "ridge",
                 "insertedText": "ridge;",
                 "subOptions": []
             },
             {
-                "text": "solid",
+                "option": "solid",
                 "insertedText": "solid;",
                 "subOptions": []
             },
             {
-                "text": "inherit",
+                "option": "inherit",
                 "insertedText": "inherit;",
                 "subOptions": []
             }
         ]
     },
     {
-        "text": "outline-width",
+        "option": "outline-width",
         "insertedText": "outline-width: ",
         "subOptions": [
             {
-                "text": "medium",
+                "option": "medium",
                 "insertedText": "medium;",
                 "subOptions": []
             },
             {
-                "text": "thin",
+                "option": "thin",
                 "insertedText": "thin;",
                 "subOptions": []
             },
             {
-                "text": "thick",
+                "option": "thick",
                 "insertedText": "thick;",
                 "subOptions": []
             },
             {
-                "text": "inherit",
+                "option": "inherit",
                 "insertedText": "inherit;",
                 "subOptions": []
             }
         ]
     },
     {
-        "text": "flex",
+        "option": "flex",
         "insertedText": "flex: ",
         "subOptions": [
             {
-                "text": "auto",
+                "option": "auto",
                 "insertedText": "auto;",
                 "subOptions": []
             },
             {
-                "text": "initial",
+                "option": "initial",
                 "insertedText": "initial;",
                 "subOptions": []
             },
             {
-                "text": "none",
+                "option": "none",
                 "insertedText": "none;",
                 "subOptions": []
             }
         ]
     },
     {
-        "text": "flex-grow",
+        "option": "flex-grow",
         "insertedText": "flex-grow: ",
         "subOptions": []
     },
     {
-        "text": "flex-direction",
+        "option": "flex-direction",
         "insertedText": "flex-direction: ",
         "subOptions": [
             {
-                "text": "column",
+                "option": "column",
                 "insertedText": "column;",
                 "subOptions": []
             },
             {
-                "text": "column-reverse",
+                "option": "column-reverse",
                 "insertedText": "column-reverse;",
                 "subOptions": []
             },
             {
-                "text": "row",
+                "option": "row",
                 "insertedText": "row;",
                 "subOptions": []
             },
             {
-                "text": "row-reverse",
+                "option": "row-reverse",
                 "insertedText": "row-reverse;",
                 "subOptions": []
             }
         ]
     },
     {
-        "text": "flex-flow",
+        "option": "flex-flow",
         "insertedText": "flex-flow: ",
         "subOptions": [
             {
-                "text": "column",
+                "option": "column",
                 "insertedText": "column;",
                 "subOptions": []
             },
             {
-                "text": "column-reverse",
+                "option": "column-reverse",
                 "insertedText": "column-reverse;",
                 "subOptions": []
             },
             {
-                "text": "nowrap",
+                "option": "nowrap",
                 "insertedText": "nowrap;",
                 "subOptions": []
             },
             {
-                "text": "row",
+                "option": "row",
                 "insertedText": "row;",
                 "subOptions": []
             },
             {
-                "text": "row-reverse",
+                "option": "row-reverse",
                 "insertedText": "row-reverse;",
                 "subOptions": []
             },
             {
-                "text": "wrap",
+                "option": "wrap",
                 "insertedText": "wrap;",
                 "subOptions": []
             },
             {
-                "text": "wrap-reverse",
+                "option": "wrap-reverse",
                 "insertedText": "wrap-reverse;",
                 "subOptions": []
             }
         ]
     },
     {
-        "text": "flex-wrap",
+        "option": "flex-wrap",
         "insertedText": "flex-wrap: ",
         "subOptions": [
             {
-                "text": "nowrap",
+                "option": "nowrap",
                 "insertedText": "nowrap;",
                 "subOptions": []
             },
             {
-                "text": "wrap",
+                "option": "wrap",
                 "insertedText": "wrap;",
                 "subOptions": []
             },
             {
-                "text": "wrap-reverse",
+                "option": "wrap-reverse",
                 "insertedText": "wrap-reverse;",
                 "subOptions": []
             }
         ]
     },
     {
-        "text": "flex-shrink",
+        "option": "flex-shrink",
         "insertedText": "flex-shrink: ",
         "subOptions": []
     },
     {
-        "text": "flex-basis",
+        "option": "flex-basis",
         "insertedText": "flex-basis: ",
         "subOptions": [
             {
-                "text": "auto",
+                "option": "auto",
                 "insertedText": "auto;",
                 "subOptions": []
             }
         ]
     },
     {
-        "text": "list-style-image",
+        "option": "list-style-image",
         "insertedText": "list-style-image: ",
         "subOptions": [
             {
-                "text": "none",
+                "option": "none",
                 "insertedText": "none;",
                 "subOptions": []
             },
             {
-                "text": "url()",
+                "option": "url()",
                 "insertedText": "url();",
                 "subOptions": []
             },
             {
-                "text": "inherit",
+                "option": "inherit",
                 "insertedText": "inherit;",
                 "subOptions": []
             }
         ]
     },
     {
-        "text": "unicode-range",
+        "option": "unicode-range",
         "insertedText": "unicode-range: ",
         "subOptions": []
     },
     {
-        "text": "align-items",
+        "option": "align-items",
         "insertedText": "align-items: ",
         "subOptions": [
             {
-                "text": "baseline",
+                "option": "baseline",
                 "insertedText": "baseline;",
                 "subOptions": []
             },
             {
-                "text": "center",
+                "option": "center",
                 "insertedText": "center;",
                 "subOptions": []
             },
             {
-                "text": "flex-end",
+                "option": "flex-end",
                 "insertedText": "flex-end;",
                 "subOptions": []
             },
             {
-                "text": "flex-start",
+                "option": "flex-start",
                 "insertedText": "flex-start;",
                 "subOptions": []
             },
             {
-                "text": "stretch",
+                "option": "stretch",
                 "insertedText": "stretch;",
                 "subOptions": []
             }
         ]
     },
     {
-        "text": "transition-delay",
+        "option": "transition-delay",
         "insertedText": "transition-delay: ",
         "subOptions": []
     },
     {
-        "text": "transition-duration",
+        "option": "transition-duration",
         "insertedText": "transition-duration: ",
         "subOptions": []
     },
     {
-        "text": "justify-content",
+        "option": "justify-content",
         "insertedText": "justify-content: ",
         "subOptions": [
             {
-                "text": "center",
+                "option": "center",
                 "insertedText": "center;",
                 "subOptions": []
             },
             {
-                "text": "flex-end",
+                "option": "flex-end",
                 "insertedText": "flex-end;",
                 "subOptions": []
             },
             {
-                "text": "flex-start",
+                "option": "flex-start",
                 "insertedText": "flex-start;",
                 "subOptions": []
             },
             {
-                "text": "space-around",
+                "option": "space-around",
                 "insertedText": "space-around;",
                 "subOptions": []
             },
             {
-                "text": "space-between",
+                "option": "space-between",
                 "insertedText": "space-between;",
                 "subOptions": []
             }
         ]
     },
     {
-        "text": "transition-property",
+        "option": "transition-property",
         "insertedText": "transition-property: ",
         "subOptions": [
             {
-                "text": "all",
+                "option": "all",
                 "insertedText": "all;",
                 "subOptions": []
             },
             {
-                "text": "none",
+                "option": "none",
                 "insertedText": "none;",
                 "subOptions": []
             }
         ]
     },
     {
-        "text": "order",
+        "option": "order",
         "insertedText": "order: ",
         "subOptions": []
     },
     {
-        "text": "transition-timing-function",
+        "option": "transition-timing-function",
         "insertedText": "transition-timing-function: ",
         "subOptions": [
             {
-                "text": "cubic-bezier()",
+                "option": "cubic-bezier()",
                 "insertedText": "cubic-bezier();",
                 "subOptions": []
             },
             {
-                "text": "ease",
+                "option": "ease",
                 "insertedText": "ease;",
                 "subOptions": []
             },
             {
-                "text": "ease-in",
+                "option": "ease-in",
                 "insertedText": "ease-in;",
                 "subOptions": []
             },
             {
-                "text": "ease-in-out",
+                "option": "ease-in-out",
                 "insertedText": "ease-in-out;",
                 "subOptions": []
             },
             {
-                "text": "ease-out",
+                "option": "ease-out",
                 "insertedText": "ease-out;",
                 "subOptions": []
             },
             {
-                "text": "linear",
+                "option": "linear",
                 "insertedText": "linear;",
                 "subOptions": []
             },
             {
-                "text": "step-end",
+                "option": "step-end",
                 "insertedText": "step-end;",
                 "subOptions": []
             },
             {
-                "text": "step-start",
+                "option": "step-start",
                 "insertedText": "step-start;",
                 "subOptions": []
             },
             {
-                "text": "steps()",
+                "option": "steps()",
                 "insertedText": "steps();",
                 "subOptions": []
             }
         ]
     },
     {
-        "text": "background-attachment",
+        "option": "background-attachment",
         "insertedText": "background-attachment: ",
         "subOptions": [
             {
-                "text": "fixed",
+                "option": "fixed",
                 "insertedText": "fixed;",
                 "subOptions": []
             },
             {
-                "text": "local",
+                "option": "local",
                 "insertedText": "local;",
                 "subOptions": []
             },
             {
-                "text": "scroll",
+                "option": "scroll",
                 "insertedText": "scroll;",
                 "subOptions": []
             },
             {
-                "text": "inherit",
+                "option": "inherit",
                 "insertedText": "inherit;",
                 "subOptions": []
             }
         ]
     },
     {
-        "text": "background-origin",
+        "option": "background-origin",
         "insertedText": "background-origin: ",
         "subOptions": [
             {
-                "text": "border-box",
+                "option": "border-box",
                 "insertedText": "border-box;",
                 "subOptions": []
             },
             {
-                "text": "content-box",
+                "option": "content-box",
                 "insertedText": "content-box;",
                 "subOptions": []
             },
             {
-                "text": "padding-box",
+                "option": "padding-box",
                 "insertedText": "padding-box;",
                 "subOptions": []
             },
             {
-                "text": "inherit",
+                "option": "inherit",
                 "insertedText": "inherit;",
                 "subOptions": []
             }
         ]
     },
     {
-        "text": "backface-visibility",
+        "option": "backface-visibility",
         "insertedText": "backface-visibility: ",
         "subOptions": [
             {
-                "text": "hidden",
+                "option": "hidden",
                 "insertedText": "hidden;",
                 "subOptions": []
             },
             {
-                "text": "visible",
+                "option": "visible",
                 "insertedText": "visible;",
                 "subOptions": []
             }
         ]
     },
     {
-        "text": "page-break-inside",
+        "option": "page-break-inside",
         "insertedText": "page-break-inside: ",
         "subOptions": [
             {
-                "text": "auto",
+                "option": "auto",
                 "insertedText": "auto;",
                 "subOptions": []
             },
             {
-                "text": "avoid",
+                "option": "avoid",
                 "insertedText": "avoid;",
                 "subOptions": []
             },
             {
-                "text": "inherit",
+                "option": "inherit",
                 "insertedText": "inherit;",
                 "subOptions": []
             }
         ]
     },
     {
-        "text": "page-break-after",
+        "option": "page-break-after",
         "insertedText": "page-break-after: ",
         "subOptions": [
             {
-                "text": "always",
+                "option": "always",
                 "insertedText": "always;",
                 "subOptions": []
             },
             {
-                "text": "auto",
+                "option": "auto",
                 "insertedText": "auto;",
                 "subOptions": []
             },
             {
-                "text": "avoid",
+                "option": "avoid",
                 "insertedText": "avoid;",
                 "subOptions": []
             },
             {
-                "text": "left",
+                "option": "left",
                 "insertedText": "left;",
                 "subOptions": []
             },
             {
-                "text": "right",
+                "option": "right",
                 "insertedText": "right;",
                 "subOptions": []
             },
             {
-                "text": "inherit",
+                "option": "inherit",
                 "insertedText": "inherit;",
                 "subOptions": []
             }
         ]
     },
     {
-        "text": "widows",
+        "option": "widows",
         "insertedText": "widows: ",
         "subOptions": [
             {
-                "text": "inherit",
+                "option": "inherit",
                 "insertedText": "inherit;",
                 "subOptions": []
             }
         ]
     },
     {
-        "text": "counter-increment",
+        "option": "counter-increment",
         "insertedText": "counter-increment: ",
         "subOptions": [
             {
-                "text": "none",
+                "option": "none",
                 "insertedText": "none;",
                 "subOptions": []
             },
             {
-                "text": "inherit",
+                "option": "inherit",
                 "insertedText": "inherit;",
                 "subOptions": []
             }
         ]
     },
     {
-        "text": "counter-reset",
+        "option": "counter-reset",
         "insertedText": "counter-reset: ",
         "subOptions": [
             {
-                "text": "none",
+                "option": "none",
                 "insertedText": "none;",
                 "subOptions": []
             },
             {
-                "text": "inherit",
+                "option": "inherit",
                 "insertedText": "inherit;",
                 "subOptions": []
             }
         ]
     },
     {
-        "text": "perspective-origin",
+        "option": "perspective-origin",
         "insertedText": "perspective-origin: ",
         "subOptions": [
             {
-                "text": "bottom",
+                "option": "bottom",
                 "insertedText": "bottom;",
                 "subOptions": []
             },
             {
-                "text": "center",
+                "option": "center",
                 "insertedText": "center;",
                 "subOptions": []
             },
             {
-                "text": "left",
+                "option": "left",
                 "insertedText": "left;",
                 "subOptions": []
             },
             {
-                "text": "right",
+                "option": "right",
                 "insertedText": "right;",
                 "subOptions": []
             },
             {
-                "text": "top",
+                "option": "top",
                 "insertedText": "top;",
                 "subOptions": []
             }
         ]
     },
     {
-        "text": "perspective",
+        "option": "perspective",
         "insertedText": "perspective: ",
         "subOptions": [
             {
-                "text": "none",
+                "option": "none",
                 "insertedText": "none;",
                 "subOptions": []
             }
         ]
     },
     {
-        "text": "empty-cells",
+        "option": "empty-cells",
         "insertedText": "empty-cells: ",
         "subOptions": [
             {
-                "text": "hide",
+                "option": "hide",
                 "insertedText": "hide;",
                 "subOptions": []
             },
             {
-                "text": "show",
+                "option": "show",
                 "insertedText": "show;",
                 "subOptions": []
             },
             {
-                "text": "inherit",
+                "option": "inherit",
                 "insertedText": "inherit;",
                 "subOptions": []
             }
         ]
     },
     {
-        "text": "caption-side",
+        "option": "caption-side",
         "insertedText": "caption-side: ",
         "subOptions": [
             {
-                "text": "bottom",
+                "option": "bottom",
                 "insertedText": "bottom;",
                 "subOptions": []
             },
             {
-                "text": "top",
+                "option": "top",
                 "insertedText": "top;",
                 "subOptions": []
             },
             {
-                "text": "inherit",
+                "option": "inherit",
                 "insertedText": "inherit;",
                 "subOptions": []
             }
         ]
     },
     {
-        "text": "transform-style",
+        "option": "transform-style",
         "insertedText": "transform-style: ",
         "subOptions": [
             {
-                "text": "flat",
+                "option": "flat",
                 "insertedText": "flat;",
                 "subOptions": []
             },
             {
-                "text": "preserve-3d",
+                "option": "preserve-3d",
                 "insertedText": "preserve-3d;",
                 "subOptions": []
             }
         ]
     },
     {
-        "text": "border-image",
+        "option": "border-image",
         "insertedText": "border-image: ",
         "subOptions": [
             {
-                "text": "url()",
+                "option": "url()",
                 "insertedText": "url();",
                 "subOptions": []
             }
         ]
     },
     {
-        "text": "font-stretch",
+        "option": "font-stretch",
         "insertedText": "font-stretch: ",
         "subOptions": [
             {
-                "text": "condensed",
+                "option": "condensed",
                 "insertedText": "condensed;",
                 "subOptions": []
             },
             {
-                "text": "expanded",
+                "option": "expanded",
                 "insertedText": "expanded;",
                 "subOptions": []
             },
             {
-                "text": "extra-condensed",
+                "option": "extra-condensed",
                 "insertedText": "extra-condensed;",
                 "subOptions": []
             },
             {
-                "text": "extra-expanded",
+                "option": "extra-expanded",
                 "insertedText": "extra-expanded;",
                 "subOptions": []
             },
             {
-                "text": "normal",
+                "option": "normal",
                 "insertedText": "normal;",
                 "subOptions": []
             },
             {
-                "text": "semi-condensed",
+                "option": "semi-condensed",
                 "insertedText": "semi-condensed;",
                 "subOptions": []
             },
             {
-                "text": "semi-expanded",
+                "option": "semi-expanded",
                 "insertedText": "semi-expanded;",
                 "subOptions": []
             },
             {
-                "text": "ultra-condensed",
+                "option": "ultra-condensed",
                 "insertedText": "ultra-condensed;",
                 "subOptions": []
             },
             {
-                "text": "ultra-expanded",
+                "option": "ultra-expanded",
                 "insertedText": "ultra-expanded;",
                 "subOptions": []
             }
         ]
     },
     {
-        "text": "will-change",
+        "option": "will-change",
         "insertedText": "will-change: ",
         "subOptions": [
             {
-                "text": "auto",
+                "option": "auto",
                 "insertedText": "auto;",
                 "subOptions": []
             },
             {
-                "text": "contents",
+                "option": "contents",
                 "insertedText": "contents;",
                 "subOptions": []
             },
             {
-                "text": "opacity",
+                "option": "opacity",
                 "insertedText": "opacity;",
                 "subOptions": []
             },
             {
-                "text": "scroll-position",
+                "option": "scroll-position",
                 "insertedText": "scroll-position;",
                 "subOptions": []
             },
             {
-                "text": "transform",
+                "option": "transform",
                 "insertedText": "transform;",
                 "subOptions": []
             },
             {
-                "text": "inherit",
+                "option": "inherit",
                 "insertedText": "inherit;",
                 "subOptions": []
             },
             {
-                "text": "initial",
+                "option": "initial",
                 "insertedText": "initial;",
                 "subOptions": []
             },
             {
-                "text": "unset",
+                "option": "unset",
                 "insertedText": "unset;",
                 "subOptions": []
             }
         ]
     },
     {
-        "text": "animation",
+        "option": "animation",
         "insertedText": "animation: ",
         "subOptions": []
     },
     {
-        "text": "page-break-before",
+        "option": "page-break-before",
         "insertedText": "page-break-before: ",
         "subOptions": [
             {
-                "text": "always",
+                "option": "always",
                 "insertedText": "always;",
                 "subOptions": []
             },
             {
-                "text": "auto",
+                "option": "auto",
                 "insertedText": "auto;",
                 "subOptions": []
             },
             {
-                "text": "avoid",
+                "option": "avoid",
                 "insertedText": "avoid;",
                 "subOptions": []
             },
             {
-                "text": "left",
+                "option": "left",
                 "insertedText": "left;",
                 "subOptions": []
             },
             {
-                "text": "right",
+                "option": "right",
                 "insertedText": "right;",
                 "subOptions": []
             },
             {
-                "text": "inherit",
+                "option": "inherit",
                 "insertedText": "inherit;",
                 "subOptions": []
             }
         ]
     },
     {
-        "text": "align-self",
+        "option": "align-self",
         "insertedText": "align-self: ",
         "subOptions": [
             {
-                "text": "auto",
+                "option": "auto",
                 "insertedText": "auto;",
                 "subOptions": []
             },
             {
-                "text": "baseline",
+                "option": "baseline",
                 "insertedText": "baseline;",
                 "subOptions": []
             },
             {
-                "text": "center",
+                "option": "center",
                 "insertedText": "center;",
                 "subOptions": []
             },
             {
-                "text": "flex-end",
+                "option": "flex-end",
                 "insertedText": "flex-end;",
                 "subOptions": []
             },
             {
-                "text": "flex-start",
+                "option": "flex-start",
                 "insertedText": "flex-start;",
                 "subOptions": []
             },
             {
-                "text": "stretch",
+                "option": "stretch",
                 "insertedText": "stretch;",
                 "subOptions": []
             }
         ]
     },
     {
-        "text": "align-content",
+        "option": "align-content",
         "insertedText": "align-content: ",
         "subOptions": [
             {
-                "text": "center",
+                "option": "center",
                 "insertedText": "center;",
                 "subOptions": []
             },
             {
-                "text": "flex-end",
+                "option": "flex-end",
                 "insertedText": "flex-end;",
                 "subOptions": []
             },
             {
-                "text": "flex-start",
+                "option": "flex-start",
                 "insertedText": "flex-start;",
                 "subOptions": []
             },
             {
-                "text": "space-around",
+                "option": "space-around",
                 "insertedText": "space-around;",
                 "subOptions": []
             },
             {
-                "text": "space-between",
+                "option": "space-between",
                 "insertedText": "space-between;",
                 "subOptions": []
             },
             {
-                "text": "stretch",
+                "option": "stretch",
                 "insertedText": "stretch;",
                 "subOptions": []
             }
         ]
     },
     {
-        "text": "border-image-slice",
+        "option": "border-image-slice",
         "insertedText": "border-image-slice: ",
         "subOptions": []
     },
     {
-        "text": "border-image-width",
+        "option": "border-image-width",
         "insertedText": "border-image-width: ",
         "subOptions": [
             {
-                "text": "auto",
+                "option": "auto",
                 "insertedText": "auto;",
                 "subOptions": []
             }
         ]
     },
     {
-        "text": "border-image-outset",
+        "option": "border-image-outset",
         "insertedText": "border-image-outset: ",
         "subOptions": []
     },
     {
-        "text": "border-image-repeat",
+        "option": "border-image-repeat",
         "insertedText": "border-image-repeat: ",
         "subOptions": [
             {
-                "text": "repeat",
+                "option": "repeat",
                 "insertedText": "repeat;",
                 "subOptions": []
             },
             {
-                "text": "round",
+                "option": "round",
                 "insertedText": "round;",
                 "subOptions": []
             },
             {
-                "text": "space",
+                "option": "space",
                 "insertedText": "space;",
                 "subOptions": []
             },
             {
-                "text": "stretch",
+                "option": "stretch",
                 "insertedText": "stretch;",
                 "subOptions": []
             }
         ]
     },
     {
-        "text": "tab-size",
+        "option": "tab-size",
         "insertedText": "tab-size: ",
         "subOptions": []
     },
     {
-        "text": "object-fit",
+        "option": "object-fit",
         "insertedText": "object-fit: ",
         "subOptions": [
             {
-                "text": "contain",
+                "option": "contain",
                 "insertedText": "contain;",
                 "subOptions": []
             },
             {
-                "text": "cover",
+                "option": "cover",
                 "insertedText": "cover;",
                 "subOptions": []
             },
             {
-                "text": "fill",
+                "option": "fill",
                 "insertedText": "fill;",
                 "subOptions": []
             },
             {
-                "text": "none",
+                "option": "none",
                 "insertedText": "none;",
                 "subOptions": []
             },
             {
-                "text": "scale-down",
+                "option": "scale-down",
                 "insertedText": "scale-down;",
                 "subOptions": []
             }
         ]
     },
     {
-        "text": "font-kerning",
+        "option": "font-kerning",
         "insertedText": "font-kerning: ",
         "subOptions": [
             {
-                "text": "auto",
+                "option": "auto",
                 "insertedText": "auto;",
                 "subOptions": []
             },
             {
-                "text": "none",
+                "option": "none",
                 "insertedText": "none;",
                 "subOptions": []
             },
             {
-                "text": "normal",
+                "option": "normal",
                 "insertedText": "normal;",
                 "subOptions": []
             }
         ]
     },
     {
-        "text": "animation-name",
+        "option": "animation-name",
         "insertedText": "animation-name: ",
         "subOptions": [
             {
-                "text": "none",
+                "option": "none",
                 "insertedText": "none;",
                 "subOptions": []
             }
         ]
     },
     {
-        "text": "animation-duration",
+        "option": "animation-duration",
         "insertedText": "animation-duration: ",
         "subOptions": []
     },
     {
-        "text": "border-image-source",
+        "option": "border-image-source",
         "insertedText": "border-image-source: ",
         "subOptions": []
     },
     {
-        "text": "animation-fill-mode",
+        "option": "animation-fill-mode",
         "insertedText": "animation-fill-mode: ",
         "subOptions": [
             {
-                "text": "backwards",
+                "option": "backwards",
                 "insertedText": "backwards;",
                 "subOptions": []
             },
             {
-                "text": "both",
+                "option": "both",
                 "insertedText": "both;",
                 "subOptions": []
             },
             {
-                "text": "forwards",
+                "option": "forwards",
                 "insertedText": "forwards;",
                 "subOptions": []
             },
             {
-                "text": "none",
+                "option": "none",
                 "insertedText": "none;",
                 "subOptions": []
             }
         ]
     },
     {
-        "text": "animation-timing-function",
+        "option": "animation-timing-function",
         "insertedText": "animation-timing-function: ",
         "subOptions": [
             {
-                "text": "cubic-bezier()",
+                "option": "cubic-bezier()",
                 "insertedText": "cubic-bezier();",
                 "subOptions": []
             },
             {
-                "text": "ease",
+                "option": "ease",
                 "insertedText": "ease;",
                 "subOptions": []
             },
             {
-                "text": "ease-in",
+                "option": "ease-in",
                 "insertedText": "ease-in;",
                 "subOptions": []
             },
             {
-                "text": "ease-in-out",
+                "option": "ease-in-out",
                 "insertedText": "ease-in-out;",
                 "subOptions": []
             },
             {
-                "text": "ease-out",
+                "option": "ease-out",
                 "insertedText": "ease-out;",
                 "subOptions": []
             },
             {
-                "text": "linear",
+                "option": "linear",
                 "insertedText": "linear;",
                 "subOptions": []
             },
             {
-                "text": "step-end",
+                "option": "step-end",
                 "insertedText": "step-end;",
                 "subOptions": []
             },
             {
-                "text": "step-start",
+                "option": "step-start",
                 "insertedText": "step-start;",
                 "subOptions": []
             },
             {
-                "text": "steps()",
+                "option": "steps()",
                 "insertedText": "steps();",
                 "subOptions": []
             }
         ]
     },
     {
-        "text": "animation-iteration-count",
+        "option": "animation-iteration-count",
         "insertedText": "animation-iteration-count: ",
         "subOptions": [
             {
-                "text": "infinite",
+                "option": "infinite",
                 "insertedText": "infinite;",
                 "subOptions": []
             }
         ]
     },
     {
-        "text": "animation-delay",
+        "option": "animation-delay",
         "insertedText": "animation-delay: ",
         "subOptions": []
     },
     {
-        "text": "font-variant-ligatures",
+        "option": "font-variant-ligatures",
         "insertedText": "font-variant-ligatures: ",
         "subOptions": [
             {
-                "text": "normal",
+                "option": "normal",
                 "insertedText": "normal;",
                 "subOptions": []
             },
             {
-                "text": "none",
+                "option": "none",
                 "insertedText": "none;",
                 "subOptions": []
             }
         ]
     },
     {
-        "text": "background-blend-mode",
+        "option": "background-blend-mode",
         "insertedText": "background-blend-mode: ",
         "subOptions": [
             {
-                "text": "color",
+                "option": "color",
                 "insertedText": "color;",
                 "subOptions": []
             },
             {
-                "text": "color-burn",
+                "option": "color-burn",
                 "insertedText": "color-burn;",
                 "subOptions": []
             },
             {
-                "text": "color-dodge",
+                "option": "color-dodge",
                 "insertedText": "color-dodge;",
                 "subOptions": []
             },
             {
-                "text": "darken",
+                "option": "darken",
                 "insertedText": "darken;",
                 "subOptions": []
             },
             {
-                "text": "difference",
+                "option": "difference",
                 "insertedText": "difference;",
                 "subOptions": []
             },
             {
-                "text": "exclusion",
+                "option": "exclusion",
                 "insertedText": "exclusion;",
                 "subOptions": []
             },
             {
-                "text": "hard-light",
+                "option": "hard-light",
                 "insertedText": "hard-light;",
                 "subOptions": []
             },
             {
-                "text": "hue",
+                "option": "hue",
                 "insertedText": "hue;",
                 "subOptions": []
             },
             {
-                "text": "lighten",
+                "option": "lighten",
                 "insertedText": "lighten;",
                 "subOptions": []
             },
             {
-                "text": "luminosity",
+                "option": "luminosity",
                 "insertedText": "luminosity;",
                 "subOptions": []
             },
             {
-                "text": "multiply",
+                "option": "multiply",
                 "insertedText": "multiply;",
                 "subOptions": []
             },
             {
-                "text": "normal",
+                "option": "normal",
                 "insertedText": "normal;",
                 "subOptions": []
             },
             {
-                "text": "overlay",
+                "option": "overlay",
                 "insertedText": "overlay;",
                 "subOptions": []
             },
             {
-                "text": "saturation",
+                "option": "saturation",
                 "insertedText": "saturation;",
                 "subOptions": []
             },
             {
-                "text": "screen",
+                "option": "screen",
                 "insertedText": "screen;",
                 "subOptions": []
             },
             {
-                "text": "soft-light",
+                "option": "soft-light",
                 "insertedText": "soft-light;",
                 "subOptions": []
             }
         ]
     },
     {
-        "text": "object-position",
+        "option": "object-position",
         "insertedText": "object-position: ",
         "subOptions": [
             {
-                "text": "left",
+                "option": "left",
                 "insertedText": "left;",
                 "subOptions": []
             },
             {
-                "text": "center",
+                "option": "center",
                 "insertedText": "center;",
                 "subOptions": []
             },
             {
-                "text": "right",
+                "option": "right",
                 "insertedText": "right;",
                 "subOptions": []
             },
             {
-                "text": "bottom",
+                "option": "bottom",
                 "insertedText": "bottom;",
                 "subOptions": []
             },
             {
-                "text": "top",
+                "option": "top",
                 "insertedText": "top;",
                 "subOptions": []
             }
         ]
     },
     {
-        "text": "mix-blend-mode",
+        "option": "mix-blend-mode",
         "insertedText": "mix-blend-mode: ",
         "subOptions": [
             {
-                "text": "color",
+                "option": "color",
                 "insertedText": "color;",
                 "subOptions": []
             },
             {
-                "text": "color-burn",
+                "option": "color-burn",
                 "insertedText": "color-burn;",
                 "subOptions": []
             },
             {
-                "text": "color-dodge",
+                "option": "color-dodge",
                 "insertedText": "color-dodge;",
                 "subOptions": []
             },
             {
-                "text": "darken",
+                "option": "darken",
                 "insertedText": "darken;",
                 "subOptions": []
             },
             {
-                "text": "difference",
+                "option": "difference",
                 "insertedText": "difference;",
                 "subOptions": []
             },
             {
-                "text": "exclusion",
+                "option": "exclusion",
                 "insertedText": "exclusion;",
                 "subOptions": []
             },
             {
-                "text": "hard-light",
+                "option": "hard-light",
                 "insertedText": "hard-light;",
                 "subOptions": []
             },
             {
-                "text": "hue",
+                "option": "hue",
                 "insertedText": "hue;",
                 "subOptions": []
             },
             {
-                "text": "lighten",
+                "option": "lighten",
                 "insertedText": "lighten;",
                 "subOptions": []
             },
             {
-                "text": "luminosity",
+                "option": "luminosity",
                 "insertedText": "luminosity;",
                 "subOptions": []
             },
             {
-                "text": "multiply",
+                "option": "multiply",
                 "insertedText": "multiply;",
                 "subOptions": []
             },
             {
-                "text": "normal",
+                "option": "normal",
                 "insertedText": "normal;",
                 "subOptions": []
             },
             {
-                "text": "overlay",
+                "option": "overlay",
                 "insertedText": "overlay;",
                 "subOptions": []
             },
             {
-                "text": "saturation",
+                "option": "saturation",
                 "insertedText": "saturation;",
                 "subOptions": []
             },
             {
-                "text": "screen",
+                "option": "screen",
                 "insertedText": "screen;",
                 "subOptions": []
             },
             {
-                "text": "soft-light",
+                "option": "soft-light",
                 "insertedText": "soft-light;",
                 "subOptions": []
             }
         ]
     },
     {
-        "text": "shape-outside",
+        "option": "shape-outside",
         "insertedText": "shape-outside: ",
         "subOptions": [
             {
-                "text": "none",
+                "option": "none",
                 "insertedText": "none;",
                 "subOptions": []
             },
             {
-                "text": "inherit",
+                "option": "inherit",
                 "insertedText": "inherit;",
                 "subOptions": []
             },
             {
-                "text": "circle()",
+                "option": "circle()",
                 "insertedText": "circle();",
                 "subOptions": []
             },
             {
-                "text": "ellipse()",
+                "option": "ellipse()",
                 "insertedText": "ellipse();",
                 "subOptions": []
             },
             {
-                "text": "polygon()",
+                "option": "polygon()",
                 "insertedText": "polygon();",
                 "subOptions": []
             },
             {
-                "text": "inset()",
+                "option": "inset()",
                 "insertedText": "inset();",
                 "subOptions": []
             },
             {
-                "text": "margin-box",
+                "option": "margin-box",
                 "insertedText": "margin-box;",
                 "subOptions": []
             },
             {
-                "text": "border-box",
+                "option": "border-box",
                 "insertedText": "border-box;",
                 "subOptions": []
             },
             {
-                "text": "padding-box",
+                "option": "padding-box",
                 "insertedText": "padding-box;",
                 "subOptions": []
             },
             {
-                "text": "content-box",
+                "option": "content-box",
                 "insertedText": "content-box;",
                 "subOptions": []
             },
             {
-                "text": "url()",
+                "option": "url()",
                 "insertedText": "url();",
                 "subOptions": []
             },
             {
-                "text": "image()",
+                "option": "image()",
                 "insertedText": "image();",
                 "subOptions": []
             },
             {
-                "text": "linear-gradient()",
+                "option": "linear-gradient()",
                 "insertedText": "linear-gradient();",
                 "subOptions": []
             },
             {
-                "text": "radial-gradient()",
+                "option": "radial-gradient()",
                 "insertedText": "radial-gradient();",
                 "subOptions": []
             },
             {
-                "text": "repeating-linear-gradient()",
+                "option": "repeating-linear-gradient()",
                 "insertedText": "repeating-linear-gradient();",
                 "subOptions": []
             },
             {
-                "text": "repeating-radial-gradient()",
+                "option": "repeating-radial-gradient()",
                 "insertedText": "repeating-radial-gradient();",
                 "subOptions": []
             }
         ]
     },
     {
-        "text": "shape-margin",
+        "option": "shape-margin",
         "insertedText": "shape-margin: ",
         "subOptions": []
     },
     {
-        "text": "isolation",
+        "option": "isolation",
         "insertedText": "isolation: ",
         "subOptions": [
             {
-                "text": "auto",
+                "option": "auto",
                 "insertedText": "auto;",
                 "subOptions": []
             },
             {
-                "text": "isolate",
+                "option": "isolate",
                 "insertedText": "isolate;",
                 "subOptions": []
             }
         ]
     },
     {
-        "text": "shape-image-threshold",
+        "option": "shape-image-threshold",
         "insertedText": "shape-image-threshold: ",
         "subOptions": []
     },
     {
-        "text": "animation-direction",
+        "option": "animation-direction",
         "insertedText": "animation-direction: ",
         "subOptions": [
             {
-                "text": "alternate",
+                "option": "alternate",
                 "insertedText": "alternate;",
                 "subOptions": []
             },
             {
-                "text": "alternate-reverse",
+                "option": "alternate-reverse",
                 "insertedText": "alternate-reverse;",
                 "subOptions": []
             },
             {
-                "text": "normal",
+                "option": "normal",
                 "insertedText": "normal;",
                 "subOptions": []
             },
             {
-                "text": "reverse",
+                "option": "reverse",
                 "insertedText": "reverse;",
                 "subOptions": []
             }
         ]
     },
     {
-        "text": "animation-play-state",
+        "option": "animation-play-state",
         "insertedText": "animation-play-state: ",
         "subOptions": [
             {
-                "text": "paused",
+                "option": "paused",
                 "insertedText": "paused;",
                 "subOptions": []
             },
             {
-                "text": "running",
+                "option": "running",
                 "insertedText": "running;",
                 "subOptions": []
             }
         ]
     },
     {
-        "text": "all",
+        "option": "all",
         "insertedText": "all: ",
         "subOptions": []
     },
     {
-        "text": "column-fill",
+        "option": "column-fill",
         "insertedText": "column-fill: ",
         "subOptions": [
             {
-                "text": "auto",
+                "option": "auto",
                 "insertedText": "auto;",
                 "subOptions": []
             },
             {
-                "text": "balance",
+                "option": "balance",
                 "insertedText": "balance;",
                 "subOptions": []
             }
         ]
     },
     {
-        "text": "text-align-last",
+        "option": "text-align-last",
         "insertedText": "text-align-last: ",
         "subOptions": [
             {
-                "text": "center",
+                "option": "center",
                 "insertedText": "center;",
                 "subOptions": []
             },
             {
-                "text": "left",
+                "option": "left",
                 "insertedText": "left;",
                 "subOptions": []
             },
             {
-                "text": "justify",
+                "option": "justify",
                 "insertedText": "justify;",
                 "subOptions": []
             },
             {
-                "text": "right",
+                "option": "right",
                 "insertedText": "right;",
                 "subOptions": []
             },
             {
-                "text": "inherit",
+                "option": "inherit",
                 "insertedText": "inherit;",
                 "subOptions": []
             }
         ]
     },
     {
-        "text": "text-decoration-color",
+        "option": "text-decoration-color",
         "insertedText": "text-decoration-color: ",
         "subOptions": []
     },
     {
-        "text": "text-decoration-style",
+        "option": "text-decoration-style",
         "insertedText": "text-decoration-style: ",
         "subOptions": [
             {
-                "text": "dashed",
+                "option": "dashed",
                 "insertedText": "dashed;",
                 "subOptions": []
             },
             {
-                "text": "dotted",
+                "option": "dotted",
                 "insertedText": "dotted;",
                 "subOptions": []
             },
             {
-                "text": "double",
+                "option": "double",
                 "insertedText": "double;",
                 "subOptions": []
             },
             {
-                "text": "solid",
+                "option": "solid",
                 "insertedText": "solid;",
                 "subOptions": []
             },
             {
-                "text": "wavy",
+                "option": "wavy",
                 "insertedText": "wavy;",
                 "subOptions": []
             }
         ]
     },
     {
-        "text": "text-decoration-line",
+        "option": "text-decoration-line",
         "insertedText": "text-decoration-line: ",
         "subOptions": [
             {
-                "text": "line-through",
+                "option": "line-through",
                 "insertedText": "line-through;",
                 "subOptions": []
             },
             {
-                "text": "none",
+                "option": "none",
                 "insertedText": "none;",
                 "subOptions": []
             },
             {
-                "text": "overline",
+                "option": "overline",
                 "insertedText": "overline;",
                 "subOptions": []
             },
             {
-                "text": "underline",
+                "option": "underline",
                 "insertedText": "underline;",
                 "subOptions": []
             }
         ]
     },
     {
-        "text": "font-size-adjust",
+        "option": "font-size-adjust",
         "insertedText": "font-size-adjust: ",
         "subOptions": [
             {
-                "text": "auto",
+                "option": "auto",
                 "insertedText": "auto;",
                 "subOptions": []
             },
             {
-                "text": "none",
+                "option": "none",
                 "insertedText": "none;",
                 "subOptions": []
             }
         ]
     },
     {
-        "text": "text-underline-position",
+        "option": "text-underline-position",
         "insertedText": "text-underline-position: ",
         "subOptions": [
             {
-                "text": "alphabetic",
+                "option": "alphabetic",
                 "insertedText": "alphabetic;",
                 "subOptions": []
             },
             {
-                "text": "auto",
+                "option": "auto",
                 "insertedText": "auto;",
                 "subOptions": []
             },
             {
-                "text": "below",
+                "option": "below",
                 "insertedText": "below;",
                 "subOptions": []
             },
             {
-                "text": "left",
+                "option": "left",
                 "insertedText": "left;",
                 "subOptions": []
             },
             {
-                "text": "right",
+                "option": "right",
                 "insertedText": "right;",
                 "subOptions": []
             }
         ]
     },
     {
-        "text": "scroll-behavior",
+        "option": "scroll-behavior",
         "insertedText": "scroll-behavior: ",
         "subOptions": [
             {
-                "text": "auto",
+                "option": "auto",
                 "insertedText": "auto;",
                 "subOptions": []
             },
             {
-                "text": "smooth",
+                "option": "smooth",
                 "insertedText": "smooth;",
                 "subOptions": []
             }
         ]
     },
     {
-        "text": "grid-column",
+        "option": "grid-column",
         "insertedText": "grid-column: ",
         "subOptions": [
             {
-                "text": "auto",
+                "option": "auto",
                 "insertedText": "auto;",
                 "subOptions": []
             }
         ]
     },
     {
-        "text": "grid-row",
+        "option": "grid-row",
         "insertedText": "grid-row: ",
         "subOptions": [
             {
-                "text": "auto",
+                "option": "auto",
                 "insertedText": "auto;",
                 "subOptions": []
             }
         ]
     },
     {
-        "text": "grid-template",
+        "option": "grid-template",
         "insertedText": "grid-template: ",
         "subOptions": [
             {
-                "text": "none",
+                "option": "none",
                 "insertedText": "none;",
                 "subOptions": []
             }
         ]
     },
     {
-        "text": "caret-color",
+        "option": "caret-color",
         "insertedText": "caret-color: ",
         "subOptions": [
             {
-                "text": "auto",
+                "option": "auto",
                 "insertedText": "auto;",
                 "subOptions": []
             }
         ]
     },
     {
-        "text": "grid-template-columns",
+        "option": "grid-template-columns",
         "insertedText": "grid-template-columns: ",
         "subOptions": [
             {
-                "text": "auto",
+                "option": "auto",
                 "insertedText": "auto;",
                 "subOptions": []
             }
         ]
     },
     {
-        "text": "grid-auto-columns",
+        "option": "grid-auto-columns",
         "insertedText": "grid-auto-columns: ",
         "subOptions": []
     },
     {
-        "text": "grid-auto-flow",
+        "option": "grid-auto-flow",
         "insertedText": "grid-auto-flow: ",
         "subOptions": [
             {
-                "text": "row",
+                "option": "row",
                 "insertedText": "row;",
                 "subOptions": []
             },
             {
-                "text": "column",
+                "option": "column",
                 "insertedText": "column;",
                 "subOptions": []
             },
             {
-                "text": "dense",
+                "option": "dense",
                 "insertedText": "dense;",
                 "subOptions": []
             }
         ]
     },
     {
-        "text": "grid-auto-rows",
+        "option": "grid-auto-rows",
         "insertedText": "grid-auto-rows: ",
         "subOptions": []
     },
     {
-        "text": "grid-column-start",
+        "option": "grid-column-start",
         "insertedText": "grid-column-start: ",
         "subOptions": []
     },
     {
-        "text": "grid-template-rows",
+        "option": "grid-template-rows",
         "insertedText": "grid-template-rows: ",
         "subOptions": [
             {
-                "text": "auto",
+                "option": "auto",
                 "insertedText": "auto;",
                 "subOptions": []
             }
         ]
     },
     {
-        "text": "grid-row-end",
+        "option": "grid-row-end",
         "insertedText": "grid-row-end: ",
         "subOptions": []
     },
     {
-        "text": "grid-column-end",
+        "option": "grid-column-end",
         "insertedText": "grid-column-end: ",
         "subOptions": []
     },
     {
-        "text": "grid-row-start",
+        "option": "grid-row-start",
         "insertedText": "grid-row-start: ",
         "subOptions": []
     },
     {
-        "text": "box-decoration-break",
+        "option": "box-decoration-break",
         "insertedText": "box-decoration-break: ",
         "subOptions": [
             {
-                "text": "clone",
+                "option": "clone",
                 "insertedText": "clone;",
                 "subOptions": []
             },
             {
-                "text": "slice",
+                "option": "slice",
                 "insertedText": "slice;",
                 "subOptions": []
             }
         ]
     },
     {
-        "text": "break-after",
+        "option": "break-after",
         "insertedText": "break-after: ",
         "subOptions": [
             {
-                "text": "always",
+                "option": "always",
                 "insertedText": "always;",
                 "subOptions": []
             },
             {
-                "text": "auto",
+                "option": "auto",
                 "insertedText": "auto;",
                 "subOptions": []
             },
             {
-                "text": "avoid",
+                "option": "avoid",
                 "insertedText": "avoid;",
                 "subOptions": []
             },
             {
-                "text": "avoid-column",
+                "option": "avoid-column",
                 "insertedText": "avoid-column;",
                 "subOptions": []
             },
             {
-                "text": "avoid-page",
+                "option": "avoid-page",
                 "insertedText": "avoid-page;",
                 "subOptions": []
             },
             {
-                "text": "avoid-region",
+                "option": "avoid-region",
                 "insertedText": "avoid-region;",
                 "subOptions": []
             },
             {
-                "text": "column",
+                "option": "column",
                 "insertedText": "column;",
                 "subOptions": []
             },
             {
-                "text": "left",
+                "option": "left",
                 "insertedText": "left;",
                 "subOptions": []
             },
             {
-                "text": "page",
+                "option": "page",
                 "insertedText": "page;",
                 "subOptions": []
             },
             {
-                "text": "region",
+                "option": "region",
                 "insertedText": "region;",
                 "subOptions": []
             },
             {
-                "text": "right",
+                "option": "right",
                 "insertedText": "right;",
                 "subOptions": []
             }
         ]
     },
     {
-        "text": "break-before",
+        "option": "break-before",
         "insertedText": "break-before: ",
         "subOptions": [
             {
-                "text": "always",
+                "option": "always",
                 "insertedText": "always;",
                 "subOptions": []
             },
             {
-                "text": "auto",
+                "option": "auto",
                 "insertedText": "auto;",
                 "subOptions": []
             },
             {
-                "text": "avoid",
+                "option": "avoid",
                 "insertedText": "avoid;",
                 "subOptions": []
             },
             {
-                "text": "avoid-column",
+                "option": "avoid-column",
                 "insertedText": "avoid-column;",
                 "subOptions": []
             },
             {
-                "text": "avoid-page",
+                "option": "avoid-page",
                 "insertedText": "avoid-page;",
                 "subOptions": []
             },
             {
-                "text": "avoid-region",
+                "option": "avoid-region",
                 "insertedText": "avoid-region;",
                 "subOptions": []
             },
             {
-                "text": "column",
+                "option": "column",
                 "insertedText": "column;",
                 "subOptions": []
             },
             {
-                "text": "left",
+                "option": "left",
                 "insertedText": "left;",
                 "subOptions": []
             },
             {
-                "text": "page",
+                "option": "page",
                 "insertedText": "page;",
                 "subOptions": []
             },
             {
-                "text": "region",
+                "option": "region",
                 "insertedText": "region;",
                 "subOptions": []
             },
             {
-                "text": "right",
+                "option": "right",
                 "insertedText": "right;",
                 "subOptions": []
             }
         ]
     },
     {
-        "text": "break-inside",
+        "option": "break-inside",
         "insertedText": "break-inside: ",
         "subOptions": [
             {
-                "text": "auto",
+                "option": "auto",
                 "insertedText": "auto;",
                 "subOptions": []
             },
             {
-                "text": "avoid",
+                "option": "avoid",
                 "insertedText": "avoid;",
                 "subOptions": []
             },
             {
-                "text": "avoid-column",
+                "option": "avoid-column",
                 "insertedText": "avoid-column;",
                 "subOptions": []
             },
             {
-                "text": "avoid-page",
+                "option": "avoid-page",
                 "insertedText": "avoid-page;",
                 "subOptions": []
             },
             {
-                "text": "avoid-region",
+                "option": "avoid-region",
                 "insertedText": "avoid-region;",
                 "subOptions": []
             }
         ]
     },
     {
-        "text": "columns",
+        "option": "columns",
         "insertedText": "columns: ",
         "subOptions": []
     },
     {
-        "text": "column-count",
+        "option": "column-count",
         "insertedText": "column-count: ",
         "subOptions": []
     },
     {
-        "text": "column-gap",
+        "option": "column-gap",
         "insertedText": "column-gap: ",
         "subOptions": [
             {
-                "text": "normal",
+                "option": "normal",
                 "insertedText": "normal;",
                 "subOptions": []
             }
         ]
     },
     {
-        "text": "column-rule",
+        "option": "column-rule",
         "insertedText": "column-rule: ",
         "subOptions": []
     },
     {
-        "text": "column-rule-color",
+        "option": "column-rule-color",
         "insertedText": "column-rule-color: ",
         "subOptions": []
     },
     {
-        "text": "column-rule-style",
+        "option": "column-rule-style",
         "insertedText": "column-rule-style: ",
         "subOptions": [
             {
-                "text": "dashed",
+                "option": "dashed",
                 "insertedText": "dashed;",
                 "subOptions": []
             },
             {
-                "text": "dotted",
+                "option": "dotted",
                 "insertedText": "dotted;",
                 "subOptions": []
             },
             {
-                "text": "double",
+                "option": "double",
                 "insertedText": "double;",
                 "subOptions": []
             },
             {
-                "text": "groove",
+                "option": "groove",
                 "insertedText": "groove;",
                 "subOptions": []
             },
             {
-                "text": "hidden",
+                "option": "hidden",
                 "insertedText": "hidden;",
                 "subOptions": []
             },
             {
-                "text": "inset",
+                "option": "inset",
                 "insertedText": "inset;",
                 "subOptions": []
             },
             {
-                "text": "none",
+                "option": "none",
                 "insertedText": "none;",
                 "subOptions": []
             },
             {
-                "text": "outset",
+                "option": "outset",
                 "insertedText": "outset;",
                 "subOptions": []
             },
             {
-                "text": "ridge",
+                "option": "ridge",
                 "insertedText": "ridge;",
                 "subOptions": []
             },
             {
-                "text": "solid",
+                "option": "solid",
                 "insertedText": "solid;",
                 "subOptions": []
             },
             {
-                "text": "inherit",
+                "option": "inherit",
                 "insertedText": "inherit;",
                 "subOptions": []
             }
         ]
     },
     {
-        "text": "column-rule-width",
+        "option": "column-rule-width",
         "insertedText": "column-rule-width: ",
         "subOptions": [
             {
-                "text": "medium",
+                "option": "medium",
                 "insertedText": "medium;",
                 "subOptions": []
             },
             {
-                "text": "thin",
+                "option": "thin",
                 "insertedText": "thin;",
                 "subOptions": []
             },
             {
-                "text": "thick",
+                "option": "thick",
                 "insertedText": "thick;",
                 "subOptions": []
             },
             {
-                "text": "inherit",
+                "option": "inherit",
                 "insertedText": "inherit;",
                 "subOptions": []
             }
         ]
     },
     {
-        "text": "column-span",
+        "option": "column-span",
         "insertedText": "column-span: ",
         "subOptions": [
             {
-                "text": "all",
+                "option": "all",
                 "insertedText": "all;",
                 "subOptions": []
             },
             {
-                "text": "none",
+                "option": "none",
                 "insertedText": "none;",
                 "subOptions": []
             }
         ]
     },
     {
-        "text": "column-width",
+        "option": "column-width",
         "insertedText": "column-width: ",
         "subOptions": [
             {
-                "text": "auto",
+                "option": "auto",
                 "insertedText": "auto;",
                 "subOptions": []
             },
             {
-                "text": "inherit",
+                "option": "inherit",
                 "insertedText": "inherit;",
                 "subOptions": []
             }
         ]
     },
     {
-        "text": "flow-into",
+        "option": "flow-into",
         "insertedText": "flow-into: ",
         "subOptions": [
             {
-                "text": "none",
+                "option": "none",
                 "insertedText": "none;",
                 "subOptions": []
             }
         ]
     },
     {
-        "text": "flow-from",
+        "option": "flow-from",
         "insertedText": "flow-from: ",
         "subOptions": [
             {
-                "text": "none",
+                "option": "none",
                 "insertedText": "none;",
                 "subOptions": []
             },
             {
-                "text": "inherit",
+                "option": "inherit",
                 "insertedText": "inherit;",
                 "subOptions": []
             }
         ]
     },
     {
-        "text": "font-feature-settings",
+        "option": "font-feature-settings",
         "insertedText": "font-feature-settings: ",
         "subOptions": [
             {
-                "text": "normal",
+                "option": "normal",
                 "insertedText": "normal;",
                 "subOptions": []
             }
         ]
     },
     {
-        "text": "font-language-override",
+        "option": "font-language-override",
         "insertedText": "font-language-override: ",
         "subOptions": [
             {
-                "text": "normal",
+                "option": "normal",
                 "insertedText": "normal;",
                 "subOptions": []
             }
         ]
     },
     {
-        "text": "font-synthesis",
+        "option": "font-synthesis",
         "insertedText": "font-synthesis: ",
         "subOptions": [
             {
-                "text": "none",
+                "option": "none",
                 "insertedText": "none;",
                 "subOptions": []
             },
             {
-                "text": "style",
+                "option": "style",
                 "insertedText": "style;",
                 "subOptions": []
             },
             {
-                "text": "weight",
+                "option": "weight",
                 "insertedText": "weight;",
                 "subOptions": []
             }
         ]
     },
     {
-        "text": "font-variant-alternates",
+        "option": "font-variant-alternates",
         "insertedText": "font-variant-alternates: ",
         "subOptions": [
             {
-                "text": "normal",
+                "option": "normal",
                 "insertedText": "normal;",
                 "subOptions": []
             }
         ]
     },
     {
-        "text": "font-variant-caps",
+        "option": "font-variant-caps",
         "insertedText": "font-variant-caps: ",
         "subOptions": [
             {
-                "text": "normal",
+                "option": "normal",
                 "insertedText": "normal;",
                 "subOptions": []
             },
             {
-                "text": "small-caps",
+                "option": "small-caps",
                 "insertedText": "small-caps;",
                 "subOptions": []
             },
             {
-                "text": "all-small-caps",
+                "option": "all-small-caps",
                 "insertedText": "all-small-caps;",
                 "subOptions": []
             },
             {
-                "text": "petite-caps",
+                "option": "petite-caps",
                 "insertedText": "petite-caps;",
                 "subOptions": []
             },
             {
-                "text": "all-petite-caps",
+                "option": "all-petite-caps",
                 "insertedText": "all-petite-caps;",
                 "subOptions": []
             },
             {
-                "text": "unicase",
+                "option": "unicase",
                 "insertedText": "unicase;",
                 "subOptions": []
             },
             {
-                "text": "titling-caps",
+                "option": "titling-caps",
                 "insertedText": "titling-caps;",
                 "subOptions": []
             }
         ]
     },
     {
-        "text": "font-variant-east-asian",
+        "option": "font-variant-east-asian",
         "insertedText": "font-variant-east-asian: ",
         "subOptions": [
             {
-                "text": "normal",
+                "option": "normal",
                 "insertedText": "normal;",
                 "subOptions": []
             }
         ]
     },
     {
-        "text": "font-variant-numeric",
+        "option": "font-variant-numeric",
         "insertedText": "font-variant-numeric: ",
         "subOptions": [
             {
-                "text": "normal",
+                "option": "normal",
                 "insertedText": "normal;",
                 "subOptions": []
             }
         ]
     },
     {
-        "text": "font-variant-position",
+        "option": "font-variant-position",
         "insertedText": "font-variant-position: ",
         "subOptions": [
             {
-                "text": "normal",
+                "option": "normal",
                 "insertedText": "normal;",
                 "subOptions": []
             },
             {
-                "text": "sub",
+                "option": "sub",
                 "insertedText": "sub;",
                 "subOptions": []
             },
             {
-                "text": "super",
+                "option": "super",
                 "insertedText": "super;",
                 "subOptions": []
             }
         ]
     },
     {
-        "text": "hyphens",
+        "option": "hyphens",
         "insertedText": "hyphens: ",
         "subOptions": [
             {
-                "text": "auto",
+                "option": "auto",
                 "insertedText": "auto;",
                 "subOptions": []
             },
             {
-                "text": "manual",
+                "option": "manual",
                 "insertedText": "manual;",
                 "subOptions": []
             },
             {
-                "text": "none",
+                "option": "none",
                 "insertedText": "none;",
                 "subOptions": []
             }
         ]
     },
     {
-        "text": "image-orientation",
+        "option": "image-orientation",
         "insertedText": "image-orientation: ",
         "subOptions": []
     },
     {
-        "text": "image-resolution",
+        "option": "image-resolution",
         "insertedText": "image-resolution: ",
         "subOptions": [
             {
-                "text": "from-image",
+                "option": "from-image",
                 "insertedText": "from-image;",
                 "subOptions": []
             },
             {
-                "text": "snap",
+                "option": "snap",
                 "insertedText": "snap;",
                 "subOptions": []
             }
         ]
     },
     {
-        "text": "region-break-after",
+        "option": "region-break-after",
         "insertedText": "region-break-after: ",
         "subOptions": [
             {
-                "text": "always",
+                "option": "always",
                 "insertedText": "always;",
                 "subOptions": []
             },
             {
-                "text": "auto",
+                "option": "auto",
                 "insertedText": "auto;",
                 "subOptions": []
             },
             {
-                "text": "avoid",
+                "option": "avoid",
                 "insertedText": "avoid;",
                 "subOptions": []
             },
             {
-                "text": "avoid-column",
+                "option": "avoid-column",
                 "insertedText": "avoid-column;",
                 "subOptions": []
             },
             {
-                "text": "avoid-page",
+                "option": "avoid-page",
                 "insertedText": "avoid-page;",
                 "subOptions": []
             },
             {
-                "text": "avoid-region",
+                "option": "avoid-region",
                 "insertedText": "avoid-region;",
                 "subOptions": []
             },
             {
-                "text": "column",
+                "option": "column",
                 "insertedText": "column;",
                 "subOptions": []
             },
             {
-                "text": "left",
+                "option": "left",
                 "insertedText": "left;",
                 "subOptions": []
             },
             {
-                "text": "page",
+                "option": "page",
                 "insertedText": "page;",
                 "subOptions": []
             },
             {
-                "text": "region",
+                "option": "region",
                 "insertedText": "region;",
                 "subOptions": []
             },
             {
-                "text": "right",
+                "option": "right",
                 "insertedText": "right;",
                 "subOptions": []
             }
         ]
     },
     {
-        "text": "region-break-before",
+        "option": "region-break-before",
         "insertedText": "region-break-before: ",
         "subOptions": [
             {
-                "text": "always",
+                "option": "always",
                 "insertedText": "always;",
                 "subOptions": []
             },
             {
-                "text": "auto",
+                "option": "auto",
                 "insertedText": "auto;",
                 "subOptions": []
             },
             {
-                "text": "avoid",
+                "option": "avoid",
                 "insertedText": "avoid;",
                 "subOptions": []
             },
             {
-                "text": "avoid-column",
+                "option": "avoid-column",
                 "insertedText": "avoid-column;",
                 "subOptions": []
             },
             {
-                "text": "avoid-page",
+                "option": "avoid-page",
                 "insertedText": "avoid-page;",
                 "subOptions": []
             },
             {
-                "text": "avoid-region",
+                "option": "avoid-region",
                 "insertedText": "avoid-region;",
                 "subOptions": []
             },
             {
-                "text": "column",
+                "option": "column",
                 "insertedText": "column;",
                 "subOptions": []
             },
             {
-                "text": "left",
+                "option": "left",
                 "insertedText": "left;",
                 "subOptions": []
             },
             {
-                "text": "page",
+                "option": "page",
                 "insertedText": "page;",
                 "subOptions": []
             },
             {
-                "text": "region",
+                "option": "region",
                 "insertedText": "region;",
                 "subOptions": []
             },
             {
-                "text": "right",
+                "option": "right",
                 "insertedText": "right;",
                 "subOptions": []
             }
         ]
     },
     {
-        "text": "region-break-inside",
+        "option": "region-break-inside",
         "insertedText": "region-break-inside: ",
         "subOptions": [
             {
-                "text": "auto",
+                "option": "auto",
                 "insertedText": "auto;",
                 "subOptions": []
             },
             {
-                "text": "avoid",
+                "option": "avoid",
                 "insertedText": "avoid;",
                 "subOptions": []
             },
             {
-                "text": "avoid-column",
+                "option": "avoid-column",
                 "insertedText": "avoid-column;",
                 "subOptions": []
             },
             {
-                "text": "avoid-page",
+                "option": "avoid-page",
                 "insertedText": "avoid-page;",
                 "subOptions": []
             },
             {
-                "text": "avoid-region",
+                "option": "avoid-region",
                 "insertedText": "avoid-region;",
                 "subOptions": []
             }
         ]
     },
     {
-        "text": "region-fragment",
+        "option": "region-fragment",
         "insertedText": "region-fragment: ",
         "subOptions": [
             {
-                "text": "auto",
+                "option": "auto",
                 "insertedText": "auto;",
                 "subOptions": []
             },
             {
-                "text": "break",
+                "option": "break",
                 "insertedText": "break;",
                 "subOptions": []
             }
         ]
     },
     {
-        "text": "shape-inside",
+        "option": "shape-inside",
         "insertedText": "shape-inside: ",
         "subOptions": [
             {
-                "text": "auto",
+                "option": "auto",
                 "insertedText": "auto;",
                 "subOptions": []
             },
             {
-                "text": "circle()",
+                "option": "circle()",
                 "insertedText": "circle();",
                 "subOptions": []
             },
             {
-                "text": "ellipse()",
+                "option": "ellipse()",
                 "insertedText": "ellipse();",
                 "subOptions": []
             },
             {
-                "text": "inherit",
+                "option": "inherit",
                 "insertedText": "inherit;",
                 "subOptions": []
             },
             {
-                "text": "outside-shape",
+                "option": "outside-shape",
                 "insertedText": "outside-shape;",
                 "subOptions": []
             },
             {
-                "text": "polygon()",
+                "option": "polygon()",
                 "insertedText": "polygon();",
                 "subOptions": []
             },
             {
-                "text": "rectangle()",
+                "option": "rectangle()",
                 "insertedText": "rectangle();",
                 "subOptions": []
             }
         ]
     },
     {
-        "text": "text-decoration-skip",
+        "option": "text-decoration-skip",
         "insertedText": "text-decoration-skip: ",
         "subOptions": [
             {
-                "text": "edges",
+                "option": "edges",
                 "insertedText": "edges;",
                 "subOptions": []
             },
             {
-                "text": "ink",
+                "option": "ink",
                 "insertedText": "ink;",
                 "subOptions": []
             },
             {
-                "text": "none",
+                "option": "none",
                 "insertedText": "none;",
                 "subOptions": []
             },
             {
-                "text": "objects",
+                "option": "objects",
                 "insertedText": "objects;",
                 "subOptions": []
             },
             {
-                "text": "spaces",
+                "option": "spaces",
                 "insertedText": "spaces;",
                 "subOptions": []
             }
         ]
     },
     {
-        "text": "text-emphasis",
+        "option": "text-emphasis",
         "insertedText": "text-emphasis: ",
         "subOptions": []
     },
     {
-        "text": "text-emphasis-color",
+        "option": "text-emphasis-color",
         "insertedText": "text-emphasis-color: ",
         "subOptions": []
     },
     {
-        "text": "text-emphasis-position",
+        "option": "text-emphasis-position",
         "insertedText": "text-emphasis-position: ",
         "subOptions": [
             {
-                "text": "above",
+                "option": "above",
                 "insertedText": "above;",
                 "subOptions": []
             },
             {
-                "text": "below",
+                "option": "below",
                 "insertedText": "below;",
                 "subOptions": []
             },
             {
-                "text": "left",
+                "option": "left",
                 "insertedText": "left;",
                 "subOptions": []
             },
             {
-                "text": "right",
+                "option": "right",
                 "insertedText": "right;",
                 "subOptions": []
             }
         ]
     },
     {
-        "text": "text-emphasis-style",
+        "option": "text-emphasis-style",
         "insertedText": "text-emphasis-style: ",
         "subOptions": [
             {
-                "text": "circle",
+                "option": "circle",
                 "insertedText": "circle;",
                 "subOptions": []
             },
             {
-                "text": "dot",
+                "option": "dot",
                 "insertedText": "dot;",
                 "subOptions": []
             },
             {
-                "text": "double-circle",
+                "option": "double-circle",
                 "insertedText": "double-circle;",
                 "subOptions": []
             },
             {
-                "text": "filled",
+                "option": "filled",
                 "insertedText": "filled;",
                 "subOptions": []
             },
             {
-                "text": "none",
+                "option": "none",
                 "insertedText": "none;",
                 "subOptions": []
             },
             {
-                "text": "open",
+                "option": "open",
                 "insertedText": "open;",
                 "subOptions": []
             },
             {
-                "text": "sesame",
+                "option": "sesame",
                 "insertedText": "sesame;",
                 "subOptions": []
             },
             {
-                "text": "triangle",
+                "option": "triangle",
                 "insertedText": "triangle;",
                 "subOptions": []
             }
         ]
     },
     {
-        "text": "font-display",
+        "option": "font-display",
         "insertedText": "font-display: ",
         "subOptions": [
             {
-                "text": "auto",
+                "option": "auto",
                 "insertedText": "auto;",
                 "subOptions": []
             },
             {
-                "text": "block",
+                "option": "block",
                 "insertedText": "block;",
                 "subOptions": []
             },
             {
-                "text": "swap",
+                "option": "swap",
                 "insertedText": "swap;",
                 "subOptions": []
             },
             {
-                "text": "fallback",
+                "option": "fallback",
                 "insertedText": "fallback;",
                 "subOptions": []
             },
             {
-                "text": "optional",
+                "option": "optional",
                 "insertedText": "optional;",
                 "subOptions": []
             }
         ]
     },
     {
-        "text": "grid",
+        "option": "grid",
         "insertedText": "grid: ",
         "subOptions": []
     },
     {
-        "text": "grid-area",
+        "option": "grid-area",
         "insertedText": "grid-area: ",
         "subOptions": []
     },
     {
-        "text": "grid-column-gap",
+        "option": "grid-column-gap",
         "insertedText": "grid-column-gap: ",
         "subOptions": []
     },
     {
-        "text": "grid-gap",
+        "option": "grid-gap",
         "insertedText": "grid-gap: ",
         "subOptions": []
     },
     {
-        "text": "grid-row-gap",
+        "option": "grid-row-gap",
         "insertedText": "grid-row-gap: ",
         "subOptions": []
     },
     {
-        "text": "grid-template-areas",
+        "option": "grid-template-areas",
         "insertedText": "grid-template-areas: ",
         "subOptions": []
     },
     {
-        "text": "hanging-punctuation",
+        "option": "hanging-punctuation",
         "insertedText": "hanging-punctuation: ",
         "subOptions": [
             {
-                "text": "allow-end",
+                "option": "allow-end",
                 "insertedText": "allow-end;",
                 "subOptions": []
             },
             {
-                "text": "first",
+                "option": "first",
                 "insertedText": "first;",
                 "subOptions": []
             },
             {
-                "text": "force-end",
+                "option": "force-end",
                 "insertedText": "force-end;",
                 "subOptions": []
             },
             {
-                "text": "last",
+                "option": "last",
                 "insertedText": "last;",
                 "subOptions": []
             },
             {
-                "text": "none",
+                "option": "none",
                 "insertedText": "none;",
                 "subOptions": []
             }

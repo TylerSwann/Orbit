@@ -13,6 +13,7 @@ import javafx.scene.Cursor;
 import javafx.scene.Node;
 import javafx.scene.control.IndexRange;
 import javafx.scene.input.*;
+import org.fxmisc.richtext.CodeArea;
 import org.fxmisc.richtext.StyleClassedTextArea;
 import org.fxmisc.wellbehaved.event.EventPattern;
 import org.fxmisc.wellbehaved.event.InputMap;
@@ -44,7 +45,6 @@ public class CodeEditor extends StyleClassedTextArea
     {
         super(true);
         Platform.runLater(() -> this.init(source));
-
     }
 
     public ObservableList<Node> getChildren()
@@ -222,7 +222,7 @@ public class CodeEditor extends StyleClassedTextArea
     }
 
     protected final ObjectProperty<IndexedLine> currentLine = new SimpleObjectProperty<>();
-    public final IndexedLine getCurrentLine() { return currentLine.get(); }
+//    public final IndexedLine getCurrentLine() { return currentLine.get(); }
     public final ReadOnlyObjectProperty<IndexedLine> indexedLineProperty() { return currentLine; }
 
 

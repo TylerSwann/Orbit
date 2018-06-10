@@ -28,7 +28,6 @@ public open class MUIMenuButton: MUIButton
             val translateX = this.iconView?.translateX ?: 0.0
             this.iconView?.translateX = (translateX + value)
         }
-    public val menu = MUIContextMenu()
     public var icon: Ikon? = null
         set(value) {  this.iconView = FontIcon(value)  }
     public var iconScale = 1.0
@@ -60,10 +59,6 @@ public open class MUIMenuButton: MUIButton
         this.alignment = Pos.CENTER
         this.minWidth = 50.0
         this.styleClass.add("mui-menu-button")
-        this.addEventHandler(MouseEvent.MOUSE_CLICKED, { _ ->
-            if(this.menu.items.size > 0)
-                this.menu.show(this)
-        })
         Platform.runLater { addStylingEvents() }
 
     }

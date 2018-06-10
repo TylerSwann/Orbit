@@ -1,14 +1,13 @@
-package io.orbit.webtools.test;
+package io.orbit.text.plaintext;
 
 import io.orbit.api.EditorController;
-import io.orbit.api.event.AutoCompletionModalEvent;
+import io.orbit.api.event.AutoCompletionEvent;
 import io.orbit.api.text.CodeEditor;
-import io.orbit.ui.AutoCompletionModal;
+import io.orbit.api.autocompletion.AutoCompletionDialog;
 import javafx.event.Event;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
-import org.fxmisc.richtext.CodeArea;
 import org.fxmisc.wellbehaved.event.EventPattern;
 import org.fxmisc.wellbehaved.event.InputMap;
 import org.fxmisc.wellbehaved.event.Nodes;
@@ -21,12 +20,12 @@ import java.util.function.BooleanSupplier;
  */
 public class PlainTextEditorController implements EditorController, BooleanSupplier
 {
-    private AutoCompletionModal modal;
+    private AutoCompletionDialog modal;
 
     @Override
     public void start(File file, CodeEditor editor)
     {
-        this.modal = new AutoCompletionModal(editor);
+        this.modal = new AutoCompletionDialog(editor);
 
         editor.requestFollowCaret();
         InputMap<Event> disabled = InputMap.consume(EventPattern.anyOf(
@@ -35,7 +34,7 @@ public class PlainTextEditorController implements EditorController, BooleanSuppl
         ));
         Nodes.addInputMap(editor, InputMap.when(this, disabled));
         modal.addRandomOptions("Option: ");
-        modal.addEventHandler(AutoCompletionModalEvent.OPTION_WAS_SELECTED, event -> {
+        modal.addEventHandler(AutoCompletionEvent.OPTION_WAS_SELECTED, event -> {
             event.selectedOption.ifPresent(option -> System.out.println(option.getText()));
         });
         editor.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> modal.hide());

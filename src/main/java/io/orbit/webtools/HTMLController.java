@@ -2,12 +2,20 @@ package io.orbit.webtools;
 
 import io.orbit.api.EditorController;
 
+import io.orbit.api.formatting.PatternIndentationMap;
 import io.orbit.api.text.CodeEditor;
-import io.orbit.api.formatting.CodeFormatter;
-import io.orbit.ui.AutoCompletionModal;
+import javafx.application.Platform;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import org.fxmisc.richtext.CodeArea;
+import org.fxmisc.richtext.model.*;
+import org.reactfx.collection.LiveList;
+
 import java.io.File;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.List;
+import java.util.regex.Pattern;
 
 /**
  * Created by Tyler Swann on Saturday April 14, 2018 at 17:36
@@ -15,12 +23,22 @@ import java.io.File;
 public class HTMLController implements EditorController
 {
     private CodeEditor editor;
+    private PatternIndentationMap map;
+    private static final Pattern LEFT_PATTERN = Pattern.compile("(\\<)(?!(area|base|br|col|command|embed|hr|img|input|keygen|link|menuitem|meta|param|source|track|wbr))([a-zA-Z0-9]+).*(\\>)");
+    private static final Pattern RIGHT_PATTERN = Pattern.compile("\\<\\/[a-zA-Z0-9\\-?]+\\>");
 
     @Override
     public void start(File file, CodeEditor editor)
     {
         this.editor = editor;
+        map = new PatternIndentationMap(LEFT_PATTERN, RIGHT_PATTERN);
         registerEvents();
+        this.editor.caretPositionProperty().addListener(event -> {
+//            this.map.compute(this.editor.getDocument());
+            int linNum = this.editor.getFocusPosition().line;
+            System.out.println(String.format("Line: %d IndentLevel: %d", linNum, this.map.indentLevelForLine(linNum)));
+        });
+
     }
 
     private void registerEvents()
@@ -51,5 +69,14 @@ public class HTMLController implements EditorController
                 default: break;
             }
         });
+    }
+
+    private String getIndentation(int level)
+    {
+        StringBuilder builder = new StringBuilder("");
+        String indent = "    ";
+        for (int i = 0; i < level; i++)
+            builder.append(indent);
+        return builder.toString();
     }
 }

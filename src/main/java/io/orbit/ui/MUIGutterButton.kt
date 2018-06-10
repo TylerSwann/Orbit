@@ -25,20 +25,13 @@ class MUIGutterButton: HBox
     private val iconView: FontIcon
     private val label: Label
     private var isBreakPoint = false
-    private val errorBox: MUIPopupMessageBox
-    private val warningBox: MUIPopupMessageBox
+
     private var defaultBackgroundFill: BackgroundFill
 
     constructor(line: Int): this("$line")
     constructor(text: String)
     {
         this.styleClass.add("mui-gutter-button")
-        this.errorBox = MUIPopupMessageBox(FontAwesomeSolid.EXCLAMATION_CIRCLE, "", "")
-        this.warningBox = MUIPopupMessageBox(FontAwesomeSolid.EXCLAMATION_TRIANGLE, "", "")
-        this.errorBox.iconColor = Color.RED
-        this.warningBox.iconColor = Color.rgb(237, 225, 7)
-        this.errorBox.iconScale = 1.5
-        this.warningBox.iconScale = 1.5
         this.iconView = FontIcon()
         this.label = Label(text)
         this.alignment = Pos.CENTER_LEFT
@@ -71,27 +64,6 @@ class MUIGutterButton: HBox
             }
         })
 
-    }
-
-    public fun showWarning(title: String, message: String)
-    {
-        this.iconView.iconCode = FontAwesomeSolid.EXCLAMATION_TRIANGLE
-        this.iconView.fill = Color.rgb(237, 225, 7)
-        this.iconView.addEventFilter(MouseEvent.MOUSE_CLICKED, {
-            this.warningBox.title = title
-            this.warningBox.message = message
-            this.warningBox.show(this)
-        })
-    }
-    public fun showError(title: String, message: String)
-    {
-        this.iconView.iconCode = FontAwesomeSolid.EXCLAMATION_CIRCLE
-        this.iconView.fill = Color.RED
-        this.iconView.addEventFilter(MouseEvent.MOUSE_CLICKED, {
-            this.errorBox.title = title
-            this.errorBox.message = message
-            this.errorBox.show(this)
-        })
     }
 
     /**************************************************************************
@@ -146,35 +118,3 @@ class MUIGutterButton: HBox
         }
     }
 }
-
-
-/*
-    inner class Arrow: Pane
-    {
-        constructor()
-        {
-            this.prefWidth = 50.0
-            this.prefHeight = 30.0
-            val arrow = Polygon()
-            //triangle.strokeWidth = 30.0
-            arrow.fill = Color.BLACK//Color.color((101.0 / 255.0), (126.0 / 255.0), (189.0 / 255.0))
-            //this.style = "-fx-background-color: rgb(101, 126, 189);"
-            this.children.add(arrow)
-
-            Platform.runLater {
-                val points = ArrayList<Double>()
-
-                arrow.points.addAll(points)
-            }
-        }
-    }
-                val points = ArrayList<Double>()
-                points.add(0.0)
-                points.add(0.0)
-                points.add(0.0)
-                points.add(this.height)
-                points.add(15.0)
-                points.add(this.height / 2.0)
-                triangle.points.addAll(points)
-                triangle.layoutX = (this.width - (this.height / 2.0))
-* */

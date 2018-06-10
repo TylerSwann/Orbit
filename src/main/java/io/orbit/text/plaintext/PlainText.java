@@ -1,4 +1,4 @@
-package io.orbit.webtools.test;
+package io.orbit.text.plaintext;
 
 import io.orbit.api.LanguageDelegate;
 import io.orbit.api.autocompletion.AutoCompletionProvider;
