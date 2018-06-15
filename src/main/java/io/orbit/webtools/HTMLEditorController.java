@@ -2,25 +2,17 @@ package io.orbit.webtools;
 
 import io.orbit.api.EditorController;
 
-import io.orbit.api.formatting.PatternIndentationMap;
+import io.orbit.webtools.formatting.PatternIndentationMap;
 import io.orbit.api.text.CodeEditor;
-import javafx.application.Platform;
-import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
-import org.fxmisc.richtext.CodeArea;
-import org.fxmisc.richtext.model.*;
-import org.reactfx.collection.LiveList;
 
 import java.io.File;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.List;
 import java.util.regex.Pattern;
 
 /**
  * Created by Tyler Swann on Saturday April 14, 2018 at 17:36
  */
-public class HTMLController implements EditorController
+public class HTMLEditorController implements EditorController
 {
     private CodeEditor editor;
     private PatternIndentationMap map;

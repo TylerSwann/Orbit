@@ -25,8 +25,16 @@ import javafx.stage.Stage;
 import javafx.util.Duration;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.status.StatusLogger;
+
+import javax.xml.transform.OutputKeys;
+import javax.xml.transform.Transformer;
+import javax.xml.transform.TransformerConfigurationException;
+import javax.xml.transform.TransformerFactory;
+import javax.xml.transform.dom.DOMSource;
+import javax.xml.transform.stream.StreamResult;
 import java.io.File;
 import java.io.InputStream;
+import java.io.StringWriter;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.nio.file.Paths;
@@ -45,6 +53,29 @@ public class App extends Application
     public static SyncedObservableList<String> syntaxTheme = new SyncedObservableList<>();
     public static SimpleStringProperty editorFontStyle = new SimpleStringProperty();
     public static ReadOnlyObjectProperty<Stage> PRIMARY_STAGE;
+
+    /*
+    * API
+    *
+    *   PluginController:
+    *       provides:
+    *          Supported File Types
+    *          User Defined UI Elements
+    *          EditorController:
+    *             provides:
+    *                Functionality to an editor
+    *             receives:
+    *                Is notified when a new editor is created and the file that coincides with the editor
+    *          LanguageDelegate:
+    *             provides:
+    *                SyntaxHighlighter
+    *                File type of supported language
+    *             receives:
+    *                None
+    *         receives:
+    *            Editor Specific Events
+    *            Minor Application Events
+    * */
 
     public void start(Stage stage)
     {
@@ -87,6 +118,8 @@ public class App extends Application
         showSplashScreen();
 //        App.setApplicationTheme(new File(getClass().getClassLoader().getResource("css/SolarOrbit.css").getFile()));
     }
+
+
 
     private void showSplashScreen()
     {

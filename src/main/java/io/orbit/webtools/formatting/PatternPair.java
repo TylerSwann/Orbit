@@ -1,4 +1,4 @@
-package io.orbit.api.formatting;
+package io.orbit.webtools.formatting;
 
 import java.util.regex.Pattern;
 

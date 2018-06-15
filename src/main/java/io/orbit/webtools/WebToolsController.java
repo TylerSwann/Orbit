@@ -25,9 +25,9 @@ public class WebToolsController implements PluginController
     public LanguageDelegate getLanguageDelegate(File file, String fileExtension)
     {
         if (fileExtension.equals("css"))
-            return new CSS3();
+            return new CSS3Language();
         else if (fileExtension.equals("html"))
-            return new HTML();
+            return new HTMLLanguage();
         return null;
     }
 
@@ -35,9 +35,9 @@ public class WebToolsController implements PluginController
     public EditorController getEditorController(File file, String fileExtension)
     {
         if (fileExtension.equals("css"))
-            return new CSSController();
+            return new CSSEditorController();
         else if (fileExtension.equals("html"))
-            return new HTMLController();
+            return new HTMLEditorController();
         return null;
     }
 }

@@ -1,4 +1,4 @@
-package io.orbit.api.formatting;
+package io.orbit.webtools.formatting;
 
 import io.orbit.api.text.CodeEditor;
 import io.orbit.api.text.IndexedDocument;

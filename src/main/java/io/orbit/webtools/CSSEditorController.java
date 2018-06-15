@@ -8,7 +8,7 @@ import io.orbit.api.text.IndexedDocument;
 import io.orbit.api.text.TextFocusPosition;
 import io.orbit.api.event.AutoCompletionEvent;
 import io.orbit.api.text.IndexedLine;
-import io.orbit.api.formatting.PatternIndentationMap;
+import io.orbit.webtools.formatting.PatternIndentationMap;
 import io.orbit.api.autocompletion.AutoCompletionDialog;
 import javafx.application.Platform;
 import javafx.beans.property.ObjectProperty;
@@ -22,7 +22,7 @@ import java.util.List;
 /**
  * Created by Tyler Swann on Sunday April 01, 2018 at 14:39
  */
-public class CSSController implements EditorController
+public class CSSEditorController implements EditorController
 {
     private enum State {  FORMATTING, AUTO_COMPLETING  }
     private PatternIndentationMap map;

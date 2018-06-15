@@ -1,23 +1,24 @@
 package io.orbit.webtools;
 
-import io.orbit.api.LanguageDelegate;
+import io.orbit.api.*;
+import io.orbit.api.autocompletion.AutoCompletionProvider;
 import io.orbit.api.highlighting.RegexSyntaxHighlighter;
 import io.orbit.api.highlighting.SyntaxHighlighter;
 
 /**
- * Created by Tyler Swann on Saturday April 14, 2018 at 17:24
+ * Created by Tyler Swann on Friday February 16, 2018 at 14:00
  */
-public class HTML implements LanguageDelegate
+public class CSS3Language implements LanguageDelegate
 {
     @Override
     public SyntaxHighlighter getSyntaxHighlighter()
     {
-        return new RegexSyntaxHighlighter(new HTMLRegexPattern());
+        return new RegexSyntaxHighlighter(new CSS3RegexPattern());
     }
 
     @Override
     public String getFileNameExtension()
     {
-        return "html";
+        return "css";
     }
 }
