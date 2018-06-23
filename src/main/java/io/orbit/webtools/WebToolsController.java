@@ -3,6 +3,10 @@ package io.orbit.webtools;
 import io.orbit.api.EditorController;
 import io.orbit.api.LanguageDelegate;
 import io.orbit.api.PluginController;
+import io.orbit.webtools.css.CSS3Language;
+import io.orbit.webtools.css.CSSEditorController;
+import io.orbit.webtools.html.HTMLEditorController;
+import io.orbit.webtools.html.HTMLLanguage;
 
 import java.io.File;
 import java.util.Arrays;

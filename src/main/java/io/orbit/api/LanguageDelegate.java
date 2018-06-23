@@ -1,6 +1,5 @@
 package io.orbit.api;
 
-import io.orbit.api.autocompletion.AutoCompletionProvider;
 import io.orbit.api.highlighting.SyntaxHighlighter;
 
 

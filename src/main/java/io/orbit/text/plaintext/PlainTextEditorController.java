@@ -25,37 +25,37 @@ public class PlainTextEditorController implements EditorController, BooleanSuppl
     @Override
     public void start(File file, CodeEditor editor)
     {
-        this.modal = new AutoCompletionDialog(editor);
-
-        editor.requestFollowCaret();
-        InputMap<Event> disabled = InputMap.consume(EventPattern.anyOf(
-                EventPattern.keyPressed(KeyCode.UP),
-                EventPattern.keyPressed(KeyCode.DOWN)
-        ));
-        Nodes.addInputMap(editor, InputMap.when(this, disabled));
-        modal.addRandomOptions("Option: ");
-        modal.addEventHandler(AutoCompletionEvent.OPTION_WAS_SELECTED, event -> {
-            event.selectedOption.ifPresent(option -> System.out.println(option.getText()));
-        });
-        editor.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> modal.hide());
-        editor.addEventHandler(KeyEvent.KEY_RELEASED, event -> {
-            switch (event.getCode())
-            {
-                case PERIOD:
-                case ENTER:
-                case COLON:
-                case BACK_SPACE:
-                case SPACE:
-                    if (modal.isShowing())
-                        modal.hide();
-                    break;
-                case UP:
-                case DOWN:
-                    break;
-                default:
-                     editor.getCaretBounds().ifPresent(bounds -> modal.show(bounds.getMinX(), bounds.getMinY()));
-            }
-        });
+//        this.modal = new AutoCompletionDialog(editor);
+//
+//        editor.requestFollowCaret();
+//        InputMap<Event> disabled = InputMap.consume(EventPattern.anyOf(
+//                EventPattern.keyPressed(KeyCode.UP),
+//                EventPattern.keyPressed(KeyCode.DOWN)
+//        ));
+//        Nodes.addInputMap(editor, InputMap.when(this, disabled));
+//        modal.addRandomOptions("Option: ");
+//        modal.addEventHandler(AutoCompletionEvent.OPTION_WAS_SELECTED, event -> {
+//            event.selectedOption.ifPresent(option -> System.out.println(option.getText()));
+//        });
+//        editor.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> modal.hide());
+//        editor.addEventHandler(KeyEvent.KEY_RELEASED, event -> {
+//            switch (event.getCode())
+//            {
+//                case PERIOD:
+//                case ENTER:
+//                case COLON:
+//                case BACK_SPACE:
+//                case SPACE:
+//                    if (modal.isShowing())
+//                        modal.hide();
+//                    break;
+//                case UP:
+//                case DOWN:
+//                    break;
+//                default:
+//                     editor.getCaretBounds().ifPresent(bounds -> modal.show(bounds.getMinX(), bounds.getMinY()));
+//            }
+//        });
 
     }
 

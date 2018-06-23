@@ -1,4 +1,4 @@
-package io.orbit.api.autocompletion;
+package io.orbit.webtools.css;
 
 import java.util.List;
 

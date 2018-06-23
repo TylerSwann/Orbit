@@ -1,7 +1,6 @@
 package io.orbit.text.plaintext;
 
 import io.orbit.api.LanguageDelegate;
-import io.orbit.api.autocompletion.AutoCompletionProvider;
 import io.orbit.api.highlighting.HighlightType;
 import io.orbit.api.highlighting.RegexStylePattern;
 import io.orbit.api.highlighting.RegexSyntaxHighlighter;

@@ -1,7 +1,7 @@
 
 
 
-
+    <head>
 
 App.class.getClassLoader().getResource("fonts/raleway/Raleway-Black.ttf"),
 App.class.getClassLoader().getResource("fonts/raleway/Raleway-Bold.ttf"),
@@ -28,3 +28,6 @@ area|base|br|col|command|embed|hr|img|input|keygen|link|menuitem|meta|param|sour
 (?<VOIDTAG><(area|base|br|col|command|embed|hr|img|input|keygen|link|menuitem|meta|param|source|track|wbr)[\sa-zA-Z0-9=\".=\+\-_:\?/,]*>)
 (?<CLOSETAG>(</[a-zA-Z0-9\\-]+>))
 (?<OPENTAG>((<)(?!(area|base|br|col|command|embed|hr|img|input|keygen|link|menuitem|meta|param|source|track|wbr))[a-zA-Z0-9]+[\sa-zA-Z0-9=\":/.-_]*>))
+
+(?<OPENTAG>((<)(?!(area|base|br|col|command|embed|hr|img|input|keygen|link|menuitem|meta|param|source|track|wbr))[a-zA-Z0-9]+[\sa-zA-Z0-9=\":/.-]*>))
+(?<OPENTAG>((<)(?!(input|link))[a-zA-Z0-9]+[\\sa-zA-Z0-9=\":/.-]*>)).*(?<CLOSETAG>(</[a-zA-Z0-9\-]+>))

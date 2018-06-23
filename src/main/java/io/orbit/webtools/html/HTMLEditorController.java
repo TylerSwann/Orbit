@@ -1,8 +1,8 @@
-package io.orbit.webtools;
+package io.orbit.webtools.html;
 
 import io.orbit.api.EditorController;
 import io.orbit.api.text.CodeEditor;
-import io.orbit.webtools.formatting.HTMLCodeFormatter;
+import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import java.io.File;
 
@@ -13,14 +13,13 @@ import java.io.File;
 public class HTMLEditorController implements EditorController
 {
     private CodeEditor editor;
-//    private static final Pattern LEFT_PATTERN = Pattern.compile("(\\<)(?!(area|base|br|col|command|embed|hr|img|input|keygen|link|menuitem|meta|param|source|track|wbr))([a-zA-Z0-9]+).*(\\>)");
-//    private static final Pattern RIGHT_PATTERN = Pattern.compile("\\<\\/[a-zA-Z0-9\\-?]+\\>");
-//    private HTMLIndentationMap htmlMap = new HTMLIndentationMap();
 
     @Override
     public void start(File file, CodeEditor editor)
     {
         this.editor = editor;
+        this.editor.ignoreDefaultBehaviorOf(KeyCode.TAB);
+        new HTMLCodeFormatter(this.editor);
         registerEvents();
         String text = HTMLCodeFormatter.format(this.editor.getText());
         this.editor.replaceText(0, this.editor.getText().length() - 1, text);

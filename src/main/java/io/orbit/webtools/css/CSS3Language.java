@@ -1,7 +1,6 @@
-package io.orbit.webtools;
+package io.orbit.webtools.css;
 
 import io.orbit.api.*;
-import io.orbit.api.autocompletion.AutoCompletionProvider;
 import io.orbit.api.highlighting.RegexSyntaxHighlighter;
 import io.orbit.api.highlighting.SyntaxHighlighter;
 

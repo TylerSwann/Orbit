@@ -72,32 +72,6 @@ public class CodeEditor extends StyleClassedTextArea
         this.replaceText(0, 0, source);
         this.setParagraphGraphicFactory(line -> new MUIGutterButton(line + 1));
         this.setCursor(Cursor.TEXT);
-        this.addEventHandler(KeyEvent.KEY_RELEASED, event -> {
-            switch (event.getCode())
-            {
-                case ENTER:
-                case SPACE:
-                    this.fireEvent(new CodeEditorEvent(CodeEditorEvent.SEGMENT_CHANGE, this.segmentChangesProperty.get(), ""));
-                    this.segmentChangesProperty.setValue("");
-                    break;
-                default:
-                    int caretPosInLine = this.getFocusPosition().line;
-                    String currentLine = this.getIndexedDocument().lines.get(caretPosInLine).text;
-                    String[] segments = currentLine.split("\\s+");
-                    if (segments.length > 0)
-                    {
-                        String newValue = segments[segments.length - 1];
-                        String oldValue = this.segmentChangesProperty.getValue();
-                        this.segmentChangesProperty.setValue(segments[segments.length - 1]);
-                        this.fireEvent(new CodeEditorEvent(CodeEditorEvent.SEGMENT_LETTER_CHANGE, oldValue, newValue));
-                    }
-                    break;
-            }
-        });
-        this.caretColumnProperty().addListener(event -> {
-            int line = this.getFocusPosition().line;
-            this.currentLine.setValue(this.getIndexedDocument().lines.get(line));
-        });
     }
 
 
@@ -204,25 +178,10 @@ public class CodeEditor extends StyleClassedTextArea
         return new IndexedDocument(this.getDocument());
     }
 
-    /***
-     * A segment is the current word the user typing.
-     * The text left of the current line that the caret is on
-     * is split by one or more spaces with the last segment
-     * being the current segment the user is on. This is useful for autocompletion.
-     */
-    protected final ObjectProperty<String> segmentChangesProperty = new SimpleObjectProperty<>("");
-    protected final EventStream<String> segmentChangeStream = EventStreams.valuesOf(segmentChangesProperty);
-    public final EventStream<String> segmentChanges()
-    {
-        return segmentChangeStream;
-    }
-    public final String getCurrentSegment()
-    {
-        return this.segmentChangesProperty.get();
-    }
 
+    @Deprecated
     protected final ObjectProperty<IndexedLine> currentLine = new SimpleObjectProperty<>();
-//    public final IndexedLine getCurrentLine() { return currentLine.get(); }
+    @Deprecated
     public final ReadOnlyObjectProperty<IndexedLine> indexedLineProperty() { return currentLine; }
 
 
@@ -246,7 +205,6 @@ public class CodeEditor extends StyleClassedTextArea
     @Override
     public void copy()
     {
-
         if (this.selectedTextProperty().getValue().equals(""))
             return;
         if (clipboard == null)

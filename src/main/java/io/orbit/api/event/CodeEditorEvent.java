@@ -17,8 +17,6 @@ public class CodeEditorEvent extends Event
     public static final EventType<CodeEditorEvent> PASTE = new EventType<>(Event.ANY, "PASTE");
     public static final EventType<CodeEditorEvent> UNDO = new EventType<>(Event.ANY, "UNDO");
     public static final EventType<CodeEditorEvent> REDO = new EventType<>(Event.ANY, "REDO");
-    public static final EventType<CodeEditorEvent> SEGMENT_LETTER_CHANGE = new EventType<>(Event.ANY, "SEGMENT_LETTER_CHANGE");
-    public static final EventType<CodeEditorEvent> SEGMENT_CHANGE = new EventType<>(Event.ANY, "SEGMENT_CHANGE");
     public static final EventType<CodeEditorEvent> FILE_WAS_MODIFIED = new EventType<>(Event.ANY, "FILE_WAS_MODIFIED");
 
     public Optional<String> oldSegment = Optional.empty();

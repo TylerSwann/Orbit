@@ -1,4 +1,4 @@
-package io.orbit.webtools;
+package io.orbit.webtools.html;
 
 import io.orbit.api.highlighting.HighlightType;
 import io.orbit.api.highlighting.RegexStylePattern;
@@ -11,13 +11,13 @@ import java.util.regex.Pattern;
  */
 public class HTMLRegexPattern extends RegexStylePattern
 {
-    private static final String COMMENT_PATTERN = "(\\<\\!\\-\\-)(.|\\\\n)+?(\\-\\-\\>)";
+    private static final String COMMENT_PATTERN = "(<!--)(.|\\\\n)+?(-->)";
     private static final String DOUBLE_QUOTED_STRING = "\"(?:[^\"][a-zA-Z0-9]*(\\\\\")?)*\"";
     private static final String SINGLE_QUOTED_STRING = "\'(?:[^\'][a-zA-Z0-9]*(\\\\\')?)*\'";
     private static final String EQUAL_PATTERN = "=";
-    private static final String TAG_PATTERN = "(<[a-zA-Z0-9\\-]+>?|>|<\\/[a-zA-Z0-9\\-]+>)" ;
+    private static final String TAG_PATTERN = "(<[a-zA-Z0-9\\-]+>?|>|</[a-zA-Z0-9\\-]+>)" ;
     private static final String ATTRIBUTE_PATTERN = "(?<ATTRIBUTE>([a-zA-Z\\-]+))(?:=)";
-    private static final String DOCTYPE_PATTERN = "<\\![a-zA-Z0-9\\s]*>";
+    private static final String DOCTYPE_PATTERN = "<![a-zA-Z0-9\\s]*>";
     private static final Pattern regexPattern;
     private static final Map<String, HighlightType> styleMap;
 

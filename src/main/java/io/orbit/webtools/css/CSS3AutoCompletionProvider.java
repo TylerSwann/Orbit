@@ -1,11 +1,7 @@
-package io.orbit.webtools;
+package io.orbit.webtools.css;
 
 import com.google.gson.Gson;
 import com.google.gson.stream.JsonReader;
-import io.orbit.api.autocompletion.AutoCompletionBase;
-import io.orbit.api.autocompletion.AutoCompletionOption;
-import io.orbit.api.autocompletion.AutoCompletionProvider;
-
 import java.io.File;
 import java.io.FileReader;
 import java.net.URL;
@@ -15,7 +11,7 @@ import java.util.List;
 /**
  * Created by Tyler Swann on Sunday March 18, 2018 at 13:31
  */
-public class CSS3AutoCompletionProvider implements AutoCompletionProvider
+public class CSS3AutoCompletionProvider
 {
     private static AutoCompletionOption[] CSS_PROPERTIES;
 
@@ -42,7 +38,7 @@ public class CSS3AutoCompletionProvider implements AutoCompletionProvider
         }
     }
 
-    @Override
+
     public List<? extends AutoCompletionBase> optionsFor(int from, int to, int line, String word)
     {
         List<AutoCompletionOption> options = new ArrayList<>();

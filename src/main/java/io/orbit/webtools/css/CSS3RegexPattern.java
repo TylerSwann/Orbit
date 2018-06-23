@@ -1,4 +1,4 @@
-package io.orbit.webtools;
+package io.orbit.webtools.css;
 
 import io.orbit.api.highlighting.HighlightType;
 import io.orbit.api.highlighting.RegexStylePattern;
@@ -12,18 +12,18 @@ import java.util.regex.Pattern;
  */
 public class CSS3RegexPattern extends RegexStylePattern
 {
-    private static final String ANNOTATED_PATTERN = "(\\@[a-zA-Z]+[a-zA-Z0-9?\\-?\\_?]*)";
-    private static final String SELECTOR_PATTERN = "(?<SELECTOR>([\\.|\\#][a-z|A-Z|0-9|\\_\\\\-]+))(?:[\\n|\\:])(?<PSEUDOCLASS>([a-z|A-Z|0-9|\\-\\_]+))?";
-    private static final String BRACKETS_PATTERN = "\\{|\\}";
-    private static final String PAREN_PATTERN = "\\(|\\)";
+    private static final String ANNOTATED_PATTERN = "(@[a-zA-Z]+[a-zA-Z0-9?\\-?_?]*)";
+    private static final String SELECTOR_PATTERN = "(?<SELECTOR>([.|#][a-z|A-Z|0-9|_\\\\-]+))(?:[\\n|:])(?<PSEUDOCLASS>([a-z|A-Z|0-9|\\-_]+))?";
+    private static final String BRACKETS_PATTERN = "[{}]";
+    private static final String PAREN_PATTERN = "[()]";
     private static final String SEMI_COLON_PATTERN = ";";
-    private static final String PROPERTY_PATTERN = "(?<PROPERTY>[a-zA-Z]+.*)(?:\\:)";
-    private static final String STRING_PATTERN = "\\\".*\\\"|\\\'.*\\\'";
+    private static final String PROPERTY_PATTERN = "(?<PROPERTY>[a-zA-Z]+.*)(?::)";
+    private static final String STRING_PATTERN = "\".*\"|'.*'";
     private static final String DOUBLE_PATTERN = "([0-9]+\\.[0-9]+)";
-    private static final String HEX_PATTERN = "(\\#[a-zA-Z0-9]+)";
+    private static final String HEX_PATTERN = "(#[a-zA-Z0-9]+)";
     private static final String INT_PATTERN = "([0-9]+)";
-    private static final String MULTICOM_PATTERN = "(\\/\\*)(.|\\n)+?(\\*\\/)";
-    private static final String SINGLECOM_PATTERN = "(\\/\\/.*)";
+    private static final String MULTICOM_PATTERN = "(/\\*)(.|\\n)+?(\\*/)";
+    private static final String SINGLECOM_PATTERN = "(//.*)";
     private static final String FUNC_PATTERN = "(attr|blur|brightness|calc|circle|contrast|counter|counters|cubic-bezier|drop-shadow|ellipse|dropshadow|\n" +
                                                "grayscale|hsl|hsla|hue-rotate|hwb|image|inset|invert|linear-gradient|matrix|matrix3d|opacity|\n" +
                                                "perspective|polygon|radial-gradient|repeating-linear-gradient|repeating-radial-gradient|rgba|rgb|rotate|\n" +
