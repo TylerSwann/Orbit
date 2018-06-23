@@ -23,6 +23,10 @@ public class BrowseMarketPlacePage
     public AnchorPane root;
     public AnchorPane contentRoot;
 
+    /*
+    * TODO - fix issue with crash when the marketplace server is unavailable
+    * */
+
     public static AnchorPane load()
     {
         try

@@ -12,33 +12,37 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Font;
-import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Function;
 
 /**
- * Created by Tyler Swann on Wednesday May 30, 2018 at 14:38
+ * Created by Tyler Swann on Friday June 15, 2018 at 16:58
  */
-public class AutoCompletionDialog extends PopupControl
+public class GenericAutoCompletionDialog<T> extends PopupControl
 {
     private ListView<Label> optionsView;
     private Node owner;
     private static final double xOffset = 15.0;
     private static final double yOffset = 0.0;
 
-    private ObservableList<AutoCompletionBase> options = FXCollections.observableArrayList();
-    public ObservableList<AutoCompletionBase> getOptions() { return options; }
+    public void setCellFactory(Function<T, String> cellFactory) { this.cellFactory = cellFactory; }
+    public Function<T, String> getCellFactory() { return this.cellFactory; }
+    private Function<T, String> cellFactory;
+
+    private ObservableList<T> options = FXCollections.observableArrayList();
+    public ObservableList<T> getOptions() { return options; }
 
     /*
-    * TODO - give this class a generic type parameter in order to allow displaying of custom classes.
-    * TODO - create a method call setCellFactory for converting generic types into their string format
-    * */
+     * TODO - give this class a generic type parameter in order to allow displaying of custom classes.
+     * TODO - create a method call setCellFactory for converting generic types into their string format
+     * */
 
-    public AutoCompletionDialog(List<? extends AutoCompletionBase> options, Node owner)
+    public GenericAutoCompletionDialog(List<T> options, Node owner)
     {
         this(owner);
         this.options.addAll(options);
     }
-    public AutoCompletionDialog(Node owner)
+    public GenericAutoCompletionDialog(Node owner)
     {
         this.owner = owner;
         this.optionsView = new ListView<>();
@@ -60,18 +64,6 @@ public class AutoCompletionDialog extends PopupControl
     }
 
 
-    private void registerListeners()
-    {
-        this.options.addListener((ListChangeListener<AutoCompletionBase>) c -> this.updateItems());
-        this.optionsView.addEventHandler(KeyEvent.KEY_PRESSED, event -> {
-            if (event.getCode() == KeyCode.ENTER)
-            {
-                AutoCompletionBase selectedOption = (AutoCompletionBase) this.optionsView.getSelectionModel().getSelectedItem().getUserData();
-                this.fireEvent(new AutoCompletionEvent(AutoCompletionEvent.OPTION_WAS_SELECTED, this, this, selectedOption));
-            }
-        });
-    }
-
     public void show(double x, double y)
     {
         if (!this.isShowing())
@@ -90,13 +82,27 @@ public class AutoCompletionDialog extends PopupControl
         super.hide();
     }
 
+    private void registerListeners()
+    {
+        this.options.addListener((ListChangeListener<T>) c -> this.updateItems());
+        this.optionsView.addEventHandler(KeyEvent.KEY_PRESSED, event -> {
+            if (event.getCode() == KeyCode.ENTER)
+            {
+                AutoCompletionBase selectedOption = (AutoCompletionBase) this.optionsView.getSelectionModel().getSelectedItem().getUserData();
+                this.fireEvent(new AutoCompletionEvent(AutoCompletionEvent.OPTION_WAS_SELECTED, this, this, selectedOption));
+            }
+        });
+    }
+
     private void updateItems()
     {
         if (this.optionsView.getItems().size() > 0)
             this.optionsView.getItems().removeAll(this.optionsView.getItems());
-        for (AutoCompletionBase option : this.options)
+        for (T option : this.options)
         {
-            Label label = new Label(option.getText());
+            // Check if cell factory has been created here.
+            String text = this.cellFactory == null ? option.toString() : this.cellFactory.apply(option);
+            Label label = new Label(text);
             label.setUserData(option);
             label.getStyleClass().add("autocompletion-label");
             label.setFont(new Font("Roboto Medium", 15.0));
@@ -104,14 +110,14 @@ public class AutoCompletionDialog extends PopupControl
         }
     }
 
-    public void addRandomOptions(String id)
-    {
-        List<AutoCompletionOption> options = new ArrayList<>();
-        for (int i = 0; i < 100; i++)
-        {
-            String text = String.format("%s #%d", id, i);
-            options.add(new AutoCompletionOption(text, text));
-        }
-        this.options.addAll(options);
-    }
+//    public void addRandomOptions(String id)
+//    {
+//        List<AutoCompletionOption> options = new ArrayList<>();
+//        for (int i = 0; i < 100; i++)
+//        {
+//            String text = String.format("%s #%d", id, i);
+//            options.add(new AutoCompletionOption(text, text));
+//        }
+//        this.options.addAll(options);
+//    }
 }

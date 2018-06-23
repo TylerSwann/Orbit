@@ -20,3 +20,11 @@ area|base|br|col|command|embed|hr|img|input|keygen|link|menuitem|meta|param|sour
 \<(?!(meta|link))
 (\<)?:(link|head|meta)([a-zA-Z0-9]+).*(\>)
 (\<)(?!(area|base|br|col|command|embed|hr|img|input|keygen|link|menuitem|meta|param|source|track|wbr))([a-zA-Z0-9]+).*(\>)
+'area'|'base'|'br'|'col'|'command'|'embed'|'hr'|'img'|'input'|'keygen'|'link'|'menuitem'|'meta'|'param'|'source'|'track'|'wbr'
+<!--(?<OPENTAG>(<link|img>?[\\sa-zA-Z0-9=\":/.]*>))-->
+
+(\<)(?!(area|base|br|col|command|img|input|keygen|link))[a-zA-Z0-9]+[\sa-zA-Z0-9=\":/.]*>
+
+(?<VOIDTAG><(area|base|br|col|command|embed|hr|img|input|keygen|link|menuitem|meta|param|source|track|wbr)[\sa-zA-Z0-9=\".=\+\-_:\?/,]*>)
+(?<CLOSETAG>(</[a-zA-Z0-9\\-]+>))
+(?<OPENTAG>((<)(?!(area|base|br|col|command|embed|hr|img|input|keygen|link|menuitem|meta|param|source|track|wbr))[a-zA-Z0-9]+[\sa-zA-Z0-9=\":/.-_]*>))
