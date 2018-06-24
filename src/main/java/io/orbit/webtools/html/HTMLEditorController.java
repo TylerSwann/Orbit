@@ -13,28 +13,20 @@ import java.io.File;
 public class HTMLEditorController implements EditorController
 {
     private CodeEditor editor;
+    private HTMLCodeFormatter formatter;
 
     @Override
     public void start(File file, CodeEditor editor)
     {
         this.editor = editor;
         this.editor.ignoreDefaultBehaviorOf(KeyCode.TAB);
-        new HTMLCodeFormatter(this.editor);
+        this.formatter = new HTMLCodeFormatter(this.editor);
         registerEvents();
-        String text = HTMLCodeFormatter.format(this.editor.getText());
-        this.editor.replaceText(0, this.editor.getText().length() - 1, text);
-//        this.editor.caretPositionProperty().addListener(event -> {
-//            int caretPos = this.editor.getCaretPosition();
-//            if (HTMLCodeFormatter.indentMap.containsKey(caretPos))
-//            {
-//                String type = HTMLCodeFormatter.indentMap.get(caretPos);
-//                System.out.println(String.format("%d %s", caretPos, type));
-//            }
-//        });
     }
 
     private void registerEvents()
     {
+        this.formatter.play();
         this.editor.addEventHandler(KeyEvent.KEY_PRESSED, event -> {
             switch (event.getCode())
             {
@@ -50,7 +42,7 @@ public class HTMLEditorController implements EditorController
                         {
                             shouldInsertTab = false;
                             String tag = String.format("<%s></%s>", textLeftOfCaret, textLeftOfCaret);
-                            this.editor.replaceText((caretPos - 1) - textLeftOfCaret.length(), caretPos, tag);
+                            this.editor.replaceText(caretPos - textLeftOfCaret.length(), caretPos, tag);
                             caretPos = this.editor.getCaretPosition();
                             this.editor.moveTo((caretPos - 1) - (tag.length() / 2));
                         }

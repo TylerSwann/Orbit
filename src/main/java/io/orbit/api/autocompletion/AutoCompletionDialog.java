@@ -1,6 +1,8 @@
 package io.orbit.api.autocompletion;
 
-import io.orbit.api.event.AutoCompletionEvent;
+import io.orbit.api.text.CodeEditor;
+import javafx.beans.property.SimpleObjectProperty;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
@@ -14,6 +16,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Font;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.function.Function;
 
 /**
@@ -33,10 +36,10 @@ public class AutoCompletionDialog<T> extends PopupControl
     private ObservableList<T> options = FXCollections.observableArrayList();
     public ObservableList<T> getOptions() { return options; }
 
-    /*
-     * TODO - give this class a generic type parameter in order to allow displaying of custom classes.
-     * TODO - create a method call setCellFactory for converting generic types into their string format
-     * */
+    private SimpleObjectProperty<Optional<T>> selectedOption = new SimpleObjectProperty<>(Optional.empty());
+    public ObservableValue<Optional<T>> selectedOptionProperty() {  return selectedOption;  }
+    public Optional<T> getSelectedOption() { return selectedOption.get(); }
+
 
     public AutoCompletionDialog(List<T> options, Node owner)
     {
@@ -62,6 +65,8 @@ public class AutoCompletionDialog<T> extends PopupControl
         registerListeners();
         this.setStyle("-fx-background-color: transparent;");
         this.optionsView.getStyleClass().add("auto-completion-dialog");
+        if (owner instanceof CodeEditor)
+            ((CodeEditor)owner).requestFollowCaret();
     }
 
 
@@ -83,14 +88,23 @@ public class AutoCompletionDialog<T> extends PopupControl
         super.hide();
     }
 
+    public void updateOptions(List<T> options)
+    {
+        this.getOptions().removeAll(this.getOptions());
+        this.getOptions().addAll(options);
+    }
+
     private void registerListeners()
     {
         this.options.addListener((ListChangeListener<T>) c -> this.updateItems());
         this.optionsView.addEventHandler(KeyEvent.KEY_PRESSED, event -> {
             if (event.getCode() == KeyCode.ENTER)
             {
-                T selectedOption = (T) this.optionsView.getSelectionModel().getSelectedItem().getUserData();
-                this.fireEvent(new AutoCompletionEvent<>(AutoCompletionEvent.OPTION_WAS_SELECTED, this, this, selectedOption));
+                if (this.optionsView.getSelectionModel().getSelectedItem().getUserData() != null)
+                {
+                    @SuppressWarnings("unchecked") T selectedOption = (T) this.optionsView.getSelectionModel().getSelectedItem().getUserData();
+                    this.selectedOption.set(Optional.of(selectedOption));
+                }
             }
         });
     }

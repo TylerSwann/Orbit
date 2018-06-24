@@ -6,8 +6,10 @@ import javafx.application.Platform;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.ReadOnlyObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.ObservableList;
 import javafx.event.Event;
+import javafx.event.EventType;
 import javafx.geometry.Insets;
 import javafx.scene.Cursor;
 import javafx.scene.Node;
@@ -25,8 +27,7 @@ import java.io.IOException;
 import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 import java.util.function.IntFunction;
 
 /**
@@ -159,6 +160,20 @@ public class CodeEditor extends StyleClassedTextArea
             Nodes.addInputMap(this, disabled);
         }
     }
+//    public final <T extends Event> EventStream<T> ignoreDefaultBehaviorOfEvents(EventType<T> eventType)
+//    {
+//        return EventStreams.eventsOf(this, eventType);
+//    }
+//    public final void ignoreDefaultBehaviorOf(ObservableValue<Boolean> when, KeyCode... keys)
+//    {
+//        List<InputMap<Event>> disabledKeys = new ArrayList<>();
+//        Arrays.stream(keys).forEach(key -> disabledKeys.add(InputMap.consume(EventPattern.anyOf(EventPattern.keyPressed(key)))));
+//        if (when.getValue())
+//            disabledKeys.forEach(disabledKey -> Nodes.addInputMap(this, disabledKey));
+//        when.addListener(event -> {
+//
+//        });
+//    }
     /**
      * KeyPresses that match this KeyCombination pattern will be ignored
      *
