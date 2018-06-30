@@ -8,5 +8,34 @@ import java.io.File;
  */
 public interface EditorController
 {
+    /**
+     *
+     * Called when a file is loaded
+     * @param file - The source file being opened in the editor
+     * @param editor - The editor that will be controlled by this EditorController
+     */
     void start(File file, CodeEditor editor);
+
+    /**************************************************************************
+     *                                                                        *
+     *                              Button Events                             *
+     *                                                                        *
+     **************************************************************************/
+
+    /**
+     * Called when the play button, inside the Menu Bar, is clicked
+     */
+    default void playWasClicked() { }
+    /**
+     * Called when the stop button, inside the Menu Bar, is clicked
+     */
+    default void stopWasClicked() { }
+
+
+    /**************************************************************************
+     *                                                                        *
+     *                             Document events                            *
+     *                                                                        *
+     **************************************************************************/
+    default void documentWillClosed(File sourceFile) {  }
 }

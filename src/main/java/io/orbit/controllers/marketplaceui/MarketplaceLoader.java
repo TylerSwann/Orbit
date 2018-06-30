@@ -4,11 +4,11 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
+import io.orbit.util.SocketAddress;
 import javafx.scene.image.Image;
 
 import java.io.*;
-import java.net.HttpURLConnection;
-import java.net.URL;
+import java.net.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Consumer;
@@ -20,7 +20,9 @@ public class MarketplaceLoader
 {
     protected static final URL pluginServerAddress = getPluginsURL();
     protected static final URL themeServerAddress = getThemeURL();
+
     public static final String SERVER_ADDRESS = "http://127.0.0.1:3000";
+    public static final SocketAddress SERVER_SOCKET = new SocketAddress(127, 0, 0, 1, 3000);
 
     /**
      String title;
@@ -34,6 +36,9 @@ public class MarketplaceLoader
      */
     public static void load(Consumer<List<MarketPlaceItemData>> completion)
     {
+        // TODO - CHECK IF SERVER IS AVAILABLE
+        if (!SERVER_SOCKET.isReachable())
+            return;
         List<MarketPlaceItemData> items = new ArrayList<>();
         getData(pluginServerAddress, pluginResponse -> {
             parseData(pluginResponse, items);
@@ -97,26 +102,9 @@ public class MarketplaceLoader
         }
     }
 
-//    private static Image readImageFromBinaryString(String binaryString)
-//    {
-//        try
-//        {
-//            byte[] data = Base64.getEncoder().encode(binaryString.getBytes());
-//            ByteArrayInputStream inputStream = new ByteArrayInputStream(data);
-//            BufferedImage bufferedImage = ImageIO.read(inputStream);
-//            System.out.println(bufferedImage == null);
-//        }
-//        catch (Exception ex)
-//        {
-//            System.out.println("ERROR couldn't read buffered image from binary string.");
-//            ex.printStackTrace();
-//        }
-//        return null;
-//    }
-
-
     private static URL getPluginsURL()
     {
+        // TODO - CHECK IF SERVER IS AVAILABLE
         try
         {
             return new URL(String.format("%s/cdn/info/plugin/all", SERVER_ADDRESS));

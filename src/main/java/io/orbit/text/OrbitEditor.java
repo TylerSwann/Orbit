@@ -16,9 +16,6 @@ import javafx.application.Platform;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.concurrent.Task;
-import javafx.scene.input.KeyCode;
-import javafx.scene.input.KeyCodeCombination;
-import javafx.scene.input.KeyCombination;
 import javafx.scene.input.KeyEvent;
 import org.fxmisc.richtext.model.PlainTextChange;
 import org.fxmisc.richtext.model.StyleSpans;
@@ -43,7 +40,7 @@ public class OrbitEditor extends CodeEditor
     private List<EditorController> activeControllers = new ArrayList<>();
     private boolean hasUnsavedChanges = false;
     private ExecutorService highlightingService;
-    private ObjectProperty<Boolean> highlightOnChange = new SimpleObjectProperty<>(true);
+    private ObjectProperty<Boolean> isHighlighting = new SimpleObjectProperty<>(true);
 
     public OrbitEditor(OrbitFile file)
     {
@@ -71,7 +68,7 @@ public class OrbitEditor extends CodeEditor
             if (UserHotKeys.SAVE_COMBO().match(event))
             {
                 if (this.file instanceof ProjectFile)
-                    this.fireEvent(new DocumentEvent( DocumentEvent.SAVE_FILE, this.file));
+                    this.fireEvent(new DocumentEvent(DocumentEvent.SAVE_FILE, this.file));
                 else if (this.file instanceof UnownedProjectFile)
                     this.fireEvent(new DocumentEvent(DocumentEvent.SAVE_NON_PROJECT_FILE, this.file ));
                 this.hasUnsavedChanges = false;
@@ -108,7 +105,7 @@ public class OrbitEditor extends CodeEditor
 
     public void pauseHighlighting()
     {
-        this.highlightOnChange.setValue(false);
+        this.isHighlighting.setValue(false);
     }
 
     private void addHighlightingTask()
@@ -117,7 +114,7 @@ public class OrbitEditor extends CodeEditor
         SyntaxHighlighter highlighter = this.language.getSyntaxHighlighter();
         EventStream<PlainTextChange> changes = this.plainTextChanges();
         changes.successionEnds(highlighter.getHighlightingInterval())
-                .conditionOn(this.highlightOnChange)
+                .conditionOn(this.isHighlighting)
                 .supplyTask(this::highlightAsynchronously)
                 .awaitLatest(changes)
                 .filterMap(attempt -> {
@@ -130,7 +127,7 @@ public class OrbitEditor extends CodeEditor
 
     public void forceReHighlighting()
     {
-        this.highlightOnChange.setValue(true);
+        this.isHighlighting.setValue(true);
         Task<StyleSpans<Collection<String>>> highlight = this.highlightAsynchronously();
         highlight.setOnSucceeded(event -> this.applyHighlighting(highlight.getValue()));
     }

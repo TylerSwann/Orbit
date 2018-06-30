@@ -27,6 +27,12 @@ public class CSS3AutoCompletionOption
 
     public CSS3AutoCompletionOption() {}
 
+    @Override
+    public String toString()
+    {
+        return this.insertedText;
+    }
+
     public String getText() { return this.text; }
     public String getInsertedText() { return this.insertedText; }
     public List<CSS3AutoCompletionOption> getSubOptions() { return this.subOptions; }

@@ -2,6 +2,7 @@ package io.orbit.controllers.marketplaceui;
 
 import com.jfoenix.controls.JFXButton;
 import io.orbit.App;
+import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
@@ -41,7 +42,7 @@ public class MarketPlacePageController
         }
         catch (IOException ex)
         {
-            System.out.println("ERROR showing plugins page from PluginsPaeController.show");
+            System.out.println("ERROR showing plugins page from PluginsPageController.show");
             ex.printStackTrace();
         }
         assert root != null;
@@ -86,6 +87,9 @@ public class MarketPlacePageController
     }
     private void showBrowsePage()
     {
+//        if (!MarketplaceLoader.SERVER_IS_REACHABLE)
+//            return;
+        // TODO - CHECK IF SERVER IS AVAILABLE
         if (browsePluginsPage == null)
         {
             browsePluginsPage = BrowseMarketPlacePage.load();

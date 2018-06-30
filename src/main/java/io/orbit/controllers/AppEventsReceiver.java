@@ -306,7 +306,7 @@ public class AppEventsReceiver
     private void saveFile(OrbitFile file)
     {
         file.save();
-        this.statusBarController.showSnackBarMessage(String.format("Saved %s!", file.getName()), 500);
+        this.statusBarController.showSnackBarMessage(String.format("Saved %s!", file.getName()), 2000);
     }
 
     private void saveAll()

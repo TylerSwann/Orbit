@@ -7,7 +7,6 @@ import io.orbit.api.event.DocumentEvent;
 import io.orbit.text.TextEditorPane;
 import io.orbit.text.OrbitEditor;
 import io.orbit.ui.MUIDialog;
-import io.orbit.ui.MUITabPane;
 import javafx.scene.control.ContextMenu;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.Tab;

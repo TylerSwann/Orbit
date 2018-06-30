@@ -21,7 +21,7 @@ public class CSS3Formatter extends CodeFormatter
     private static final Pattern LEFT_BRACKET_PATTERN = Pattern.compile(".*?\\{.*?");
     private static final Pattern RIGHT_BRACKET_PATTERN = Pattern.compile(".*?}.*?");
     private static final Pattern BLOCK_PATTERN = Pattern.compile("\\{(\\s*?.*?)*?}");
-    private static final Pattern PROPERTY_PATTERN = Pattern.compile("([a-zA-Z-_]+:\\s*).*?[a-zA-Z0-9.#]+;");
+    private static final Pattern PROPERTY_PATTERN = Pattern.compile("([a-zA-Z-_]+:\\s*).*?[a-zA-Z0-9.#%()]+;");
 
     private boolean hasSelectedText = false;
 

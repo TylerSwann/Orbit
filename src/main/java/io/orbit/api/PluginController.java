@@ -1,6 +1,7 @@
 package io.orbit.api;
 
 
+import io.orbit.api.text.FileType;
 import javafx.scene.control.Menu;
 import javafx.scene.control.Tab;
 
@@ -77,7 +78,7 @@ public interface PluginController
      * @return - The file type extensions supported by your plugin. ex: java, html, webtools. DO NOT INCLUDE THE DOT IN THE EXTENSION!
      */
     @NotNullable
-    List<String> getFileTypes();
+    List<FileType> getFileTypes();
 
 
     /**
@@ -95,28 +96,4 @@ public interface PluginController
      */
     @Nullable
     default EditorController getEditorController(File file, String fileExtension) {  return null;  }
-
-    /**************************************************************************
-     *                                                                        *
-     *                              Button Events                             *
-     *                                                                        *
-     **************************************************************************/
-
-    /**
-     * Called when the play button, inside the Menu Bar, is clicked
-     */
-    default void playWasClicked() { }
-    /**
-     * Called when the stop button, inside the Menu Bar, is clicked
-     */
-    default void stopWasClicked() { }
-
-
-    /**************************************************************************
-     *                                                                        *
-     *                             Document events                            *
-     *                                                                        *
-     **************************************************************************/
-    default void documentWasOpened(File sourceFile) {  }
-    default void documentWasClosed(File sourceFile) {  }
 }

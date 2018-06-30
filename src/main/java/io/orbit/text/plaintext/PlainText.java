@@ -1,10 +1,13 @@
 package io.orbit.text.plaintext;
 
 import io.orbit.api.LanguageDelegate;
+import io.orbit.api.SVGIcon;
 import io.orbit.api.highlighting.HighlightType;
 import io.orbit.api.highlighting.RegexStylePattern;
 import io.orbit.api.highlighting.RegexSyntaxHighlighter;
 import io.orbit.api.highlighting.SyntaxHighlighter;
+import io.orbit.api.text.FileType;
+import org.kordamp.ikonli.fontawesome5.FontAwesomeSolid;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -24,8 +27,8 @@ public class PlainText implements LanguageDelegate
     }
 
     @Override
-    public String getFileNameExtension()
+    public FileType getFileNameExtension()
     {
-        return "txt";
+        return new FileType("txt", "text", new SVGIcon(FontAwesomeSolid.FILE_ALT));
     }
 }

@@ -1,6 +1,7 @@
 package io.orbit.api;
 
 import io.orbit.api.highlighting.SyntaxHighlighter;
+import io.orbit.api.text.FileType;
 
 
 /**
@@ -24,5 +25,5 @@ public interface LanguageDelegate
      * @return - The file name extension of your language.
      */
     @NotNullable
-    String getFileNameExtension();
+    FileType getFileNameExtension();
 }

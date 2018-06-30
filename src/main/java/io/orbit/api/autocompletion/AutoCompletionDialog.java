@@ -26,7 +26,7 @@ public class AutoCompletionDialog<T> extends PopupControl
 {
     private ListView<Label> optionsView;
     private Node owner;
-    private static final double xOffset = 15.0;
+    private static final double xOffset = 20.0;
     private static final double yOffset = 0.0;
 
     public void setCellFactory(Function<T, String> cellFactory) { this.cellFactory = cellFactory; }
@@ -45,7 +45,9 @@ public class AutoCompletionDialog<T> extends PopupControl
     {
         this(owner);
         this.options.addAll(options);
+
     }
+
     public AutoCompletionDialog(Node owner)
     {
         this.owner = owner;
@@ -85,7 +87,8 @@ public class AutoCompletionDialog<T> extends PopupControl
     @Override
     public void hide()
     {
-        super.hide();
+        if (this.isShowing())
+            super.hide();
     }
 
     public void updateOptions(List<T> options)
@@ -100,7 +103,7 @@ public class AutoCompletionDialog<T> extends PopupControl
         this.optionsView.addEventHandler(KeyEvent.KEY_PRESSED, event -> {
             if (event.getCode() == KeyCode.ENTER)
             {
-                if (this.optionsView.getSelectionModel().getSelectedItem().getUserData() != null)
+                if (this.optionsView.getSelectionModel().getSelectedItem() != null && this.optionsView.getSelectionModel().getSelectedItem().getUserData() != null)
                 {
                     @SuppressWarnings("unchecked") T selectedOption = (T) this.optionsView.getSelectionModel().getSelectedItem().getUserData();
                     this.selectedOption.set(Optional.of(selectedOption));

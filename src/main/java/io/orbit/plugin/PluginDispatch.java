@@ -1,9 +1,9 @@
 package io.orbit.plugin;
 
 import io.orbit.api.PluginController;
+import io.orbit.api.text.FileType;
 import io.orbit.webtools.WebToolsController;
 import io.orbit.text.plaintext.PlainTextController;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -36,12 +36,16 @@ public final class PluginDispatch
         hasOpened = true;
     }
 
-    public static List<PluginController> controllersForFileType(String fileType)
+    public static List<PluginController> controllersForFileType(String extension)
     {
         List<PluginController> validPlugins = new ArrayList<>();
         for (PluginController plugin : plugins)
-            if (plugin.getFileTypes().contains(fileType))
-                validPlugins.add(plugin);
+        {
+            List<FileType> types = plugin.getFileTypes();
+            for (FileType type : types)
+                if (type.getExtension().equals(extension))
+                    validPlugins.add(plugin);
+        }
         return validPlugins;
     }
 }

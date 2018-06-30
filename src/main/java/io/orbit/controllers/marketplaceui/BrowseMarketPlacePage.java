@@ -2,6 +2,7 @@ package io.orbit.controllers.marketplaceui;
 
 import com.jfoenix.controls.JFXTextField;
 import io.orbit.App;
+import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.AnchorPane;
@@ -45,6 +46,7 @@ public class BrowseMarketPlacePage
 
     public void initialize()
     {
+        // TODO - CHECK IF SERVER IS AVAILABLE
         MarketplaceLoader.load(items -> items.forEach(item -> this.marketPlaceItemsContainer.getChildren().add(new MarketPlaceItem(item))));
         this.contentRoot.prefWidthProperty().bind(this.scrollPane.widthProperty());
     }

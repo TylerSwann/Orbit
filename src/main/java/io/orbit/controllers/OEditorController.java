@@ -12,8 +12,6 @@ import io.orbit.controllers.events.ApplicationEvent;
 import io.orbit.api.event.DocumentEvent;
 import io.orbit.controllers.events.StatelessEventTargetObject;
 import io.orbit.controllers.events.menubar.MenuBarCodeEvent;
-import io.orbit.controllers.events.menubar.MenuBarFileEvent;
-import io.orbit.ui.MUITabPane;
 import io.orbit.text.OrbitEditor;
 import javafx.application.Platform;
 import javafx.beans.property.SimpleObjectProperty;

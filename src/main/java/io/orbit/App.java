@@ -25,16 +25,8 @@ import javafx.stage.Stage;
 import javafx.util.Duration;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.status.StatusLogger;
-
-import javax.xml.transform.OutputKeys;
-import javax.xml.transform.Transformer;
-import javax.xml.transform.TransformerConfigurationException;
-import javax.xml.transform.TransformerFactory;
-import javax.xml.transform.dom.DOMSource;
-import javax.xml.transform.stream.StreamResult;
 import java.io.File;
 import java.io.InputStream;
-import java.io.StringWriter;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.nio.file.Paths;
@@ -77,6 +69,8 @@ public class App extends Application
     *            Minor Application Events
     * */
 
+    // TODO - restructure api to be better
+
     public void start(Stage stage)
     {
         stage.setTitle("Orbit");
@@ -107,7 +101,8 @@ public class App extends Application
             controller.open();
         }
         catch (Exception ex){ex.printStackTrace();}
-        root.setPrefSize(width, height);
+        stage.setWidth(width);
+        stage.setHeight(height);
         Scene scene = new Scene(root, width, height);
         stage.setScene(scene);
         appTheme.sync(scene.getStylesheets());

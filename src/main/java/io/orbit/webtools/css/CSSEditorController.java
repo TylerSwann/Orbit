@@ -3,6 +3,7 @@ package io.orbit.webtools.css;
 import io.orbit.api.EditorController;
 import io.orbit.api.text.CodeEditor;
 import io.orbit.api.autocompletion.AutoCompletionDialog;
+import io.orbit.util.SocketAddress;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import java.io.File;
@@ -32,21 +33,28 @@ public class CSSEditorController implements EditorController
         this.dialog.setCellFactory(cssOption -> cssOption.text);
         this.editor.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> this.dialog.hide());
         this.dialog.selectedOptionProperty().addListener(event -> this.dialog.getSelectedOption().ifPresent(option -> {
-            System.out.println(option.insertedText);
             int lineNumber = this.editor.getFocusPosition().line;
             int characterNumber = this.editor.getFocusPosition().caretPositionInDocument;
-            if (option.insertedTextFragment != null)
-                this.editor.insertText(characterNumber, option.insertedTextFragment);
+            String currentLine = this.editor.getIndexedDocument().lines.get(lineNumber).text.replaceAll("^\\s*", "");
+            if (this.currentOption == null)
+            {
+                String textFragment = option.insertedText.replaceFirst(currentLine, "");
+                this.editor.insertText(characterNumber, textFragment);
+            }
             else
-                System.out.println("CSS3AutoCompletionOption has null inserted text fragment");
+            {
+                currentLine = currentLine.replaceFirst(this.currentOption.insertedText, "");
+                String textFragment = option.insertedText.replaceFirst(currentLine, "");
+                this.editor.insertText(characterNumber, textFragment);
+                this.currentOption = null;
+                this.dialog.hide();
+            }
             if (option.subOptions.size() > 0)
             {
                 this.currentOption = option;
                 this.dialog.updateOptions(option.subOptions);
                 updateDialogPosition();
             }
-            else
-                this.currentOption = null;
         }));
         this.editor.addEventHandler(KeyEvent.KEY_RELEASED, event -> {
             int lineNumber = this.editor.getFocusPosition().line;
@@ -67,14 +75,14 @@ public class CSSEditorController implements EditorController
                     if (this.currentOption == null)
                         options = this.provider.optionsForLine(lineText);
                     else
-                    {
                         options = this.provider.subOptionsForOption(this.currentOption, lineText);
-                    }
                     if (!options.isEmpty() && !event.getCode().isModifierKey())
                     {
                         this.dialog.updateOptions(options);
                         updateDialogPosition();
                     }
+                    else
+                        this.dialog.hide();
                     break;
             }
         });

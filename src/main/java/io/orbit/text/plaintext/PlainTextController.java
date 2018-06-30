@@ -3,6 +3,10 @@ package io.orbit.text.plaintext;
 import io.orbit.api.EditorController;
 import io.orbit.api.LanguageDelegate;
 import io.orbit.api.PluginController;
+import io.orbit.api.SVGIcon;
+import io.orbit.api.text.FileType;
+import org.kordamp.ikonli.fontawesome5.FontAwesomeSolid;
+
 import java.io.File;
 import java.util.Collections;
 import java.util.List;
@@ -22,9 +26,9 @@ public class PlainTextController implements PluginController
     }
 
     @Override
-    public List<String> getFileTypes()
+    public List<FileType> getFileTypes()
     {
-        return Collections.singletonList("txt");
+        return Collections.singletonList(new FileType("txt", "text", new SVGIcon(FontAwesomeSolid.FILE_ALT)));
     }
 
     @Override

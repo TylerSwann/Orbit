@@ -3,10 +3,13 @@ package io.orbit.webtools;
 import io.orbit.api.EditorController;
 import io.orbit.api.LanguageDelegate;
 import io.orbit.api.PluginController;
+import io.orbit.api.SVGIcon;
+import io.orbit.api.text.FileType;
 import io.orbit.webtools.css.CSS3Language;
 import io.orbit.webtools.css.CSSEditorController;
 import io.orbit.webtools.html.HTMLEditorController;
 import io.orbit.webtools.html.HTMLLanguage;
+import org.kordamp.ikonli.fontawesome5.FontAwesomeBrands;
 
 import java.io.File;
 import java.util.Arrays;
@@ -18,9 +21,11 @@ import java.util.List;
 public class WebToolsController implements PluginController
 {
     @Override
-    public List<String> getFileTypes()
+    public List<FileType> getFileTypes()
     {
-        return Arrays.asList("css", "html");
+        FileType html = new FileType("html", "text/html", new SVGIcon(FontAwesomeBrands.HTML5));
+        FileType css = new FileType("css", "text/css", new SVGIcon(FontAwesomeBrands.CSS3_ALT));
+        return Arrays.asList(html, css);
     }
 
 

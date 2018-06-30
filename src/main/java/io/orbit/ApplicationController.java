@@ -2,7 +2,6 @@ package io.orbit;
 
 import com.jfoenix.controls.JFXTabPane;
 import io.orbit.controllers.*;
-import io.orbit.ui.MUITabPane;
 import io.orbit.util.FontLoader;
 import javafx.scene.control.SplitPane;
 import javafx.scene.layout.AnchorPane;
