@@ -9,11 +9,15 @@ import io.orbit.controllers.events.StatelessEventTargetObject;
 import io.orbit.controllers.events.menubar.*;
 import io.orbit.ui.*;
 import javafx.application.Platform;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.control.ContentDisplay;
 import javafx.scene.control.Menu;
+import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.HBox;
 import javafx.stage.DirectoryChooser;
 import javafx.stage.FileChooser;
 import org.kordamp.ikonli.fontawesome5.FontAwesomeSolid;
@@ -27,7 +31,8 @@ import java.util.function.Consumer;
  */
 public class OMenuBarController extends StatelessEventTargetObject
 {
-    private MenuButtonBar menuBar = new MenuButtonBar();
+    private MenuBar menuBar = new MenuBar();
+    private HBox iconBar = new HBox();
 
     public OMenuBarController(AnchorPane container)
     {
@@ -36,17 +41,25 @@ public class OMenuBarController extends StatelessEventTargetObject
         Menu edit = edit();
         Menu code = code();
 
-        this.menuBar.getLeftMenus().addAll(
+        this.menuBar.getMenus().addAll(
                 file,
                 view,
                 edit,
                 code
         );
-        this.menuBar.getRightButtons().addAll(this.rightMenu());
+        this.iconBar.setPrefHeight(30.0);
+        this.iconBar.setAlignment(Pos.CENTER_RIGHT);
+        this.iconBar.setSpacing(10.0);
+        this.iconBar.setPadding(new Insets(0.0, 20.0, 0.0, 0.0));
+        this.iconBar.getChildren().addAll(this.rightMenu());
+        AnchorPane.setTopAnchor(this.iconBar, 30.0);
+        AnchorPane.setLeftAnchor(this.iconBar, 0.0);
+        AnchorPane.setRightAnchor(this.iconBar, 0.0);
         AnchorPane.setTopAnchor(this.menuBar, 0.0);
         AnchorPane.setLeftAnchor(this.menuBar, 0.0);
         AnchorPane.setRightAnchor(this.menuBar, 0.0);
         container.getChildren().add(this.menuBar);
+        container.getChildren().add(this.iconBar);
     }
 
 

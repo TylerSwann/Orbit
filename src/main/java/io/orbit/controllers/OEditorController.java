@@ -15,6 +15,7 @@ import io.orbit.controllers.events.menubar.MenuBarCodeEvent;
 import io.orbit.text.OrbitEditor;
 import javafx.application.Platform;
 import javafx.beans.property.SimpleObjectProperty;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
@@ -33,6 +34,7 @@ public class OEditorController extends StatelessEventTargetObject
     public static final ObservableList<OrbitEditor> OPEN_EDITORS = FXCollections.observableArrayList();
     private static final SimpleObjectProperty<OrbitEditor> ACTIVE_EDITOR = new SimpleObjectProperty<>();
     public static final OrbitEditor getActiveEditor() { return ACTIVE_EDITOR.get(); }
+    public static ObservableValue<OrbitEditor> activeEditorProperty() { return ACTIVE_EDITOR; }
 
     public OEditorController(JFXTabPane tabPane)
     {

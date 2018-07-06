@@ -6,36 +6,27 @@ import com.jfoenix.controls.JFXTextField;
 import com.jfoenix.validation.RequiredFieldValidator;
 import io.orbit.App;
 import io.orbit.api.text.CodeEditor;
+import io.orbit.controllers.LanguageService;
 import io.orbit.text.OrbitEditor;
-import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.geometry.Point2D;
-import javafx.scene.Scene;
 import javafx.scene.control.IndexRange;
-import javafx.scene.control.PopupControl;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
-import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 import org.fxmisc.flowless.VirtualizedScrollPane;
-import org.kordamp.ikonli.fontawesome5.FontAwesomeRegular;
 import org.kordamp.ikonli.fontawesome5.FontAwesomeSolid;
 import org.kordamp.ikonli.javafx.FontIcon;
 import org.reactfx.EventStream;
 import org.reactfx.EventStreams;
 import org.reactfx.Subscription;
-
 import java.net.URL;
 import java.time.Duration;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
-import java.util.function.Consumer;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.regex.PatternSyntaxException;
@@ -162,10 +153,10 @@ public class FindAndReplace
                                  });
          this.search.addEventHandler(KeyEvent.KEY_PRESSED, event -> {
              if (event.getCode() == KeyCode.BACK_SPACE)
-                 this.editor.forceReHighlighting();
+                 LanguageService.highlightForcibly();
          });
         this.closeButton.setOnAction(event -> {
-            this.editor.forceReHighlighting();
+            LanguageService.highlightForcibly();
             this.subscription.unsubscribe();
             this.onCloseRequest.run();
         });
@@ -191,7 +182,7 @@ public class FindAndReplace
         this.replaceButton.setOnAction(event -> {
             if (!this.replaceIsShowing)
                 throw new RuntimeException("Replace pane is not showing, yet replace button was clicked");
-            this.editor.pauseHighlighting();
+            LanguageService.stopHighlightingForcibly();
             this.replace(this.matchRanges.get(this.currentIndex));
             this.next();
         });
@@ -217,7 +208,7 @@ public class FindAndReplace
     {
         if (input == null || input.isEmpty())
         {
-            this.editor.forceReHighlighting();
+            LanguageService.highlightForcibly();
             return;
         }
         this.matchRanges.clear();

@@ -3,7 +3,6 @@ package io.orbit.webtools.css;
 import io.orbit.api.EditorController;
 import io.orbit.api.text.CodeEditor;
 import io.orbit.api.autocompletion.AutoCompletionDialog;
-import io.orbit.util.SocketAddress;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import java.io.File;

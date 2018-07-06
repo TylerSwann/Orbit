@@ -39,7 +39,7 @@ public class MenuButtonBar extends HBox
         this.getChildren().addAll(this.leftBar, this.rightBar);
         this.rightBar.setBackground(new Background(new BackgroundFill(Color.TRANSPARENT, CornerRadii.EMPTY, Insets.EMPTY)));
         this.leftBar.setBackground(new Background(new BackgroundFill(Color.TRANSPARENT, CornerRadii.EMPTY, Insets.EMPTY)));
-        this.leftBar.setUseSystemMenuBar(true);
+//        this.leftBar.setUseSystemMenuBar(true);
     }
 
     public MenuButtonBar(List<Menu> leftMenus, List<Button> rightButtons)

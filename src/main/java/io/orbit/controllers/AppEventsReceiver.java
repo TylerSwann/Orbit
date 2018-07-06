@@ -46,6 +46,7 @@ public class AppEventsReceiver
     }
     private void registerListeners()
     {
+        LanguageService.open(OEditorController.activeEditorProperty(), 1);
         OProjectTreeViewController projectTreeViewController = App.applicationController().getProjectTreeViewController();
         OMenuBarController menuBarController = App.applicationController().getMenuBarController();
         OEditorController editorController = App.applicationController().getEditorController();
@@ -70,15 +71,7 @@ public class AppEventsReceiver
         editorController.addEventHandler(DocumentEvent.SAVE_NON_PROJECT_FILE, event -> event.getSourceFile().ifPresent(this::saveNonProjectFile));
 
     }
-/*
-            menuBarController.addEventHandler(MenuBarFileEvent.SAVE_ALL, event -> {
-                this.getOpenProjectFiles().forEach(projectFile -> {
-                    if (projectFile.wasModified())
-                        projectFile.save();
-                });
-                App.applicationController().getStatusBarController().showSnackBarMessage("Saved All!", 2000);
-            });
-* */
+
     private void showFindAndReplaceDialog()
     {
         TextEditorPane pane = (TextEditorPane) App.applicationController()
