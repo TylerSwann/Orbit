@@ -11,6 +11,7 @@ import io.orbit.api.text.CodeEditor;
 import io.orbit.api.event.DocumentEvent;
 import io.orbit.plugin.PluginDispatch;
 import io.orbit.settings.UserHotKeys;
+import io.orbit.ui.contextmenu.EditorContextMenu;
 import javafx.application.Platform;
 import javafx.scene.input.KeyEvent;
 import java.io.File;
@@ -32,6 +33,7 @@ public class OrbitEditor extends CodeEditor
     {
         super(file);
         this.file = file;
+        new EditorContextMenu(this);
         registerPlugins();
         registerEvents();
     }

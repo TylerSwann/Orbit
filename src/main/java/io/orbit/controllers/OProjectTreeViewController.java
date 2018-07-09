@@ -9,7 +9,8 @@ import io.orbit.api.event.CodeEditorEvent;
 import io.orbit.controllers.events.ApplicationEvent;
 import io.orbit.api.event.DocumentEvent;
 import io.orbit.controllers.events.IOEvent;
-import io.orbit.controllers.events.StatelessEventTargetObject;
+import io.orbit.ui.contextmenu.NavigatorContextMenu;
+import io.orbit.util.StatelessEventTargetObject;
 import io.orbit.controllers.events.menubar.MenuBarFileEvent;
 import io.orbit.ui.LanguageIcons;
 import io.orbit.ui.MUITreeItem;
@@ -100,6 +101,7 @@ public class OProjectTreeViewController extends StatelessEventTargetObject
 
     private void build()
     {
+        this.treeView.setContextMenu(new NavigatorContextMenu());
         this.treeView.setCellFactory(treeView -> {
             TreeCell<String> cell = new TreeCell<>();
             cell.itemProperty().addListener((obs, oldVal, newVal) -> {
@@ -129,14 +131,15 @@ public class OProjectTreeViewController extends StatelessEventTargetObject
             return cell;
         });
         this.treeView.setOnItemRightClicked((item, event) -> {
-            if (item != null && item.getUserData() != null && item.getUserData() instanceof ProjectFile)
-            {
-                ProjectFile file = (ProjectFile) item.getUserData();
-                if (this.branchMenu == null)
-                    this.branchMenu = createBranchContextMenu();
-                this.branchMenu.setUserData(file);
-                this.branchMenu.show(this.treeView, event.getScreenX(), event.getScreenY());
-            }
+            //new NavigatorContextMenu().show(App.PRIMARY_STAGE.get(), event.getScreenX(), event.getScreenY());
+//            if (item != null && item.getUserData() != null && item.getUserData() instanceof ProjectFile)
+//            {
+//                ProjectFile file = (ProjectFile) item.getUserData();
+//                if (this.branchMenu == null)
+//                    this.branchMenu = createBranchContextMenu();
+//                this.branchMenu.setUserData(file);
+//                this.branchMenu.show(this.treeView, event.getScreenX(), event.getScreenY());
+//            }
         });
     }
 

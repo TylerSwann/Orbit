@@ -5,7 +5,7 @@ import io.orbit.settings.LocalUser;
 import io.orbit.settings.OrbitFile;
 import io.orbit.settings.ProjectFile;
 import io.orbit.controllers.events.ApplicationEvent;
-import io.orbit.controllers.events.StatelessEventTargetObject;
+import io.orbit.util.StatelessEventTargetObject;
 import io.orbit.controllers.events.menubar.*;
 import io.orbit.ui.*;
 import javafx.application.Platform;

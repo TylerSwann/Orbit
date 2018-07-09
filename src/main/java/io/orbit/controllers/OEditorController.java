@@ -10,7 +10,7 @@ import io.orbit.settings.ProjectFile;
 import io.orbit.text.TextEditorPane;
 import io.orbit.controllers.events.ApplicationEvent;
 import io.orbit.api.event.DocumentEvent;
-import io.orbit.controllers.events.StatelessEventTargetObject;
+import io.orbit.util.StatelessEventTargetObject;
 import io.orbit.controllers.events.menubar.MenuBarCodeEvent;
 import io.orbit.text.OrbitEditor;
 import javafx.application.Platform;

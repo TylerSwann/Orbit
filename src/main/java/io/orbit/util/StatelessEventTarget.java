@@ -1,4 +1,4 @@
-package io.orbit.controllers.events;
+package io.orbit.util;
 
 import javafx.event.*;
 import java.util.ArrayList;

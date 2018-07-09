@@ -1,8 +1,10 @@
 package io.orbit.ui
 
+import io.orbit.ui.contextmenu.MUIContextMenu
 import javafx.application.Platform
 import javafx.scene.control.TreeCell
 import javafx.scene.control.TreeView
+import javafx.scene.input.ContextMenuEvent
 import javafx.scene.input.MouseButton
 import javafx.scene.input.MouseEvent
 import java.util.function.BiConsumer
@@ -17,6 +19,7 @@ class MUITreeTableView<T>: TreeView<T>
     public var onItemClicked: Consumer<MUITreeItem<T>> = Consumer { _->  }
     public var onItemRightClicked: BiConsumer<MUITreeItem<T>, MouseEvent> = BiConsumer { _,_-> }
     private var selectedItem: MUITreeItem<T>? = null
+    private var menu: MUIContextMenu? = null
 
     constructor(): this(null)
     constructor(item: MUITreeItem<T>?): super(item)
@@ -39,6 +42,15 @@ class MUITreeTableView<T>: TreeView<T>
             if (event.button == MouseButton.SECONDARY)
                 this.onItemRightClicked.accept(selectedItem, event)
         })
+        this.addEventHandler(ContextMenuEvent.CONTEXT_MENU_REQUESTED, { event ->
+            this.menu?.show(event.screenX, event.screenY)
+        })
+    }
+
+    public fun setContextMenu(menu: MUIContextMenu)
+    {
+        menu.owner = this
+        this.menu = menu
     }
 }
 
