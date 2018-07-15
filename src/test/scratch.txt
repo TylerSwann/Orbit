@@ -2,23 +2,6 @@
 
 
 
-private EventHandler<ActionEvent> onViewPlugins;
-private EventHandler<ActionEvent> onViewTerminal;
-private EventHandler<ActionEvent> onViewNavigator;
-private EventHandler<ActionEvent> onNewFile;
-private EventHandler<ActionEvent> onNewFolder;
-private EventHandler<ActionEvent> onNewProject;
-private EventHandler<ActionEvent> onSave;
-private EventHandler<ActionEvent> onOpenFile;
-private EventHandler<ActionEvent> onOpenFolder;
-private EventHandler<ActionEvent> onSettings;
-private EventHandler<ActionEvent> onUndo;
-private EventHandler<ActionEvent> onRedo;
-private EventHandler<ActionEvent> onCut;
-private EventHandler<ActionEvent> onCopy;
-private EventHandler<ActionEvent> onPaste;
-private EventHandler<ActionEvent> onFind;
-private EventHandler<ActionEvent> onSelectAll;
 
 
 App.class.getClassLoader().getResource("fonts/roboto/Roboto-Black.ttf"),

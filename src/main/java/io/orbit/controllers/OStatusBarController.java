@@ -5,8 +5,6 @@ import com.jfoenix.controls.JFXSnackbar;
 import io.orbit.App;
 import io.orbit.api.NotNullable;
 import io.orbit.api.Nullable;
-import io.orbit.controllers.events.ApplicationEvent;
-import io.orbit.controllers.events.menubar.MenuBarEditEvent;
 import io.orbit.ui.MUIDialog;
 import javafx.geometry.Pos;
 import javafx.scene.control.Label;

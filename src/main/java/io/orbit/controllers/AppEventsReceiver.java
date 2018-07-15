@@ -7,20 +7,13 @@ import io.orbit.settings.UnownedProjectFile;
 import io.orbit.controllers.events.ApplicationEvent;
 import io.orbit.api.event.DocumentEvent;
 import io.orbit.controllers.events.IOEvent;
-import io.orbit.controllers.events.menubar.MenuBarEditEvent;
-import io.orbit.controllers.events.menubar.MenuBarFileEvent;
-import io.orbit.controllers.events.menubar.MenuBarViewEvent;
-import io.orbit.controllers.marketplaceui.MarketPlacePageController;
-import io.orbit.text.TextEditorPane;
 import io.orbit.ui.MUIDialog;
-import io.orbit.util.Setting;
 import io.orbit.util.Size;
 import javafx.application.Platform;
 import javafx.scene.input.Clipboard;
 import javafx.scene.input.DataFormat;
 import javafx.stage.Stage;
 import org.apache.commons.io.FileUtils;
-
 import java.io.File;
 import java.io.IOException;
 import java.nio.charset.Charset;
@@ -48,7 +41,6 @@ public class AppEventsReceiver
     {
         LanguageService.open(OEditorController.activeEditorProperty(), 1);
         OProjectTreeViewController projectTreeViewController = App.applicationController().getProjectTreeViewController();
-        OMenuBarController menuBarController = App.applicationController().getMenuBarController();
         OEditorController editorController = App.applicationController().getEditorController();
         this.statusBarController = App.applicationController().getStatusBarController();
         projectTreeViewController.addEventHandler(IOEvent.CREATE_FILE, event -> event.getTargetFile().ifPresent(this::createNewFileEvent));
@@ -59,52 +51,12 @@ public class AppEventsReceiver
         projectTreeViewController.addEventHandler(IOEvent.COPY_PATH, event -> event.getTargetFile().ifPresent(this::copyFilePath));
         projectTreeViewController.addEventHandler(IOEvent.COPY_RELATIVE_PATH, event -> event.getTargetFile().ifPresent(this::copyFileRelativePath));
         projectTreeViewController.addEventHandler(IOEvent.PASTE_FILE, event -> event.getTargetFile().ifPresent(this::pasteFile));
-        menuBarController.addEventHandler(MenuBarFileEvent.NEW_PROJECT, event -> Platform.runLater(OProjectCreationDialog::show));
-        menuBarController.addEventHandler(MenuBarViewEvent.PLUGINS, event -> Platform.runLater(MarketPlacePageController::show));
-        menuBarController.addEventHandler(MenuBarFileEvent.SETTINGS, event -> this.showSettingsPage());
-        menuBarController.addEventHandler(MenuBarEditEvent.FIND, event -> this.showFindAndReplaceDialog());
-        menuBarController.addEventHandler(MenuBarFileEvent.SAVE_ALL, event -> this.saveAll());
-        menuBarController.addEventHandler(MenuBarFileEvent.SAVE, event -> event.selectedFile.ifPresent(this::saveFile));
+
         App.appEventsProperty.addEventListener(ApplicationEvent.WILL_CLOSE, event -> this.saveWindowSizeToSettings());
         editorController.addEventHandler(DocumentEvent.SAVE_FILE, event -> event.getSourceFile().ifPresent(this::saveFile));
         editorController.addEventHandler(DocumentEvent.SAVE_ALL, event -> this.saveAll());
         editorController.addEventHandler(DocumentEvent.SAVE_NON_PROJECT_FILE, event -> event.getSourceFile().ifPresent(this::saveNonProjectFile));
 
-    }
-
-    private void showFindAndReplaceDialog()
-    {
-        TextEditorPane pane = (TextEditorPane) App.applicationController()
-                .getTabPaneController()
-                .getTabPane()
-                .getSelectionModel()
-                .getSelectedItem().getContent();
-        pane.showFindAndReplaceDialog(false);
-    }
-
-    private void showSettingsPage()
-    {
-        if (settingsWindow != null)
-            return;
-        Setting themeAndFonts = new Setting("Themes and Fonts", ThemeSettingsPage.load());
-        Setting editorSettings = new Setting("Editor", new Setting[]{
-                new Setting("Key Bindings", KeyBindingsPageController.load())
-        });
-        settingsWindow = new SettingsWindow(new Setting[]{ themeAndFonts, editorSettings });
-        ThemeSettingsPage.CONTROLLER.setOnEditSyntaxTheme(this::openSyntaxThemeFile);
-        ThemeSettingsPage.CONTROLLER.setOnEditUITheme(this::openUIThemeFile);
-        settingsWindow.setOnCloseRequest(event -> settingsWindow = null);
-        settingsWindow.show();
-    }
-
-    private void openSyntaxThemeFile(File file)
-    {
-        App.applicationController().getTabPaneController().openNonProjectFile(file, UnownedProjectFile.UnownedProjectFileMode.EDIT_SYNTAX_THEME);
-    }
-
-    private void openUIThemeFile(File file)
-    {
-        App.applicationController().getTabPaneController().openNonProjectFile(file, UnownedProjectFile.UnownedProjectFileMode.EDIT_UI_THEME);
     }
 
     private void saveNonProjectFile(OrbitFile file)
@@ -317,6 +269,4 @@ public class AppEventsReceiver
         Size windowSize = new Size(stage.getWidth(), stage.getHeight());
         LocalUser.userSettings.setWindowSize(windowSize);
     }
-
-
 }

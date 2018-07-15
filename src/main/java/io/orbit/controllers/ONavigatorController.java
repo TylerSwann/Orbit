@@ -5,7 +5,7 @@ import io.orbit.App;
 import io.orbit.ApplicationController;
 import io.orbit.settings.LocalUser;
 import io.orbit.controllers.events.ApplicationEvent;
-import io.orbit.controllers.events.menubar.MenuBarViewEvent;
+import io.orbit.controllers.events.menubar.MenuBarEvent;
 import javafx.application.Platform;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -37,7 +37,7 @@ public class ONavigatorController
             if (!LocalUser.userSettings.isNavigatorClosed())
                 LocalUser.userSettings.setNavigatorDividerPos(App.applicationController().rootSplitPane.getDividerPositions()[0]);
         });
-        Platform.runLater(() -> App.applicationController().getMenuBarController().addEventHandler(MenuBarViewEvent.NAVIGATOR, event -> toggleNavigator()));
+        Platform.runLater(() -> App.applicationController().getMenuBarController().addEventHandler(MenuBarEvent.VIEW_NAVIGATOR, event -> toggleNavigator()));
     }
 
     public void toggleNavigator()

@@ -1,5 +1,6 @@
 package io.orbit.ui.menubar;
 
+import io.orbit.settings.LocalUser;
 import io.orbit.ui.contextmenu.MUIContextMenu;
 import io.orbit.ui.contextmenu.MUIMenu;
 import io.orbit.ui.contextmenu.MUIMenuItem;
@@ -9,7 +10,9 @@ import javafx.scene.control.ContentDisplay;
 import org.kordamp.ikonli.fontawesome5.FontAwesomeRegular;
 import org.kordamp.ikonli.fontawesome5.FontAwesomeSolid;
 
+import javax.swing.*;
 import java.util.Arrays;
+import java.util.List;
 
 /**
  * Created by Tyler Swann on Saturday July 14, 2018 at 16:02
@@ -45,6 +48,8 @@ public class ApplicationMenuBar extends MUIMenuBar implements SystemMenuBar
                 edit(),
                 view()
         );
+        this.getRightItems().addAll(iconBar());
+        this.right.getStyleClass().add("mui-icon-bar");
     }
 
     private MUIMenuItem file()
@@ -72,14 +77,14 @@ public class ApplicationMenuBar extends MUIMenuBar implements SystemMenuBar
                 openFolder,
                 settings
         ));
-        newFile.setOnAction(this.onNewFile);
-        newFolder.setOnAction(this.onNewFolder);
-        newProject.setOnAction(this.onNewProject);
-        save.setOnAction(this.onSave);
-        save_all.setOnAction(this.onSaveAll);
-        open.setOnAction(this.onOpenFile);
-        openFolder.setOnAction(this.onOpenFolder);
-        settings.setOnAction(this.onSettings);
+        newFile.setOnAction(event -> this.onNewFile.handle(event));
+        newFolder.setOnAction(event -> this.onNewFolder.handle(event));
+        newProject.setOnAction(event -> this.onNewProject.handle(event));
+        save.setOnAction(event -> this.onSave.handle(event));
+        save_all.setOnAction(event -> this.onSaveAll.handle(event));
+        open.setOnAction(event -> this.onOpenFile.handle(event));
+        openFolder.setOnAction(event -> this.onOpenFolder.handle(event));
+        settings.setOnAction(event -> this.onSettings.handle(event));
 
         menu.getRoot().getStyleClass().add(CONTEXT_MENU_STYLE_CLASS);
         newMenu.getSubmenu().getRoot().getStyleClass().add(CONTEXT_MENU_STYLE_CLASS);
@@ -134,7 +139,7 @@ public class ApplicationMenuBar extends MUIMenuBar implements SystemMenuBar
         terminal.setContentDisplay(ContentDisplay.RIGHT);
         navigator.setContentDisplay(ContentDisplay.RIGHT);
 
-        plugins.setOnAction(this.onViewPlugins);
+        plugins.setOnAction(event -> this.onViewPlugins.handle(event));
         terminal.setOnAction(event -> {
             if (terminal.getGraphic().getOpacity() <= 0.0)
                 terminal.getGraphic().setOpacity(1.0);
@@ -149,6 +154,8 @@ public class ApplicationMenuBar extends MUIMenuBar implements SystemMenuBar
                 navigator.getGraphic().setOpacity(0.0);
             this.onViewNavigator.handle(event);
         });
+        terminal.getGraphic().setOpacity((LocalUser.userSettings.isTerminalClosed() ? 0.0 : 1.0));
+        navigator.getGraphic().setOpacity((LocalUser.userSettings.isNavigatorClosed() ? 0.0 : 1.0));
 
         MUIContextMenu menu = new MUIContextMenu(this);
         menu.getItems().addAll(Arrays.asList(
@@ -159,6 +166,14 @@ public class ApplicationMenuBar extends MUIMenuBar implements SystemMenuBar
         menu.getRoot().getStyleClass().add(CONTEXT_MENU_STYLE_CLASS);
         view.setMUIContextMenu(menu);
         return view;
+    }
+
+    private List<MUIMenuItem> iconBar()
+    {
+        MUIMenuItem play = new MUIMenuItem(FontAwesomeSolid.PLAY_CIRCLE, "");
+        MUIMenuItem stop = new MUIMenuItem(FontAwesomeSolid.STOP_CIRCLE, "");
+        MUIMenuItem search = new MUIMenuItem(FontAwesomeSolid.SEARCH, "");
+        return Arrays.asList(play, stop, search);
     }
 
     @Override

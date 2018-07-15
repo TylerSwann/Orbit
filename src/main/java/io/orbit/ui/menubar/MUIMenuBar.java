@@ -19,8 +19,10 @@ import javax.swing.*;
 public class MUIMenuBar extends GridPane
 {
     private static final String DEFAULT_STYLE_CLASS = "mui-menu-bar";
-    private HBox left = new HBox();
-    private HBox right = new HBox();
+    private static final String DEFAULT_LEFT_STYLE_CLASS = "left";
+    private static final String DEFAULT_RIGHT_STYLE_CLASS = "right";
+    protected HBox left = new HBox();
+    protected HBox right = new HBox();
     private ObservableList<MUIMenuItem> rightItems = FXCollections.observableArrayList();
     private ObservableList<MUIMenuItem> leftItems = FXCollections.observableArrayList();
     public ObservableList<MUIMenuItem> getLeftItems() { return leftItems; }
@@ -35,7 +37,10 @@ public class MUIMenuBar extends GridPane
     private void build()
     {
         this.getStyleClass().add(DEFAULT_STYLE_CLASS);
+        this.left.getStyleClass().add(DEFAULT_LEFT_STYLE_CLASS);
+        this.right.getStyleClass().add(DEFAULT_RIGHT_STYLE_CLASS);
         this.setPrefSize(200.0, 30.0);
+        this.setMaxHeight(35.0);
         ColumnConstraints column = new ColumnConstraints();
         column.setPercentWidth(100);
         ColumnConstraints leftColumn = new ColumnConstraints();
@@ -43,17 +48,17 @@ public class MUIMenuBar extends GridPane
         ColumnConstraints rightColumn = new ColumnConstraints();
         rightColumn.setPercentWidth(50.0);
         RowConstraints row = new RowConstraints();
-        row.setFillHeight(true);
+        row.setPrefHeight(25.0);
         this.getRowConstraints().add(row);
         this.getColumnConstraints().addAll(leftColumn, rightColumn);
         this.left.setPrefSize(100.0, 30.0);
         this.left.setAlignment(Pos.CENTER_LEFT);
         this.left.setSpacing(5.0);
-        this.left.setPadding(new Insets(0.0, 0.0, 0.0, 10.0));
+        this.left.setPadding(new Insets(1.0, 0.0, 1.0, 10.0));
         this.right.setPrefSize(100.0, 30.0);
         this.right.setAlignment(Pos.CENTER_RIGHT);
         this.right.setSpacing(5.0);
-        this.right.setPadding(new Insets(0.0, 10.0, 0.0, 0.0));
+        this.right.setPadding(new Insets(1.0, 50.0, 1.0, 0.0));
 
         this.setAlignment(Pos.CENTER);
         this.add(this.left, 0, 0);

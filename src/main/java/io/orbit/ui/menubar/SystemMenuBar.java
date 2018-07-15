@@ -2,6 +2,7 @@ package io.orbit.ui.menubar;
 
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.scene.Scene;
 
 /**
  * Created by Tyler Swann on Sunday July 15, 2018 at 15:15
@@ -26,4 +27,5 @@ public interface SystemMenuBar
     void setOnPaste(EventHandler<ActionEvent> handler);
     void setOnFind(EventHandler<ActionEvent> handler);
     void setOnSelectAll(EventHandler<ActionEvent> handler);
+    Scene getScene();
 }

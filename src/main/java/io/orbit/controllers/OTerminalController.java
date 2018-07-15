@@ -4,7 +4,7 @@ import io.orbit.App;
 import io.orbit.ApplicationController;
 import io.orbit.settings.LocalUser;
 import io.orbit.controllers.events.ApplicationEvent;
-import io.orbit.controllers.events.menubar.MenuBarViewEvent;
+import io.orbit.controllers.events.menubar.MenuBarEvent;
 import io.orbit.ui.MUITerminalPane;
 import javafx.application.Platform;
 import javafx.scene.layout.AnchorPane;
@@ -30,7 +30,7 @@ public class OTerminalController
             if (!LocalUser.userSettings.isTerminalClosed())
                 LocalUser.userSettings.setTerminalDividerPos(App.applicationController().contentSplitPane.getDividerPositions()[0]);
         });
-        Platform.runLater(() -> App.applicationController().getMenuBarController().addEventHandler(MenuBarViewEvent.TERMINAL, event -> toggleTerminal()));
+        Platform.runLater(() -> App.applicationController().getMenuBarController().addEventHandler(MenuBarEvent.VIEW_TERMINAL, event -> toggleTerminal()));
     }
 
     public void toggleTerminal()

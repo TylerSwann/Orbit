@@ -11,7 +11,7 @@ import io.orbit.api.event.DocumentEvent;
 import io.orbit.controllers.events.IOEvent;
 import io.orbit.ui.contextmenu.NavigatorContextMenu;
 import io.orbit.util.StatelessEventTargetObject;
-import io.orbit.controllers.events.menubar.MenuBarFileEvent;
+import io.orbit.controllers.events.menubar.MenuBarEvent;
 import io.orbit.ui.LanguageIcons;
 import io.orbit.ui.MUITreeItem;
 import io.orbit.ui.MUITreeTableView;
@@ -45,7 +45,7 @@ public class OProjectTreeViewController extends StatelessEventTargetObject
         App.appEventsProperty.addEventListener(ApplicationEvent.WILL_LOAD, event -> {
             OMenuBarController menuBarController = App.applicationController().getMenuBarController();
             OEditorController editorController = App.applicationController().getEditorController();
-            menuBarController.addEventHandler(MenuBarFileEvent.OPEN_FOLDER, fileEvent -> {
+            menuBarController.addEventHandler(MenuBarEvent.OPEN_FOLDER, fileEvent -> {
                 if (fileEvent.selectedFile.isPresent())
                 {
                     File file = fileEvent.selectedFile.get();
@@ -54,7 +54,7 @@ public class OProjectTreeViewController extends StatelessEventTargetObject
                 }
             });
             editorController.addEventHandler(CodeEditorEvent.FILE_WAS_MODIFIED, textEvent -> textEvent.modifiedFile.ifPresent(this.modifiedFiles::add));
-            menuBarController.addEventHandler(MenuBarFileEvent.SAVE_ALL, fileEvent -> this.modifiedFiles.clear());
+            menuBarController.addEventHandler(MenuBarEvent.SAVE_ALL, fileEvent -> this.modifiedFiles.clear());
             editorController.addEventHandler(DocumentEvent.SAVE_FILE, saveEvent -> saveEvent.getSourceFile().ifPresent(file -> this.modifiedFiles.remove(file)));
             editorController.addEventHandler(DocumentEvent.CLOSE_UNSAVED_FILE, closeEvent -> closeEvent.getSourceFile().ifPresent(this.modifiedFiles::remove));
         });

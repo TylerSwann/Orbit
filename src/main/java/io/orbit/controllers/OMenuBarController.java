@@ -1,195 +1,122 @@
 package io.orbit.controllers;
 
 import io.orbit.App;
+import io.orbit.controllers.events.menubar.MenuBarEvent;
+import io.orbit.controllers.marketplaceui.MarketPlacePageController;
 import io.orbit.settings.LocalUser;
 import io.orbit.settings.OrbitFile;
 import io.orbit.settings.ProjectFile;
-import io.orbit.controllers.events.ApplicationEvent;
+import io.orbit.settings.UnownedProjectFile;
+import io.orbit.text.TextEditorPane;
 import io.orbit.ui.menubar.ApplicationMenuBar;
+import io.orbit.ui.menubar.SystemMenuBar;
+import io.orbit.util.OS;
+import io.orbit.util.Setting;
 import io.orbit.util.StatelessEventTargetObject;
-import io.orbit.controllers.events.menubar.*;
-import io.orbit.ui.*;
 import javafx.application.Platform;
-import javafx.geometry.Insets;
-import javafx.geometry.Pos;
-import javafx.scene.control.ContentDisplay;
-import javafx.scene.control.Menu;
-import javafx.scene.control.MenuBar;
-import javafx.scene.control.MenuItem;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.HBox;
 import javafx.stage.DirectoryChooser;
 import javafx.stage.FileChooser;
-import org.kordamp.ikonli.fontawesome5.FontAwesomeSolid;
-import org.kordamp.ikonli.javafx.FontIcon;
+
 import java.io.File;
-import java.util.*;
-import java.util.function.Consumer;
 
 /**
- * Created by Tyler Swann on Saturday January 06, 2018 at 13:01
+ * Created by Tyler Swann on Sunday July 15, 2018 at 15:39
  */
 public class OMenuBarController extends StatelessEventTargetObject
 {
-    private MenuBar menuBar = new MenuBar();
-    private HBox iconBar = new HBox();
+    private SystemMenuBar menuBar;
+    private SettingsWindow settingsWindow;
 
     public OMenuBarController(AnchorPane container)
     {
-        Menu file = file();
-        Menu view = view();
-        Menu edit = edit();
-        Menu code = code();
-
-        this.menuBar.getMenus().addAll(
-                file,
-                view,
-                edit,
-                code
-        );
-        this.iconBar.setPrefHeight(30.0);
-        this.iconBar.setAlignment(Pos.CENTER_RIGHT);
-        this.iconBar.setSpacing(10.0);
-        this.iconBar.setPadding(new Insets(0.0, 20.0, 0.0, 0.0));
-        this.iconBar.getChildren().addAll(this.rightMenu());
-        AnchorPane.setTopAnchor(this.iconBar, 30.0);
-        AnchorPane.setLeftAnchor(this.iconBar, 0.0);
-        AnchorPane.setRightAnchor(this.iconBar, 0.0);
-        AnchorPane.setTopAnchor(this.menuBar, 0.0);
-        AnchorPane.setLeftAnchor(this.menuBar, 0.0);
-        AnchorPane.setRightAnchor(this.menuBar, 0.0);
-//        container.getChildren().add(this.menuBar);
-//        container.getChildren().add(this.iconBar);
-
-        ApplicationMenuBar bar = new ApplicationMenuBar();
-        container.getChildren().add(bar);
-        AnchorPane.setTopAnchor(bar, 0.0);
-        AnchorPane.setLeftAnchor(bar, 0.0);
-        AnchorPane.setRightAnchor(bar, 0.0);
+        if (OS.isMacOS)
+        {
+            //TODO - Create macOS specific menu bar
+        }
+        else
+        {
+            ApplicationMenuBar menuBar = new ApplicationMenuBar();
+            AnchorPane.setTopAnchor(menuBar, 0.0);
+            AnchorPane.setLeftAnchor(menuBar, 0.0);
+            AnchorPane.setRightAnchor(menuBar, 0.0);
+            container.getChildren().add(menuBar);
+            this.menuBar = menuBar;
+        }
+        this.setEventHandlers();
+        this.registerListeners();
     }
 
-
-    private Menu file()
+    private void setEventHandlers()
     {
-        Menu file = new Menu("File");
-        MenuItem save = new MenuItem("Save");
-        MenuItem save_all = new MenuItem("Save All");
-        MenuItem open = new MenuItem("Open");
-        MenuItem openFolder = new MenuItem("Open Folder");
-        MenuItem settings = new MenuItem("Settings");
-        save.setOnAction(event -> this.fireEvent(new MenuBarFileEvent(MenuBarFileEvent.SAVE, OEditorController.getActiveEditor().file)));
-        save_all.setOnAction(event -> this.fireEvent(new MenuBarFileEvent(this, this, MenuBarFileEvent.SAVE_ALL)));
-        settings.setOnAction(event -> this.fireEvent(new MenuBarFileEvent(this, this, MenuBarFileEvent.SETTINGS)));
-        open.setOnAction(event -> this.showFileChooserDialog());
-        openFolder.setOnAction(event -> this.showFolderChooseDialog());
-        MenuItem project = new MenuItem("Project");
-        MenuItem new_file = new MenuItem("File");
-        new_file.setOnAction(event -> this.fireEvent(new MenuBarFileEvent(this, this, MenuBarFileEvent.NEW_FILE)));
-        project.setOnAction(event -> this.fireEvent(new MenuBarFileEvent(this, this, MenuBarFileEvent.NEW_PROJECT)));
-        Menu newMenu = new Menu( "New");
-        newMenu.getItems().addAll(
-                project,
-                new_file
-        );
-        file.getItems().addAll(
-                newMenu,
-                save,
-                save_all,
-                open,
-                openFolder,
-                settings
-        );
-        return file;
+        this.menuBar.setOnViewPlugins(__ -> this.fireEvent(new MenuBarEvent(this, this, MenuBarEvent.VIEW_PLUGINS)));
+        this.menuBar.setOnViewTerminal(__ -> this.fireEvent(new MenuBarEvent(this, this, MenuBarEvent.VIEW_TERMINAL)));
+        this.menuBar.setOnViewNavigator(__ -> this.fireEvent(new MenuBarEvent(this, this, MenuBarEvent.VIEW_NAVIGATOR)));
+        this.menuBar.setOnNewFile(__ -> this.fireEvent(new MenuBarEvent(this, this, MenuBarEvent.NEW_FILE)));
+        this.menuBar.setOnNewFolder(__ -> this.fireEvent(new MenuBarEvent(this, this, MenuBarEvent.NEW_FOLDER)));
+        this.menuBar.setOnNewProject(__ -> this.fireEvent(new MenuBarEvent(this, this, MenuBarEvent.NEW_PROJECT)));
+        this.menuBar.setOnSave(__ -> this.fireEvent(new MenuBarEvent(this, this, MenuBarEvent.SAVE)));
+        this.menuBar.setOnSaveAll(__ -> this.fireEvent(new MenuBarEvent(this, this, MenuBarEvent.SAVE_ALL)));
+        this.menuBar.setOnOpenFile(__ -> this.fireEvent(new MenuBarEvent(this, this, MenuBarEvent.OPEN_FILE)));
+        this.menuBar.setOnOpenFolder(__ -> this.fireEvent(new MenuBarEvent(this, this, MenuBarEvent.OPEN_FOLDER)));
+        this.menuBar.setOnSettings(__ -> this.fireEvent(new MenuBarEvent(this, this, MenuBarEvent.SETTINGS)));
+        this.menuBar.setOnUndo(__ -> this.fireEvent(new MenuBarEvent(this, this, MenuBarEvent.UNDO)));
+        this.menuBar.setOnRedo(__ -> this.fireEvent(new MenuBarEvent(this, this, MenuBarEvent.REDO)));
+        this.menuBar.setOnCut(__ -> this.fireEvent(new MenuBarEvent(this, this, MenuBarEvent.CUT)));
+        this.menuBar.setOnCopy(__ -> this.fireEvent(new MenuBarEvent(this, this, MenuBarEvent.COPY)));
+        this.menuBar.setOnPaste(__ -> this.fireEvent(new MenuBarEvent(this, this, MenuBarEvent.PASTE)));
+        this.menuBar.setOnFind(__ -> this.fireEvent(new MenuBarEvent(this, this, MenuBarEvent.FIND)));
+        this.menuBar.setOnSelectAll(__ -> this.fireEvent(new MenuBarEvent(this, this, MenuBarEvent.SELECT_ALL)));
     }
-    private Menu edit()
+
+    private void registerListeners()
     {
-        Menu edit = new Menu("Edit");
-        MenuItem undo = new MenuItem("Undo");
-        MenuItem redo = new MenuItem("Redo");
-        MenuItem cut = new MenuItem("Cut");
-        MenuItem copy = new MenuItem("Copy");
-        MenuItem paste = new MenuItem("Paste");
-        MenuItem find = new MenuItem("Find");
-        MenuItem select_all = new MenuItem("Select All");
-
-        undo.setOnAction(event -> this.fireEvent(new MenuBarEditEvent(this, this, MenuBarEditEvent.UNDO)));
-        redo.setOnAction(event -> this.fireEvent(new MenuBarEditEvent(this, this, MenuBarEditEvent.REDO)));
-        cut.setOnAction(event -> this.fireEvent(new MenuBarEditEvent(this, this, MenuBarEditEvent.CUT)));
-        copy.setOnAction(event -> this.fireEvent(new MenuBarEditEvent(this, this, MenuBarEditEvent.COPY)));
-        paste.setOnAction(event -> this.fireEvent(new MenuBarEditEvent(this, this, MenuBarEditEvent.PASTE)));
-        find.setOnAction(event -> this.fireEvent(new MenuBarEditEvent(this, this, MenuBarEditEvent.FIND)));
-        select_all.setOnAction(event -> this.fireEvent(new MenuBarEditEvent(this, this, MenuBarEditEvent.SELECT_ALL)));
-
-        edit.getItems().addAll (
-                undo,
-                redo,
-                cut,
-                copy,
-                paste,
-                find,
-                select_all
-        );
-        return edit;
+        this.addEventHandler(MenuBarEvent.FIND, event -> this.showFindAndReplaceDialog());
+        this.addEventHandler(MenuBarEvent.SAVE, event -> event.selectedFile.ifPresent(this::saveFile));
+        this.addEventHandler(MenuBarEvent.SAVE_ALL, event -> this.saveAll());
+        this.addEventHandler(MenuBarEvent.SETTINGS, event -> Platform.runLater(this::showSettingsPage));
+        this.addEventHandler(MenuBarEvent.NEW_PROJECT, event -> Platform.runLater(OProjectCreationDialog::show));
+        this.addEventHandler(MenuBarEvent.VIEW_PLUGINS, event -> Platform.runLater(MarketPlacePageController::show));
+        this.addEventHandler(MenuBarEvent.OPEN_FILE, event -> this.showFileChooserDialog());
+        this.addEventHandler(MenuBarEvent.OPEN_FOLDER, event -> this.showFolderChooseDialog());
     }
-    private Menu view()
-    {
-        Menu view = new Menu("View");
-        MenuItem plugins = new MenuItem("Plugins");
-        MenuItem terminal = new MenuItem("Terminal", new FontIcon(FontAwesomeSolid.CHECK));
-        MenuItem navigator = new MenuItem("Navigator", new FontIcon(FontAwesomeSolid.CHECK));
-        Consumer<MenuItem> toggleCheck = item -> {
-            if (item.getGraphic().getOpacity() <= 0.0)
-                item.getGraphic().setOpacity(1.0);
-            else
-                item.getGraphic().setOpacity(0.0);
-        };
 
-        plugins.setOnAction(event -> this.fireEvent(new MenuBarViewEvent(this, this, MenuBarViewEvent.PLUGINS)));
-        terminal.setOnAction(event -> {
-            toggleCheck.accept(terminal);
-            this.fireEvent(new MenuBarViewEvent(this, this, MenuBarViewEvent.TERMINAL));
+    private void saveFile(OrbitFile file)
+    {
+        file.save();
+        //this.statusBarController.showSnackBarMessage(String.format("Saved %s!", file.getName()), 2000);
+    }
+
+    private void saveAll()
+    {
+        App.applicationController().getEditorController().getOpenProjectFiles().forEach(file -> {
+            if (file.wasModified())
+                file.save();
         });
-        navigator.setOnAction(event -> {
-            toggleCheck.accept(navigator);
-            this.fireEvent(new MenuBarViewEvent(this, this, MenuBarViewEvent.NAVIGATOR));
-        });
-        terminal.getGraphic().setOpacity((LocalUser.userSettings.isTerminalClosed() ? 0.0 : 1.0));
-        navigator.getGraphic().setOpacity((LocalUser.userSettings.isNavigatorClosed() ? 0.0 : 1.0));
-
-        view.getItems().addAll(
-                plugins,
-                terminal,
-                navigator
-        );
-
-
-        return view;
+       // this.statusBarController.showSnackBarMessage("Saved All!", 500);
     }
-    private Menu code()
+
+    private void showFindAndReplaceDialog()
     {
-        Menu code = new Menu("Code");
-        MenuItem reformatDocument = new MenuItem("Reformat Document");
-        reformatDocument.setOnAction(event -> this.fireEvent(new MenuBarCodeEvent(OEditorController.getActiveEditor(), this, MenuBarCodeEvent.REFORMAT_ACTIVE_DOCUMENT)));
-        code.getItems().add(reformatDocument);
-        return code;
+        TextEditorPane pane = (TextEditorPane) App.applicationController()
+                .getTabPaneController()
+                .getTabPane()
+                .getSelectionModel()
+                .getSelectedItem().getContent();
+        pane.showFindAndReplaceDialog(false);
     }
-    private MUIMenuButton[] rightMenu()
+
+    private void showSettingsPage()
     {
-        MUIMenuButton play = new MUIMenuButton(FontAwesomeSolid.PLAY_CIRCLE, "PLAY", ContentDisplay.LEFT);
-        MUIMenuButton stop = new MUIMenuButton(FontAwesomeSolid.STOP_CIRCLE, "STOP", ContentDisplay.LEFT);
-        MUIMenuButton[] iconButtons = new MUIMenuButton[]{
-                play,
-                stop
-        };
-        App.appEventsProperty.addEventListener(ApplicationEvent.WILL_LOAD, event -> Platform.runLater(() -> Arrays.stream(iconButtons).forEach(iconButton -> {
-            iconButton.setIconScale(1.25);
-            iconButton.setPrefWidth(iconButton.getWidth() + 20.0);
-            iconButton.setIconXOffset(-4);
-        })));
-        play.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> this.fireEvent(new MenuBarEvent(this, this, MenuBarEvent.PLAY_CLICK)));
-        stop.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> this.fireEvent(new MenuBarEvent(this, this, MenuBarEvent.STOP_CLICK)));
-        return iconButtons;
+        if (settingsWindow != null)
+            return;
+        Setting themeAndFonts = new Setting("Themes and Fonts", ThemeSettingsPage.load());
+        Setting editorSettings = new Setting("Editor", new Setting[] { new Setting("Key Bindings", KeyBindingsPageController.load()) });
+        settingsWindow = new SettingsWindow(new Setting[]{ themeAndFonts, editorSettings });
+        ThemeSettingsPage.CONTROLLER.setOnEditSyntaxTheme(file -> App.applicationController().getTabPaneController().openNonProjectFile(file, UnownedProjectFile.UnownedProjectFileMode.EDIT_SYNTAX_THEME));
+        ThemeSettingsPage.CONTROLLER.setOnEditUITheme(file -> App.applicationController().getTabPaneController().openNonProjectFile(file, UnownedProjectFile.UnownedProjectFileMode.EDIT_UI_THEME));
+        settingsWindow.setOnCloseRequest(event -> settingsWindow = null);
+        settingsWindow.show();
     }
 
     private void showFileChooserDialog()
@@ -197,7 +124,7 @@ public class OMenuBarController extends StatelessEventTargetObject
         FileChooser chooser = new FileChooser();
         File selectedFile = chooser.showOpenDialog(this.menuBar.getScene().getWindow());
         if (selectedFile != null && selectedFile.exists())
-            this.fireEvent(new MenuBarFileEvent(MenuBarFileEvent.OPEN, new OrbitFile(selectedFile)));
+            this.fireEvent(new MenuBarEvent(MenuBarEvent.OPEN_FILE, new OrbitFile(selectedFile)));
     }
 
     private void showFolderChooseDialog()
@@ -207,17 +134,8 @@ public class OMenuBarController extends StatelessEventTargetObject
         File root = chooser.showDialog(this.menuBar.getScene().getWindow());
         if (root != null && root.exists() && root.isDirectory())
         {
-            this.fireEvent(new MenuBarFileEvent(MenuBarFileEvent.OPEN_FOLDER, new ProjectFile(root)));
+            this.fireEvent(new MenuBarEvent(MenuBarEvent.OPEN_FOLDER, new ProjectFile(root)));
             LocalUser.userSettings.getLastModifiedProject().setProjectRoot(root);
         }
     }
 }
-
-
-
-
-
-
-
-
-

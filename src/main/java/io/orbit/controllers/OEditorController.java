@@ -3,6 +3,7 @@ package io.orbit.controllers;
 import com.jfoenix.controls.JFXTabPane;
 import io.orbit.*;
 import io.orbit.api.event.CodeEditorEvent;
+import io.orbit.controllers.events.menubar.MenuBarEvent;
 import io.orbit.settings.LocalUser;
 import io.orbit.settings.OrbitFile;
 import io.orbit.settings.ProjectData;
@@ -11,7 +12,6 @@ import io.orbit.text.TextEditorPane;
 import io.orbit.controllers.events.ApplicationEvent;
 import io.orbit.api.event.DocumentEvent;
 import io.orbit.util.StatelessEventTargetObject;
-import io.orbit.controllers.events.menubar.MenuBarCodeEvent;
 import io.orbit.text.OrbitEditor;
 import javafx.application.Platform;
 import javafx.beans.property.SimpleObjectProperty;
@@ -43,7 +43,7 @@ public class OEditorController extends StatelessEventTargetObject
         registerSelectionListeners();
         loadUserSettings();
 //        App.appEventsProperty.addEventListener(ApplicationEvent.WILL_LOAD, appEvent -> {
-//            OMenuBarController menuBarController = App.applicationController().getMenuBarController();
+//            OMenuBarController3 menuBarController = App.applicationController().getMenuBarController();
 //            menuBarController.addEventHandler(MenuBarFileEvent.SAVE_ALL, event -> {
 //                this.getOpenProjectFiles().forEach(projectFile -> {
 //                    if (projectFile.wasModified())
@@ -97,9 +97,7 @@ public class OEditorController extends StatelessEventTargetObject
 
     private void registerSelectionListeners()
     {
-        App.applicationController().getMenuBarController().addEventHandler(MenuBarCodeEvent.REFORMAT_ACTIVE_DOCUMENT, event -> {
-            event.getTargetEditor().ifPresent(editor -> editor.fireEvent(new DocumentEvent(this, this, DocumentEvent.REFORMAT_DOCUMENT)));
-        });
+        App.applicationController().getMenuBarController().addEventHandler(MenuBarEvent.REFORMAT_ACTIVE_DOCUMENT, event -> event.getTargetEditor().ifPresent(editor -> editor.fireEvent(new DocumentEvent(this, this, DocumentEvent.REFORMAT_DOCUMENT))));
         tabPane.getSelectionModel().selectedItemProperty().addListener(event -> {
             Tab tab = tabPane.getSelectionModel().getSelectedItem();
             if (tab != null && tab.getUserData() != null && tab.getContent() == null && tab.getUserData() instanceof OrbitFile)
