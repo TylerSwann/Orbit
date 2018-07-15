@@ -9,7 +9,6 @@ import javafx.scene.Node;
 import javafx.scene.control.PopupControl;
 import javafx.scene.control.Skin;
 import javafx.scene.input.ContextMenuEvent;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import javafx.stage.Window;
 import javafx.stage.WindowEvent;
@@ -56,6 +55,14 @@ public class MUIContextMenu extends PopupControl
         this.items.addListener((ListChangeListener<MUIMenuItem>) change -> {
             while (change.next())
             {
+                if (change.wasRemoved())
+                {
+                    change.getRemoved().forEach(removed -> {
+                        if (removed.prefWidthProperty().isBound())
+                            removed.prefWidthProperty().unbind();
+                        this.root.getChildren().removeAll(removed);
+                    });
+                }
                 if (change.wasAdded())
                 {
                     change.getAddedSubList().forEach(added -> {
@@ -64,14 +71,6 @@ public class MUIContextMenu extends PopupControl
                         if (added instanceof MUIMenu)
                             ((MUIMenu) added).setParent(this);
                         this.root.getChildren().add(added);
-                    });
-                }
-                if (change.wasRemoved())
-                {
-                    change.getRemoved().forEach(removed -> {
-                        if (removed.prefWidthProperty().isBound())
-                            removed.prefWidthProperty().unbind();
-                        this.root.getChildren().removeAll(removed);
                     });
                 }
             }
@@ -84,6 +83,7 @@ public class MUIContextMenu extends PopupControl
             if (item instanceof MUIMenu)
                 ((MUIMenu) item).setParent(this);
         });
+
         this.root.setPrefSize(130.0, 100.0);
         this.root.getChildren().addAll(this.items);
         this.getScene().setRoot(root);
@@ -111,6 +111,13 @@ public class MUIContextMenu extends PopupControl
         showTransition();
     }
 
+    @Override
+    public void show(Window ownerWindow)
+    {
+        super.show(ownerWindow);
+        showTransition();
+    }
+
     protected void showTransition()
     {
         FadeTransition fadeTransition = new FadeTransition(Duration.millis(50), this.root);
@@ -122,15 +129,6 @@ public class MUIContextMenu extends PopupControl
         scaleTransition.play();
         fadeTransition.play();
     }
-
-//    @Override
-//    public void hide()
-//    {
-//        hideTransition(() -> {
-//            if (this.isShowing())
-//                super.hide();
-//        });
-//    }
 
     protected void hideTransition(Runnable completion)
     {
@@ -145,6 +143,7 @@ public class MUIContextMenu extends PopupControl
 
     public Node getOwner() { return owner; }
     public void setOwner(Node owner) {  this.owner = owner;  }
+    public VBox getRoot() { return root; }
     public ObservableList<MUIMenuItem> itemsProperty() {  return this.items;  }
     public List<MUIMenuItem> getItems() {  return this.items;  }
 }

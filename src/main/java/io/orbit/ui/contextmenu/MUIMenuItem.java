@@ -3,7 +3,10 @@ package io.orbit.ui.contextmenu;
 import com.jfoenix.controls.JFXButton;
 import com.sun.javafx.css.converters.PaintConverter;
 import javafx.css.*;
+import javafx.geometry.Bounds;
+import javafx.scene.control.ContentDisplay;
 import javafx.scene.control.Control;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
 import org.kordamp.ikonli.Ikon;
@@ -11,6 +14,7 @@ import org.kordamp.ikonli.javafx.FontIcon;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * Created by Tyler Swann on Saturday July 07, 2018 at 14:52
@@ -18,11 +22,45 @@ import java.util.List;
 public class MUIMenuItem extends JFXButton
 {
     private static final String DEFAULT_STYLE_CLASS = "mui-context-item";
+    private MUIContextMenu contextMenu;
 
     public MUIMenuItem(Ikon iconCode, String text)
     {
         super(text, new FontIcon(iconCode));
+        this.setContentDisplay(ContentDisplay.LEFT);
         this.getStyleClass().add(DEFAULT_STYLE_CLASS);
+        this.setDisableVisualFocus(true);
+        registerListeners();
+    }
+
+    public MUIMenuItem(String text)
+    {
+        super(text);
+        this.getStyleClass().add(DEFAULT_STYLE_CLASS);
+        this.setDisableVisualFocus(true);
+        registerListeners();
+    }
+
+    private void registerListeners()
+    {
+        this.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
+            if (this.contextMenu == null)
+                return;
+            Bounds bounds = this.localToScreen(this.getBoundsInLocal());
+            double x = bounds.getMinX();
+            double y = bounds.getMinY();
+            this.contextMenu.show(x, y);
+            x = bounds.getMinX() + (this.getWidth() / 2.0);
+            y = bounds.getMinY() + (this.getHeight() / 2.0);
+            this.contextMenu.setX(x);
+            this.contextMenu.setY(y);
+        });
+    }
+
+    public void setMUIContextMenu(MUIContextMenu contextMenu)
+    {
+        this.contextMenu = Objects.requireNonNull(contextMenu);
+        this.contextMenu.setOwner(this);
     }
 
     /*

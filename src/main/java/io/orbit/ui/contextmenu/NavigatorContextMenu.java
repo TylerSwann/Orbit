@@ -1,5 +1,6 @@
 package io.orbit.ui.contextmenu;
 
+import javafx.scene.Node;
 import org.kordamp.ikonli.fontawesome5.FontAwesomeRegular;
 import org.kordamp.ikonli.fontawesome5.FontAwesomeSolid;
 import java.util.Arrays;
@@ -10,11 +11,11 @@ import java.util.List;
  */
 public class NavigatorContextMenu extends MUIContextMenu
 {
-
-
+    private static final String DEFAULT_STYLE_CLASS = "navigator-context-menu";
     public NavigatorContextMenu()
     {
         super();
+        this.root.getStyleClass().add(DEFAULT_STYLE_CLASS);
         build();
     }
 
@@ -26,7 +27,11 @@ public class NavigatorContextMenu extends MUIContextMenu
         MUIMenuItem copyRelativePath = new MUIMenuItem(FontAwesomeSolid.COPY," Copy Relative Path");
         MUIMenuItem paste = new MUIMenuItem(FontAwesomeSolid.PASTE," Paste");
         MUIMenuItem delete = new MUIMenuItem(FontAwesomeSolid.TRASH," Delete");
-        MUIMenu newMenu = test();
+
+        MUIMenuItem file = new MUIMenuItem(FontAwesomeSolid.FILE," File");
+        MUIMenuItem directory = new MUIMenuItem(FontAwesomeSolid.FOLDER," Directory");
+        MUIMenuItem project = new MUIMenuItem(FontAwesomeSolid.CUBES," Project");
+        MUIMenu newMenu = new MUIMenu("New", file, directory, project);
         List<MUIMenuItem> items = Arrays.asList(
                 newMenu,
                 cut,
@@ -36,16 +41,8 @@ public class NavigatorContextMenu extends MUIContextMenu
                 paste,
                 delete
         );
-        this.root.setPrefSize(165.0, 200.0);
+        newMenu.getSubmenu().root.getStyleClass().add(DEFAULT_STYLE_CLASS);
+        this.root.setPrefSize(175.0, 200.0);
         this.getItems().addAll(items);
-    }
-    private MUIMenu test()
-    {
-        MUIMenuItem file = new MUIMenuItem(FontAwesomeSolid.FILE," File");
-        MUIMenuItem dir = new MUIMenuItem(FontAwesomeSolid.FOLDER," Directory");
-        MUIMenuItem project = new MUIMenuItem(FontAwesomeSolid.CUBES," Project");
-        MUIMenuItem packge = new MUIMenuItem(FontAwesomeRegular.FOLDER_OPEN," Package");
-        MUIMenu menu = new MUIMenu("New", file, dir, project, packge);
-        return menu;
     }
 }

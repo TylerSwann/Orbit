@@ -1,7 +1,44 @@
 
 
 
-    <head>
+
+private EventHandler<ActionEvent> onViewPlugins;
+private EventHandler<ActionEvent> onViewTerminal;
+private EventHandler<ActionEvent> onViewNavigator;
+private EventHandler<ActionEvent> onNewFile;
+private EventHandler<ActionEvent> onNewFolder;
+private EventHandler<ActionEvent> onNewProject;
+private EventHandler<ActionEvent> onSave;
+private EventHandler<ActionEvent> onOpenFile;
+private EventHandler<ActionEvent> onOpenFolder;
+private EventHandler<ActionEvent> onSettings;
+private EventHandler<ActionEvent> onUndo;
+private EventHandler<ActionEvent> onRedo;
+private EventHandler<ActionEvent> onCut;
+private EventHandler<ActionEvent> onCopy;
+private EventHandler<ActionEvent> onPaste;
+private EventHandler<ActionEvent> onFind;
+private EventHandler<ActionEvent> onSelectAll;
+
+
+App.class.getClassLoader().getResource("fonts/roboto/Roboto-Black.ttf"),
+App.class.getClassLoader().getResource("fonts/roboto/Roboto-BlackItalic.ttf"),
+App.class.getClassLoader().getResource("fonts/roboto/Roboto-Bold.ttf"),
+App.class.getClassLoader().getResource("fonts/roboto/Roboto-BoldItalic.ttf"),
+App.class.getClassLoader().getResource("fonts/roboto/Roboto-Italic.ttf"),
+App.class.getClassLoader().getResource("fonts/roboto/Roboto-Light.ttf"),
+App.class.getClassLoader().getResource("fonts/roboto/Roboto-LightItalic.ttf"),
+App.class.getClassLoader().getResource("fonts/roboto/Roboto-Medium.ttf"),
+App.class.getClassLoader().getResource("fonts/roboto/Roboto-MediumItalic.ttf"),
+App.class.getClassLoader().getResource("fonts/roboto/Roboto-Regular.ttf"),
+App.class.getClassLoader().getResource("fonts/roboto/Roboto-Thin.ttf"),
+App.class.getClassLoader().getResource("fonts/roboto/Roboto-ThinItalic.ttf"),
+App.class.getClassLoader().getResource("fonts/roboto/RobotoCondensed-Bold.ttf"),
+App.class.getClassLoader().getResource("fonts/roboto/RobotoCondensed-BoldItalic.ttf"),
+App.class.getClassLoader().getResource("fonts/roboto/RobotoCondensed-Italic.ttf"),
+App.class.getClassLoader().getResource("fonts/roboto/RobotoCondensed-Light.ttf"),
+App.class.getClassLoader().getResource("fonts/roboto/RobotoCondensed-LightItalic.ttf"),
+App.class.getClassLoader().getResource("fonts/roboto/RobotoCondensed-Regular.ttf")
 
 App.class.getClassLoader().getResource("fonts/raleway/Raleway-Black.ttf"),
 App.class.getClassLoader().getResource("fonts/raleway/Raleway-Bold.ttf"),

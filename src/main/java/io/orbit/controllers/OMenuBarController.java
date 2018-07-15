@@ -5,6 +5,7 @@ import io.orbit.settings.LocalUser;
 import io.orbit.settings.OrbitFile;
 import io.orbit.settings.ProjectFile;
 import io.orbit.controllers.events.ApplicationEvent;
+import io.orbit.ui.menubar.ApplicationMenuBar;
 import io.orbit.util.StatelessEventTargetObject;
 import io.orbit.controllers.events.menubar.*;
 import io.orbit.ui.*;
@@ -58,8 +59,14 @@ public class OMenuBarController extends StatelessEventTargetObject
         AnchorPane.setTopAnchor(this.menuBar, 0.0);
         AnchorPane.setLeftAnchor(this.menuBar, 0.0);
         AnchorPane.setRightAnchor(this.menuBar, 0.0);
-        container.getChildren().add(this.menuBar);
-        container.getChildren().add(this.iconBar);
+//        container.getChildren().add(this.menuBar);
+//        container.getChildren().add(this.iconBar);
+
+        ApplicationMenuBar bar = new ApplicationMenuBar();
+        container.getChildren().add(bar);
+        AnchorPane.setTopAnchor(bar, 0.0);
+        AnchorPane.setLeftAnchor(bar, 0.0);
+        AnchorPane.setRightAnchor(bar, 0.0);
     }
 
 

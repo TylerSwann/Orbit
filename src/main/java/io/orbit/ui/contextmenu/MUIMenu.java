@@ -1,6 +1,5 @@
 package io.orbit.ui.contextmenu;
 
-import io.orbit.App;
 import javafx.animation.FadeTransition;
 import javafx.animation.PauseTransition;
 import javafx.animation.ScaleTransition;
@@ -12,7 +11,6 @@ import javafx.scene.input.MouseEvent;
 import javafx.util.Duration;
 import org.kordamp.ikonli.fontawesome5.FontAwesomeSolid;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 
 /**
@@ -23,13 +21,16 @@ public class MUIMenu extends MUIMenuItem
     private MUISubContextMenu submenu;
     private MUIContextMenu parentMenu;
     private boolean mouseIsHovering = false;
+    private static final String DEFAULT_STYLE_CLASS = "mui-menu";
 
     public MUIMenu(String text, MUIMenuItem... items)
     {
         super(FontAwesomeSolid.ARROW_RIGHT, text);
         this.setContentDisplay(ContentDisplay.RIGHT);
         this.submenu = new MUISubContextMenu();
-        this.submenu.getItems().addAll(Arrays.asList(items));
+        if (items != null)
+            this.submenu.getItems().addAll(Arrays.asList(items));
+        this.getStyleClass().add(DEFAULT_STYLE_CLASS);
         registerListeners();
     }
 
@@ -54,10 +55,11 @@ public class MUIMenu extends MUIMenuItem
             mouseIsHovering = true;
             if (!this.submenu.isShowing())
             {
-                Bounds boundsInScreen = this.parentMenu.getOwner().localToScreen(this.parentMenu.getOwner().getBoundsInLocal());
-                double x = boundsInScreen.getMinX() + this.parentMenu.getX() - this.parentMenu.getWidth();
-                double y = boundsInScreen.getMinY() + this.parentMenu.getY() - (this.parentMenu.getHeight() / 2.0 + 5.0);
-                this.submenu.show(this.parentMenu, x, y);
+                this.submenu.show(this.parentMenu);
+                double x = this.parentMenu.getX() + this.parentMenu.root.getWidth() + 2.0;
+                double y = this.parentMenu.getY();
+                this.submenu.setX(x);
+                this.submenu.setY(y);
             }
         });
         this.addEventHandler(MouseEvent.MOUSE_EXITED, event -> {
@@ -73,6 +75,8 @@ public class MUIMenu extends MUIMenuItem
     }
 
     public List<MUIMenuItem> getItems() {  return this.submenu.getItems();  }
+
+    public MUIContextMenu getSubmenu() { return submenu; }
 
     private class MUISubContextMenu extends MUIContextMenu
     {

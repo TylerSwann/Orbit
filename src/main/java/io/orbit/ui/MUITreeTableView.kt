@@ -43,7 +43,7 @@ class MUITreeTableView<T>: TreeView<T>
                 this.onItemRightClicked.accept(selectedItem, event)
         })
         this.addEventHandler(ContextMenuEvent.CONTEXT_MENU_REQUESTED, { event ->
-            this.menu?.show(event.screenX, event.screenY)
+            this.menu?.show(this.scene.window, event.screenX, event.screenY)
         })
     }
 
