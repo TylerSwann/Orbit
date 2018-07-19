@@ -115,13 +115,13 @@ public class ApplicationMenuBar extends MUIMenuBar implements SystemMenuBar
                 select_all
         ));
 
-        undo.setOnAction(this.onUndo);
-        redo.setOnAction(this.onRedo);
-        cut.setOnAction(this.onCut);
-        copy.setOnAction(this.onCopy);
-        paste.setOnAction(this.onPaste);
-        find.setOnAction(this.onFind);
-        select_all.setOnAction(this.onSelectAll);
+        undo.setOnAction(event -> this.onUndo.handle(event));
+        redo.setOnAction(event -> this.onRedo.handle(event));
+        cut.setOnAction(event -> this.onCut.handle(event));
+        copy.setOnAction(event -> this.onCopy.handle(event));
+        paste.setOnAction(event -> this.onPaste.handle(event));
+        find.setOnAction(event -> this.onFind.handle(event));
+        select_all.setOnAction(event -> this.onSelectAll.handle(event));
 
         menu.getRoot().getStyleClass().add(CONTEXT_MENU_STYLE_CLASS);
         edit.setMUIContextMenu(menu);

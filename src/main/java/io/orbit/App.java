@@ -1,5 +1,6 @@
 package io.orbit;
 
+import io.orbit.api.OrbitApplication;
 import io.orbit.controllers.LanguageService;
 import io.orbit.controllers.OEditorController;
 import io.orbit.controllers.OSplashPageController;
@@ -111,7 +112,10 @@ public class App extends Application
         LocalUser.applySettings();
         stage.setOnCloseRequest(event -> appEventsProperty.fire(new ApplicationEvent(ApplicationEvent.WILL_CLOSE)));
         if (PRIMARY_STAGE == null)
+        {
             PRIMARY_STAGE = new SimpleObjectProperty<>(stage);
+            ((SimpleObjectProperty<Stage>)OrbitApplication.PRIMARY_STAGE).set(stage);
+        }
         showSplashScreen();
 //        App.setApplicationTheme(new File(getClass().getClassLoader().getResource("css/SolarOrbit.css").getFile()));
     }

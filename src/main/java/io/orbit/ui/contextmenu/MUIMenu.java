@@ -71,6 +71,10 @@ public class MUIMenu extends MUIMenuItem
             });
             pause.play();
         });
+        this.submenu.addEventFilter(MouseEvent.MOUSE_CLICKED, event -> {
+            if (!(event.getTarget() instanceof MUIMenu))
+                Platform.runLater(this.parentMenu::hide);
+        });
 
     }
 

@@ -1,7 +1,9 @@
 
 
 
-
+view.html
+demo-view.html
+another_file.css
 
 
 App.class.getClassLoader().getResource("fonts/roboto/Roboto-Black.ttf"),

@@ -1,6 +1,10 @@
 package io.orbit.controllers;
 
 import io.orbit.App;
+import io.orbit.api.notification.Notifications;
+import io.orbit.api.notification.modal.MUIInputModal;
+import io.orbit.api.notification.modal.MUIModal;
+import io.orbit.api.notification.modal.MUIModalButton;
 import io.orbit.controllers.events.menubar.MenuBarEvent;
 import io.orbit.controllers.marketplaceui.MarketPlacePageController;
 import io.orbit.settings.LocalUser;
@@ -17,8 +21,11 @@ import javafx.application.Platform;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.DirectoryChooser;
 import javafx.stage.FileChooser;
+import javafx.stage.Stage;
 
 import java.io.File;
+import java.io.IOException;
+import java.util.function.Consumer;
 
 /**
  * Created by Tyler Swann on Sunday July 15, 2018 at 15:39
@@ -79,12 +86,50 @@ public class OMenuBarController extends StatelessEventTargetObject
         this.addEventHandler(MenuBarEvent.VIEW_PLUGINS, event -> Platform.runLater(MarketPlacePageController::show));
         this.addEventHandler(MenuBarEvent.OPEN_FILE, event -> this.showFileChooserDialog());
         this.addEventHandler(MenuBarEvent.OPEN_FOLDER, event -> this.showFolderChooseDialog());
+        this.addEventHandler(MenuBarEvent.NEW_FILE, event -> showFileCreationDialog(false));
+        this.addEventHandler(MenuBarEvent.NEW_FOLDER, event -> showFileCreationDialog(true));
+    }
+
+    private void showFileCreationDialog(boolean directory)
+    {
+        String type = directory ? "directory" : "file";
+        MUIModalButton cancel = new MUIModalButton("CANCEL", MUIModalButton.MUIModalButtonStyle.SECONDARY);
+        MUIModalButton create = new MUIModalButton("CREATE", MUIModalButton.MUIModalButtonStyle.PRIMARY);
+        MUIInputModal modal = new MUIInputModal(String.format("Create %s", type), String.format("Enter a new %s name:", type), cancel, create);
+        Notifications.showModal(modal);
+        create.setOnAction(__ -> {
+            String fileName = modal.getText() == null ? "" : modal.getText();
+            File file = new File(String.format("%s\\%s", LocalUser.project.getProjectRoot().getPath(), fileName));
+            if (fileName.equals("")|| !fileName.matches("^[\\w\\-.]+$"))
+                Notifications.showErrorAlert("ERROR", String.format("Sorry, that is not a valid %s name.", type));
+            else if (file.exists())
+                Notifications.showErrorAlert("ERROR", String.format("Sorry, that %s already exists!", type));
+            else
+            {
+                boolean hasError;
+                try
+                {
+                    if (!directory)
+                        hasError = !file.createNewFile();
+                    else
+                        hasError = !file.mkdir();
+                    App.applicationController().getProjectTreeViewController().forceRefresh();
+                }
+                catch (IOException ex)
+                {
+                    hasError = true;
+                    ex.printStackTrace();
+                }
+                if (hasError)
+                    Notifications.showErrorAlert("ERROR", String.format("Sorry, we ran into a problem and were unable to create that %s.", type));
+            }
+        });
     }
 
     private void saveFile(OrbitFile file)
     {
         file.save();
-        //this.statusBarController.showSnackBarMessage(String.format("Saved %s!", file.getName()), 2000);
+        Notifications.showSnackBarMessage(String.format("Saved %s!", file.getName()), 2000);
     }
 
     private void saveAll()
@@ -93,7 +138,7 @@ public class OMenuBarController extends StatelessEventTargetObject
             if (file.wasModified())
                 file.save();
         });
-       // this.statusBarController.showSnackBarMessage("Saved All!", 500);
+        Notifications.showSnackBarMessage("Saved All!", 2000);
     }
 
     private void showFindAndReplaceDialog()

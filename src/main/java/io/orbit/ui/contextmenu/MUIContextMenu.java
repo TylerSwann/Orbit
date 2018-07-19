@@ -2,6 +2,7 @@ package io.orbit.ui.contextmenu;
 
 import javafx.animation.FadeTransition;
 import javafx.animation.ScaleTransition;
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
@@ -9,6 +10,7 @@ import javafx.scene.Node;
 import javafx.scene.control.PopupControl;
 import javafx.scene.control.Skin;
 import javafx.scene.input.ContextMenuEvent;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import javafx.stage.Window;
 import javafx.stage.WindowEvent;
@@ -77,6 +79,10 @@ public class MUIContextMenu extends PopupControl
         });
         this.addEventHandler(WindowEvent.WINDOW_HIDING, __ -> {
             this.hideTransition(() -> {});
+        });
+        this.addEventFilter(MouseEvent.MOUSE_CLICKED, event -> {
+            if (!(event.getTarget() instanceof MUIMenu))
+                Platform.runLater(this::hide);
         });
         this.items.forEach(item -> {
             item.prefWidthProperty().bind(this.widthProperty());
