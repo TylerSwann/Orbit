@@ -1,8 +1,7 @@
+
 package io.orbit;
 
 import io.orbit.api.OrbitApplication;
-import io.orbit.controllers.LanguageService;
-import io.orbit.controllers.OEditorController;
 import io.orbit.controllers.OSplashPageController;
 import io.orbit.controllers.events.ApplicationEvent;
 import io.orbit.controllers.events.EventProperty;
@@ -50,27 +49,27 @@ public class App extends Application
     public static ReadOnlyObjectProperty<Stage> PRIMARY_STAGE;
 
     /*
-    * API
-    *
-    *   PluginController:
-    *       provides:
-    *          Supported File Types
-    *          User Defined UI Elements
-    *          EditorController:
-    *             provides:
-    *                Functionality to an editor
-    *             receives:
-    *                Is notified when a new editor is created and the file that coincides with the editor
-    *          LanguageDelegate:
-    *             provides:
-    *                SyntaxHighlighter
-    *                File type of supported language
-    *             receives:
-    *                None
-    *         receives:
-    *            Editor Specific Events
-    *            Minor Application Events
-    * */
+     * API
+     *
+     *   PluginController:
+     *       provides:
+     *          Supported File Types
+     *          User Defined UI Elements
+     *          EditorController:
+     *             provides:
+     *                Functionality to an editor
+     *             receives:
+     *                Is notified when a new editor is created and the file that coincides with the editor
+     *          LanguageDelegate:
+     *             provides:
+     *                SyntaxHighlighter
+     *                File type of supported language
+     *             receives:
+     *                None
+     *         receives:
+     *            Editor Specific Events
+     *            Minor Application Events
+     * */
 
     // TODO - restructure api to be better
 
@@ -116,53 +115,9 @@ public class App extends Application
             PRIMARY_STAGE = new SimpleObjectProperty<>(stage);
             ((SimpleObjectProperty<Stage>)OrbitApplication.PRIMARY_STAGE).set(stage);
         }
-        showSplashScreen();
+        OSplashPageController.show();
 //        App.setApplicationTheme(new File(getClass().getClassLoader().getResource("css/SolarOrbit.css").getFile()));
     }
-
-
-
-    private void showSplashScreen()
-    {
-        OSplashPageController.show();
-        PauseTransition part1 = new PauseTransition();
-        PauseTransition part2 = new PauseTransition();
-        PauseTransition part3 = new PauseTransition();
-        PauseTransition part4 = new PauseTransition();
-        PauseTransition part5 = new PauseTransition();
-        PauseTransition[] transitions = new PauseTransition[] {
-                part1,
-                part2,
-                part3,
-                part4,
-                part5
-        };
-        Arrays.stream(transitions).forEach(it -> it.setDuration(Duration.millis(100)));
-        part1.setOnFinished(event1 -> {
-            Platform.runLater(() -> OSplashPageController.updateProgress(0.2, "Performing initial setup..."));
-            part2.setOnFinished(event2 -> {
-                Platform.runLater(() -> OSplashPageController.updateProgress(0.4, "Loading Application Files..."));
-                part3.setOnFinished(event3 -> {
-                    Platform.runLater(() -> OSplashPageController.updateProgress(0.6, "Loading User Settings..."));
-                    part4.setOnFinished(event4 -> {
-                        Platform.runLater(() -> OSplashPageController.updateProgress(0.8, "Applying User Settings..."));
-                        part5.setOnFinished(event5 -> {
-                            Platform.runLater(() -> OSplashPageController.updateProgress(1.0, "Done"));
-                            OSplashPageController.close();
-                            appEventsProperty.fire(new ApplicationEvent(ApplicationEvent.WILL_LOAD));
-                            PRIMARY_STAGE.get().show();
-                        });
-                        part5.play();
-                    });
-                    part4.play();
-                });
-                part3.play();
-            });
-            part2.play();
-        });
-        part1.play();
-    }
-
 
     private void performInitialSetup()
     {

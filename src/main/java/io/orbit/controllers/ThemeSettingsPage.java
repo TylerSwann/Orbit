@@ -93,9 +93,13 @@ public class ThemeSettingsPage
     private void applySettings(ActionEvent event)
     {
         if (this.appThemeBox.getValue() != null)
+        {
             App.setApplicationTheme(this.appThemeBox.getValue().second);
+        }
         if (this.syntaxThemeBox.getValue() != null)
+        {
             App.setSyntaxTheme(this.syntaxThemeBox.getValue().second);
+        }
         if (this.fontFamilyBox.getValue() != null)
         {
             SerializableFont font = new SerializableFont(this.fontFamilyBox.getValue().second.getFamily(), this.fontSizeSlider.getValue());

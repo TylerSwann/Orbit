@@ -2,6 +2,8 @@ package io.orbit.controllers;
 
 import com.jfoenix.controls.JFXProgressBar;
 import io.orbit.App;
+import io.orbit.controllers.events.ApplicationEvent;
+import javafx.animation.PauseTransition;
 import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Rectangle2D;
@@ -14,9 +16,11 @@ import javafx.scene.text.TextAlignment;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import javafx.util.Duration;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.Arrays;
 
 /**
  * Created by Tyler Swann on Friday April 06, 2018 at 11:10
@@ -52,12 +56,53 @@ public class OSplashPageController
         }
         stage.show();
         Platform.runLater(() -> controller.statusLabel.setText(""));
+        playAnimation();
     }
 
     public static void updateProgress(double progress, String message)
     {
         controller.progressBar.setProgress(progress);
         controller.statusLabel.setText(message);
+    }
+
+    private static void playAnimation()
+    {
+        PauseTransition part1 = new PauseTransition();
+        PauseTransition part2 = new PauseTransition();
+        PauseTransition part3 = new PauseTransition();
+        PauseTransition part4 = new PauseTransition();
+        PauseTransition part5 = new PauseTransition();
+        PauseTransition[] transitions = new PauseTransition[] {
+                part1,
+                part2,
+                part3,
+                part4,
+                part5
+        };
+        Arrays.stream(transitions).forEach(it -> it.setDuration(Duration.millis(100)));
+        part1.setOnFinished(event1 -> {
+            Platform.runLater(() -> OSplashPageController.updateProgress(0.2, "Performing initial setup..."));
+            part2.setOnFinished(event2 -> {
+                Platform.runLater(() -> OSplashPageController.updateProgress(0.4, "Loading Application Files..."));
+                part3.setOnFinished(event3 -> {
+                    Platform.runLater(() -> OSplashPageController.updateProgress(0.6, "Loading User Settings..."));
+                    part4.setOnFinished(event4 -> {
+                        Platform.runLater(() -> OSplashPageController.updateProgress(0.8, "Applying User Settings..."));
+                        part5.setOnFinished(event5 -> {
+                            Platform.runLater(() -> OSplashPageController.updateProgress(1.0, "Done"));
+                            OSplashPageController.close();
+                            App.appEventsProperty.fire(new ApplicationEvent(ApplicationEvent.WILL_LOAD));
+                            App.PRIMARY_STAGE.get().show();
+                        });
+                        part5.play();
+                    });
+                    part4.play();
+                });
+                part3.play();
+            });
+            part2.play();
+        });
+        part1.play();
     }
 
     public static void close()

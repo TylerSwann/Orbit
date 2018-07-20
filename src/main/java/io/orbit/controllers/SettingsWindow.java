@@ -59,7 +59,6 @@ public class SettingsWindow extends Stage
         Scene scene = new Scene(root, 1287,749);
         this.setScene(scene);
         App.appTheme.sync(this.getScene().getStylesheets());
-        //App.bindThemesToStage(this);
     }
 
     private void addListeners()
