@@ -5,7 +5,7 @@
 
 <AnchorPane id="root" fx:id="container" prefHeight="891.0" prefWidth="1781.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="io.orbit.ApplicationController">
    <children>
-      <SplitPane fx:id="rootSplitPane" dividerPositions="0.19280494659921305" layoutX="404.0" layoutY="75.0" prefHeight="786.0" prefWidth="1781.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="40.0">
+      <SplitPane fx:id="rootSplitPane" dividerPositions="0.19280494659921305" layoutX="404.0" layoutY="75.0" prefHeight="786.0" prefWidth="1781.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="29.0">
         <items>
           <AnchorPane fx:id="navigatorContainer" minHeight="0.0" minWidth="0.0" prefHeight="779.0" prefWidth="307.0" />
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
