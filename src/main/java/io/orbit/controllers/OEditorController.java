@@ -42,6 +42,7 @@ public class OEditorController extends StatelessEventTargetObject
         App.appEventsProperty.addEventListener(ApplicationEvent.WILL_CLOSE, event -> this.saveUserSettings());
         registerSelectionListeners();
         loadUserSettings();
+        this.tabPane.getStyleClass().add("editor-tab-pane");
 //        App.appEventsProperty.addEventListener(ApplicationEvent.WILL_LOAD, appEvent -> {
 //            OMenuBarController3 menuBarController = App.applicationController().getMenuBarController();
 //            menuBarController.addEventHandler(MenuBarFileEvent.SAVE_ALL, event -> {

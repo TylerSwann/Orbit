@@ -39,8 +39,6 @@ public class ApplicationController
         this.menuBarController = new OMenuBarController(this.container);
         this.projectNavigatorController = new ONavigatorController(this.navigatorContainer);
 
-//        new ONavigatorController2(this.navigatorContainer);
-
         this.projectTreeViewController = new OProjectTreeViewController();
         this.tabPaneController = new OTabPaneController(new JFXTabPane(), this.editorContainer);
         this.editorController = new OEditorController(this.tabPaneController.getTabPane());

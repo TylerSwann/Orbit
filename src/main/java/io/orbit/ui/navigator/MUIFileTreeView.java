@@ -29,6 +29,10 @@ public class MUIFileTreeView extends TreeView<File>
         this.mapRootFolder();
     }
 
+    public void forceRefresh()
+    {
+        this.mapRootFolder();
+    }
 
     private void build()
     {

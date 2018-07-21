@@ -1,33 +1,43 @@
 package io.orbit.controllers;
 
-import com.jfoenix.controls.JFXTabPane;
 import io.orbit.App;
 import io.orbit.ApplicationController;
-import io.orbit.settings.LocalUser;
 import io.orbit.controllers.events.ApplicationEvent;
 import io.orbit.controllers.events.menubar.MenuBarEvent;
+import io.orbit.settings.LocalUser;
+import io.orbit.ui.contextmenu.NavigatorContextMenu;
+import io.orbit.ui.navigator.NavigatorTabPane;
 import javafx.application.Platform;
-import javafx.geometry.Insets;
-import javafx.geometry.Pos;
-import javafx.scene.control.Tab;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.VBox;
-import javafx.scene.paint.Color;
-import org.kordamp.ikonli.fontawesome5.FontAwesomeSolid;
-import org.kordamp.ikonli.fontawesome5.FontAwesomeBrands;
-import org.kordamp.ikonli.javafx.FontIcon;
+
+import java.io.File;
 
 /**
- * Created by Tyler Swann on Thursday February 15, 2018 at 17:04
+ * Created by Tyler Swann on Thursday July 19, 2018 at 19:29
  */
 public class ONavigatorController
 {
-    private JFXTabPane navigatorTabPane;
     private AnchorPane container;
+    private NavigatorTabPane navigator;
+    private File root;
 
     public ONavigatorController(AnchorPane container)
     {
+        this.root = LocalUser.userSettings.getLastModifiedProject().getProjectRoot();
         this.container = container;
+        registerListeners();
+    }
+
+    /**
+     * Forces the MUIFileTreeView (Project Tree View) to refresh the files in its root folder.
+     */
+    public void forceRefresh()
+    {
+        this.navigator.getProjectTreeView().forceRefresh();
+    }
+
+    private void registerListeners()
+    {
         boolean navigatorIsClosed = LocalUser.userSettings.isNavigatorClosed();
         if (navigatorIsClosed)
             Platform.runLater(() -> App.applicationController().rootSplitPane.getItems().remove(container));
@@ -48,7 +58,7 @@ public class ONavigatorController
         if (navigatorIsClosed)
         {
             controller.rootSplitPane.getItems().add(0, this.container);
-            if (this.navigatorTabPane == null)
+            if (this.navigator == null)
                 build();
             controller.rootSplitPane.setDividerPosition(0, LocalUser.userSettings.getNavigatorDividerPos());
         }
@@ -56,51 +66,18 @@ public class ONavigatorController
             controller.rootSplitPane.getItems().remove(this.container);
     }
 
-
     private void build()
     {
-        this.navigatorTabPane = new JFXTabPane();
-        Tab gitTab = new Tab();
-        Tab projectStructureTab = new Tab();
-        FontIcon gitIcon = new FontIcon(FontAwesomeBrands.GITHUB_SQUARE);
-        FontIcon projectIcon = new FontIcon(FontAwesomeSolid.FOLDER_OPEN);
-        VBox gitIconContainer = new VBox(gitIcon);
-        VBox projectIconContainer = new VBox(projectIcon);
-
-        gitIcon.setFill(Color.BLACK);
-        projectIcon.setFill(Color.BLACK);
-
-        double scale = 1.5;
-        double tabHeight = 25.5;
-        double tabWidth = 100.0;
-
-        gitIcon.setScaleX(scale);
-        gitIcon.setScaleY(scale);
-        projectIcon.setScaleX(scale);
-        projectIcon.setScaleY(scale);
-        gitIconContainer.setPrefSize(tabWidth, tabHeight);
-        projectIconContainer.setPrefSize(tabWidth, tabHeight);
-        gitIconContainer.setAlignment(Pos.CENTER);
-        projectIconContainer.setAlignment(Pos.CENTER);
-        projectIconContainer.setPadding(Insets.EMPTY);
-
-        gitTab.setGraphic(gitIconContainer);
-        projectStructureTab.setGraphic(projectIconContainer);
-        this.navigatorTabPane.setPadding(Insets.EMPTY);
-        navigatorTabPane.getTabs().addAll(projectStructureTab, gitTab);
-        navigatorTabPane.getStyleClass().add("navigator-tab-pane");
-
-        AnchorPane.setTopAnchor(this.navigatorTabPane, 0.0);
-        AnchorPane.setBottomAnchor(this.navigatorTabPane, 0.0);
-        AnchorPane.setLeftAnchor(this.navigatorTabPane, 0.0);
-        AnchorPane.setRightAnchor(this.navigatorTabPane, 0.0);
-
-        container.getChildren().add(this.navigatorTabPane);
-
+        this.navigator = new NavigatorTabPane(root);
+        this.navigator.getProjectTreeView().setContextMenu(new NavigatorContextMenu());
+        AnchorPane.setTopAnchor(navigator, 0.0);
+        AnchorPane.setBottomAnchor(navigator, 0.0);
+        AnchorPane.setLeftAnchor(navigator, 0.0);
+        AnchorPane.setRightAnchor(navigator, 0.0);
+        container.getChildren().add(navigator);
         Platform.runLater(() -> {
             ApplicationController controller = App.applicationController();
             controller.rootSplitPane.setDividerPosition(0, LocalUser.userSettings.getNavigatorDividerPos());
-            controller.getProjectTreeViewController().setTab(projectStructureTab);
             controller.rootSplitPane
                     .getDividers()
                     .get(0)
