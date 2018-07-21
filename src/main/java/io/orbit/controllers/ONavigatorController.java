@@ -20,6 +20,7 @@ public class ONavigatorController
     private AnchorPane container;
     private NavigatorTabPane navigator;
     private File root;
+    private OProjectViewController projectViewController;
 
     public ONavigatorController(AnchorPane container)
     {
@@ -69,7 +70,7 @@ public class ONavigatorController
     private void build()
     {
         this.navigator = new NavigatorTabPane(root);
-        this.navigator.getProjectTreeView().setContextMenu(new NavigatorContextMenu());
+        this.projectViewController = new OProjectViewController(this.navigator.getProjectTreeView());
         AnchorPane.setTopAnchor(navigator, 0.0);
         AnchorPane.setBottomAnchor(navigator, 0.0);
         AnchorPane.setLeftAnchor(navigator, 0.0);
@@ -88,4 +89,6 @@ public class ONavigatorController
                     });
         });
     }
+
+    public OProjectViewController getProjectViewController() { return projectViewController; }
 }

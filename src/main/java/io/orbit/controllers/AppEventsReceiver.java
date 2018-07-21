@@ -6,7 +6,6 @@ import io.orbit.settings.OrbitFile;
 import io.orbit.settings.UnownedProjectFile;
 import io.orbit.controllers.events.ApplicationEvent;
 import io.orbit.api.event.DocumentEvent;
-import io.orbit.controllers.events.IOEvent;
 import io.orbit.ui.MUIDialog;
 import io.orbit.util.Size;
 import javafx.application.Platform;
@@ -40,17 +39,17 @@ public class AppEventsReceiver
     private void registerListeners()
     {
         LanguageService.open(OEditorController.activeEditorProperty(), 1);
-        OProjectTreeViewController projectTreeViewController = App.applicationController().getProjectTreeViewController();
+//        OProjectTreeViewController projectTreeViewController = App.applicationController().getProjectTreeViewController();
         OEditorController editorController = App.applicationController().getEditorController();
         this.statusBarController = App.applicationController().getStatusBarController();
-        projectTreeViewController.addEventHandler(IOEvent.CREATE_FILE, event -> event.getTargetFile().ifPresent(this::createNewFileEvent));
-        projectTreeViewController.addEventHandler(IOEvent.CREATE_DIRECTORY, event -> event.getTargetFile().ifPresent(this::createNewDirectoryEvent));
-        projectTreeViewController.addEventHandler(IOEvent.DELETE_FILE, event -> event.getTargetFile().ifPresent(this::deleteFileEvent));
-        projectTreeViewController.addEventHandler(IOEvent.CUT_FILE, event -> event.getTargetFile().ifPresent(this::cutFile));
-        projectTreeViewController.addEventHandler(IOEvent.COPY_FILE, event -> event.getTargetFile().ifPresent(this::copyFile));
-        projectTreeViewController.addEventHandler(IOEvent.COPY_PATH, event -> event.getTargetFile().ifPresent(this::copyFilePath));
-        projectTreeViewController.addEventHandler(IOEvent.COPY_RELATIVE_PATH, event -> event.getTargetFile().ifPresent(this::copyFileRelativePath));
-        projectTreeViewController.addEventHandler(IOEvent.PASTE_FILE, event -> event.getTargetFile().ifPresent(this::pasteFile));
+//        projectTreeViewController.addEventHandler(IOEvent.CREATE_FILE, event -> event.getTargetFile().ifPresent(this::createNewFileEvent));
+//        projectTreeViewController.addEventHandler(IOEvent.CREATE_DIRECTORY, event -> event.getTargetFile().ifPresent(this::createNewDirectoryEvent));
+//        projectTreeViewController.addEventHandler(IOEvent.DELETE_FILE, event -> event.getTargetFile().ifPresent(this::deleteFileEvent));
+//        projectTreeViewController.addEventHandler(IOEvent.CUT_FILE, event -> event.getTargetFile().ifPresent(this::cutFile));
+//        projectTreeViewController.addEventHandler(IOEvent.COPY_FILE, event -> event.getTargetFile().ifPresent(this::copyFile));
+//        projectTreeViewController.addEventHandler(IOEvent.COPY_PATH, event -> event.getTargetFile().ifPresent(this::copyFilePath));
+//        projectTreeViewController.addEventHandler(IOEvent.COPY_RELATIVE_PATH, event -> event.getTargetFile().ifPresent(this::copyFileRelativePath));
+//        projectTreeViewController.addEventHandler(IOEvent.PASTE_FILE, event -> event.getTargetFile().ifPresent(this::pasteFile));
 
         App.appEventsProperty.addEventListener(ApplicationEvent.WILL_CLOSE, event -> this.saveWindowSizeToSettings());
         editorController.addEventHandler(DocumentEvent.SAVE_FILE, event -> event.getSourceFile().ifPresent(this::saveFile));
@@ -115,7 +114,7 @@ public class AppEventsReceiver
             File newFile = new File(String.format("%s\\%s", parentDir.getPath(), fileName));
             try { newFile.createNewFile(); }
             catch (IOException ex) {  ex.printStackTrace();  }
-            App.applicationController().getProjectTreeViewController().forceRefresh();
+            App.applicationController().getProjectNavigatorController().forceRefresh();
         }));
     }
 
@@ -125,7 +124,7 @@ public class AppEventsReceiver
             File parentDir = targetFile.isDirectory() ? targetFile : targetFile.getParentFile();
             File newFile = new File(String.format("%s\\%s", parentDir.getPath(), fileName));
             newFile.mkdir();
-            App.applicationController().getProjectTreeViewController().forceRefresh();
+            App.applicationController().getProjectNavigatorController().forceRefresh();
         }));
     }
 
@@ -147,7 +146,7 @@ public class AppEventsReceiver
                     e.printStackTrace();
                 }
             }
-            Platform.runLater(App.applicationController().getProjectTreeViewController()::forceRefresh);
+            Platform.runLater(() -> App.applicationController().getProjectNavigatorController().forceRefresh());
         });
     }
 
@@ -223,7 +222,7 @@ public class AppEventsReceiver
                     alert("ERROR", "Couldn't perform files operation");
                     ex.printStackTrace();
                 }
-                Platform.runLater(App.applicationController().getProjectTreeViewController()::forceRefresh);
+                Platform.runLater(() -> App.applicationController().getProjectNavigatorController().forceRefresh());
             };
             if (destination.exists())
                 showConfirmOverwriteDialog(destination.getName(), performOperation);

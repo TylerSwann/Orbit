@@ -3,6 +3,7 @@ package io.orbit;
 import com.jfoenix.controls.JFXTabPane;
 import io.orbit.controllers.*;
 import io.orbit.util.FontLoader;
+import javafx.fxml.FXML;
 import javafx.scene.control.SplitPane;
 import javafx.scene.layout.AnchorPane;
 
@@ -13,14 +14,14 @@ import javafx.scene.layout.AnchorPane;
 public class ApplicationController
 {
 
-    public AnchorPane container;
-    public AnchorPane navigatorContainer;
+    @FXML private AnchorPane container;
+    @FXML private AnchorPane navigatorContainer;
     public SplitPane rootSplitPane;
-    public AnchorPane editorContainer;
-    public AnchorPane terminalContainer;
+    @FXML private AnchorPane editorContainer;
+    @FXML private AnchorPane terminalContainer;
     public SplitPane contentSplitPane;
 
-    private OProjectTreeViewController projectTreeViewController;
+    private OProjectViewController projectViewController;
     private OTabPaneController tabPaneController;
     private OMenuBarController menuBarController;
     private OEditorController editorController;
@@ -38,8 +39,6 @@ public class ApplicationController
         this.terminalController = new OTerminalController(this.terminalContainer);
         this.menuBarController = new OMenuBarController(this.container);
         this.projectNavigatorController = new ONavigatorController(this.navigatorContainer);
-
-        this.projectTreeViewController = new OProjectTreeViewController();
         this.tabPaneController = new OTabPaneController(new JFXTabPane(), this.editorContainer);
         this.editorController = new OEditorController(this.tabPaneController.getTabPane());
         this.statusBarController = new OStatusBarController(this.container);
@@ -47,10 +46,10 @@ public class ApplicationController
         this.receiver = new AppEventsReceiver();
     }
 
-    public OProjectTreeViewController getProjectTreeViewController() { return projectTreeViewController; }
     public OTabPaneController getTabPaneController() { return tabPaneController; }
     public OMenuBarController getMenuBarController() { return menuBarController; }
     public OEditorController getEditorController() { return editorController; }
     public OTerminalController getTerminalController() { return terminalController; }
     public OStatusBarController getStatusBarController() { return statusBarController; }
+    public ONavigatorController getProjectNavigatorController() { return projectNavigatorController; }
 }

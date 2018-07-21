@@ -18,6 +18,7 @@ import java.util.function.Consumer;
 /**
  * Created by Tyler Swann on Thursday April 12, 2018 at 14:25
  */
+@Deprecated
 public class OStatusBarController
 {
     private Label statusLabel;

@@ -1,7 +1,6 @@
 package io.orbit.ui.navigator;
 
 import com.jfoenix.controls.JFXTabPane;
-import io.orbit.ui.contextmenu.NavigatorContextMenu;
 import javafx.scene.control.Tab;
 import org.kordamp.ikonli.fontawesome5.FontAwesomeBrands;
 import org.kordamp.ikonli.fontawesome5.FontAwesomeSolid;

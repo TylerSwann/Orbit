@@ -113,7 +113,7 @@ public class OMenuBarController extends StatelessEventTargetObject
                         hasError = !file.createNewFile();
                     else
                         hasError = !file.mkdir();
-                    App.applicationController().getProjectTreeViewController().forceRefresh();
+                    App.applicationController().getProjectNavigatorController().forceRefresh();
                 }
                 catch (IOException ex)
                 {

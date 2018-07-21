@@ -29,6 +29,7 @@ import java.io.File;
 /**
  * Created by Tyler Swann on Saturday January 06, 2018 at 15:53
  */
+@Deprecated
 public class OProjectTreeViewController extends StatelessEventTargetObject
 {
     private MUITreeTableView<String> treeView;
