@@ -6,6 +6,7 @@ import javafx.scene.paint.Paint;
  * Created by TylersDesktop on 12/28/2017.
  *
  */
+@Deprecated
 public class Color
 {
     public static final Color RED = new Color(255, 0, 0, 1.0);

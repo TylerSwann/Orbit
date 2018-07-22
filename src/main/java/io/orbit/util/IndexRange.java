@@ -3,6 +3,7 @@ package io.orbit.util;
 /**
  * Created by Tyler Swann on Sunday February 25, 2018 at 17:49
  */
+@Deprecated
 public class IndexRange
 {
     public final int start;

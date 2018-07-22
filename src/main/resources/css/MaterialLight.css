@@ -111,6 +111,44 @@
     -fx-translate-x: 50px;
 }
 
+/*******************************************************************************
+ *                                                                             *
+ *                           Editor Context Menu                               *
+ *                                                                             *
+ ******************************************************************************/
+
+.editor-context-menu.mui-context-menu
+{
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.8), 15.0, 0.0, 1.5, 2.0);
+    -fx-background-color: white;
+    -fx-background-radius: 3px;
+    -fx-pref-width: 150.0;
+}
+
+
+.editor-context-menu.mui-context-menu .mui-context-item
+{
+    -fx-text-fill: black;
+    -fx-alignment: center-left;
+    -fx-font-size: 14px;
+    -fx-font-family: "Roboto Medium";
+    -fx-padding: 10px 15px;
+    -fx-pref-width: 150.0;
+}
+.editor-context-menu.mui-context-menu .mui-context-item .ikonli-font-icon
+{
+    -fx-icon-size: 12px;
+    -fx-text-alignment: left;
+    -fx-alignment: center-left;
+}
+.editor-context-menu.mui-context-menu .mui-context-item:hover
+{
+    -fx-background-color: hover-color;
+}
+.editor-context-menu.mui-context-menu .mui-context-item.mui-menu .ikonli-font-icon
+{
+    -fx-translate-x: 90px;
+}
 
 
 /*******************************************************************************
@@ -353,4 +391,69 @@
     -fx-background-color: white;
     -fx-border-color: white;
     -fx-background: white;
+}
+
+
+
+/*******************************************************************************
+ *                                                                             *
+ *                                  Modal                                      *
+ *                                                                             *
+ ******************************************************************************/
+
+.mui-modal
+{
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.6), 30.0, 0.0, 1.5, 2.0);
+    -fx-background-color: white;
+    -fx-background-radius: 5px;
+}
+
+.mui-modal .title
+{
+    -fx-font-family: "Raleway Bold", sans-serif;
+    -fx-font-size: 21px;
+}
+
+.mui-modal .message
+{
+    -fx-font-family: "Raleway Regular", sans-serif;
+    -fx-font-size: 16px;
+}
+
+.mui-modal .primary,
+.mui-modal .secondary,
+.mui-modal .destructive
+{
+    -fx-font-family: "Raleway Black", sans-serif;
+    -fx-text-fill: rgba(0, 0, 0, 0.87);
+    -fx-padding: 9px 11px;
+}
+.mui-modal .primary:hover,
+.mui-modal .secondary:hover
+{
+    -fx-background-color: hover-color;
+}
+
+.mui-modal .destructive
+{
+    -fx-text-fill: #d2d2d2;
+    -fx-background-color: rgb(215, 76, 50);
+}
+.mui-modal .destructive:hover
+{
+    -fx-background-color: rgb(215, 87, 63);
+}
+
+.mui-modal .destructive .ikonli-font-icon
+{
+    -fx-icon-color: #d2d2d2;
+}
+
+.mui-modal .ikonli-font-icon.error-icon
+{
+    -fx-icon-color: rgb(215, 87, 63);
+}
+.mui-modal .ikonli-font-icon.warning-icon
+{
+    -fx-icon-color: rgb(135, 255, 126);
 }

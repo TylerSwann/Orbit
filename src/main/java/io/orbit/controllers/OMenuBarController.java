@@ -134,21 +134,23 @@ public class OMenuBarController extends StatelessEventTargetObject
 
     private void saveAll()
     {
-        App.applicationController().getEditorController().getOpenProjectFiles().forEach(file -> {
-            if (file.wasModified())
-                file.save();
-        });
+        // TODO - update to new OEditorController
+//        App.applicationController().getEditorController().getOpenProjectFiles().forEach(file -> {
+//            if (file.wasModified())
+//                file.save();
+//        });
         Notifications.showSnackBarMessage("Saved All!", 2000);
     }
 
     private void showFindAndReplaceDialog()
     {
-        TextEditorPane pane = (TextEditorPane) App.applicationController()
-                .getTabPaneController()
-                .getTabPane()
-                .getSelectionModel()
-                .getSelectedItem().getContent();
-        pane.showFindAndReplaceDialog(false);
+        // TODO - update to new OEditorController
+//        TextEditorPane pane = (TextEditorPane) App.applicationController()
+//                .getTabPaneController()
+//                .getTabPane()
+//                .getSelectionModel()
+//                .getSelectedItem().getContent();
+//        pane.showFindAndReplaceDialog(false);
     }
 
     private void showSettingsPage()
@@ -158,8 +160,9 @@ public class OMenuBarController extends StatelessEventTargetObject
         Setting themeAndFonts = new Setting("Themes and Fonts", ThemeSettingsPage.load());
         Setting editorSettings = new Setting("Editor", new Setting[] { new Setting("Key Bindings", KeyBindingsPageController.load()) });
         settingsWindow = new SettingsWindow(new Setting[]{ themeAndFonts, editorSettings });
-        ThemeSettingsPage.CONTROLLER.setOnEditSyntaxTheme(file -> App.applicationController().getTabPaneController().openNonProjectFile(file, UnownedProjectFile.UnownedProjectFileMode.EDIT_SYNTAX_THEME));
-        ThemeSettingsPage.CONTROLLER.setOnEditUITheme(file -> App.applicationController().getTabPaneController().openNonProjectFile(file, UnownedProjectFile.UnownedProjectFileMode.EDIT_UI_THEME));
+        // TODO - update to new OEditorController
+//        ThemeSettingsPage.CONTROLLER.setOnEditSyntaxTheme(file -> App.applicationController().getTabPaneController().openNonProjectFile(file, UnownedProjectFile.UnownedProjectFileMode.EDIT_SYNTAX_THEME));
+//        ThemeSettingsPage.CONTROLLER.setOnEditUITheme(file -> App.applicationController().getTabPaneController().openNonProjectFile(file, UnownedProjectFile.UnownedProjectFileMode.EDIT_UI_THEME));
         settingsWindow.setOnCloseRequest(event -> settingsWindow = null);
         settingsWindow.show();
     }

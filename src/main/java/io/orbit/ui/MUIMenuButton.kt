@@ -17,6 +17,7 @@ import kotlin.collections.ArrayList
 /**
  * Created by Tyler Swann on Friday February 02, 2018 at 15:23
  */
+@Deprecated("No Longer Used")
 public open class MUIMenuButton: MUIButton
 {
     private var iconView: FontIcon? = null

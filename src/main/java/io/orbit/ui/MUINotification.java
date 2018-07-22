@@ -18,6 +18,7 @@ import org.kordamp.ikonli.javafx.FontIcon;
 /**
  * Created by Tyler Swann on Wednesday July 04, 2018 at 09:24
  */
+@Deprecated
 public class MUINotification extends PopupControl
 {
     private Label titleLabel;

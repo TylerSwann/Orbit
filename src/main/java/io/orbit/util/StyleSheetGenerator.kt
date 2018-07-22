@@ -3,7 +3,7 @@ package io.orbit.util
 /**
  * Created by Tyler Swann on Sunday January 21, 2018 at 09:07
  */
-
+@Deprecated("No Longer Used")
 class StyleSheetGenerator
 {
     private val classes: HashMap<String, StyleClass> = HashMap()

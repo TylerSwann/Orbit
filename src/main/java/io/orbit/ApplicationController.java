@@ -22,11 +22,12 @@ public class ApplicationController
     public SplitPane contentSplitPane;
 
     private OProjectViewController projectViewController;
-    private OTabPaneController tabPaneController;
+//    private OTabPaneController tabPaneController;
     private OMenuBarController menuBarController;
-    private OEditorController editorController;
+//    private OEditorController editorController;
     private OTerminalController terminalController;
     private ONavigatorController projectNavigatorController;
+    private OEditorController2 editorController;
     private AppEventsReceiver receiver;
 
 
@@ -38,15 +39,17 @@ public class ApplicationController
         this.terminalController = new OTerminalController(this.terminalContainer);
         this.menuBarController = new OMenuBarController(this.container);
         this.projectNavigatorController = new ONavigatorController(this.navigatorContainer);
-        this.tabPaneController = new OTabPaneController(new JFXTabPane(), this.editorContainer);
-        this.editorController = new OEditorController(this.tabPaneController.getTabPane());
+        this.editorController = new OEditorController2(this.editorContainer);
+//        this.tabPaneController = new OTabPaneController(new JFXTabPane(), this.editorContainer);
+//        this.editorController = new OEditorController(this.tabPaneController.getTabPane());
         this.rootSplitPane.widthProperty().addListener(event -> this.rootSplitPane.getDividers().forEach(div -> div.setPosition(0.1911)));
         this.receiver = new AppEventsReceiver();
     }
 
-    public OTabPaneController getTabPaneController() { return tabPaneController; }
+//    public OTabPaneController getTabPaneController() { return tabPaneController; }
     public OMenuBarController getMenuBarController() { return menuBarController; }
-    public OEditorController getEditorController() { return editorController; }
+//    public OEditorController getEditorController() { return editorController; }
+    public OEditorController2 getEditorController() { return this.editorController; }
     public OTerminalController getTerminalController() { return terminalController; }
     public ONavigatorController getProjectNavigatorController() { return projectNavigatorController; }
 }

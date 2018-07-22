@@ -25,6 +25,7 @@ import java.util.function.Consumer;
 /**
  * Created by Tyler Swann on Sunday April 15, 2018 at 16:40
  */
+@Deprecated
 public class MUIDialog extends PopupControl
 {
     private String title;

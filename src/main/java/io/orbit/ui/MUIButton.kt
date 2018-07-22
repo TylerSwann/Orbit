@@ -19,6 +19,7 @@ import java.util.*
 /**
  * Created by Tyler Swann on Saturday February 03, 2018 at 18:18
  */
+@Deprecated("No Longer Used")
 public open class MUIButton: Button
 {
     private var ripples = ArrayList<Ripple>()

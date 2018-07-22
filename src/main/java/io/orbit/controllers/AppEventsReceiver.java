@@ -24,6 +24,7 @@ import java.util.function.Consumer;
 /**
  * Created by Tyler Swann on Sunday April 15, 2018 at 16:33
  */
+@Deprecated
 public class AppEventsReceiver
 {
     private static final DataFormat FILE_PATH = new DataFormat("file/path");
@@ -38,9 +39,9 @@ public class AppEventsReceiver
     }
     private void registerListeners()
     {
-        LanguageService.open(OEditorController.activeEditorProperty(), 1);
+//        LanguageService.open(OEditorController.activeEditorProperty(), 1);
 //        OProjectTreeViewController projectTreeViewController = App.applicationController().getProjectTreeViewController();
-        OEditorController editorController = App.applicationController().getEditorController();
+
 //        this.statusBarController = App.applicationController().getStatusBarController();
 //        projectTreeViewController.addEventHandler(IOEvent.CREATE_FILE, event -> event.getTargetFile().ifPresent(this::createNewFileEvent));
 //        projectTreeViewController.addEventHandler(IOEvent.CREATE_DIRECTORY, event -> event.getTargetFile().ifPresent(this::createNewDirectoryEvent));
@@ -52,9 +53,11 @@ public class AppEventsReceiver
 //        projectTreeViewController.addEventHandler(IOEvent.PASTE_FILE, event -> event.getTargetFile().ifPresent(this::pasteFile));
 
         App.appEventsProperty.addEventListener(ApplicationEvent.WILL_CLOSE, event -> this.saveWindowSizeToSettings());
-        editorController.addEventHandler(DocumentEvent.SAVE_FILE, event -> event.getSourceFile().ifPresent(this::saveFile));
-        editorController.addEventHandler(DocumentEvent.SAVE_ALL, event -> this.saveAll());
-        editorController.addEventHandler(DocumentEvent.SAVE_NON_PROJECT_FILE, event -> event.getSourceFile().ifPresent(this::saveNonProjectFile));
+        // TODO - Editor controller events
+//        OEditorController editorController = App.applicationController().getEditorController();
+//        editorController.addEventHandler(DocumentEvent.SAVE_FILE, event -> event.getSourceFile().ifPresent(this::saveFile));
+//        editorController.addEventHandler(DocumentEvent.SAVE_ALL, event -> this.saveAll());
+//        editorController.addEventHandler(DocumentEvent.SAVE_NON_PROJECT_FILE, event -> event.getSourceFile().ifPresent(this::saveNonProjectFile));
 
     }
 
@@ -255,10 +258,10 @@ public class AppEventsReceiver
 
     private void saveAll()
     {
-        App.applicationController().getEditorController().getOpenProjectFiles().forEach(file -> {
-            if (file.wasModified())
-                file.save();
-        });
+//        App.applicationController().getEditorController().getOpenProjectFiles().forEach(file -> {
+//            if (file.wasModified())
+//                file.save();
+//        });
 //        this.statusBarController.showSnackBarMessage("Saved All!", 500);
     }
 

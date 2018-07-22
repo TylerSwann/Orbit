@@ -27,6 +27,7 @@ import java.util.*;
 /**
  * Created by Tyler Swann on Friday February 09, 2018 at 14:04
  */
+@Deprecated
 public class OEditorController extends StatelessEventTargetObject
 {
     private ProjectFile previouslyOpenedDocument;
@@ -39,7 +40,7 @@ public class OEditorController extends StatelessEventTargetObject
     public OEditorController(JFXTabPane tabPane)
     {
         this.tabPane = tabPane;
-        App.appEventsProperty.addEventListener(ApplicationEvent.WILL_CLOSE, event -> this.saveUserSettings());
+//        App.appEventsProperty.addEventListener(ApplicationEvent.WILL_CLOSE, event -> this.saveUserSettings());
         registerSelectionListeners();
         loadUserSettings();
         this.tabPane.getStyleClass().add("editor-tab-pane");
@@ -62,8 +63,9 @@ public class OEditorController extends StatelessEventTargetObject
             File lastOpenedFile = lastModified.getOpenFile();
             if (lastModified.getOpenEditors() != null)
             {
-                for (File file : lastModified.getOpenEditors())
-                    App.applicationController().getTabPaneController().openTab(new ProjectFile(file));
+                // TODO - update to new OEditorController
+//                for (File file : lastModified.getOpenEditors())
+//                    App.applicationController().getTabPaneController().openTab(new ProjectFile(file));
             }
             if (lastOpenedFile != null)
                 tabPane.getSelectionModel().select(lastModified.getOpenEditors().indexOf(lastOpenedFile));

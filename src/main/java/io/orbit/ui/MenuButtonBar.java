@@ -19,6 +19,7 @@ import java.util.List;
 /**
  * Created by Tyler Swann on Sunday April 29, 2018 at 14:09
  */
+@Deprecated
 public class MenuButtonBar extends HBox
 {
     private MenuBar leftBar;
