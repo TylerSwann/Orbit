@@ -84,10 +84,13 @@ public class MUIMenu extends MUIMenuItem
 
     private class MUISubContextMenu extends MUIContextMenu
     {
+        private static final String DEFAULT_STYLE_CLASS = "mui-sub-menu";
+
         MUISubContextMenu()
         {
             super();
             this.setAutoHide(false);
+            this.root.getStyleClass().add(DEFAULT_STYLE_CLASS);
         }
 
         @Override

@@ -1,0 +1,356 @@
+
+
+* {
+    button-ripple: rgba(0, 0, 0, 0.4);
+    hover-color: rgba(0, 0, 0, 0.1);
+    selected-color: rgba(0, 0, 0, 0.3);
+}
+
+
+.root
+{
+    -fx-background-color: cornflowerblue;
+}
+
+/*******************************************************************************
+ *                                                                             *
+ *                                  Menu Bar                                   *
+ *                                                                             *
+ ******************************************************************************/
+.mui-menu-bar .mui-menu-button
+{
+    -fx-text-color: white;
+    -fx-icon-color: white;
+    -fx-font: 13 "Roboto Black";
+}
+.mui-menu-bar
+{
+    -fx-background-color: cornflowerblue;
+}
+
+.application-context-menu
+{
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.7), 10.0, 0.0, 1.5, 2.0);
+    -fx-background-radius: 3px;
+    -fx-background-color: white;
+    -fx-pref-width: 150.0;
+}
+
+
+.mui-menu-bar .mui-context-item
+{
+    -fx-text-fill: white;
+    -fx-alignment: center-left;
+    -fx-font-size: 15px;
+    -fx-font-family: "Roboto Black";
+    -fx-padding: 10px 15px;
+}
+
+.application-context-menu .mui-context-item
+{
+    -fx-text-fill: rgb(25, 25, 25);
+    -fx-alignment: center-left;
+    -fx-font-size: 15px;
+    -fx-font-family: "Roboto Medium";
+    -fx-padding: 10px 20px;
+    -fx-pref-width: 150.0;
+}
+.application-context-menu.view .check-item .ikonli-font-icon
+{
+    -fx-translate-x: 20px;
+}
+
+.application-context-menu .mui-context-item .ikonli-font-icon
+{
+    -fx-icon-size: 16px;
+    -fx-text-alignment: left;
+    -fx-alignment: center-left;
+    /*-fx-icon-color: rgb(100, 100, 100);*/
+    -fx-icon-color: rgba(0, 0, 0, 0.54);
+    -fx-translate-x: -10px;
+}
+
+
+
+.mui-menu-bar .left .mui-context-item
+{
+    -fx-font-family: "Roboto Black";
+    -fx-font-size: 13px;
+    /*-fx-padding: 5px 10px;*/
+    -fx-padding: 7px 13px;
+}
+
+.mui-menu-bar .right .mui-context-item .ikonli-font-icon
+{
+    -fx-icon-size: 17px;
+    -fx-icon-color: white;
+}
+
+.mui-menu-bar .right .mui-context-item
+{
+    -fx-background-radius: 50%;
+    -fx-padding: 7px 8px;
+    -fx-pref-width: 20px;
+    -fx-pref-height: 20px;
+}
+
+.mui-menu-bar .right .mui-context-item .jfx-rippler
+{
+    -jfx-rippler-fill: white;
+}
+
+
+.application-context-menu .mui-context-item:hover,
+.mui-menu-bar .left .mui-context-item:hover,
+.mui-menu-bar .right .mui-context-item:hover
+{
+    -fx-background-color: hover-color;
+}
+.application-context-menu .mui-context-item.mui-menu .ikonli-font-icon
+{
+    -fx-translate-x: 50px;
+}
+
+
+
+/*******************************************************************************
+ *                                                                             *
+ *                            Navigator Tab Pane                               *
+ *                                                                             *
+ ******************************************************************************/
+
+.navigator-tab-pane
+{
+    -fx-background-color: cornflowerblue;
+}
+.navigator-tab-pane .headers-region
+{
+    /* Background of tab bar */
+    -fx-background-color: cornflowerblue;
+}
+.navigator-tab-pane .tab-header-background
+{
+    /* Background of the tabs */
+    -fx-background-color: cornflowerblue;
+}
+.navigator-tab-pane .tab-selected-line
+{   /* Color of line under selected tab */
+    /*-fx-background-color: -fx-light-green;*/
+}
+
+.navigator-tab-pane .tab-header-area .jfx-rippler
+{
+    /* Color of ripple */
+    -jfx-rippler-fill: button-ripple;
+}
+
+.navigator-tab-pane .tab
+{
+    -fx-pref-width: 110px;
+    -fx-pref-height: 40px;
+}
+
+.navigator-tab-pane .ikonli-font-icon
+{
+    -fx-icon-size: 23px;
+    -fx-icon-color: white;
+}
+
+.navigator-tab-pane .tab .tab-label
+{
+    -fx-text-fill: white;
+}
+
+.navigator-tab-pane .tab:selected .tab-label
+{
+    -fx-text-fill: white;
+}
+
+/*******************************************************************************
+ *                                                                             *
+ *                              Navigator Menu                                 *
+ *                                                                             *
+ ******************************************************************************/
+
+.navigator-context-menu.mui-context-menu
+{
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.6), 15.0, 0.0, 1.5, 2.0);
+    -fx-background-color: white;
+    -fx-background-radius: 3px;
+    -fx-pref-width: 170.0;
+}
+
+
+.navigator-context-menu.mui-context-menu .mui-context-item
+{
+    -fx-text-fill: rgb(25, 25, 25);
+    -fx-alignment: center-left;
+    -fx-font-size: 14px;
+    -fx-font-family: "Roboto Bold";
+    /*-fx-padding: 10px 20px;*/
+    -fx-padding: 10px 0px 10px 10px;
+    -fx-pref-width: 170.0;
+}
+.navigator-context-menu.mui-context-menu .mui-context-item .ikonli-font-icon
+{
+    -fx-icon-size: 16px;
+    -fx-text-alignment: left;
+    -fx-alignment: center-left;
+    /*-fx-icon-color: rgb(100, 100, 100);*/
+    -fx-icon-color: rgba(0, 0, 0, 0.54);
+    -fx-translate-x: 0px;
+}
+.navigator-context-menu.mui-context-menu .mui-context-item:hover
+{
+    -fx-background-color: hover-color;
+}
+.navigator-context-menu.mui-context-menu .mui-context-item.mui-menu .ikonli-font-icon
+{
+    -fx-translate-x: 100px;
+}
+
+.navigator-context-menu.mui-sub-menu
+{
+    -fx-pref-width: 120.0;
+}
+
+/*******************************************************************************
+ *                                                                             *
+ *                              Editor Tab Pane                                *
+ *                                                                             *
+ ******************************************************************************/
+
+.editor-tab-pane
+{
+    -fx-background-color: cornflowerblue;
+}
+.editor-tab-pane .headers-region
+{
+    /* Background of tab bar */
+    -fx-background-color: cornflowerblue;
+}
+.editor-tab-pane .tab-header-background
+{
+    /* Background of the tabs */
+    -fx-background-color: cornflowerblue;
+}
+.editor-tab-pane .tab-selected-line
+{
+    /* Color of line under selected tab */
+    /*-fx-background-color: -fx-light-green;*/
+}
+
+.editor-tab-pane .tab-header-area .jfx-rippler
+{
+    /* Color of ripple */
+    -jfx-rippler-fill: button-ripple;
+}
+.editor-tab-pane .tab
+{
+    /*-fx-pref-width: 110px;*/
+    -fx-pref-height: 40px;
+}
+.editor-tab-pane .tab .tab-label
+{
+    -fx-text-fill: white;
+    -fx-font-family: "Roboto Light";
+    -fx-font-size: 15px;
+
+}
+
+.editor-tab-pane .tab:selected .tab-label
+{
+    -fx-text-fill: white;
+}
+
+
+
+/*******************************************************************************
+ *                                                                             *
+ *                                 SplitPane                                   *
+ *                                                                             *
+ ******************************************************************************/
+
+.split-pane .split-pane-divider
+{
+    -fx-background-color:  cornflowerblue;
+    -fx-border-color: cornflowerblue;
+    -fx-padding: 0.001em;
+}
+
+
+.anchor-pane,
+.split-pane
+{
+    -fx-background-color: cornflowerblue, -fx-control-inner-background;
+}
+
+
+
+
+
+/*******************************************************************************
+ *                                                                             *
+ *                                  TreeViews                                  *
+ *                                                                             *
+ ******************************************************************************/
+
+.tree-view
+{
+    -fx-background-color: white, -fx-control-inner-background;
+}
+.tree-view .tree-cell,
+.tree-view .tree-cell:focused
+{
+    -fx-background-color: white;
+    -fx-text-fill: rgb(25, 25, 25);
+    -fx-font: 14px "Roboto Medium";
+}
+.tree-view .tree-cell:highlighted
+{
+    -fx-font: 14px "Roboto Black";
+}
+.tree-view:focused
+{
+    -fx-background-color: white;
+}
+.tree-view .tree-cell:empty:hover
+{
+    -fx-background-color: white;
+}
+.tree-view .tree-cell:hover
+{
+    -fx-background-color: -fx-box-border, hover-color;
+}
+.tree-view .tree-cell:filled:selected:hover
+{
+    -fx-background-color: -fx-box-border, selected-color;
+}
+.tree-view:focused .tree-cell:focused
+{
+    -fx-background-color: -fx-box-border, white;
+}
+.tree-view:focused .tree-cell:focused:hover {
+    -fx-background-color: -fx-box-border, selected-color;
+}
+.tree-view:focused .tree-cell:filled:focused:selected,
+.tree-view:focused .tree-cell:filled:focused:selected:hover {
+    -fx-background-color: -fx-box-border, selected-color;
+}
+.tree-cell:filled:selected:focused, .tree-cell:filled:selected {
+    -fx-background-color: -fx-box-border, selected-color;
+}
+.tree-cell .tree-disclosure-node .arrow {
+    -fx-background-color: -fx-mark-highlight-color, black;
+}
+
+.tree-cell:filled:hover .tree-disclosure-node .arrow {
+    -fx-background-color: -fx-mark-highlight-color, black;
+}
+
+.tree-view .corner
+{
+    -fx-background-color: white;
+    -fx-border-color: white;
+    -fx-background: white;
+}

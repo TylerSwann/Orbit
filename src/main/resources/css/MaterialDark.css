@@ -241,40 +241,40 @@
 {
     -fx-icon-color: -fx-off-white;
 }
-.jfx-tab-pane
-{
-    -fx-background-color: -color-grey;
-}
-.jfx-tab-pane .headers-region
-{
-    /* Background of tab bar */
-    -fx-background-color: -color-grey;
-}
-.jfx-tab-pane .tab-header-background
-{
-    /* Background of the tabs */
-    -fx-background-color: -color-grey;
-}
-.jfx-tab-pane .tab-selected-line
-{   /* Color of line under selected tab */
-    -fx-background-color: -fx-light-green;
-}
+/*.jfx-tab-pane*/
+/*{*/
+    /*-fx-background-color: -color-grey;*/
+/*}*/
+/*.jfx-tab-pane .headers-region*/
+/*{*/
+    /*!* Background of tab bar *!*/
+    /*-fx-background-color: -color-grey;*/
+/*}*/
+/*.jfx-tab-pane .tab-header-background*/
+/*{*/
+    /*!* Background of the tabs *!*/
+    /*-fx-background-color: -color-grey;*/
+/*}*/
+/*.jfx-tab-pane .tab-selected-line*/
+/*{   !* Color of line under selected tab *!*/
+    /*-fx-background-color: -fx-light-green;*/
+/*}*/
 
-.jfx-tab-pane .tab-header-area .jfx-rippler
-{
-    /* Color of ripple */
-    /*-jfx-rippler-fill: black;*/
-    -jfx-rippler-fill: -fx-button-ripple;
-}
-.jfx-tab-pane .tab .tab-label
-{
-    -fx-text-fill: -fx-faded-green;
-}
+/*.jfx-tab-pane .tab-header-area .jfx-rippler*/
+/*{*/
+    /*!* Color of ripple *!*/
+    /*!*-jfx-rippler-fill: black;*!*/
+    /*-jfx-rippler-fill: -fx-button-ripple;*/
+/*}*/
+/*.jfx-tab-pane .tab .tab-label*/
+/*{*/
+    /*-fx-text-fill: -fx-faded-green;*/
+/*}*/
 
-.jfx-tab-pane .tab:selected .tab-label
-{
-    -fx-text-fill: -fx-light-green;
-}
+/*.jfx-tab-pane .tab:selected .tab-label*/
+/*{*/
+    /*-fx-text-fill: -fx-light-green;*/
+/*}*/
 /*******************************************************************************
  *                                                                             *
  *                                  TreeViews                                  *
@@ -982,38 +982,106 @@
     -fx-icon-color: #d2d2d2;
 }
 
-/*!********************************************************************************/
-/**                                                                             **/
-/**                              Nav Context Menu                               **/
-/**                                                                             **/
-/*******************************************************************************!*/
-
-/*.mui-navigator-menu*/
-/*{*/
-/*-fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.6), 15.0, 0.0, 1.5, 2.0);*/
-/*!*-color-medium-grey: #3e4349;*!*/
-/*-fx-background-color: -color-medium-grey;*/
-/*-fx-background-radius: 3px;*/
-/*-fx-skin: inherit;*/
-/*}*/
+.mui-modal .ikonli-font-icon.error-icon
+{
+    -fx-icon-color: rgb(215, 87, 63);
+}
+.mui-modal .ikonli-font-icon.warning-icon
+{
+    -fx-icon-color: rgb(135, 255, 126);
+}
 
 
-/*.mui-navigator-menu .mui-context-item*/
-/*{*/
-/*-fx-text-fill: -fx-off-white;*/
-/*-fx-alignment: center-left;*/
-/*-fx-content-display: left;*/
-/*-fx-font-size: 13px;*/
-/*-fx-font-family: "Raleway Medium";*/
-/*-fx-padding: 10px 15px;*/
-/*}*/
-/*.mui-navigator-menu .mui-context-item .ikonli-font-icon*/
-/*{*/
-/*-fx-icon-size: 10px;*/
-/*-fx-text-alignment: left;*/
-/*-fx-alignment: center-left;*/
-/*}*/
-/*.mui-navigator-menu .mui-context-item:hover*/
-/*{*/
-/*-fx-background-color: #494e55;*/
-/*}*/
+/*******************************************************************************
+ *                                                                             *
+ *                            Navigator Tab Pane                               *
+ *                                                                             *
+ ******************************************************************************/
+
+.navigator-tab-pane
+{
+    -fx-background-color: -color-grey;
+}
+.navigator-tab-pane .headers-region
+{
+    /* Background of tab bar */
+    -fx-background-color: -color-grey;
+}
+.navigator-tab-pane .tab-header-background
+{
+    /* Background of the tabs */
+    -fx-background-color: -color-grey;
+}
+.navigator-tab-pane .tab-selected-line
+{   /* Color of line under selected tab */
+    -fx-background-color: -fx-light-green;
+}
+
+.navigator-tab-pane .tab-header-area .jfx-rippler
+{
+    /* Color of ripple */
+    -jfx-rippler-fill: -fx-button-ripple;
+}
+
+.navigator-tab-pane .tab
+{
+    -fx-pref-width: 110px;
+    -fx-pref-height: 40px;
+}
+
+.navigator-tab-pane .ikonli-font-icon
+{
+    -fx-icon-size: 24px;
+}
+
+.navigator-tab-pane .tab .tab-label
+{
+    -fx-text-fill: -fx-faded-green;
+}
+
+.navigator-tab-pane .tab:selected .tab-label
+{
+    -fx-text-fill: -fx-light-green;
+}
+
+
+/*******************************************************************************
+ *                                                                             *
+ *                              Editor Tab Pane                                *
+ *                                                                             *
+ ******************************************************************************/
+
+.editor-tab-pane
+{
+    -fx-background-color: -color-grey;
+}
+.editor-tab-pane .headers-region
+{
+    /* Background of tab bar */
+    -fx-background-color: -color-grey;
+}
+.editor-tab-pane .tab-header-background
+{
+    /* Background of the tabs */
+    -fx-background-color: -color-grey;
+}
+.editor-tab-pane .tab-selected-line
+{
+    /* Color of line under selected tab */
+    -fx-background-color: -fx-light-green;
+}
+
+.editor-tab-pane .tab-header-area .jfx-rippler
+{
+    /* Color of ripple */
+    -jfx-rippler-fill: -fx-button-ripple;
+}
+.editor-tab-pane .tab .tab-label
+{
+    -fx-text-fill: -fx-faded-green;
+}
+
+.editor-tab-pane .tab:selected .tab-label
+{
+    -fx-text-fill: -fx-light-green;
+}

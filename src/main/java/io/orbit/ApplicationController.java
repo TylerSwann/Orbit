@@ -27,7 +27,6 @@ public class ApplicationController
     private OEditorController editorController;
     private OTerminalController terminalController;
     private ONavigatorController projectNavigatorController;
-    private OStatusBarController statusBarController;
     private AppEventsReceiver receiver;
 
 
@@ -41,7 +40,6 @@ public class ApplicationController
         this.projectNavigatorController = new ONavigatorController(this.navigatorContainer);
         this.tabPaneController = new OTabPaneController(new JFXTabPane(), this.editorContainer);
         this.editorController = new OEditorController(this.tabPaneController.getTabPane());
-        this.statusBarController = new OStatusBarController(this.container);
         this.rootSplitPane.widthProperty().addListener(event -> this.rootSplitPane.getDividers().forEach(div -> div.setPosition(0.1911)));
         this.receiver = new AppEventsReceiver();
     }
@@ -50,6 +48,5 @@ public class ApplicationController
     public OMenuBarController getMenuBarController() { return menuBarController; }
     public OEditorController getEditorController() { return editorController; }
     public OTerminalController getTerminalController() { return terminalController; }
-    public OStatusBarController getStatusBarController() { return statusBarController; }
     public ONavigatorController getProjectNavigatorController() { return projectNavigatorController; }
 }

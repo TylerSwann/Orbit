@@ -221,9 +221,9 @@ public class OProjectTreeViewController extends StatelessEventTargetObject
             this.fireEvent(new IOEvent(file, this, this, eventType));
         else
         {
-            App.applicationController()
-                    .getStatusBarController().
-                    showSnackBarMessage("ERROR Couldn't perform the requested action. Sorry..", 3000);
+//            App.applicationController()
+//                    .getStatusBarController().
+//                    showSnackBarMessage("ERROR Couldn't perform the requested action. Sorry..", 3000);
         }
     }
 

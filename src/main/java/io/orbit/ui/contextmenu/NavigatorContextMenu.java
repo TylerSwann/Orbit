@@ -63,7 +63,7 @@ public class NavigatorContextMenu extends MUIContextMenu
         project.setOnAction(__ -> this.onNewProject.run());
 
         newMenu.getSubmenu().root.getStyleClass().add(DEFAULT_STYLE_CLASS);
-        this.root.setPrefSize(175.0, 200.0);
+//        this.root.setPrefSize(175.0, 200.0);
         this.getItems().addAll(items);
     }
 

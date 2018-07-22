@@ -27,7 +27,7 @@ import java.util.function.Consumer;
 public class AppEventsReceiver
 {
     private static final DataFormat FILE_PATH = new DataFormat("file/path");
-    private OStatusBarController statusBarController;
+//    private OStatusBarController statusBarController;
     private Clipboard clipboard;
     private SettingsWindow settingsWindow;
 
@@ -41,7 +41,7 @@ public class AppEventsReceiver
         LanguageService.open(OEditorController.activeEditorProperty(), 1);
 //        OProjectTreeViewController projectTreeViewController = App.applicationController().getProjectTreeViewController();
         OEditorController editorController = App.applicationController().getEditorController();
-        this.statusBarController = App.applicationController().getStatusBarController();
+//        this.statusBarController = App.applicationController().getStatusBarController();
 //        projectTreeViewController.addEventHandler(IOEvent.CREATE_FILE, event -> event.getTargetFile().ifPresent(this::createNewFileEvent));
 //        projectTreeViewController.addEventHandler(IOEvent.CREATE_DIRECTORY, event -> event.getTargetFile().ifPresent(this::createNewDirectoryEvent));
 //        projectTreeViewController.addEventHandler(IOEvent.DELETE_FILE, event -> event.getTargetFile().ifPresent(this::deleteFileEvent));
@@ -237,7 +237,7 @@ public class AppEventsReceiver
         {
             byte[] data = source.getBytes(Charset.defaultCharset());
             Files.write(Paths.get(file.getPath()), data);
-            statusBarController.showSnackBarMessage(String.format("Saved %s", file.getName()), 2000);
+//            statusBarController.showSnackBarMessage(String.format("Saved %s", file.getName()), 2000);
         }
         catch (IOException ex)
         {
@@ -250,7 +250,7 @@ public class AppEventsReceiver
     private void saveFile(OrbitFile file)
     {
         file.save();
-        this.statusBarController.showSnackBarMessage(String.format("Saved %s!", file.getName()), 2000);
+//        this.statusBarController.showSnackBarMessage(String.format("Saved %s!", file.getName()), 2000);
     }
 
     private void saveAll()
@@ -259,7 +259,7 @@ public class AppEventsReceiver
             if (file.wasModified())
                 file.save();
         });
-        this.statusBarController.showSnackBarMessage("Saved All!", 500);
+//        this.statusBarController.showSnackBarMessage("Saved All!", 500);
     }
 
     private void saveWindowSizeToSettings()

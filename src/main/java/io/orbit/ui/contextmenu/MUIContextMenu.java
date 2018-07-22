@@ -68,8 +68,8 @@ public class MUIContextMenu extends PopupControl
                 if (change.wasAdded())
                 {
                     change.getAddedSubList().forEach(added -> {
-                        if (!added.prefWidthProperty().isBound())
-                            added.prefWidthProperty().bind(this.widthProperty());
+//                        if (!added.prefWidthProperty().isBound())
+//                            added.prefWidthProperty().bind(this.root.widthProperty());
                         if (added instanceof MUIMenu)
                             ((MUIMenu) added).setParent(this);
                         this.root.getChildren().add(added);
@@ -85,12 +85,12 @@ public class MUIContextMenu extends PopupControl
                 Platform.runLater(this::hide);
         });
         this.items.forEach(item -> {
-            item.prefWidthProperty().bind(this.widthProperty());
+//            item.prefWidthProperty().bind(this.root.widthProperty());
             if (item instanceof MUIMenu)
                 ((MUIMenu) item).setParent(this);
         });
-
-        this.root.setPrefSize(130.0, 100.0);
+//        this.root.setPrefSize(130.0, 100.0);
+//        this.root.prefWidthProperty().bind(this.widthProperty());
         this.root.getChildren().addAll(this.items);
         this.getScene().setRoot(root);
     }

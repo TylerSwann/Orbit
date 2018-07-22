@@ -88,6 +88,7 @@ public class ApplicationMenuBar extends MUIMenuBar implements SystemMenuBar
 
         menu.getRoot().getStyleClass().add(CONTEXT_MENU_STYLE_CLASS);
         newMenu.getSubmenu().getRoot().getStyleClass().add(CONTEXT_MENU_STYLE_CLASS);
+        menu.getRoot().getStyleClass().add("file");
         file.setMUIContextMenu(menu);
         return file;
     }
@@ -124,6 +125,7 @@ public class ApplicationMenuBar extends MUIMenuBar implements SystemMenuBar
         select_all.setOnAction(event -> this.onSelectAll.handle(event));
 
         menu.getRoot().getStyleClass().add(CONTEXT_MENU_STYLE_CLASS);
+        menu.getRoot().getStyleClass().add("edit");
         edit.setMUIContextMenu(menu);
         return edit;
     }
@@ -163,7 +165,10 @@ public class ApplicationMenuBar extends MUIMenuBar implements SystemMenuBar
                 terminal,
                 navigator
         ));
+        terminal.getStyleClass().add("check-item");
+        navigator.getStyleClass().add("check-item");
         menu.getRoot().getStyleClass().add(CONTEXT_MENU_STYLE_CLASS);
+        menu.getRoot().getStyleClass().add("view");
         view.setMUIContextMenu(menu);
         return view;
     }

@@ -5,6 +5,7 @@ import javafx.event.EventTarget;
 import javafx.event.EventType;
 import javafx.scene.control.TreeItem;
 import java.io.File;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
@@ -49,4 +50,12 @@ public class FileTreeMenuEvent extends Event
     }
 
     public List<TreeItem<File>> getSelectedItems() { return selectedItems; }
+    public List<File> getSelectedFiles()
+    {
+        List<TreeItem<File>> items = this.getSelectedItems();
+        List<File> files = new ArrayList<>();
+        for (TreeItem<File> item : items)
+            files.add(item.getValue());
+        return files;
+    }
 }
