@@ -52,9 +52,9 @@ public class AppEventsReceiver
 //        projectTreeViewController.addEventHandler(IOEvent.COPY_RELATIVE_PATH, event -> event.getTargetFile().ifPresent(this::copyFileRelativePath));
 //        projectTreeViewController.addEventHandler(IOEvent.PASTE_FILE, event -> event.getTargetFile().ifPresent(this::pasteFile));
 
-        App.appEventsProperty.addEventListener(ApplicationEvent.WILL_CLOSE, event -> this.saveWindowSizeToSettings());
+
         // TODO - Editor controller events
-//        OEditorController editorController = App.applicationController().getEditorController();
+//        OEditorController editorController = App.applicationController().getEditorTabPaneController();
 //        editorController.addEventHandler(DocumentEvent.SAVE_FILE, event -> event.getSourceFile().ifPresent(this::saveFile));
 //        editorController.addEventHandler(DocumentEvent.SAVE_ALL, event -> this.saveAll());
 //        editorController.addEventHandler(DocumentEvent.SAVE_NON_PROJECT_FILE, event -> event.getSourceFile().ifPresent(this::saveNonProjectFile));
@@ -258,17 +258,10 @@ public class AppEventsReceiver
 
     private void saveAll()
     {
-//        App.applicationController().getEditorController().getOpenProjectFiles().forEach(file -> {
+//        App.applicationController().getEditorTabPaneController().getOpenProjectFiles().forEach(file -> {
 //            if (file.wasModified())
 //                file.save();
 //        });
 //        this.statusBarController.showSnackBarMessage("Saved All!", 500);
-    }
-
-    private void saveWindowSizeToSettings()
-    {
-        Stage stage = App.PRIMARY_STAGE.get();
-        Size windowSize = new Size(stage.getWidth(), stage.getHeight());
-        LocalUser.userSettings.setWindowSize(windowSize);
     }
 }

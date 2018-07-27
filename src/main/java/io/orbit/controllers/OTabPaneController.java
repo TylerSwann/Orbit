@@ -16,6 +16,7 @@ import java.io.File;
 /**
  * Created by Tyler Swann on Saturday January 06, 2018 at 18:21
  */
+@Deprecated
 public class OTabPaneController
 {
     private JFXTabPane tabPane;

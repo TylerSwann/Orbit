@@ -8,6 +8,7 @@ import io.orbit.settings.ProjectData;
 import io.orbit.settings.ProjectFile;
 import io.orbit.settings.UnownedProjectFile;
 import io.orbit.ui.editorui.CodeEditorTabPane;
+import io.orbit.ui.editorui.EditorTab;
 import javafx.application.Platform;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.value.ObservableValue;
@@ -18,13 +19,14 @@ import java.io.File;
 /**
  * Created by Tyler Swann on Sunday July 22, 2018 at 15:59
  */
-public class OEditorController2
+public class OEditorTabPaneController
 {
     private CodeEditorTabPane editorPane;
+    public static final ObservableValue<OCodeEditorController> ACTIVE_EDITOR_CONTROLLER = new SimpleObjectProperty<>();
+//    public static final ObservableValue<CodeEditor> ACTIVE_EDITOR = new SimpleObjectProperty<>();
 
-    public static final ObservableValue<CodeEditor> ACTIVE_EDITOR = new SimpleObjectProperty<>();
 
-    public OEditorController2(AnchorPane container)
+    public OEditorTabPaneController(AnchorPane container)
     {
         this.editorPane = new CodeEditorTabPane();
         registerListeners();
@@ -57,6 +59,10 @@ public class OEditorController2
                 });
             }
         });
+        this.editorPane.activeTabProperty().addListener(__ -> {
+            EditorTab activeTab = this.editorPane.getActiveTab();
+            ((SimpleObjectProperty<OCodeEditorController>) ACTIVE_EDITOR_CONTROLLER).set(activeTab.getController());
+        });
     }
 
     private void loadUserSettings()
@@ -67,7 +73,7 @@ public class OEditorController2
             if (lastModified.getOpenEditors() != null)
             {
                 for (File file : lastModified.getOpenEditors())
-                    App.applicationController().getEditorController().openFile(new ProjectFile(file));
+                    App.applicationController().getEditorTabPaneController().openFile(new ProjectFile(file));
             }
             if (lastOpenedFile != null)
                 this.editorPane.select(lastOpenedFile);

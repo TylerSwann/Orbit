@@ -23,12 +23,12 @@ public class OTerminalController
         this.container = container;
         boolean terminalIsClosed = LocalUser.userSettings.isTerminalClosed();
         if (terminalIsClosed)
-            Platform.runLater(() -> App.applicationController().contentSplitPane.getItems().remove(container));
+            Platform.runLater(() -> App.applicationController().getContentSplitPane().getItems().remove(container));
         else
             buildTerminal();
         App.appEventsProperty.addEventListener(ApplicationEvent.WILL_CLOSE, event -> {
             if (!LocalUser.userSettings.isTerminalClosed())
-                LocalUser.userSettings.setTerminalDividerPos(App.applicationController().contentSplitPane.getDividerPositions()[0]);
+                LocalUser.userSettings.setTerminalDividerPos(App.applicationController().getContentSplitPane().getDividerPositions()[0]);
         });
         Platform.runLater(() -> App.applicationController().getMenuBarController().addEventHandler(MenuBarEvent.VIEW_TERMINAL, event -> toggleTerminal()));
     }
@@ -40,13 +40,13 @@ public class OTerminalController
         ApplicationController controller = App.applicationController();
         if (terminalIsClosed)
         {
-            controller.contentSplitPane.getItems().add(this.container);
+            controller.getContentSplitPane().getItems().add(this.container);
             if (terminal == null)
                 buildTerminal();
-            controller.contentSplitPane.setDividerPosition(0, LocalUser.userSettings.getTerminalDividerPos());
+            controller.getContentSplitPane().setDividerPosition(0, LocalUser.userSettings.getTerminalDividerPos());
         }
         else
-            controller.contentSplitPane.getItems().remove(this.container);
+            controller.getContentSplitPane().getItems().remove(this.container);
     }
 
     private void buildTerminal()
@@ -63,14 +63,14 @@ public class OTerminalController
         container.getChildren().add(terminal);
         Platform.runLater(() -> {
             ApplicationController controller = App.applicationController();
-            controller.contentSplitPane.setDividerPosition(0, LocalUser.userSettings.getTerminalDividerPos());
-            controller.contentSplitPane
+            controller.getContentSplitPane().setDividerPosition(0, LocalUser.userSettings.getTerminalDividerPos());
+            controller.getContentSplitPane()
                     .getDividers()
                     .get(0)
                     .positionProperty()
                     .addListener(event -> {
-                        if (controller.contentSplitPane.getDividers().size() > 0)
-                            LocalUser.userSettings.setTerminalDividerPos(controller.contentSplitPane.getDividerPositions()[0]);
+                        if (controller.getContentSplitPane().getDividers().size() > 0)
+                            LocalUser.userSettings.setTerminalDividerPos(controller.getContentSplitPane().getDividerPositions()[0]);
                     });
         });
     }

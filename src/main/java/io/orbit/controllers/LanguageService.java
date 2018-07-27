@@ -2,7 +2,7 @@ package io.orbit.controllers;
 
 import io.orbit.api.LanguageDelegate;
 import io.orbit.api.highlighting.SyntaxHighlighter;
-import io.orbit.text.OrbitEditor;
+import io.orbit.api.text.CodeEditor;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.value.ObservableValue;
@@ -24,18 +24,18 @@ public class LanguageService
     private static ExecutorService service;
     private static Subscription formattingSubscription;
     private static Subscription highlightingSubscription;
-    private static ObservableValue<OrbitEditor> activeEditorProperty;
+    private static ObservableValue<OCodeEditorController> activeControllerProperty;
     private static LanguageDelegate language;
     private static ObjectProperty<Boolean> isHighlighting = new SimpleObjectProperty<>(true);
 
     private LanguageService(){}
 
-    public static void open(ObservableValue<OrbitEditor> activeEditorProperty, int threadCount)
+    public static void open(ObservableValue<OCodeEditorController> activeControllerProperty, int threadCount)
     {
         if (service == null)
         {
             service = Executors.newFixedThreadPool(threadCount);
-            LanguageService.activeEditorProperty = activeEditorProperty;
+            LanguageService.activeControllerProperty =  activeControllerProperty;
             build();
         }
         else
@@ -44,9 +44,9 @@ public class LanguageService
 
     private static void build()
     {
-        if (activeEditorProperty.getValue() != null)
+        if (activeControllerProperty.getValue() != null)
             renew();
-        activeEditorProperty.addListener(__ -> renew());
+        activeControllerProperty.addListener(__ -> renew());
     }
 
     private static void renew()
@@ -55,12 +55,12 @@ public class LanguageService
             formattingSubscription.unsubscribe();
         if (highlightingSubscription != null)
             highlightingSubscription.unsubscribe();
-        if (activeEditorProperty.getValue() == null)
+        if (activeControllerProperty.getValue() == null)
             return;
-        OrbitEditor editor = activeEditorProperty.getValue();
-        language = editor.getLanguage();
+
+        language = getActiveController().getLanguage();
         SyntaxHighlighter highlighter = language.getSyntaxHighlighter();
-        EventStream<PlainTextChange> changes = editor.plainTextChanges();
+        EventStream<PlainTextChange> changes = getActiveEditor().plainTextChanges();
         highlightingSubscription = changes
                 .successionEnds(highlighter.getHighlightingInterval())
                 .conditionOn(isHighlighting)
@@ -77,7 +77,7 @@ public class LanguageService
 
     private static Task<StyleSpans<Collection<String>>> computeHighlighting()
     {
-        String text = activeEditorProperty.getValue().getText();
+        String text = getActiveEditor().getText();
         Task<StyleSpans<Collection<String>>> task = new Task<StyleSpans<Collection<String>>>()
         {
             @Override
@@ -93,7 +93,7 @@ public class LanguageService
     private static void applyHighlighting(StyleSpans<Collection<String>> highlighting)
     {
         if (highlighting.getSpanCount() > 0)
-            activeEditorProperty.getValue().setStyleSpans(0, highlighting);
+            getActiveEditor().setStyleSpans(0, highlighting);
     }
 
     public static void stopHighlightingForcibly()
@@ -107,5 +107,6 @@ public class LanguageService
         highlight.setOnSucceeded(event -> applyHighlighting(highlight.getValue()));
     }
 
-
+    private static OCodeEditorController getActiveController() { return activeControllerProperty.getValue(); }
+    private static CodeEditor getActiveEditor() { return getActiveController().getEditor(); }
 }

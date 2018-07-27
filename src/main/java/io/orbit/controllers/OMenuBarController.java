@@ -135,7 +135,7 @@ public class OMenuBarController extends StatelessEventTargetObject
     private void saveAll()
     {
         // TODO - update to new OEditorController
-//        App.applicationController().getEditorController().getOpenProjectFiles().forEach(file -> {
+//        App.applicationController().getEditorTabPaneController().getOpenProjectFiles().forEach(file -> {
 //            if (file.wasModified())
 //                file.save();
 //        });

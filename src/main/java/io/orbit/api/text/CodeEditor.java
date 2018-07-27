@@ -39,6 +39,7 @@ public class CodeEditor extends StyleClassedTextArea
      * Used for clipboard actions. Remains null until copy/cut/paste/undo/redo methods are called
      */
     private static Clipboard clipboard;
+    private File file;
 
     private CodeEditor() { }
 
@@ -55,6 +56,7 @@ public class CodeEditor extends StyleClassedTextArea
 
     public CodeEditor(File sourceFile)
     {
+        this.file = sourceFile;
         try
         {
             byte[] data = Files.readAllBytes(Paths.get(sourceFile.getPath()));
@@ -257,4 +259,6 @@ public class CodeEditor extends StyleClassedTextArea
         this.replaceText(caretPos, caretPos, content);
         this.fireEvent(new CodeEditorEvent(this, this, CodeEditorEvent.PASTE));
     }
+
+    public File getFile() { return file; }
 }
