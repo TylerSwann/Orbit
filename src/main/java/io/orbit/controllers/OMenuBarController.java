@@ -3,34 +3,29 @@ package io.orbit.controllers;
 import io.orbit.App;
 import io.orbit.api.notification.Notifications;
 import io.orbit.api.notification.modal.MUIInputModal;
-import io.orbit.api.notification.modal.MUIModal;
 import io.orbit.api.notification.modal.MUIModalButton;
 import io.orbit.controllers.events.menubar.MenuBarEvent;
 import io.orbit.controllers.marketplaceui.MarketPlacePageController;
 import io.orbit.settings.LocalUser;
 import io.orbit.settings.OrbitFile;
 import io.orbit.settings.ProjectFile;
-import io.orbit.settings.UnownedProjectFile;
-import io.orbit.text.TextEditorPane;
 import io.orbit.ui.menubar.ApplicationMenuBar;
 import io.orbit.ui.menubar.SystemMenuBar;
 import io.orbit.util.OS;
 import io.orbit.util.Setting;
-import io.orbit.util.StatelessEventTargetObject;
+import io.orbit.util.EventTargetObject;
 import javafx.application.Platform;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.DirectoryChooser;
 import javafx.stage.FileChooser;
-import javafx.stage.Stage;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.function.Consumer;
 
 /**
  * Created by Tyler Swann on Sunday July 15, 2018 at 15:39
  */
-public class OMenuBarController extends StatelessEventTargetObject
+public class OMenuBarController extends EventTargetObject
 {
     private SystemMenuBar menuBar;
     private SettingsWindow settingsWindow;

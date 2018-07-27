@@ -10,7 +10,7 @@ import java.util.Map;
 /**
  * Created by Tyler Swann on Friday March 23, 2018 at 15:33
  */
-public class StatelessEventTargetObject implements StatelessEventTarget
+public class EventTargetObject implements ControllerEventTarget
 {
     private Map<EventType, Collection<EventHandler>> handlers = new HashMap<>();
 

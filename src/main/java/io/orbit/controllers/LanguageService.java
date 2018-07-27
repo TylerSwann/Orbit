@@ -72,7 +72,7 @@ public class LanguageService
                     return Optional.of(attempt.get());
                 })
                 .subscribe(LanguageService::applyHighlighting);
-
+        highlightForcibly();
     }
 
     private static Task<StyleSpans<Collection<String>>> computeHighlighting()
@@ -92,7 +92,7 @@ public class LanguageService
 
     private static void applyHighlighting(StyleSpans<Collection<String>> highlighting)
     {
-        if (highlighting.getSpanCount() > 0)
+        if (highlighting != null && highlighting.getSpanCount() > 0)
             getActiveEditor().setStyleSpans(0, highlighting);
     }
 

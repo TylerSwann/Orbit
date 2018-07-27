@@ -2,6 +2,7 @@ package io.orbit.text;
 
 import io.orbit.api.event.DocumentEvent;
 import io.orbit.api.text.CodeEditor;
+import io.orbit.controllers.OCodeEditorController;
 import io.orbit.ui.FindAndReplace;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
@@ -17,9 +18,9 @@ public class TextEditorPane extends AnchorPane
     private CodeEditor editor;
     private FindAndReplace findAndReplace;
 
-    public TextEditorPane(CodeEditor editor)
+    public TextEditorPane(OCodeEditorController controller)
     {
-        this.editor = editor;
+        this.editor = controller.getEditor();
         this.scrollPane = new VirtualizedScrollPane<>(this.editor);
         AnchorPane.setTopAnchor(scrollPane, 0.0);
         AnchorPane.setBottomAnchor(scrollPane, 0.0);

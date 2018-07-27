@@ -22,7 +22,7 @@ public class EditorTab extends Tab
         this.editor = new CodeEditor(file);
         this.controller = new OCodeEditorController(this.editor);
         this.file = file;
-        TextEditorPane pane = new TextEditorPane(editor);
+        TextEditorPane pane = new TextEditorPane(this.controller);
         this.setContent(pane);
         this.getStyleClass().add(DEFAULT_STYLE_CLASS);
     }

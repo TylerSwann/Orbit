@@ -1,10 +1,10 @@
 package io.orbit.controllers;
 
+import com.jfoenix.controls.JFXButton;
 import io.orbit.App;
 import io.orbit.settings.Directory;
 import io.orbit.api.Project;
 import io.orbit.api.SVGIcon;
-import io.orbit.ui.MUIMenuButton;
 import io.orbit.ui.MUIStepDialog;
 import io.orbit.ui.NewProjectStep;
 import io.orbit.webtools.WebProject;
@@ -78,7 +78,7 @@ public class OProjectCreationDialog
             label.setMinWidth(200.0);
             SVGIcon icon = project.getIcon();
             container.setSpacing(15.0);
-            MUIMenuButton button = new MUIMenuButton("");
+            JFXButton button = new JFXButton("");
             button.getStyleClass().add("project-type");
             button.setText(null);
             button.setPrefHeight(40.0);

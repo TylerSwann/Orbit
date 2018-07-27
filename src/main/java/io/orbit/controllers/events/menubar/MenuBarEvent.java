@@ -1,7 +1,7 @@
 package io.orbit.controllers.events.menubar;
 
+import io.orbit.api.text.CodeEditor;
 import io.orbit.settings.OrbitFile;
-import io.orbit.text.OrbitEditor;
 import javafx.event.Event;
 
 import javafx.event.EventTarget;
@@ -46,14 +46,14 @@ public class MenuBarEvent extends Event
     public static final EventType<MenuBarEvent> REFORMAT_ACTIVE_DOCUMENT = new EventType<>(Event.ANY, "REFORMAT_ACTIVE_DOCUMENT");
 
     public Optional<OrbitFile> selectedFile = Optional.empty();
-    private Optional<OrbitEditor> targetEditor;
+    private Optional<CodeEditor> targetEditor;
 
     public MenuBarEvent(Object source, EventTarget target, EventType<? extends Event> eventType)
     {
         super(source, target, eventType);
     }
 
-    public MenuBarEvent(EventType<? extends Event> eventType, OrbitEditor targetEditor)
+    public MenuBarEvent(EventType<? extends Event> eventType, CodeEditor targetEditor)
     {
         super(null, null, eventType);
         this.targetEditor = Optional.of(targetEditor);
@@ -71,6 +71,6 @@ public class MenuBarEvent extends Event
         return  (MenuBarEvent) super.copyFor(newSource, newTarget);
     }
 
-    public Optional<OrbitEditor> getTargetEditor() { return targetEditor; }
+    public Optional<CodeEditor> getTargetEditor() { return targetEditor; }
 }
 

@@ -8,7 +8,7 @@ import java.util.Map;
 /**
  * Created by Tyler Swann on Sunday March 11, 2018 at 16:03
  */
-public interface StatelessEventTarget extends EventTarget
+public interface ControllerEventTarget extends EventTarget
 {
     default void fireEvent(Event event)
     {

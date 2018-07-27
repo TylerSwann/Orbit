@@ -29,8 +29,6 @@ public class ApplicationController
     private OTerminalController terminalController;
     private ONavigatorController projectNavigatorController;
     private OEditorTabPaneController editorTabPaneController;
-//    private AppEventsReceiver receiver;
-
 
     public void initialize() { }
 
@@ -42,7 +40,6 @@ public class ApplicationController
         this.projectNavigatorController = new ONavigatorController(this.navigatorContainer);
         this.editorTabPaneController = new OEditorTabPaneController(this.editorContainer);
         this.rootSplitPane.widthProperty().addListener(event -> this.rootSplitPane.getDividers().forEach(div -> div.setPosition(0.1911)));
-//        this.receiver = new AppEventsReceiver();
         LanguageService.open(OEditorTabPaneController.ACTIVE_EDITOR_CONTROLLER, 2);
         registerListeners();
     }

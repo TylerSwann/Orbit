@@ -7,7 +7,6 @@ import com.jfoenix.validation.RequiredFieldValidator;
 import io.orbit.App;
 import io.orbit.api.text.CodeEditor;
 import io.orbit.controllers.LanguageService;
-import io.orbit.text.OrbitEditor;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.IndexRange;
@@ -51,7 +50,7 @@ public class FindAndReplace
     @FXML private JFXButton replaceAllButton;
     private Runnable onCloseRequest = () -> {};
     private boolean useRegex = false;
-    private OrbitEditor editor;
+    private CodeEditor editor;
     private EventStream<String> searchTextChange;
     private Subscription subscription;
     private List<IndexRange> matchRanges = new ArrayList<>();
@@ -79,7 +78,7 @@ public class FindAndReplace
             FXMLLoader loader = new FXMLLoader(findURL);
             VBox root = loader.load();
             controller = loader.getController();
-            controller.editor = (OrbitEditor) editor;
+            controller.editor = editor;
             controller.scrollPane = scrollPane;
             controller.registerListeners(withReplaceShowing);
             return root;
