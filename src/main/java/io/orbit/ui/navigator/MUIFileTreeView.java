@@ -1,5 +1,6 @@
 package io.orbit.ui.navigator;
 
+import io.orbit.api.event.FileTreeMenuEvent;
 import io.orbit.ui.contextmenu.NavigatorContextMenu;
 import javafx.scene.control.SelectionMode;
 import javafx.scene.control.TreeItem;
@@ -84,6 +85,7 @@ public class MUIFileTreeView extends TreeView<File>
         if (this.getRoot() != null)
             this.setRoot(null);
         TreeItem<File> rootItem = new TreeItem<>(this.root);
+        rootItem.setExpanded(true);
         this.setRoot(rootItem);
         this.mapFolder(rootItem);
     }

@@ -10,6 +10,7 @@ import java.util.Optional;
 /**
  * Created by Tyler Swann on Saturday April 28, 2018 at 11:45
  */
+@Deprecated
 public class SettingsEvent extends Event
 {
     public static final EventType<SettingsEvent> EDIT_SYNTAX_THEME = new EventType<>(Event.ANY, "EDIT_SYNTAX_THEME");

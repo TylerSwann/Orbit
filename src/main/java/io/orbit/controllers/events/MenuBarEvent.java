@@ -1,4 +1,4 @@
-package io.orbit.controllers.events.menubar;
+package io.orbit.controllers.events;
 
 import io.orbit.api.text.CodeEditor;
 import io.orbit.settings.OrbitFile;

@@ -1,13 +1,10 @@
-package io.orbit.controllers;
+package io.orbit.settings;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXSlider;
 import com.jfoenix.controls.JFXTextField;
 import io.orbit.App;
-import io.orbit.settings.Directory;
-import io.orbit.settings.LocalUser;
-import io.orbit.settings.UserSetting;
 import io.orbit.util.SerializableFont;
 import io.orbit.util.Tuple;
 import javafx.application.Platform;

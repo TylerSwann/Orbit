@@ -103,24 +103,7 @@ public class Directory
 
     private static void copyFilesToFolder(URL fileToCopy, File destination)
     {
-        //File source = new File(fileToCopy.getFile());
         copyFilesToFolder(new File(fileToCopy.getFile()), destination);
-//        String name = source.getName();
-//        if (!destination.isDirectory())
-//        {
-//            System.out.println(String.format("File located at %s is not a directory", destination.getPath()));
-//            return;
-//        }
-//        try
-//        {
-//            byte[] fileData = Files.readAllBytes(Paths.get(source.getPath()));
-//            Files.write(Paths.get(String.format("%s\\%s", destination.getPath(), name)), fileData);
-//        }
-//        catch (Exception ex)
-//        {
-//            System.out.println(String.format("ERROR saving file, %s, to folder %s", name,  destination.getPath()));
-//            ex.printStackTrace();
-//        }
     }
 
     private static void copyFilesToFolder(File source, File destination)

@@ -1,11 +1,10 @@
 package io.orbit.text;
 
-import io.orbit.api.event.DocumentEvent;
+import io.orbit.api.event.CodeEditorEvent;
 import io.orbit.api.text.CodeEditor;
 import io.orbit.controllers.OCodeEditorController;
 import io.orbit.ui.FindAndReplace;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import org.fxmisc.flowless.VirtualizedScrollPane;
 
@@ -32,8 +31,8 @@ public class TextEditorPane extends AnchorPane
 
     private void registerListeners()
     {
-        this.editor.addEventHandler(DocumentEvent.FIND_AND_REPLACE, event -> this.showFindAndReplaceDialog(true));
-        this.editor.addEventHandler(DocumentEvent.FIND, event -> this.showFindAndReplaceDialog(false));
+        this.editor.addEventHandler(CodeEditorEvent.FIND_AND_REPLACE, event -> this.showFindAndReplaceDialog(true));
+        this.editor.addEventHandler(CodeEditorEvent.FIND, event -> this.showFindAndReplaceDialog(false));
     }
 
     public void showFindAndReplaceDialog(boolean withReplaceShowing)

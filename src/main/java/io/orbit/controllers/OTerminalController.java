@@ -4,7 +4,7 @@ import io.orbit.App;
 import io.orbit.ApplicationController;
 import io.orbit.settings.LocalUser;
 import io.orbit.controllers.events.ApplicationEvent;
-import io.orbit.controllers.events.menubar.MenuBarEvent;
+import io.orbit.controllers.events.MenuBarEvent;
 import io.orbit.ui.MUITerminalPane;
 import javafx.application.Platform;
 import javafx.scene.layout.AnchorPane;

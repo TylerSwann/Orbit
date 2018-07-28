@@ -213,6 +213,11 @@ public class CodeEditor extends StyleClassedTextArea
         super.setParagraphGraphicFactory(factory);
     }
 
+    public void selectAll()
+    {
+        this.selectRange(0, this.getLength());
+    }
+
     @Override
     public void undo() { }
 
@@ -230,7 +235,7 @@ public class CodeEditor extends StyleClassedTextArea
         Map<DataFormat, Object> content = new HashMap<>();
         content.put(DataFormat.PLAIN_TEXT, this.selectedTextProperty().getValue());
         clipboard.setContent(content);
-        this.fireEvent(new CodeEditorEvent(this, this, CodeEditorEvent.COPY));
+//        this.fireEvent(new CodeEditorEvent(this, this, CodeEditorEvent.COPY));
     }
     @Override
     public void cut()
@@ -246,7 +251,7 @@ public class CodeEditor extends StyleClassedTextArea
         content.put(DataFormat.PLAIN_TEXT, selectedText);
         clipboard.setContent(content);
         this.deleteText(range.getStart(), range.getEnd());
-        this.fireEvent(new CodeEditorEvent(this, this, CodeEditorEvent.CUT));
+//        this.fireEvent(new CodeEditorEvent(this, this, CodeEditorEvent.CUT));
     }
 
     @Override
@@ -257,7 +262,7 @@ public class CodeEditor extends StyleClassedTextArea
         String content = clipboard.getString();
         int caretPos = this.getCaretPosition();
         this.replaceText(caretPos, caretPos, content);
-        this.fireEvent(new CodeEditorEvent(this, this, CodeEditorEvent.PASTE));
+//        this.fireEvent(new CodeEditorEvent(this, this, CodeEditorEvent.PASTE));
     }
 
     public File getFile() { return file; }

@@ -12,7 +12,9 @@ import io.orbit.ui.editorui.EditorTab;
 import javafx.application.Platform;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.value.ObservableValue;
+import javafx.collections.FXCollections;
 import javafx.collections.ListChangeListener;
+import javafx.collections.ObservableList;
 import javafx.scene.layout.AnchorPane;
 import java.io.File;
 
@@ -23,7 +25,7 @@ public class OEditorTabPaneController
 {
     private CodeEditorTabPane editorPane;
     public static final ObservableValue<OCodeEditorController> ACTIVE_EDITOR_CONTROLLER = new SimpleObjectProperty<>();
-//    public static final ObservableValue<CodeEditor> ACTIVE_EDITOR = new SimpleObjectProperty<>();
+    public static final ObservableList<OCodeEditorController> ACTIVE_CONTROLLERS = FXCollections.observableArrayList();
 
 
     public OEditorTabPaneController(AnchorPane container)
@@ -62,6 +64,13 @@ public class OEditorTabPaneController
         this.editorPane.activeTabProperty().addListener(__ -> {
             EditorTab activeTab = this.editorPane.getActiveTab();
             ((SimpleObjectProperty<OCodeEditorController>) ACTIVE_EDITOR_CONTROLLER).set(activeTab.getController());
+        });
+        this.editorPane.getOpenTabs().addListener((ListChangeListener<EditorTab>) change -> {
+            while (change.next())
+            {
+                change.getAddedSubList().forEach(tab -> ACTIVE_CONTROLLERS.add(tab.getController()));
+                change.getRemoved().forEach(tab -> ACTIVE_CONTROLLERS.remove(tab.getController()));
+            }
         });
     }
 

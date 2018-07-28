@@ -6,6 +6,7 @@ import io.orbit.api.OrbitApplication;
 import io.orbit.api.notification.modal.MUIInputModal;
 import io.orbit.api.notification.modal.MUIModal;
 import io.orbit.api.notification.modal.MUIModalButton;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import org.kordamp.ikonli.fontawesome5.FontAwesomeSolid;
 
@@ -51,9 +52,14 @@ public final class Notifications
         showModal(modal);
     }
 
+    public static void showSnackBarMessage(String message)
+    {
+        showSnackBarMessage(message, 3000);
+    }
     public static void showSnackBarMessage(String message, long timeout)
     {
-        JFXSnackbar snackBar = new JFXSnackbar();
+        AnchorPane root = (AnchorPane) OrbitApplication.PRIMARY_STAGE.getValue().getScene().getRoot();
+        JFXSnackbar snackBar = new JFXSnackbar(root);
         snackBar.show(message, timeout);
     }
 

@@ -4,7 +4,7 @@ import io.orbit.api.notification.Notifications;
 import io.orbit.api.notification.modal.MUIInputModal;
 import io.orbit.api.notification.modal.MUIModalButton;
 import io.orbit.settings.LocalUser;
-import io.orbit.ui.navigator.FileTreeMenuEvent;
+import io.orbit.api.event.FileTreeMenuEvent;
 import io.orbit.ui.navigator.MUIFileTreeView;
 import javafx.scene.input.Clipboard;
 import javafx.scene.input.DataFormat;

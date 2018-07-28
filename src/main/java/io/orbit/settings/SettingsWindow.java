@@ -1,4 +1,4 @@
-package io.orbit.controllers;
+package io.orbit.settings;
 
 import io.orbit.App;
 import io.orbit.ui.MUITreeItem;

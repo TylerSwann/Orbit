@@ -1,4 +1,4 @@
-package io.orbit.controllers;
+package io.orbit.settings;
 
 import com.jfoenix.controls.JFXButton;
 import io.orbit.App;

@@ -1,19 +1,13 @@
 package io.orbit.text;
 
 import io.orbit.settings.OrbitFile;
-import io.orbit.settings.ProjectFile;
-import io.orbit.settings.UnownedProjectFile;
 import io.orbit.api.EditorController;
 import io.orbit.api.LanguageDelegate;
 import io.orbit.api.PluginController;
-import io.orbit.api.event.CodeEditorEvent;
 import io.orbit.api.text.CodeEditor;
-import io.orbit.api.event.DocumentEvent;
 import io.orbit.plugin.PluginDispatch;
-import io.orbit.settings.UserHotKeys;
 import io.orbit.ui.contextmenu.EditorContextMenu;
 import javafx.application.Platform;
-import javafx.scene.input.KeyEvent;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
@@ -21,6 +15,7 @@ import java.util.List;
 /**
  * Created by Tyler Swann on Saturday January 27, 2018 at 14:31
  */
+@Deprecated
 public class OrbitEditor extends CodeEditor
 {
     public final OrbitFile file;
@@ -43,7 +38,7 @@ public class OrbitEditor extends CodeEditor
         Platform.runLater(() -> this.plainTextChanges().addObserver(event -> {
             if (!hasUnsavedChanges)
             {
-                this.fireEvent(new CodeEditorEvent(CodeEditorEvent.FILE_WAS_MODIFIED, this.file));
+                //this.fireEvent(new CodeEditorEvent(CodeEditorEvent.FILE_WAS_MODIFIED, this.file));
                 this.hasUnsavedChanges = true;
             }
         }));
@@ -52,22 +47,22 @@ public class OrbitEditor extends CodeEditor
 
     private void addHotKeyEvents()
     {
-        this.addEventHandler(KeyEvent.KEY_PRESSED, event -> {
-            if (UserHotKeys.SAVE_COMBO().match(event))
-            {
-                if (this.file instanceof ProjectFile)
-                    this.fireEvent(new DocumentEvent(DocumentEvent.SAVE_FILE, this.file));
-                else if (this.file instanceof UnownedProjectFile)
-                    this.fireEvent(new DocumentEvent(DocumentEvent.SAVE_NON_PROJECT_FILE, this.file ));
-                this.hasUnsavedChanges = false;
-            }
-            else if (UserHotKeys.SAVE_ALL_COMBO().match(event))
-                this.fireEvent(new DocumentEvent(this, this, DocumentEvent.SAVE_ALL));
-            else if (UserHotKeys.FIND_COMBO().match(event))
-                this.fireEvent(new DocumentEvent(this, this, DocumentEvent.FIND));
-            else if (UserHotKeys.FIND_REPLACE_COMBO().match(event))
-                this.fireEvent(new DocumentEvent(this, this, DocumentEvent.FIND_AND_REPLACE));
-        });
+//        this.addEventHandler(KeyEvent.KEY_PRESSED, event -> {
+//            if (UserHotKeys.SAVE().match(event))
+//            {
+//                if (this.file instanceof ProjectFile)
+//                    this.fireEvent(new DocumentEvent(DocumentEvent.SAVE_FILE, this.file));
+//                else if (this.file instanceof UnownedProjectFile)
+//                    this.fireEvent(new DocumentEvent(DocumentEvent.SAVE_NON_PROJECT_FILE, this.file ));
+//                this.hasUnsavedChanges = false;
+//            }
+//            else if (UserHotKeys.SAVE_ALL_COMBO().match(event))
+//                this.fireEvent(new DocumentEvent(this, this, DocumentEvent.SAVE_ALL));
+//            else if (UserHotKeys.FIND().match(event))
+//                this.fireEvent(new DocumentEvent(this, this, DocumentEvent.FIND));
+//            else if (UserHotKeys.FIND_REPLACE().match(event))
+//                this.fireEvent(new DocumentEvent(this, this, DocumentEvent.FIND_AND_REPLACE));
+//        });
     }
 
     private void registerPlugins()

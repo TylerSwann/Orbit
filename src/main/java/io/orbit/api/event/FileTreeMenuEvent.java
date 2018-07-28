@@ -1,12 +1,12 @@
-package io.orbit.ui.navigator;
+package io.orbit.api.event;
 
+import io.orbit.ui.navigator.MUIFileTreeView;
 import javafx.event.Event;
 import javafx.event.EventTarget;
 import javafx.event.EventType;
 import javafx.scene.control.TreeItem;
 import java.io.File;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
