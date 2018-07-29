@@ -8,7 +8,6 @@ import javafx.scene.control.TreeView;
 import javafx.scene.input.ContextMenuEvent;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
-
 import java.io.File;
 import java.util.Optional;
 

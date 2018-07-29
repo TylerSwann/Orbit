@@ -1,5 +1,6 @@
 package io.orbit.controllers;
 
+import io.orbit.App;
 import io.orbit.api.notification.Notifications;
 import io.orbit.api.notification.modal.MUIInputModal;
 import io.orbit.api.notification.modal.MUIModalButton;
@@ -43,7 +44,19 @@ public class OProjectViewController
         this.projectView.addEventHandler(FileTreeMenuEvent.NEW_FILE, this::newFile);
         this.projectView.addEventHandler(FileTreeMenuEvent.NEW_FOLDER, this::newFolder);
         this.projectView.addEventHandler(FileTreeMenuEvent.NEW_PROJECT, this::newProject);
+        this.projectView.addEventHandler(FileTreeMenuEvent.ITEM_DOUBLE_CLICK, this::openFile);
     }
+
+
+    private void openFile(FileTreeMenuEvent event)
+    {
+        event.getSelectedFiles().forEach(file -> {
+            if (file.isDirectory())
+                return;
+            App.applicationController().getEditorTabPaneController().openFile(file);
+        });
+    }
+
     private void cut(FileTreeMenuEvent event)
     {
         this.fileClipboard = event.getSelectedFiles();

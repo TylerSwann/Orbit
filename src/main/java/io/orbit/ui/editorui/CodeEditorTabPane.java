@@ -8,6 +8,8 @@ import javafx.collections.FXCollections;
 import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
 import javafx.scene.control.Tab;
+import javafx.scene.input.MouseButton;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import java.io.File;
 import java.util.List;
@@ -47,6 +49,7 @@ public class CodeEditorTabPane extends JFXTabPane
 
     private void registerListeners()
     {
+        this.getSelectionModel().selectedItemProperty().addListener(observable -> ((SimpleObjectProperty<EditorTab>)this.activeTab).set(this.getSelectedItem()));
         this.getFiles().addListener((ListChangeListener<File>) change -> {
             while (change.next())
             {
@@ -65,7 +68,7 @@ public class CodeEditorTabPane extends JFXTabPane
                         throw new RuntimeException("CodeEditorTabPane found Tab that is not instance of EditorTab!");
                     EditorTab editorTab = (EditorTab) tab;
                     if (!this.openTabs.contains(editorTab))
-                        this.openTabs.remove(editorTab);
+                        this.openTabs.add(editorTab);
                 });
                 change.getRemoved().forEach(tab -> {
                     EditorTab editorTab = (EditorTab) tab;
@@ -77,7 +80,6 @@ public class CodeEditorTabPane extends JFXTabPane
                 });
             }
         });
-        this.getSelectionModel().selectedItemProperty().addListener(observable -> ((SimpleObjectProperty<EditorTab>)this.activeTab).set((EditorTab)this.getSelectedItem()));
     }
 
 
@@ -95,13 +97,36 @@ public class CodeEditorTabPane extends JFXTabPane
 
     private void addNewFile(File file)
     {
-        EditorTab tab = new EditorTab(file);
-        editors.add(tab.getEditor());
-        this.getTabs().add(tab);
-        AnchorPane.setTopAnchor(tab.getEditor(), 0.0);
-        AnchorPane.setBottomAnchor(tab.getEditor(), 0.0);
-        AnchorPane.setLeftAnchor(tab.getEditor(), 0.0);
-        AnchorPane.setRightAnchor(tab.getEditor(), 0.0);
+        if (fileIsOpen(file))
+        {
+            for (EditorTab tab : this.getOpenTabs())
+            {
+                if (tab.getFile().equals(file))
+                {
+                    this.select(tab);
+                    break;
+                }
+            }
+        }
+        else
+        {
+            EditorTab tab = new EditorTab(file);
+            editors.add(tab.getEditor());
+            this.getTabs().add(tab);
+            AnchorPane.setTopAnchor(tab.getEditor(), 0.0);
+            AnchorPane.setBottomAnchor(tab.getEditor(), 0.0);
+            AnchorPane.setLeftAnchor(tab.getEditor(), 0.0);
+            AnchorPane.setRightAnchor(tab.getEditor(), 0.0);
+            this.getSelectionModel().select(tab);
+        }
+    }
+
+    private boolean fileIsOpen(File file)
+    {
+        for (EditorTab tab : this.getOpenTabs())
+            if (tab.getFile().equals(file))
+                return true;
+        return false;
     }
 
     private EditorTab getSelectedItem()

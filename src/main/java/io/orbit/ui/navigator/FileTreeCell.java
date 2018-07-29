@@ -13,10 +13,6 @@ public class FileTreeCell extends TreeCell<File>
 
     private static PseudoClass HIGHLIGHTED = PseudoClass.getPseudoClass("highlighted");
 
-//    public FileTreeCell()
-//    {
-//    }
-
     @Override
     protected void updateItem(File item, boolean empty)
     {
