@@ -3,10 +3,9 @@ package io.orbit.ui.editorui;
 import io.orbit.api.text.CodeEditor;
 import io.orbit.controllers.OCodeEditorController;
 import io.orbit.text.TextEditorPane;
-import javafx.geometry.Pos;
-import javafx.scene.control.Label;
+import javafx.scene.Node;
 import javafx.scene.control.Tab;
-import javafx.scene.input.MouseEvent;
+import javafx.scene.input.ContextMenuEvent;
 
 import java.io.File;
 
@@ -19,6 +18,8 @@ public class EditorTab extends Tab
     private CodeEditor editor;
     private OCodeEditorController controller;
     private File file;
+    private Node owner;
+    private EditorTabMenu tabMenu;
 
     public EditorTab(File file)
     {
@@ -29,16 +30,30 @@ public class EditorTab extends Tab
         TextEditorPane pane = new TextEditorPane(this.controller);
         this.setContent(pane);
         this.getStyleClass().add(DEFAULT_STYLE_CLASS);
-        // TODO - Add events to tabs
-//        Label label = new Label(file.getName());
-//        label.setAlignment(Pos.CENTER);
-//        label.getStyleClass().addAll(this.getStyleClass());
-//        label.setPrefHeight(50.0);
-//        this.setGraphic(label);
-//        label.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> System.out.println("click"));
+        this.setId(file.getName());
+    }
+
+    private void buildTabMenu()
+    {
+//        System.out.println(String.format("Building menu for %s", this.getFile().getName()));
+        this.tabMenu = new EditorTabMenu();
+        this.owner.addEventHandler(ContextMenuEvent.CONTEXT_MENU_REQUESTED, event -> {
+            double x = event.getScreenX();
+            double y = event.getScreenY();
+            System.out.println(String.format("Show %s", this.getFile().getName()));
+            this.tabMenu.show(this.owner, x, y);
+        });
     }
 
     public OCodeEditorController getController() { return controller; }
     public CodeEditor getEditor() { return editor; }
     public File getFile() { return file; }
+    public EditorTabMenu getTabMenu() { return tabMenu; }
+
+    public Node getOwner() { return owner; }
+    public void setOwner(Node owner)
+    {
+        this.owner = owner;
+        buildTabMenu();
+    }
 }

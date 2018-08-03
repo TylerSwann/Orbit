@@ -2,6 +2,7 @@ package io.orbit.ui.editorui;
 
 import io.orbit.ui.contextmenu.MUIContextMenu;
 import io.orbit.ui.contextmenu.MUIMenuItem;
+import javafx.scene.Node;
 import javafx.scene.control.Tab;
 import org.kordamp.ikonli.fontawesome5.FontAwesomeSolid;
 
@@ -13,9 +14,10 @@ import java.util.function.Consumer;
  */
 public class EditorTabMenu extends MUIContextMenu
 {
-    private Consumer<Tab> onClose = __ -> {};
-    private Consumer<Tab> onCloseOthers = __ -> {};
-    private Consumer<Tab> onCloseAll = __ -> {};
+    private Runnable onClose = () -> {};
+    private Runnable onCloseOthers = () -> {};
+    private Runnable onCloseAll = () -> {};
+    public static final String DEFAULT_STYLE_CLASS = "editor-tab-menu";
 
     public EditorTabMenu()
     {
@@ -25,12 +27,13 @@ public class EditorTabMenu extends MUIContextMenu
 
     private void build()
     {
+        this.getRoot().getStyleClass().add(DEFAULT_STYLE_CLASS);
         MUIMenuItem close = new MUIMenuItem(FontAwesomeSolid.TIMES,"Close");
         MUIMenuItem closeOthers = new MUIMenuItem(FontAwesomeSolid.TIMES_CIRCLE,"Close Others");
         MUIMenuItem closeAll = new MUIMenuItem(FontAwesomeSolid.THUMBTACK,"Close All");
-        close.setOnAction( __ -> this.onClose.accept(null));
-        closeOthers.setOnAction( __ -> this.onCloseOthers.accept(null));
-        closeAll.setOnAction( __ -> this.onCloseAll.accept(null));
+        close.setOnAction( __ -> this.onClose.run());
+        closeOthers.setOnAction( __ -> this.onCloseOthers.run());
+        closeAll.setOnAction( __ -> this.onCloseAll.run());
         this.getItems().addAll(Arrays.asList(
                 close,
                 closeOthers,
@@ -38,7 +41,7 @@ public class EditorTabMenu extends MUIContextMenu
         ));
     }
 
-    public void setOnClose(Consumer<Tab> onClose) { this.onClose = onClose; }
-    public void setOnCloseOthers(Consumer<Tab> onCloseOthers) { this.onCloseOthers = onCloseOthers; }
-    public void setOnCloseAll(Consumer<Tab> onCloseAll) { this.onCloseAll = onCloseAll; }
+    public void setOnClose(Runnable onClose) { this.onClose = onClose; }
+    public void setOnCloseOthers(Runnable onCloseOthers) { this.onCloseOthers = onCloseOthers; }
+    public void setOnCloseAll(Runnable onCloseAll) { this.onCloseAll = onCloseAll; }
 }

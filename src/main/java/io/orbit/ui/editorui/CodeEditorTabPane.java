@@ -2,17 +2,18 @@ package io.orbit.ui.editorui;
 
 import com.jfoenix.controls.JFXTabPane;
 import io.orbit.api.text.CodeEditor;
+import javafx.animation.PauseTransition;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
+import javafx.scene.Node;
 import javafx.scene.control.Tab;
-import javafx.scene.input.MouseButton;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.util.Duration;
 import java.io.File;
-import java.util.List;
+import java.util.*;
 
 /**
  * Created by Tyler Swann on Sunday July 22, 2018 at 15:27
@@ -69,17 +70,29 @@ public class CodeEditorTabPane extends JFXTabPane
                     EditorTab editorTab = (EditorTab) tab;
                     if (!this.openTabs.contains(editorTab))
                         this.openTabs.add(editorTab);
+                    PauseTransition pause = new PauseTransition(Duration.seconds(2));
+                    pause.setOnFinished(__ -> updateTabNodes());
+                    pause.play();
                 });
                 change.getRemoved().forEach(tab -> {
                     EditorTab editorTab = (EditorTab) tab;
                     this.openTabs.remove(editorTab);
-                    this.getFiles().forEach(file -> {
+                    List<File> files = new ArrayList<>(this.getFiles());
+                    files.forEach(file -> {
                         if (editorTab.getFile().equals(file))
                             this.files.remove(file);
                     });
                 });
             }
         });
+    }
+
+    private Optional<EditorTab> getTabWithFile(File file)
+    {
+        for (EditorTab tab : this.getOpenTabs())
+            if (tab.getFile().equals(file))
+                return Optional.of(tab);
+        return Optional.empty();
     }
 
 
@@ -95,19 +108,47 @@ public class CodeEditorTabPane extends JFXTabPane
                 this.select(tab);
     }
 
-    private void addNewFile(File file)
+    private void updateTabNodes()
     {
-        if (fileIsOpen(file))
+
+        List<Node> tabNodes = new ArrayList<>(this.lookupAll(".editor-tab"));
+        if (tabNodes == null)
+            return;
+        for (int i = 0; i < tabNodes.size(); i++)
         {
-            for (EditorTab tab : this.getOpenTabs())
+            Node tabNode = tabNodes.get(i);
+            File associatedFile = this.files.get(i);
+            EditorTab editorTab;
+            if (getTabWithFile(associatedFile).isPresent())
             {
-                if (tab.getFile().equals(file))
+                editorTab = getTabWithFile(associatedFile).get();
+                if (editorTab.getOwner() == null)
                 {
-                    this.select(tab);
-                    break;
+                    editorTab.setOwner(tabNode);
+                    addTabMenuEvents(editorTab);
                 }
             }
         }
+    }
+
+    private void addTabMenuEvents(EditorTab tab)
+    {
+        tab.getTabMenu().setOnClose(() -> this.getTabs().remove(tab));
+        tab.getTabMenu().setOnCloseOthers(() -> {
+            List<Tab> tabs = new ArrayList<>(this.getTabs());
+            tabs.remove(tab);
+            this.getTabs().removeAll(tabs);
+        });
+        tab.getTabMenu().setOnCloseAll(() -> {
+            List<Tab> tabs = new ArrayList<>(this.getTabs());
+            this.getTabs().removeAll(tabs);
+        });
+    }
+
+    private void addNewFile(File file)
+    {
+        if (fileIsOpen(file))
+            this.getTabWithFile(file).ifPresent(this::select);
         else
         {
             EditorTab tab = new EditorTab(file);

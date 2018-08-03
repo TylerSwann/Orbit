@@ -17,6 +17,8 @@ import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
 import javafx.scene.layout.AnchorPane;
 import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Tyler Swann on Sunday July 22, 2018 at 15:59
@@ -63,7 +65,8 @@ public class OEditorTabPaneController
         });
         this.editorPane.activeTabProperty().addListener(__ -> {
             EditorTab activeTab = this.editorPane.getActiveTab();
-            ((SimpleObjectProperty<OCodeEditorController>) ACTIVE_EDITOR_CONTROLLER).set(activeTab.getController());
+            if (activeTab != null)
+                ((SimpleObjectProperty<OCodeEditorController>) ACTIVE_EDITOR_CONTROLLER).set(activeTab.getController());
         });
         this.editorPane.getOpenTabs().addListener((ListChangeListener<EditorTab>) change -> {
             while (change.next())
@@ -81,6 +84,13 @@ public class OEditorTabPaneController
             File lastOpenedFile = lastModified.getOpenFile();
             if (lastModified.getOpenEditors() != null)
             {
+                List<File> files = new ArrayList<>(lastModified.getOpenEditors());
+                lastModified.getOpenEditors().clear();
+                for (File file : files)
+                {
+                    if (!lastModified.getOpenEditors().contains(file))
+                        lastModified.getOpenEditors().add(file);
+                }
                 for (File file : lastModified.getOpenEditors())
                     App.applicationController().getEditorTabPaneController().openFile(new ProjectFile(file));
             }
