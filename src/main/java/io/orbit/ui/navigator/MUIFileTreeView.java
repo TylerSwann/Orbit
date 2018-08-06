@@ -2,14 +2,20 @@ package io.orbit.ui.navigator;
 
 import io.orbit.api.event.FileTreeMenuEvent;
 import io.orbit.ui.contextmenu.NavigatorContextMenu;
+import io.orbit.util.Lists;
+import javafx.collections.ListChangeListener;
 import javafx.scene.control.SelectionMode;
 import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeView;
 import javafx.scene.input.ContextMenuEvent;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
+import org.kordamp.ikonli.fontawesome5.FontAwesomeSolid;
+import org.kordamp.ikonli.javafx.FontIcon;
+
 import java.io.File;
-import java.util.Optional;
+import java.util.*;
+import java.util.stream.Collectors;
 
 /**
  * Created by Tyler Swann on Thursday July 19, 2018 at 19:00
@@ -19,6 +25,8 @@ public class MUIFileTreeView extends TreeView<File>
     private File root;
     private NavigatorContextMenu menu;
     private TreeItem<File> selectedItem;
+    private List<TreeItem<File>> selectedItems = new ArrayList<>();
+    private List<TreeItem<File>> branches = new ArrayList<>();
 
     public MUIFileTreeView(File root)
     {
@@ -37,6 +45,49 @@ public class MUIFileTreeView extends TreeView<File>
         this.mapRootFolder();
     }
 
+    public void addFiles(File... files)
+    {
+        this.branches.clear();
+        populateMap(this.getRoot());
+        for (File file : files)
+        {
+            TreeItem<File> item = new TreeItem<>(file);
+            getItemWithFile(file.getParentFile()).ifPresent(parent -> parent.getChildren().add(item));
+        }
+    }
+
+    public void removeFiles(File... files)
+    {
+        this.branches.clear();
+        populateMap(this.getRoot());
+        for (File file : files)
+        {
+            this.getItemWithFile(file).ifPresent(item -> item.getParent().getChildren().remove(item));
+        }
+    }
+
+    private Optional<TreeItem<File>> getItemWithFile(File file)
+    {
+        for (TreeItem<File> item : this.branches)
+        {
+            if (item.getValue().equals(file))
+                return Optional.of(item);
+        }
+        return Optional.empty();
+    }
+
+    private void populateMap(TreeItem<File> root)
+    {
+        this.branches.add(root);
+        for (TreeItem<File> child : root.getChildren())
+        {
+            if (child.getChildren().size() > 0)
+                populateMap(child);
+            else
+                this.branches.add(child);
+        }
+    }
+
     private void build()
     {
         this.setCellFactory(view -> new FileTreeCell());
@@ -50,6 +101,7 @@ public class MUIFileTreeView extends TreeView<File>
                 this.menu.show(this.getScene().getWindow(), event.getScreenX(), event.getScreenY());
         });
         this.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> this.selectedItem = newValue);
+        this.getSelectionModel().getSelectedItems().addListener((ListChangeListener<TreeItem<File>>) __ -> this.selectedItems = this.getSelectionModel().getSelectedItems());
         this.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
             if (this.selectedItem == null)
                 return;
@@ -61,22 +113,15 @@ public class MUIFileTreeView extends TreeView<File>
                 this.fireEvent(new FileTreeMenuEvent(FileTreeMenuEvent.ITEM_RIGHT_CLICK, this, this.selectedItem));
         });
 
-        this.menu.setOnCut(() -> this.getSelectedItem().ifPresent(item -> this.fireEvent(new FileTreeMenuEvent(FileTreeMenuEvent.CUT, this, item))));
-        this.menu.setOnCopy(() -> this.getSelectedItem().ifPresent(item -> this.fireEvent(new FileTreeMenuEvent(FileTreeMenuEvent.COPY, this, item))));
-        this.menu.setOnCopyPath(() -> this.getSelectedItem().ifPresent(item -> this.fireEvent(new FileTreeMenuEvent(FileTreeMenuEvent.COPY_PATH, this, item))));
-        this.menu.setOnCopyRelativePath(() -> this.getSelectedItem().ifPresent(item -> this.fireEvent(new FileTreeMenuEvent(FileTreeMenuEvent.COPY_RELATIVE_PATH, this, item))));
-        this.menu.setOnPaste(() -> this.getSelectedItem().ifPresent(item -> this.fireEvent(new FileTreeMenuEvent(FileTreeMenuEvent.PASTE, this, item))));
-        this.menu.setOnDelete(() -> this.getSelectedItem().ifPresent(item -> this.fireEvent(new FileTreeMenuEvent(FileTreeMenuEvent.DELETE, this, item))));
-        this.menu.setOnNewFile(() -> this.getSelectedItem().ifPresent(item -> this.fireEvent(new FileTreeMenuEvent(FileTreeMenuEvent.NEW_FILE, this, item))));
-        this.menu.setOnNewFolder(() -> this.getSelectedItem().ifPresent(item -> this.fireEvent(new FileTreeMenuEvent(FileTreeMenuEvent.NEW_FOLDER, this, item))));
-        this.menu.setOnNewProject(() -> this.getSelectedItem().ifPresent(item -> this.fireEvent(new FileTreeMenuEvent(FileTreeMenuEvent.NEW_PROJECT, this, item))));
-    }
-
-    private Optional<TreeItem<File>> getSelectedItem()
-    {
-        if (this.selectedItem != null)
-            return Optional.of(this.selectedItem);
-        return Optional.empty();
+        this.menu.setOnCut(() -> this.fireEvent(new FileTreeMenuEvent(FileTreeMenuEvent.CUT, this, this.selectedItems)));
+        this.menu.setOnCopy(() -> this.fireEvent(new FileTreeMenuEvent(FileTreeMenuEvent.COPY, this, this.selectedItems)));
+        this.menu.setOnCopyPath(() -> this.fireEvent(new FileTreeMenuEvent(FileTreeMenuEvent.COPY_PATH, this, this.selectedItems)));
+        this.menu.setOnCopyRelativePath(() -> this.fireEvent(new FileTreeMenuEvent(FileTreeMenuEvent.COPY_RELATIVE_PATH, this, this.selectedItems)));
+        this.menu.setOnPaste(() -> this.fireEvent(new FileTreeMenuEvent(FileTreeMenuEvent.PASTE, this, this.selectedItems)));
+        this.menu.setOnDelete(() -> this.fireEvent(new FileTreeMenuEvent(FileTreeMenuEvent.DELETE, this, this.selectedItems)));
+        this.menu.setOnNewFile(() -> this.fireEvent(new FileTreeMenuEvent(FileTreeMenuEvent.NEW_FILE, this, this.selectedItems)));
+        this.menu.setOnNewFolder(() -> this.fireEvent(new FileTreeMenuEvent(FileTreeMenuEvent.NEW_FOLDER, this, this.selectedItems)));
+        this.menu.setOnNewProject(() -> this.fireEvent(new FileTreeMenuEvent(FileTreeMenuEvent.NEW_PROJECT, this, this.selectedItems)));
     }
 
     private void mapRootFolder()

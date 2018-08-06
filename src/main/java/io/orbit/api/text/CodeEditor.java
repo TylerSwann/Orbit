@@ -235,7 +235,6 @@ public class CodeEditor extends StyleClassedTextArea
         Map<DataFormat, Object> content = new HashMap<>();
         content.put(DataFormat.PLAIN_TEXT, this.selectedTextProperty().getValue());
         clipboard.setContent(content);
-//        this.fireEvent(new CodeEditorEvent(this, this, CodeEditorEvent.COPY));
     }
     @Override
     public void cut()

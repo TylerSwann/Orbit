@@ -36,6 +36,16 @@ public class ONavigatorController
         this.navigator.getProjectTreeView().forceRefresh();
     }
 
+    public void addFiles(File... files)
+    {
+        this.navigator.getProjectTreeView().addFiles(files);
+    }
+
+    public void removeFiles(File... files)
+    {
+        this.navigator.getProjectTreeView().removeFiles(files);
+    }
+
     private void registerListeners()
     {
         boolean navigatorIsClosed = LocalUser.userSettings.isNavigatorClosed();

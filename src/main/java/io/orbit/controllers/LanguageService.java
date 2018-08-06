@@ -59,8 +59,14 @@ public class LanguageService
             return;
 
         language = getActiveController().getLanguage();
+        if (language == null || language.getSyntaxHighlighter() == null)
+            return;
         SyntaxHighlighter highlighter = language.getSyntaxHighlighter();
         EventStream<PlainTextChange> changes = getActiveEditor().plainTextChanges();
+//        getActiveEditor().plainTextChanges().addObserver(change -> {
+//            StyleSpans<Collection<String>> spans = language.getSyntaxHighlighter().computeHighlighting(getActiveEditor().getText());
+//            applyHighlighting(spans);
+//        });
         highlightingSubscription = changes
                 .successionEnds(highlighter.getHighlightingInterval())
                 .conditionOn(isHighlighting)

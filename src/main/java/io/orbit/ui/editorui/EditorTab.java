@@ -35,12 +35,10 @@ public class EditorTab extends Tab
 
     private void buildTabMenu()
     {
-//        System.out.println(String.format("Building menu for %s", this.getFile().getName()));
         this.tabMenu = new EditorTabMenu();
         this.owner.addEventHandler(ContextMenuEvent.CONTEXT_MENU_REQUESTED, event -> {
             double x = event.getScreenX();
             double y = event.getScreenY();
-            System.out.println(String.format("Show %s", this.getFile().getName()));
             this.tabMenu.show(this.owner, x, y);
         });
     }

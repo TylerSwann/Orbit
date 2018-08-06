@@ -37,7 +37,6 @@ public class NavigatorContextMenu extends MUIContextMenu
         MUIMenuItem copyRelativePath = new MUIMenuItem(FontAwesomeSolid.COPY," Copy Relative Path");
         MUIMenuItem paste = new MUIMenuItem(FontAwesomeSolid.PASTE," Paste");
         MUIMenuItem delete = new MUIMenuItem(FontAwesomeSolid.TRASH," Delete");
-
         MUIMenuItem file = new MUIMenuItem(FontAwesomeSolid.FILE," File");
         MUIMenuItem directory = new MUIMenuItem(FontAwesomeSolid.FOLDER," Directory");
         MUIMenuItem project = new MUIMenuItem(FontAwesomeSolid.CUBES," Project");
@@ -63,7 +62,6 @@ public class NavigatorContextMenu extends MUIContextMenu
         project.setOnAction(__ -> this.onNewProject.run());
 
         newMenu.getSubmenu().root.getStyleClass().add(DEFAULT_STYLE_CLASS);
-//        this.root.setPrefSize(175.0, 200.0);
         this.getItems().addAll(items);
     }
 

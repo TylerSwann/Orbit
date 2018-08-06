@@ -36,7 +36,7 @@ App.class.getClassLoader().getResource("fonts/raleway/Raleway-ExtraLight.ttf"),
 App.class.getClassLoader().getResource("fonts/raleway/Raleway-Thin.ttf")
 
 
-
+(<.*>.*</[a-zA-Z0-9\-]+>)
 
 area|base|br|col|command|embed|hr|img|input|keygen|link|menuitem|meta|param|source|track|wbr
 \<(?!(meta|link))
@@ -53,3 +53,5 @@ area|base|br|col|command|embed|hr|img|input|keygen|link|menuitem|meta|param|sour
 
 (?<OPENTAG>((<)(?!(area|base|br|col|command|embed|hr|img|input|keygen|link|menuitem|meta|param|source|track|wbr))[a-zA-Z0-9]+[\sa-zA-Z0-9=\":/.-]*>))
 (?<OPENTAG>((<)(?!(input|link))[a-zA-Z0-9]+[\\sa-zA-Z0-9=\":/.-]*>)).*(?<CLOSETAG>(</[a-zA-Z0-9\-]+>))
+
+

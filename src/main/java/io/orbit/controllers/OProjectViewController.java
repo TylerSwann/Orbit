@@ -3,6 +3,7 @@ package io.orbit.controllers;
 import io.orbit.App;
 import io.orbit.api.notification.Notifications;
 import io.orbit.api.notification.modal.MUIInputModal;
+import io.orbit.api.notification.modal.MUIModal;
 import io.orbit.api.notification.modal.MUIModalButton;
 import io.orbit.settings.LocalUser;
 import io.orbit.api.event.FileTreeMenuEvent;
@@ -11,6 +12,9 @@ import javafx.scene.input.Clipboard;
 import javafx.scene.input.DataFormat;
 
 import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -24,8 +28,9 @@ public class OProjectViewController
     private MUIFileTreeView projectView;
     private List<File> fileClipboard = new ArrayList<>();
     private Clipboard clipboard = Clipboard.getSystemClipboard();
+    private Mode mode = Mode.NONE;
 
-    private enum Mode { CUT, COPY, PASTE }
+    private enum Mode { CUT, COPY, NONE }
     
     public OProjectViewController(MUIFileTreeView projectView)
     {
@@ -60,11 +65,13 @@ public class OProjectViewController
     private void cut(FileTreeMenuEvent event)
     {
         this.fileClipboard = event.getSelectedFiles();
+        this.mode = Mode.CUT;
     }
 
     private void copy(FileTreeMenuEvent event)
     {
         this.fileClipboard = event.getSelectedFiles();
+        this.mode = Mode.COPY;
     }
 
     private void copyPath(FileTreeMenuEvent event)
@@ -98,11 +105,37 @@ public class OProjectViewController
 
     private void paste(FileTreeMenuEvent event)
     {
-
+        if (this.fileClipboard.isEmpty() || event.getSelectedFiles().size() < 1 || this.mode == Mode.NONE)
+            return;
+        boolean success = true;
+        boolean copy = this.mode == Mode.COPY;
+        success = this.relocateFiles(this.fileClipboard, event.getSelectedFiles().get(0), copy);
+        if (!success)
+            Notifications.showErrorAlert("Oops", "Sorry, we ran into a problem and were unable to move/copy some files!");
+        App.applicationController().getProjectNavigatorController().removeFiles(this.fileClipboard.toArray(new File[this.fileClipboard.size()]));
+        this.fileClipboard.clear();
+        this.mode = Mode.NONE;
     }
 
     private void delete(FileTreeMenuEvent event)
     {
+        MUIModalButton cancel = new MUIModalButton("CANCEL", MUIModalButton.MUIModalButtonStyle.SECONDARY);
+        MUIModalButton delete = new MUIModalButton("DELETE", MUIModalButton.MUIModalButtonStyle.DESTRUCTIVE);
+        MUIModal modal = new MUIModal("Delete", "Are you sure you want to delete the selected file(s)?", cancel, delete);
+
+        delete.setOnAction(__ -> {
+            boolean allDeleted = true;
+            for (File file : event.getSelectedFiles())
+            {
+                boolean deleted = file.delete();
+                allDeleted = allDeleted && deleted;
+                App.applicationController().getProjectNavigatorController().removeFiles(file);
+            }
+            if (!allDeleted)
+                Notifications.showErrorAlert("Oops", "Sorry, we ran into a problem and were unable to delete some of the files!");
+
+        });
+        Notifications.showModal(modal);
 
     }
     private void newFile(FileTreeMenuEvent event)
@@ -110,14 +143,59 @@ public class OProjectViewController
         MUIModalButton cancel = new MUIModalButton("CANCEL", MUIModalButton.MUIModalButtonStyle.SECONDARY);
         MUIModalButton create = new MUIModalButton("CREATE", MUIModalButton.MUIModalButtonStyle.PRIMARY);
         MUIInputModal modal = new MUIInputModal("Create File", "Enter a new file name:", cancel, create);
-        Notifications.showModal(modal);
+        create.setOnAction(__ -> {
+            if (modal.getText() == null || modal.getText().equals(""))
+                return;
+            File targetFile = event.getSelectedFiles().get(0);
+            File parentFile = targetFile.isDirectory() ? targetFile : targetFile.getParentFile();
+            File newFile = new File(String.format("%s\\%s", parentFile.getPath(), modal.getText()));
+            if (newFile.exists())
+            {
+                Notifications.showErrorAlert("Already Exists!", "Sorry, a file with that name already exists!");
+                return;
+            }
+            boolean success;
+            try
+            {
+                success = newFile.createNewFile();
+            }
+            catch (IOException ex)
+            {
+                success = false;
+                ex.printStackTrace();
+            }
+            if (!success)
+                Notifications.showErrorAlert("Oops", "Sorry, we ran into a problem and were unable to create that file!");
+            else
+                App.applicationController().getProjectNavigatorController().addFiles(newFile);
+        });
+        if (event.getSelectedFiles().size() >= 1)
+            Notifications.showModal(modal);
     }
     private void newFolder(FileTreeMenuEvent event)
     {
         MUIModalButton cancel = new MUIModalButton("CANCEL", MUIModalButton.MUIModalButtonStyle.SECONDARY);
         MUIModalButton create = new MUIModalButton("CREATE", MUIModalButton.MUIModalButtonStyle.PRIMARY);
         MUIInputModal modal = new MUIInputModal("Create Directory", "Enter a new directory name:", cancel, create);
-        Notifications.showModal(modal);
+        create.setOnAction(__ -> {
+            if (modal.getText() == null || modal.getText().equals(""))
+                return;
+            File targetFile = event.getSelectedFiles().get(0);
+            File parentDirectory = targetFile.isDirectory() ? targetFile : targetFile.getParentFile();
+            File folder = new File(String.format("%s\\%s", parentDirectory.getPath(), modal.getText()));
+            if (folder.exists())
+                Notifications.showErrorAlert("Already Exists!", "Sorry, a folder with this name already exists at the specified location!");
+            else
+            {
+                boolean success = folder.mkdirs();
+                if (!success)
+                    Notifications.showErrorAlert("Oops", "Sorry, we ran into a problem and were unable to create that file!");
+                else
+                    App.applicationController().getProjectNavigatorController().addFiles(folder);
+            }
+        });
+        if (event.getSelectedFiles().size() >= 1)
+            Notifications.showModal(modal);
     }
 
     private void newProject(FileTreeMenuEvent event)
@@ -125,4 +203,28 @@ public class OProjectViewController
 
     }
 
+    private boolean relocateFiles(List<File> from, File to, boolean copy)
+    {
+        boolean movedAll = true;
+        File destFolder = to.isDirectory() ? to : to.getParentFile();
+        for (File file : from)
+        {
+            if (!file.exists())
+                continue;
+            try
+            {
+                String destinationPath = String.format("%s\\%s", destFolder.getPath(), file.getName());
+                if (copy)
+                    Files.copy(Paths.get(file.getPath()), Paths.get(destinationPath));
+                else
+                    Files.move(Paths.get(file.getPath()), Paths.get(destinationPath));
+            }
+            catch (IOException ex)
+            {
+                movedAll = false;
+                ex.printStackTrace();
+            }
+        }
+        return movedAll;
+    }
 }
