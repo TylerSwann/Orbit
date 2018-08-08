@@ -5,8 +5,6 @@ import io.orbit.api.text.CodeEditor;
 import io.orbit.controllers.events.ApplicationEvent;
 import io.orbit.settings.LocalUser;
 import io.orbit.settings.ProjectData;
-import io.orbit.settings.ProjectFile;
-import io.orbit.settings.UnownedProjectFile;
 import io.orbit.ui.editorui.CodeEditorTabPane;
 import io.orbit.ui.editorui.EditorTab;
 import javafx.application.Platform;
@@ -45,10 +43,6 @@ public class OEditorTabPaneController
     public void openFile(File file)
     {
         this.editorPane.getFiles().add(file);
-    }
-    public void openNonProjectFile(File file, UnownedProjectFile.UnownedProjectFileMode mode)
-    {
-
     }
 
     private void registerListeners()
@@ -92,7 +86,7 @@ public class OEditorTabPaneController
                         lastModified.getOpenEditors().add(file);
                 }
                 for (File file : lastModified.getOpenEditors())
-                    App.applicationController().getEditorTabPaneController().openFile(new ProjectFile(file));
+                    App.applicationController().getEditorTabPaneController().openFile(file);
             }
             if (lastOpenedFile != null)
                 this.editorPane.select(lastOpenedFile);

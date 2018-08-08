@@ -1,12 +1,12 @@
 package io.orbit.ui;
 
 import io.orbit.App;
-import io.orbit.settings.OrbitFile;
 import io.orbit.api.SVGIcon;
+import io.orbit.settings.ProjectFile;
 import org.kordamp.ikonli.Ikon;
 import org.kordamp.ikonli.fontawesome5.FontAwesomeBrands;
 import org.kordamp.ikonli.fontawesome5.FontAwesomeSolid;
-
+import java.io.File;
 import java.net.URL;
 
 
@@ -34,9 +34,9 @@ public final class LanguageIcons
     }
 
 
-    public static SVGIcon iconForFile(OrbitFile file)
+    public static SVGIcon iconForFile(ProjectFile file)
     {
-        String extension = file.getExtension().toLowerCase();
+        String extension = file.extension().toLowerCase();
         switch (extension)
         {
             case "sass":

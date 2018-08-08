@@ -1,9 +1,11 @@
 package io.orbit.controllers;
 
 import io.orbit.App;
+import io.orbit.api.event.CodeEditorEvent;
 import io.orbit.api.notification.Notifications;
 import io.orbit.api.notification.modal.MUIInputModal;
 import io.orbit.api.notification.modal.MUIModalButton;
+import io.orbit.api.text.CodeEditor;
 import io.orbit.controllers.events.MenuBarEvent;
 import io.orbit.controllers.marketplaceui.MarketPlacePageController;
 import io.orbit.settings.*;
@@ -19,6 +21,9 @@ import javafx.stage.FileChooser;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.Optional;
 
 /**
  * Created by Tyler Swann on Sunday July 15, 2018 at 15:39
@@ -26,7 +31,7 @@ import java.io.IOException;
 public class OMenuBarController extends EventTargetObject
 {
     private SystemMenuBar menuBar;
-    private SettingsWindow settingsWindow;
+//    private SettingsWindow settingsWindow;
 
     public OMenuBarController(AnchorPane container)
     {
@@ -72,7 +77,7 @@ public class OMenuBarController extends EventTargetObject
     private void registerListeners()
     {
         this.addEventHandler(MenuBarEvent.FIND, event -> this.showFindAndReplaceDialog());
-        this.addEventHandler(MenuBarEvent.SAVE, event -> event.selectedFile.ifPresent(this::saveFile));
+        this.addEventHandler(MenuBarEvent.SAVE, this::saveFile);
         this.addEventHandler(MenuBarEvent.SAVE_ALL, event -> this.saveAll());
         this.addEventHandler(MenuBarEvent.SETTINGS, event -> Platform.runLater(this::showSettingsPage));
         this.addEventHandler(MenuBarEvent.NEW_PROJECT, event -> Platform.runLater(OProjectCreationDialog::show));
@@ -119,45 +124,50 @@ public class OMenuBarController extends EventTargetObject
         });
     }
 
-    private void saveFile(OrbitFile file)
+    private void saveFile(MenuBarEvent event)
     {
-        file.save();
-        Notifications.showSnackBarMessage(String.format("Saved %s!", file.getName()), 2000);
+        boolean saved = true;
+        Optional<ProjectFile> file = App.applicationController().getActiveProjectFile();
+        saved = file.map(ProjectFile::save).orElse(false);
+        if (saved)
+            Notifications.showSnackBarMessage(String.format("Saved %s!", file.get().getName()), 2000);
+        else
+            Notifications.showSnackBarMessage("ERROR We were unable to save that file!", 2000);
     }
 
     private void saveAll()
     {
-        // TODO - update to new OEditorController
-//        App.applicationController().getEditorTabPaneController().getOpenProjectFiles().forEach(file -> {
-//            if (file.wasModified())
-//                file.save();
-//        });
-        Notifications.showSnackBarMessage("Saved All!", 2000);
+        boolean savedAll = true;
+        for (ProjectFile file : App.applicationController().getActiveProjectFiles())
+        {
+            boolean success = file.save();
+            savedAll = savedAll && success;
+        }
+        if (savedAll)
+            Notifications.showSnackBarMessage("Saved All!", 2000);
+        else
+            Notifications.showSnackBarMessage("ERROR Saving Some Files!", 3000);
     }
 
     private void showFindAndReplaceDialog()
     {
-        // TODO - update to new OEditorController
-//        TextEditorPane pane = (TextEditorPane) App.applicationController()
-//                .getTabPaneController()
-//                .getTabPane()
-//                .getSelectionModel()
-//                .getSelectedItem().getContent();
-//        pane.showFindAndReplaceDialog(false);
+        CodeEditor editor = App.applicationController().getActiveEditor();
+        editor.fireEvent(new CodeEditorEvent(CodeEditorEvent.FIND, editor.getFile()));
     }
 
     private void showSettingsPage()
     {
-        if (settingsWindow != null)
-            return;
-        Setting themeAndFonts = new Setting("Themes and Fonts", ThemeSettingsPage.load());
-        Setting editorSettings = new Setting("Editor", new Setting[] { new Setting("Key Bindings", KeyBindingsPageController.load()) });
-        settingsWindow = new SettingsWindow(new Setting[]{ themeAndFonts, editorSettings });
         // TODO - update to new OEditorController
+//        if (settingsWindow != null)
+//            return;
+//        Setting themeAndFonts = new Setting("Themes and Fonts", ThemeSettingsPage.load());
+//        Setting editorSettings = new Setting("Editor", new Setting[] { new Setting("Key Bindings", KeyBindingsPageController.load()) });
+//        settingsWindow = new SettingsWindow(new Setting[]{ themeAndFonts, editorSettings });
+//
 //        ThemeSettingsPage.CONTROLLER.setOnEditSyntaxTheme(file -> App.applicationController().getTabPaneController().openNonProjectFile(file, UnownedProjectFile.UnownedProjectFileMode.EDIT_SYNTAX_THEME));
 //        ThemeSettingsPage.CONTROLLER.setOnEditUITheme(file -> App.applicationController().getTabPaneController().openNonProjectFile(file, UnownedProjectFile.UnownedProjectFileMode.EDIT_UI_THEME));
-        settingsWindow.setOnCloseRequest(event -> settingsWindow = null);
-        settingsWindow.show();
+//        settingsWindow.setOnCloseRequest(event -> settingsWindow = null);
+//        settingsWindow.show();
     }
 
     private void showFileChooserDialog()
@@ -165,7 +175,7 @@ public class OMenuBarController extends EventTargetObject
         FileChooser chooser = new FileChooser();
         File selectedFile = chooser.showOpenDialog(this.menuBar.getScene().getWindow());
         if (selectedFile != null && selectedFile.exists())
-            this.fireEvent(new MenuBarEvent(MenuBarEvent.OPEN_FILE, new OrbitFile(selectedFile)));
+            this.fireEvent(new MenuBarEvent(MenuBarEvent.OPEN_FILE, selectedFile));
     }
 
     private void showFolderChooseDialog()
@@ -175,7 +185,7 @@ public class OMenuBarController extends EventTargetObject
         File root = chooser.showDialog(this.menuBar.getScene().getWindow());
         if (root != null && root.exists() && root.isDirectory())
         {
-            this.fireEvent(new MenuBarEvent(MenuBarEvent.OPEN_FOLDER, new ProjectFile(root)));
+            this.fireEvent(new MenuBarEvent(MenuBarEvent.OPEN_FOLDER, root));
             LocalUser.userSettings.getLastModifiedProject().setProjectRoot(root);
         }
     }

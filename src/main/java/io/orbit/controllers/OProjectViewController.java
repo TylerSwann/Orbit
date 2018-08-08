@@ -10,15 +10,13 @@ import io.orbit.api.event.FileTreeMenuEvent;
 import io.orbit.ui.navigator.MUIFileTreeView;
 import javafx.scene.input.Clipboard;
 import javafx.scene.input.DataFormat;
+import org.apache.commons.io.FileUtils;
 
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * Created by Tyler Swann on Saturday July 21, 2018 at 15:39
@@ -125,19 +123,33 @@ public class OProjectViewController
 
         delete.setOnAction(__ -> {
             boolean allDeleted = true;
+
             for (File file : event.getSelectedFiles())
             {
-                boolean deleted = file.delete();
-                allDeleted = allDeleted && deleted;
-                App.applicationController().getProjectNavigatorController().removeFiles(file);
+                try
+                {
+                    if (file.isDirectory())
+                        FileUtils.deleteDirectory(file);
+                    else
+                    {
+                        boolean deleted = file.delete();
+                        allDeleted = deleted && allDeleted;
+                    }
+                    App.applicationController().getProjectNavigatorController().removeFiles(file);
+                }
+                catch (Exception ex)
+                {
+                    ex.printStackTrace();
+                    allDeleted = false;
+                }
             }
             if (!allDeleted)
                 Notifications.showErrorAlert("Oops", "Sorry, we ran into a problem and were unable to delete some of the files!");
 
         });
         Notifications.showModal(modal);
-
     }
+
     private void newFile(FileTreeMenuEvent event)
     {
         MUIModalButton cancel = new MUIModalButton("CANCEL", MUIModalButton.MUIModalButtonStyle.SECONDARY);

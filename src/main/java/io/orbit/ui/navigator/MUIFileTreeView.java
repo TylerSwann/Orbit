@@ -2,7 +2,6 @@ package io.orbit.ui.navigator;
 
 import io.orbit.api.event.FileTreeMenuEvent;
 import io.orbit.ui.contextmenu.NavigatorContextMenu;
-import io.orbit.util.Lists;
 import javafx.collections.ListChangeListener;
 import javafx.scene.control.SelectionMode;
 import javafx.scene.control.TreeItem;
@@ -10,12 +9,8 @@ import javafx.scene.control.TreeView;
 import javafx.scene.input.ContextMenuEvent;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
-import org.kordamp.ikonli.fontawesome5.FontAwesomeSolid;
-import org.kordamp.ikonli.javafx.FontIcon;
-
 import java.io.File;
 import java.util.*;
-import java.util.stream.Collectors;
 
 /**
  * Created by Tyler Swann on Thursday July 19, 2018 at 19:00

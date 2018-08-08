@@ -1,12 +1,11 @@
 package io.orbit.controllers.events;
 
 import io.orbit.api.text.CodeEditor;
-import io.orbit.settings.OrbitFile;
 import javafx.event.Event;
-
 import javafx.event.EventTarget;
 import javafx.event.EventType;
 
+import java.io.File;
 import java.util.Optional;
 
 /**
@@ -45,7 +44,7 @@ public class MenuBarEvent extends Event
     // Code Menu
     public static final EventType<MenuBarEvent> REFORMAT_ACTIVE_DOCUMENT = new EventType<>(Event.ANY, "REFORMAT_ACTIVE_DOCUMENT");
 
-    public Optional<OrbitFile> selectedFile = Optional.empty();
+    private Optional<File> selectedFile = Optional.empty();
     private Optional<CodeEditor> targetEditor;
 
     public MenuBarEvent(Object source, EventTarget target, EventType<? extends Event> eventType)
@@ -59,7 +58,7 @@ public class MenuBarEvent extends Event
         this.targetEditor = Optional.of(targetEditor);
     }
 
-    public MenuBarEvent(EventType<? extends Event> eventType, OrbitFile sourceFile)
+    public MenuBarEvent(EventType<? extends Event> eventType, File sourceFile)
     {
         super(null, null, eventType);
         this.selectedFile = Optional.of(sourceFile);
@@ -72,5 +71,6 @@ public class MenuBarEvent extends Event
     }
 
     public Optional<CodeEditor> getTargetEditor() { return targetEditor; }
+    public Optional<File> getSelectedFile() { return selectedFile; }
 }
 
