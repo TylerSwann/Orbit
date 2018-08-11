@@ -21,7 +21,6 @@ public class ApplicationMenuBar extends MUIMenuBar implements SystemMenuBar
 {
     private static final String CONTEXT_MENU_STYLE_CLASS = "application-context-menu";
 
-    private EventHandler<ActionEvent> onViewPlugins;
     private EventHandler<ActionEvent> onViewTerminal;
     private EventHandler<ActionEvent> onViewNavigator;
     private EventHandler<ActionEvent> onNewFile;
@@ -66,16 +65,13 @@ public class ApplicationMenuBar extends MUIMenuBar implements SystemMenuBar
         MUIMenuItem save_all = new MUIMenuItem(FontAwesomeSolid.SAVE,"Save All");
         MUIMenuItem open = new MUIMenuItem(FontAwesomeSolid.FILE_ALT,"Open File");
         MUIMenuItem openFolder = new MUIMenuItem(FontAwesomeSolid.FOLDER,"Open Folder");
-        MUIMenuItem settings = new MUIMenuItem(FontAwesomeSolid.WRENCH,"Settings");
-
         MUIContextMenu menu = new MUIContextMenu(this);
         menu.getItems().addAll(Arrays.asList(
                 newMenu,
                 save,
                 save_all,
                 open,
-                openFolder,
-                settings
+                openFolder
         ));
         newFile.setOnAction(event -> this.onNewFile.handle(event));
         newFolder.setOnAction(event -> this.onNewFolder.handle(event));
@@ -84,7 +80,6 @@ public class ApplicationMenuBar extends MUIMenuBar implements SystemMenuBar
         save_all.setOnAction(event -> this.onSaveAll.handle(event));
         open.setOnAction(event -> this.onOpenFile.handle(event));
         openFolder.setOnAction(event -> this.onOpenFolder.handle(event));
-        settings.setOnAction(event -> this.onSettings.handle(event));
 
         menu.getRoot().getStyleClass().add(CONTEXT_MENU_STYLE_CLASS);
         newMenu.getSubmenu().getRoot().getStyleClass().add(CONTEXT_MENU_STYLE_CLASS);
@@ -135,13 +130,12 @@ public class ApplicationMenuBar extends MUIMenuBar implements SystemMenuBar
     {
         MUIMenuItem view = new MUIMenuItem("View");
 
-        MUIMenuItem plugins = new MUIMenuItem(FontAwesomeSolid.PLUG,"Plugins");
         MUIMenuItem terminal = new MUIMenuItem(FontAwesomeSolid.CHECK,"Terminal");
         MUIMenuItem navigator = new MUIMenuItem(FontAwesomeSolid.CHECK,"Navigator");
+        MUIMenuItem settings = new MUIMenuItem(FontAwesomeSolid.COG, "Settings");
         terminal.setContentDisplay(ContentDisplay.RIGHT);
         navigator.setContentDisplay(ContentDisplay.RIGHT);
 
-        plugins.setOnAction(event -> this.onViewPlugins.handle(event));
         terminal.setOnAction(event -> {
             if (terminal.getGraphic().getOpacity() <= 0.0)
                 terminal.getGraphic().setOpacity(1.0);
@@ -156,14 +150,15 @@ public class ApplicationMenuBar extends MUIMenuBar implements SystemMenuBar
                 navigator.getGraphic().setOpacity(0.0);
             this.onViewNavigator.handle(event);
         });
+        settings.setOnAction(event -> this.onSettings.handle(event));
         terminal.getGraphic().setOpacity((LocalUser.userSettings.isTerminalClosed() ? 0.0 : 1.0));
         navigator.getGraphic().setOpacity((LocalUser.userSettings.isNavigatorClosed() ? 0.0 : 1.0));
 
         MUIContextMenu menu = new MUIContextMenu(this);
         menu.getItems().addAll(Arrays.asList(
-                plugins,
                 terminal,
-                navigator
+                navigator,
+                settings
         ));
         terminal.getStyleClass().add("check-item");
         navigator.getStyleClass().add("check-item");
@@ -181,8 +176,6 @@ public class ApplicationMenuBar extends MUIMenuBar implements SystemMenuBar
         return Arrays.asList(play, stop, search);
     }
 
-    @Override
-    public void setOnViewPlugins(EventHandler<ActionEvent> handler) { this.onViewPlugins = handler; }
     @Override
     public void setOnViewTerminal(EventHandler<ActionEvent> handler) { this.onViewTerminal = handler; }
     @Override

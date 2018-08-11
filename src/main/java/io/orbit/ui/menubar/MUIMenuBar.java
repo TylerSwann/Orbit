@@ -59,14 +59,8 @@ public class MUIMenuBar extends GridPane
         this.setAlignment(Pos.CENTER);
         this.add(this.left, 0, 0);
         this.add(this.right, 1, 0);
-//        this.right.setStyle("-fx-background-color:  red;");
-//        this.left.setStyle("-fx-background-color:  blue;");
-//        this.setStyle("-fx-background-color:  green;");
         this.right.prefHeightProperty().bind(this.heightProperty());
         this.left.prefHeightProperty().bind(this.heightProperty());
-//        new Timer(1000, __ -> {
-//            System.out.println(this.getHeight());
-//        }).start();
         this.setPadding(new Insets(1.0, 0.0, 1.0, 0.0));
     }
 

@@ -3,6 +3,7 @@ package io.orbit.ui.editorui;
 import io.orbit.api.text.CodeEditor;
 import io.orbit.controllers.OCodeEditorController;
 import io.orbit.text.TextEditorPane;
+import javafx.application.Platform;
 import javafx.scene.Node;
 import javafx.scene.control.Tab;
 import javafx.scene.input.ContextMenuEvent;
@@ -36,7 +37,7 @@ public class EditorTab extends Tab
     private void buildTabMenu()
     {
         this.tabMenu = new EditorTabMenu();
-        this.owner.addEventHandler(ContextMenuEvent.CONTEXT_MENU_REQUESTED, event -> {
+        this.owner.setOnContextMenuRequested(event -> {
             double x = event.getScreenX();
             double y = event.getScreenY();
             this.tabMenu.show(this.owner, x, y);

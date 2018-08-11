@@ -50,21 +50,21 @@ public class ONavigatorController
     {
         boolean navigatorIsClosed = LocalUser.userSettings.isNavigatorClosed();
         if (navigatorIsClosed)
-            Platform.runLater(() -> App.applicationController().getRootSplitPane().getItems().remove(container));
+            Platform.runLater(() -> App.controller().getRootSplitPane().getItems().remove(container));
         else
             build();
         App.appEventsProperty.addEventListener(ApplicationEvent.WILL_CLOSE, event -> {
             if (!LocalUser.userSettings.isNavigatorClosed())
-                LocalUser.userSettings.setNavigatorDividerPos(App.applicationController().getRootSplitPane().getDividerPositions()[0]);
+                LocalUser.userSettings.setNavigatorDividerPos(App.controller().getRootSplitPane().getDividerPositions()[0]);
         });
-        Platform.runLater(() -> App.applicationController().getMenuBarController().addEventHandler(MenuBarEvent.VIEW_NAVIGATOR, event -> toggleNavigator()));
+        Platform.runLater(() -> App.controller().getMenuBarController().addEventHandler(MenuBarEvent.VIEW_NAVIGATOR, event -> toggleNavigator()));
     }
 
     public void toggleNavigator()
     {
         boolean navigatorIsClosed = LocalUser.userSettings.isNavigatorClosed();
         LocalUser.userSettings.setNavigatorClosed(!navigatorIsClosed);
-        ApplicationController controller = App.applicationController();
+        ApplicationController controller = App.controller();
         if (navigatorIsClosed)
         {
             controller.getRootSplitPane().getItems().add(0, this.container);
@@ -86,7 +86,7 @@ public class ONavigatorController
         AnchorPane.setRightAnchor(navigator, 0.0);
         container.getChildren().add(navigator);
         Platform.runLater(() -> {
-            ApplicationController controller = App.applicationController();
+            ApplicationController controller = App.controller();
             controller.getRootSplitPane().setDividerPosition(0, LocalUser.userSettings.getNavigatorDividerPos());
             controller.getRootSplitPane()
                     .getDividers()

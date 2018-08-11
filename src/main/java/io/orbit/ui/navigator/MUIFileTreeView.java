@@ -1,11 +1,12 @@
 package io.orbit.ui.navigator;
 
+import io.orbit.api.SVGIcon;
 import io.orbit.api.event.FileTreeMenuEvent;
+import io.orbit.ui.LanguageIcons;
 import io.orbit.ui.contextmenu.NavigatorContextMenu;
 import javafx.collections.ListChangeListener;
-import javafx.scene.control.SelectionMode;
-import javafx.scene.control.TreeItem;
-import javafx.scene.control.TreeView;
+import javafx.scene.control.*;
+import javafx.scene.control.cell.TextFieldTreeCell;
 import javafx.scene.input.ContextMenuEvent;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
@@ -33,60 +34,6 @@ public class MUIFileTreeView extends TreeView<File>
         this.build();
         registerListeners();
         this.mapRootFolder();
-    }
-
-    public void forceRefresh()
-    {
-        this.mapRootFolder();
-    }
-
-    public void addFiles(File... files)
-    {
-        this.branches.clear();
-        populateMap(this.getRoot());
-        for (File file : files)
-        {
-            TreeItem<File> item = new TreeItem<>(file);
-            getItemWithFile(file.getParentFile()).ifPresent(parent -> parent.getChildren().add(item));
-        }
-    }
-
-    public void removeFiles(File... files)
-    {
-        this.branches.clear();
-        populateMap(this.getRoot());
-        for (File file : files)
-        {
-            this.getItemWithFile(file).ifPresent(item -> item.getParent().getChildren().remove(item));
-        }
-    }
-
-    private Optional<TreeItem<File>> getItemWithFile(File file)
-    {
-        for (TreeItem<File> item : this.branches)
-        {
-            if (item.getValue().equals(file))
-                return Optional.of(item);
-        }
-        return Optional.empty();
-    }
-
-    private void populateMap(TreeItem<File> root)
-    {
-        this.branches.add(root);
-        for (TreeItem<File> child : root.getChildren())
-        {
-            if (child.getChildren().size() > 0)
-                populateMap(child);
-            else
-                this.branches.add(child);
-        }
-    }
-
-    private void build()
-    {
-        this.setCellFactory(view -> new FileTreeCell());
-        this.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
     }
 
     private void registerListeners()
@@ -146,5 +93,59 @@ public class MUIFileTreeView extends TreeView<File>
                 root.getChildren().add(item);
             }
         }
+    }
+
+    public void addFiles(File... files)
+    {
+        this.branches.clear();
+        populateMap(this.getRoot());
+        for (File file : files)
+        {
+            TreeItem<File> item = new TreeItem<>(file);
+            getItemWithFile(file.getParentFile()).ifPresent(parent -> parent.getChildren().add(item));
+        }
+    }
+
+    public void removeFiles(File... files)
+    {
+        this.branches.clear();
+        populateMap(this.getRoot());
+        for (File file : files)
+        {
+            this.getItemWithFile(file).ifPresent(item -> item.getParent().getChildren().remove(item));
+        }
+    }
+
+    public void forceRefresh()
+    {
+        this.mapRootFolder();
+    }
+
+    private Optional<TreeItem<File>> getItemWithFile(File file)
+    {
+        for (TreeItem<File> item : this.branches)
+        {
+            if (item.getValue().equals(file))
+                return Optional.of(item);
+        }
+        return Optional.empty();
+    }
+
+    private void populateMap(TreeItem<File> root)
+    {
+        this.branches.add(root);
+        for (TreeItem<File> child : root.getChildren())
+        {
+            if (child.getChildren().size() > 0)
+                populateMap(child);
+            else
+                this.branches.add(child);
+        }
+    }
+
+    private void build()
+    {
+        this.setCellFactory(view -> new FileCell());
+        this.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
     }
 }

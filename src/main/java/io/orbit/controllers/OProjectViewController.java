@@ -56,7 +56,7 @@ public class OProjectViewController
         event.getSelectedFiles().forEach(file -> {
             if (file.isDirectory())
                 return;
-            App.applicationController().getEditorTabPaneController().openFile(file);
+            App.controller().getEditorTabPaneController().openFile(file);
         });
     }
 
@@ -110,7 +110,7 @@ public class OProjectViewController
         success = this.relocateFiles(this.fileClipboard, event.getSelectedFiles().get(0), copy);
         if (!success)
             Notifications.showErrorAlert("Oops", "Sorry, we ran into a problem and were unable to move/copy some files!");
-        App.applicationController().getProjectNavigatorController().removeFiles(this.fileClipboard.toArray(new File[this.fileClipboard.size()]));
+        App.controller().getProjectNavigatorController().removeFiles(this.fileClipboard.toArray(new File[this.fileClipboard.size()]));
         this.fileClipboard.clear();
         this.mode = Mode.NONE;
     }
@@ -135,7 +135,7 @@ public class OProjectViewController
                         boolean deleted = file.delete();
                         allDeleted = deleted && allDeleted;
                     }
-                    App.applicationController().getProjectNavigatorController().removeFiles(file);
+                    App.controller().getProjectNavigatorController().removeFiles(file);
                 }
                 catch (Exception ex)
                 {
@@ -179,7 +179,7 @@ public class OProjectViewController
             if (!success)
                 Notifications.showErrorAlert("Oops", "Sorry, we ran into a problem and were unable to create that file!");
             else
-                App.applicationController().getProjectNavigatorController().addFiles(newFile);
+                App.controller().getProjectNavigatorController().addFiles(newFile);
         });
         if (event.getSelectedFiles().size() >= 1)
             Notifications.showModal(modal);
@@ -203,7 +203,7 @@ public class OProjectViewController
                 if (!success)
                     Notifications.showErrorAlert("Oops", "Sorry, we ran into a problem and were unable to create that file!");
                 else
-                    App.applicationController().getProjectNavigatorController().addFiles(folder);
+                    App.controller().getProjectNavigatorController().addFiles(folder);
             }
         });
         if (event.getSelectedFiles().size() >= 1)

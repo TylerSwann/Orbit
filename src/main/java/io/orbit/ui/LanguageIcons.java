@@ -34,9 +34,13 @@ public final class LanguageIcons
     }
 
 
-    public static SVGIcon iconForFile(ProjectFile file)
+    public static SVGIcon iconForFile(File file)
     {
-        String extension = file.extension().toLowerCase();
+        String extension = null;
+        if (file.isDirectory())
+            extension = "";
+        else
+            extension = file.getName().split("\\.")[1];
         switch (extension)
         {
             case "sass":

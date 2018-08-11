@@ -9,7 +9,6 @@ import javafx.scene.Scene;
  */
 public interface SystemMenuBar
 {
-    void setOnViewPlugins(EventHandler<ActionEvent> handler);
     void setOnViewTerminal(EventHandler<ActionEvent> handler);
     void setOnViewNavigator(EventHandler<ActionEvent> handler);
     void setOnNewFile(EventHandler<ActionEvent> handler);

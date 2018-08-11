@@ -17,8 +17,10 @@ import java.net.URL;
  * your resource folder. Otherwise, an exception is thrown.
  *
  */
-public class SVGIcon extends Group
+public class SVGIcon extends Group implements Cloneable
 {
+    private Object resource;
+
     /**
      *
      * @param file - A resource file.
@@ -45,6 +47,7 @@ public class SVGIcon extends Group
      */
     public SVGIcon(InputStream inputStream)
     {
+        this.resource = inputStream;
         SvgLoader loader = new SvgLoader();
         Group child = loader.loadSvg(inputStream);
         this.getChildren().add(child);
@@ -59,7 +62,6 @@ public class SVGIcon extends Group
     public SVGIcon(Ikon iconCode)
     {
         this(new FontIcon(iconCode));
-
     }
 
     /**
@@ -68,6 +70,7 @@ public class SVGIcon extends Group
      */
     public SVGIcon(FontIcon fontIcon)
     {
+        this.resource = fontIcon.getIconCode();
         this.getChildren().add(fontIcon);
     }
 
@@ -84,5 +87,15 @@ public class SVGIcon extends Group
             ex.printStackTrace();
         }
         return icon;
+    }
+
+    @Override
+    public SVGIcon clone()
+    {
+        if (this.resource instanceof Ikon)
+            return new SVGIcon(((Ikon)this.resource));
+        else if (this.resource instanceof InputStream)
+            return new SVGIcon(((InputStream)this.resource));
+        return null;
     }
 }

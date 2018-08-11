@@ -23,21 +23,21 @@ public class OTerminalController
         this.container = container;
         boolean terminalIsClosed = LocalUser.userSettings.isTerminalClosed();
         if (terminalIsClosed)
-            Platform.runLater(() -> App.applicationController().getContentSplitPane().getItems().remove(container));
+            Platform.runLater(() -> App.controller().getContentSplitPane().getItems().remove(container));
         else
             buildTerminal();
         App.appEventsProperty.addEventListener(ApplicationEvent.WILL_CLOSE, event -> {
             if (!LocalUser.userSettings.isTerminalClosed())
-                LocalUser.userSettings.setTerminalDividerPos(App.applicationController().getContentSplitPane().getDividerPositions()[0]);
+                LocalUser.userSettings.setTerminalDividerPos(App.controller().getContentSplitPane().getDividerPositions()[0]);
         });
-        Platform.runLater(() -> App.applicationController().getMenuBarController().addEventHandler(MenuBarEvent.VIEW_TERMINAL, event -> toggleTerminal()));
+        Platform.runLater(() -> App.controller().getMenuBarController().addEventHandler(MenuBarEvent.VIEW_TERMINAL, event -> toggleTerminal()));
     }
 
     public void toggleTerminal()
     {
         boolean terminalIsClosed = LocalUser.userSettings.isTerminalClosed();
         LocalUser.userSettings.setTerminalClosed(!terminalIsClosed);
-        ApplicationController controller = App.applicationController();
+        ApplicationController controller = App.controller();
         if (terminalIsClosed)
         {
             controller.getContentSplitPane().getItems().add(this.container);
@@ -62,7 +62,7 @@ public class OTerminalController
         AnchorPane.setRightAnchor(terminal, 0.0);
         container.getChildren().add(terminal);
         Platform.runLater(() -> {
-            ApplicationController controller = App.applicationController();
+            ApplicationController controller = App.controller();
             controller.getContentSplitPane().setDividerPosition(0, LocalUser.userSettings.getTerminalDividerPos());
             controller.getContentSplitPane()
                     .getDividers()

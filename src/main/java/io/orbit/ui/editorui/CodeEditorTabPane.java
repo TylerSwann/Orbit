@@ -10,6 +10,7 @@ import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
 import javafx.scene.Node;
 import javafx.scene.control.Tab;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.util.Duration;
 import java.io.File;
@@ -41,6 +42,8 @@ public class CodeEditorTabPane extends JFXTabPane
         this.getFiles().addAll(files);
     }
 
+    // TODO - fix tab events or write new tab pane
+
     public CodeEditorTabPane()
     {
         this.registerListeners();
@@ -69,10 +72,12 @@ public class CodeEditorTabPane extends JFXTabPane
                         throw new RuntimeException("CodeEditorTabPane found Tab that is not instance of EditorTab!");
                     EditorTab editorTab = (EditorTab) tab;
                     if (!this.openTabs.contains(editorTab))
+                    {
                         this.openTabs.add(editorTab);
-                    PauseTransition pause = new PauseTransition(Duration.seconds(2));
-                    pause.setOnFinished(__ -> updateTabNodes());
-                    pause.play();
+                        PauseTransition pause = new PauseTransition(Duration.millis(500.0));
+                        pause.setOnFinished(__ -> updateTabNodes());
+                        pause.play();
+                    }
                 });
                 change.getRemoved().forEach(tab -> {
                     EditorTab editorTab = (EditorTab) tab;
@@ -122,11 +127,9 @@ public class CodeEditorTabPane extends JFXTabPane
             if (getTabWithFile(associatedFile).isPresent())
             {
                 editorTab = getTabWithFile(associatedFile).get();
-                if (editorTab.getOwner() == null)
-                {
-                    editorTab.setOwner(tabNode);
-                    addTabMenuEvents(editorTab);
-                }
+                editorTab.setOwner(tabNode);
+                addTabMenuEvents(editorTab);
+                tabNode.setUserData(associatedFile.getName());
             }
         }
     }

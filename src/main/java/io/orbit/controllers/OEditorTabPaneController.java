@@ -27,7 +27,6 @@ public class OEditorTabPaneController
     public static final ObservableValue<OCodeEditorController> ACTIVE_EDITOR_CONTROLLER = new SimpleObjectProperty<>();
     public static final ObservableList<OCodeEditorController> ACTIVE_CONTROLLERS = FXCollections.observableArrayList();
 
-
     public OEditorTabPaneController(AnchorPane container)
     {
         this.editorPane = new CodeEditorTabPane();
@@ -86,7 +85,7 @@ public class OEditorTabPaneController
                         lastModified.getOpenEditors().add(file);
                 }
                 for (File file : lastModified.getOpenEditors())
-                    App.applicationController().getEditorTabPaneController().openFile(file);
+                    App.controller().getEditorTabPaneController().openFile(file);
             }
             if (lastOpenedFile != null)
                 this.editorPane.select(lastOpenedFile);

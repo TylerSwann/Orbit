@@ -41,7 +41,7 @@ public class App extends Application
 {
     public static void main(String[] args){ launch(args); }
     private static ApplicationController controller;
-    public static ApplicationController applicationController() { return controller; }
+    public static ApplicationController controller() { return controller; }
     public static final EventProperty<ApplicationEvent> appEventsProperty = new EventProperty<>();
     public static SyncedObservableList<String> appTheme = new SyncedObservableList<>();
     public static SyncedObservableList<String> syntaxTheme = new SyncedObservableList<>();

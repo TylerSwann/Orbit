@@ -8,13 +8,10 @@ import io.orbit.settings.ProjectFile;
 import io.orbit.util.FontLoader;
 import io.orbit.util.Size;
 import javafx.beans.value.ObservableValue;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.SplitPane;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-
-import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
