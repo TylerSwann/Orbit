@@ -14,8 +14,12 @@ public class FileCell extends TreeCell<File>
     protected void updateItem(File file, boolean empty)
     {
         super.updateItem(file, empty);
-        if (empty)
+        if (empty || file == null)
+        {
+            this.setText(null);
+            this.setGraphic(null);
             return;
+        }
         SVGIcon icon = LanguageIcons.iconForFile(file);
         icon.setScaleX(0.6);
         icon.setScaleY(0.6);

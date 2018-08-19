@@ -1,12 +1,9 @@
 package io.orbit.ui.navigator;
 
-import io.orbit.api.SVGIcon;
 import io.orbit.api.event.FileTreeMenuEvent;
-import io.orbit.ui.LanguageIcons;
 import io.orbit.ui.contextmenu.NavigatorContextMenu;
 import javafx.collections.ListChangeListener;
 import javafx.scene.control.*;
-import javafx.scene.control.cell.TextFieldTreeCell;
 import javafx.scene.input.ContextMenuEvent;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
