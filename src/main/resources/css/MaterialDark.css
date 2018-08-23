@@ -80,15 +80,15 @@
  ******************************************************************************/
 /*.mui-context-menu .mui-menu-button*/
 /*{*/
-/*-fx-text-color: -fx-off-white;*/
-/*-fx-icon-color: -fx-off-white;*/
-/*-fx-font: 14 "Roboto Black";*/
+    /*-fx-text-color: -fx-off-white;*/
+    /*-fx-icon-color: -fx-off-white;*/
+    /*-fx-font: 14 "Roboto Black";*/
 /*}*/
 
 /*.mui-context-menu*/
 /*{*/
-/*-fx-background-color: -color-grey;*/
-/*-fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.5), 10.0, 0.0, 1.5, 2.0);*/
+    /*-fx-background-color: -color-grey;*/
+    /*-fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.5), 10.0, 0.0, 1.5, 2.0);*/
 /*}*/
 
 /*******************************************************************************
@@ -243,37 +243,37 @@
 }
 /*.jfx-tab-pane*/
 /*{*/
-/*-fx-background-color: -color-grey;*/
+    /*-fx-background-color: -color-grey;*/
 /*}*/
 /*.jfx-tab-pane .headers-region*/
 /*{*/
-/*!* Background of tab bar *!*/
-/*-fx-background-color: -color-grey;*/
+    /*!* Background of tab bar *!*/
+    /*-fx-background-color: -color-grey;*/
 /*}*/
 /*.jfx-tab-pane .tab-header-background*/
 /*{*/
-/*!* Background of the tabs *!*/
-/*-fx-background-color: -color-grey;*/
+    /*!* Background of the tabs *!*/
+    /*-fx-background-color: -color-grey;*/
 /*}*/
 /*.jfx-tab-pane .tab-selected-line*/
 /*{   !* Color of line under selected tab *!*/
-/*-fx-background-color: -fx-light-green;*/
+    /*-fx-background-color: -fx-light-green;*/
 /*}*/
 
 /*.jfx-tab-pane .tab-header-area .jfx-rippler*/
 /*{*/
-/*!* Color of ripple *!*/
-/*!*-jfx-rippler-fill: black;*!*/
-/*-jfx-rippler-fill: -fx-button-ripple;*/
+    /*!* Color of ripple *!*/
+    /*!*-jfx-rippler-fill: black;*!*/
+    /*-jfx-rippler-fill: -fx-button-ripple;*/
 /*}*/
 /*.jfx-tab-pane .tab .tab-label*/
 /*{*/
-/*-fx-text-fill: -fx-faded-green;*/
+    /*-fx-text-fill: -fx-faded-green;*/
 /*}*/
 
 /*.jfx-tab-pane .tab:selected .tab-label*/
 /*{*/
-/*-fx-text-fill: -fx-light-green;*/
+    /*-fx-text-fill: -fx-light-green;*/
 /*}*/
 /*******************************************************************************
  *                                                                             *
@@ -677,48 +677,48 @@
 }
 /*.auto-completion-dialog*/
 /*{*/
-/*-fx-background: -color-medium-grey;*/
-/*-fx-background-color: -color-medium-grey;*/
-/*-fx-background-radius: 5px;*/
-/*-fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.5), 10.0, 0.0, 1.5, 2.5);*/
+    /*-fx-background: -color-medium-grey;*/
+    /*-fx-background-color: -color-medium-grey;*/
+    /*-fx-background-radius: 5px;*/
+    /*-fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.5), 10.0, 0.0, 1.5, 2.5);*/
 /*}*/
 
 /*.auto-completion-node .label*/
 /*{*/
-/*-fx-text-fill: -fx-off-white;*/
-/*-fx-font-family: "Roboto Regular";*/
-/*-fx-font-size: 18px;*/
+    /*-fx-text-fill: -fx-off-white;*/
+    /*-fx-font-family: "Roboto Regular";*/
+    /*-fx-font-size: 18px;*/
 /*}*/
 /*.auto-completion-node:selected .label*/
 /*{*/
-/*-fx-text-fill: -color-grey;*/
+    /*-fx-text-fill: -color-grey;*/
 /*}*/
 /*.auto-completion-node*/
 /*{*/
-/*-fx-background-color: -color-medium-grey;*/
+    /*-fx-background-color: -color-medium-grey;*/
 
-/*-fx-background-radius: 5px;*/
+    /*-fx-background-radius: 5px;*/
 /*}*/
 
 /*.auto-completion-node:selected*/
 /*{*/
-/*-fx-background-color: -color-teal;*/
+    /*-fx-background-color: -color-teal;*/
 /*}*/
 
 
 /*.auto-completion-dialog .scroll-bar*/
 /*{*/
-/*-fx-background-color: -color-medium-grey;*/
+    /*-fx-background-color: -color-medium-grey;*/
 /*}*/
 /*.auto-completion-dialog .scroll-bar:horizontal .track,*/
 /*.auto-completion-dialog .scroll-bar:vertical .track*/
 /*{*/
-/*-fx-background-color: -color-medium-grey;*/
+    /*-fx-background-color: -color-medium-grey;*/
 /*}*/
 /*.auto-completion-dialog .scroll-bar:vertical .track-background,*/
 /*.auto-completion-dialog .scroll-bar:horizontal .track-background*/
 /*{*/
-/*-fx-background-color: -color-medium-grey;*/
+    /*-fx-background-color: -color-medium-grey;*/
 /*}*/
 
 /*******************************************************************************
@@ -861,6 +861,47 @@
 {
     -fx-pref-width: 120.0;
 }
+
+/*******************************************************************************
+ *                                                                             *
+ *                          Editor Tab Context Menu                            *
+ *                                                                             *
+ ******************************************************************************/
+
+.editor-tab-menu.mui-context-menu
+{
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.6), 15.0, 0.0, 1.5, 2.0);
+    -fx-background-color: -color-medium-grey;
+    -fx-background-radius: 3px;
+    -fx-pref-width: 140.0;
+}
+
+
+.editor-tab-menu.mui-context-menu .mui-context-item
+{
+    -fx-text-fill: -fx-off-white;
+    -fx-alignment: center-left;
+    -fx-font-size: 14px;
+    -fx-font-family: "Roboto Medium";
+    -fx-padding: 10px 0px 10px 15px;
+    -fx-pref-width: 175.0;
+}
+.editor-tab-menu.mui-context-menu .mui-context-item .ikonli-font-icon
+{
+    -fx-icon-size: 14px;
+    -fx-text-alignment: left;
+    -fx-alignment: center-left;
+}
+.editor-tab-menu.mui-context-menu .mui-context-item:hover
+{
+    -fx-background-color: #494e55;
+}
+.editor-tab-menu.mui-context-menu .mui-context-item .ikonli-font-icon
+{
+    /*-fx-translate-x: -10px;*/
+}
+
+
 /*******************************************************************************
  *                                                                             *
  *                          Menu Bar Context Menu                              *
@@ -899,7 +940,7 @@
 
 /*.mui-menu-bar .left .mui-context-item .ikonli-font-icon*/
 /*{*/
-/*-fx-icon-size: 14px;*/
+    /*-fx-icon-size: 14px;*/
 /*}*/
 
 .mui-menu-bar .right .mui-context-item .ikonli-font-icon
@@ -1093,6 +1134,7 @@
     /* Color of ripple */
     -jfx-rippler-fill: -fx-button-ripple;
 }
+
 .editor-tab-pane .tab .tab-label
 {
     -fx-text-fill: -fx-faded-green;

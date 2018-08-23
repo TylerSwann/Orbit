@@ -1,9 +1,14 @@
 package io.orbit.ui.tabs;
 
+import javafx.animation.PauseTransition;
+import javafx.application.Platform;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
+import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.util.Duration;
 
 /**
  * Created by Tyler Swann on Sunday August 19, 2018 at 13:02
@@ -11,8 +16,9 @@ import javafx.scene.layout.AnchorPane;
 public class MUITabPane extends AnchorPane
 {
     public static final String DEFAULT_STYLE_CLASS = "mui-tab-pane";
+
     private MUITabBar tabBar;
-    private MUITab currentTab;
+    private boolean hasInit = false;
 
     public MUITabPane()
     {
@@ -27,30 +33,40 @@ public class MUITabPane extends AnchorPane
 
     private void registerListeners()
     {
-        if (this.getTabs().size() > 0)
-            this.goTo(this.getTabs().get(0));
-        this.getTabs().addListener((ListChangeListener<MUITab>) change -> {
-            while (change.next())
-                change.getAddedSubList().forEach(tab -> tab.addEventHandler(MouseEvent.MOUSE_CLICKED, __ -> this.goTo(tab)));
+        this.selectedTabProperty().addListener(__ -> {
+            if (this.getSelectedTab() != null)
+                this.goTo(this.getSelectedTab());
+            if (!hasInit)
+            {
+                hasInit = true;
+                Platform.runLater(() -> {
+                    if (this.getTabs().size() > 0)
+                        this.goTo(this.getTabs().get(0));
+                });
+            }
         });
     }
 
     private void goTo(MUITab tab)
     {
-        if (currentTab != null)
-            this.getChildren().remove(this.currentTab.getContent());
+        if (this.getSelectedTab() != null)
+            this.getChildren().remove(this.getSelectedTab().getContent());
         if (tab.getContent() == null)
             return;
-        setTopAnchor(tab.getContent(), this.tabBar.getHeight());
+        if (this.tabBar.getHeight() <= 0.0)
+            setTopAnchor(tab.getContent(), this.tabBar.getPrefHeight());
+        else
+            setTopAnchor(tab.getContent(), this.tabBar.getHeight());
+
         setBottomAnchor(tab.getContent(), 0.0);
         setLeftAnchor(tab.getContent(), 0.0);
         setRightAnchor(tab.getContent(), 0.0);
-        this.currentTab = tab;
         this.getChildren().add(tab.getContent());
     }
 
-    public ObservableList<MUITab> getTabs()
-    {
-        return this.tabBar.getTabs();
-    }
+    public ObservableValue<MUITab> selectedTabProperty() {  return this.tabBar.selectedTabProperty();  }
+    public MUITab getSelectedTab() {  return this.tabBar.getSelectedTab();  }
+    public void select(MUITab tab) {  this.tabBar.select(tab);  }
+    public void select(int index) {  this.tabBar.select(index);  }
+    public ObservableList<MUITab> getTabs() { return this.tabBar.getTabs(); }
 }

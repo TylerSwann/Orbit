@@ -1,6 +1,7 @@
 package io.orbit.ui.tabs;
 
 import io.orbit.ui.MUIIconButton;
+import javafx.animation.PauseTransition;
 import javafx.animation.TranslateTransition;
 import javafx.application.Platform;
 import javafx.beans.InvalidationListener;
@@ -14,6 +15,7 @@ import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.effect.BlurType;
 import javafx.scene.effect.DropShadow;
+import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
@@ -23,6 +25,7 @@ import javafx.scene.paint.Color;
 import javafx.util.Duration;
 import org.kordamp.ikonli.fontawesome5.FontAwesomeSolid;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -114,11 +117,18 @@ public class MUITabBar extends AnchorPane
     {
         this.container.widthProperty().addListener(__ -> Platform.runLater(this::checkWidth));
         this.selectedTab.addListener(__ -> {
-            this.indicator.setPrefWidth(this.selectedTab.get().getWidth());
-            TranslateTransition transition = new TranslateTransition(Duration.millis(300.0), this.indicator);
-            transition.setFromX(this.indicator.getTranslateX());
-            transition.setToX(this.selectedTab.get().getLayoutX());
-            transition.play();
+            if (this.selectedTab.get().getWidth() <= 0.0)
+            {
+                PauseTransition pause = new PauseTransition(Duration.millis(500.0));
+                pause.setOnFinished(e -> this.indicator.setPrefWidth(this.selectedTab.get().getWidth()));
+                pause.play();
+            }
+            else
+                this.indicator.setPrefWidth(this.selectedTab.get().getWidth());
+            TranslateTransition translateAnimation = new TranslateTransition(Duration.millis(300.0), this.indicator);
+            translateAnimation.setFromX(this.indicator.getTranslateX());
+            translateAnimation.setToX(this.selectedTab.get().getLayoutX());
+            translateAnimation.play();
         });
         this.tabs.addListener((ListChangeListener<MUITab>) change -> {
             if (this.selectedTab.get() == null)
@@ -129,14 +139,18 @@ public class MUITabBar extends AnchorPane
                     this.tabsContainer.getChildren().add(tab);
                     if (!tab.prefHeightProperty().isBound())
                         tab.prefHeightProperty().bind(this.tabsContainer.heightProperty());
-                    if (tab.getText() != null)
-                        tab.setText(tab.getText().toUpperCase());
-                    tab.addEventHandler(MouseEvent.MOUSE_CLICKED, __ -> this.selectedTab.set(tab));
+                    tab.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
+                        if (event.getButton() == MouseButton.PRIMARY)
+                            this.selectedTab.set(tab);
+                    });
                 });
                 change.getRemoved().forEach(tab -> {
+                    int index = this.tabsContainer.getChildren().indexOf(tab);
                     this.tabsContainer.getChildren().remove(tab);
                     if (tab.prefHeightProperty().isBound())
                         tab.prefHeightProperty().unbind();
+                    if (this.getTabs().size() > 0 && index > 0)
+                        this.selectedTab.set(this.tabs.get( index - 1));
                 });
             }
         });
@@ -161,6 +175,16 @@ public class MUITabBar extends AnchorPane
                 this.scene.widthProperty().addListener(this.windowWidthChangeEvent);
             }
         });
+    }
+
+    public void select(MUITab tab)
+    {
+        this.selectedTab.set(tab);
+    }
+
+    public void select(int index)
+    {
+        this.selectedTab.set(this.getTabs().get(index));
     }
 
     private void scroll(Node node, double to)

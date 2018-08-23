@@ -56,7 +56,7 @@ public class OEditorTabPaneController
                 });
             }
         });
-        this.editorPane.activeTabProperty().addListener(__ -> {
+        this.editorPane.selectedTabProperty().addListener(__ -> {
             EditorTab activeTab = this.editorPane.getActiveTab();
             if (activeTab != null)
                 ((SimpleObjectProperty<OCodeEditorController>) ACTIVE_EDITOR_CONTROLLER).set(activeTab.getController());
