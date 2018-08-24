@@ -14,6 +14,9 @@ public class HTMLRegexPattern extends RegexStylePattern
     private static final String COMMENT_PATTERN = "(<!--)(.|\\\\n)*?(-->)";
     private static final String DOUBLE_QUOTED_STRING = "\"(?:[^\"][a-zA-Z0-9]*(\\\\\")?)*\"";
     private static final String SINGLE_QUOTED_STRING = "\'(?:[^\'][a-zA-Z0-9]*(\\\\\')?)*\'";
+                                                      //!?(=)\'(?:[^\'][a-zA-Z0-9]*(\\\\\')?)*\'
+//    private static final String SINGLE_QUOTED_STRING = "(?:=)\'(?:[^\'][a-zA-Z0-9]*(\')?)*\'";
+//    private static final String SINGLE_QUOTED_STRING = "'(?:[^'][a-zA-Z0-9]*(')?)*'";
     private static final String EQUAL_PATTERN = "=";
     private static final String TAG_PATTERN = "(<[a-zA-Z0-9\\-]+>?|>|</[a-zA-Z0-9\\-]+>)" ;
     private static final String ATTRIBUTE_PATTERN = "(?<ATTRIBUTE>([a-zA-Z\\-]+))(?:=)";

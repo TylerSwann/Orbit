@@ -28,6 +28,7 @@ public class RegexSyntaxHighlighter implements SyntaxHighlighter
     {
         if (text == null || text.isEmpty() || text.matches("^\\s+$"))
             return null;
+        text = text.replaceAll("[\'\"]", "%");
         int lastEnd = 0;
         StyleSpansBuilder<Collection<String>> builder = new StyleSpansBuilder<>();
         Matcher matcher = regexPattern.pattern.matcher(text);
@@ -43,16 +44,7 @@ public class RegexSyntaxHighlighter implements SyntaxHighlighter
                     lastEnd = matcher.end(set.getKey());
                 }
             }
-
         }
-
-//        builder.add(Collections.singleton(HighlightType.KEYWORD.className), text.length());
-//        System.out.println("create spans");
-//        StyleSpans<Collection<String>> spans = builder.create();
-//        System.out.println("hello");
-//        System.out.println(spans.length());
-//        System.out.println(spans.getSpanCount());
-//        System.out.println("goodbye");
         return builder.create();
     }
     @Override

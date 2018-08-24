@@ -1109,38 +1109,86 @@
  *                                                                             *
  ******************************************************************************/
 
+/*.mui-tab*/
+/*{*/
+    /*-fx-background-color: transparent;*/
+    /*-fx-text-fill: white;*/
+    /*-fx-font-family: 'Roboto Bold', sans-serif;*/
+    /*-fx-font-size: 16px;*/
+    /*-fx-background-radius: 0px;*/
+    /*-fx-padding: 0px 15px;*/
+/*}*/
+/*.mui-tab  .jfx-rippler*/
+/*{*/
+
+/*}*/
+/*.mui-tab-pane .indicator*/
+/*{*/
+    /*-fx-background-color: rgb(225, 0, 80);*/
+/*}*/
+/*.mui-tab-pane .mui-tab-bar*/
+/*{*/
+    /*-fx-background-color: #2196f3;*/
+/*}*/
+/*.mui-tab-bar .left,*/
+/*.mui-tab-bar .right*/
+/*{*/
+    /*-fx-background-color: #2196f3;*/
+/*}*/
+
+/*.mui-tab-bar .left .mui-icon-button .ikonli-font-icon,*/
+/*.mui-tab-bar .right .mui-icon-button .ikonli-font-icon*/
+/*{*/
+    /*-fx-icon-color: white;*/
+/*}*/
+/*.mui-tab*/
+/*{*/
+    /*-fx-background-color: -color-grey;*/
+/*}*/
 .editor-tab-pane
 {
-    -fx-background-color: -color-grey;
-}
-.editor-tab-pane .headers-region
-{
     /* Background of tab bar */
-    -fx-background-color: -color-grey;
+    /*-fx-background-color: -color-grey;*/
 }
-.editor-tab-pane .tab-header-background
+.editor-tab-pane  .mui-tab-bar
 {
     /* Background of the tabs */
     -fx-background-color: -color-grey;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.7), 10, 0, 0, 2);
 }
-.editor-tab-pane .tab-selected-line
+.editor-tab-pane .indicator
 {
     /* Color of line under selected tab */
     -fx-background-color: -fx-light-green;
 }
 
-.editor-tab-pane .tab-header-area .jfx-rippler
+.editor-tab-pane .mui-tab-bar .mui-tab .jfx-rippler
 {
     /* Color of ripple */
     -jfx-rippler-fill: -fx-button-ripple;
 }
-
-.editor-tab-pane .tab .tab-label
+.editor-tab-pane .mui-tab-bar .left,
+.editor-tab-pane .mui-tab-bar .right
+{
+    -fx-background-color: -color-grey;
+}
+.editor-tab-pane .mui-tab-bar .left .mui-icon-button .ikonli-font-icon,
+.editor-tab-pane .mui-tab-bar .right .mui-icon-button .ikonli-font-icon
+{
+    -fx-icon-color: -fx-off-white;
+}
+.editor-tab-pane .mui-tab
 {
     -fx-text-fill: -fx-faded-green;
 }
 
-.editor-tab-pane .tab:selected .tab-label
+.editor-tab-pane .mui-tab:selected
 {
     -fx-text-fill: -fx-light-green;
+}
+
+.editor-tab-pane .mui-tab-bar .left .mui-icon-button .jfx-rippler,
+.editor-tab-pane .mui-tab-bar .right .mui-icon-button .jfx-rippler
+{
+    -jfx-rippler-fill: -fx-button-ripple;
 }

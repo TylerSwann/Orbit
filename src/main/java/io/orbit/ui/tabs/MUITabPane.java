@@ -1,14 +1,9 @@
 package io.orbit.ui.tabs;
 
-import javafx.animation.PauseTransition;
 import javafx.application.Platform;
 import javafx.beans.value.ObservableValue;
-import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
-import javafx.scene.input.MouseButton;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
-import javafx.util.Duration;
 
 /**
  * Created by Tyler Swann on Sunday August 19, 2018 at 13:02
@@ -62,6 +57,7 @@ public class MUITabPane extends AnchorPane
         setLeftAnchor(tab.getContent(), 0.0);
         setRightAnchor(tab.getContent(), 0.0);
         this.getChildren().add(tab.getContent());
+        this.tabBar.toFront();
     }
 
     public ObservableValue<MUITab> selectedTabProperty() {  return this.tabBar.selectedTabProperty();  }

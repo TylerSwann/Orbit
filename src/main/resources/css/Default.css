@@ -164,6 +164,10 @@
  *                                                                             *
  ******************************************************************************/
 
+.mui-tab-pane
+{
+    -fx-effect: dropshadow(three-pass-box, grey, 10, 0, 0, 2);
+}
 .mui-tab
 {
     -fx-background-color: transparent;

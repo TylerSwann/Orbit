@@ -109,7 +109,6 @@ public class MUITabBar extends AnchorPane
         AnchorPane.setBottomAnchor(this.indicator, 0.0);
         this.getChildren().add(this.container);
         this.container.getChildren().addAll(this.tabsContainer, this.indicator);
-        this.setEffect(new DropShadow(BlurType.THREE_PASS_BOX, Color.GREY, 10.0, 0.0, 0.0, 2.0));
         this.windowWidthChangeEvent = __ -> Platform.runLater(this::checkWidth);
     }
 
@@ -120,19 +119,26 @@ public class MUITabBar extends AnchorPane
             if (this.selectedTab.get().getWidth() <= 0.0)
             {
                 PauseTransition pause = new PauseTransition(Duration.millis(500.0));
-                pause.setOnFinished(e -> this.indicator.setPrefWidth(this.selectedTab.get().getWidth()));
+                pause.setOnFinished(e -> {
+                    this.indicator.setPrefWidth(this.selectedTab.get().getWidth());
+                    translateIndicator();
+                });
                 pause.play();
             }
             else
+            {
                 this.indicator.setPrefWidth(this.selectedTab.get().getWidth());
-            TranslateTransition translateAnimation = new TranslateTransition(Duration.millis(300.0), this.indicator);
-            translateAnimation.setFromX(this.indicator.getTranslateX());
-            translateAnimation.setToX(this.selectedTab.get().getLayoutX());
-            translateAnimation.play();
+                translateIndicator();
+            }
         });
         this.tabs.addListener((ListChangeListener<MUITab>) change -> {
             if (this.selectedTab.get() == null)
-                Platform.runLater(() -> this.selectedTab.set(this.getTabs().get(0)));
+            {
+                Platform.runLater(() -> {
+                    this.selectedTab.set(this.getTabs().get(0));
+                    this.select(this.selectedTab.get());
+                });
+            }
             while (change.next())
             {
                 change.getAddedSubList().forEach(tab -> {
@@ -141,7 +147,7 @@ public class MUITabBar extends AnchorPane
                         tab.prefHeightProperty().bind(this.tabsContainer.heightProperty());
                     tab.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
                         if (event.getButton() == MouseButton.PRIMARY)
-                            this.selectedTab.set(tab);
+                            this.select(tab);
                     });
                 });
                 change.getRemoved().forEach(tab -> {
@@ -149,7 +155,7 @@ public class MUITabBar extends AnchorPane
                     this.tabsContainer.getChildren().remove(tab);
                     if (tab.prefHeightProperty().isBound())
                         tab.prefHeightProperty().unbind();
-                    if (this.getTabs().size() > 0 && index > 0)
+                    if (this.selectedTab.get() == tab && this.getTabs().size() > 0 && index > 0)
                         this.selectedTab.set(this.tabs.get( index - 1));
                 });
             }
@@ -179,12 +185,15 @@ public class MUITabBar extends AnchorPane
 
     public void select(MUITab tab)
     {
-        this.selectedTab.set(tab);
+        this.select(this.getTabs().indexOf(tab));
     }
 
     public void select(int index)
     {
-        this.selectedTab.set(this.getTabs().get(index));
+        MUITab tab = this.getTabs().get(index);
+        this.getTabs().forEach(otherTab -> otherTab.setSelected(false));
+        tab.setSelected(true);
+        this.selectedTab.set(tab);
     }
 
     private void scroll(Node node, double to)
@@ -209,7 +218,16 @@ public class MUITabBar extends AnchorPane
         {
             this.getChildren().remove(this.leftArrowContainer);
             this.getChildren().remove(this.rightArrowContainer);
+            scroll(this.container, 0.0);
             arrowsAreActive = false;
         }
+    }
+
+    private void translateIndicator()
+    {
+        TranslateTransition translateAnimation = new TranslateTransition(Duration.millis(300.0), this.indicator);
+        translateAnimation.setFromX(this.indicator.getTranslateX());
+        translateAnimation.setToX(this.selectedTab.get().getLayoutX());
+        translateAnimation.play();
     }
 }

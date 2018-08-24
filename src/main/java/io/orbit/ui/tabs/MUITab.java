@@ -1,6 +1,7 @@
 package io.orbit.ui.tabs;
 
 import com.jfoenix.controls.JFXButton;
+import javafx.css.PseudoClass;
 import javafx.scene.Node;
 import javafx.scene.paint.Color;
 
@@ -9,6 +10,7 @@ import javafx.scene.paint.Color;
  */
 public class MUITab extends JFXButton
 {
+    private static final PseudoClass SELECTED = PseudoClass.getPseudoClass("selected");
     private static final String DEFAULT_STYLE_CLASS = "mui-tab";
     private Node content;
     public Node getContent() {  return content;  }
@@ -27,5 +29,10 @@ public class MUITab extends JFXButton
         this.setButtonType(JFXButton.ButtonType.FLAT);
         this.setRipplerFill(Color.rgb(255, 255, 255, 0.3));
         this.getStyleClass().add(DEFAULT_STYLE_CLASS);
+    }
+
+    public void setSelected(boolean selected)
+    {
+        this.pseudoClassStateChanged(SELECTED, selected);
     }
 }
