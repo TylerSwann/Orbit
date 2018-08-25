@@ -179,7 +179,7 @@
 }
 .mui-tab  .jfx-rippler
 {
-
+    -fx-background-color: #bababa;
 }
 .mui-tab-pane .indicator
 {

@@ -28,7 +28,7 @@ public class RegexSyntaxHighlighter implements SyntaxHighlighter
     {
         if (text == null || text.isEmpty() || text.matches("^\\s+$"))
             return null;
-        text = text.replaceAll("[\'\"]", "%");
+        text = text.replaceAll("[\'\"]", "\\\\");
         int lastEnd = 0;
         StyleSpansBuilder<Collection<String>> builder = new StyleSpansBuilder<>();
         Matcher matcher = regexPattern.pattern.matcher(text);

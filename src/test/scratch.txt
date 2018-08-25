@@ -5,7 +5,7 @@ view.html
 demo-view.html
 another_file.css
 
-
+(?<SELECTOR>([.#][a-zA-Z]+[a-zA-Z0-9\-\_\[\]]+))(?<PSEUDOCLASS>((?:\:)([a-zA-Z]+)))*
 App.class.getClassLoader().getResource("fonts/roboto/Roboto-Black.ttf"),
 App.class.getClassLoader().getResource("fonts/roboto/Roboto-BlackItalic.ttf"),
 App.class.getClassLoader().getResource("fonts/roboto/Roboto-Bold.ttf"),

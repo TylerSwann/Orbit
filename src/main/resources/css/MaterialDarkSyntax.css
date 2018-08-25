@@ -74,11 +74,12 @@
 }
 .styled-text-area .text.number
 {
-    -fx-fill: rgb(184,95,105);
+    /*-fx-fill: rgb(184,95,105);*/
+    -fx-fill: rgb(199,137,234);
 }
 .styled-text-area .text.semi-colon
 {
-    -fx-fill: -fx-off-white;
+    -fx-fill: #c67431;
 }
 .styled-text-area .text.annotation
 {
@@ -88,4 +89,11 @@
 .styled-text-area .text.operator
 {
     -fx-fill: -color-light-grey;
+}
+
+.styled-text-area .text.static-field
+{
+    /*-fx-fill: #bababa;*/
+    -fx-fill: red;
+    -fx-font-style: italic;
 }
