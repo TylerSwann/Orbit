@@ -10,6 +10,7 @@ import io.orbit.settings.LocalUser;
 import io.orbit.settings.UserSetting;
 import io.orbit.util.JSON;
 import io.orbit.util.SerializableFont;
+import io.orbit.util.Strings;
 import io.orbit.util.SyncedObservableList;
 import javafx.animation.PauseTransition;
 import javafx.application.Application;

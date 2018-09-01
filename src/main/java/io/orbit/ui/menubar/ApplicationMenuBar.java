@@ -1,6 +1,7 @@
 package io.orbit.ui.menubar;
 
 import io.orbit.settings.LocalUser;
+import io.orbit.ui.colorpicker.MUIPopupColorPicker;
 import io.orbit.ui.contextmenu.MUIContextMenu;
 import io.orbit.ui.contextmenu.MUIMenu;
 import io.orbit.ui.contextmenu.MUIMenuItem;
@@ -9,8 +10,6 @@ import javafx.event.EventHandler;
 import javafx.scene.control.ContentDisplay;
 import org.kordamp.ikonli.fontawesome5.FontAwesomeRegular;
 import org.kordamp.ikonli.fontawesome5.FontAwesomeSolid;
-
-import javax.swing.*;
 import java.util.Arrays;
 import java.util.List;
 
@@ -133,8 +132,15 @@ public class ApplicationMenuBar extends MUIMenuBar implements SystemMenuBar
         MUIMenuItem terminal = new MUIMenuItem(FontAwesomeSolid.CHECK,"Terminal");
         MUIMenuItem navigator = new MUIMenuItem(FontAwesomeSolid.CHECK,"Navigator");
         MUIMenuItem settings = new MUIMenuItem(FontAwesomeSolid.COG, "Settings");
+        MUIMenuItem colorPicker = new MUIMenuItem(FontAwesomeSolid.PAINT_BRUSH, "Color Picker");
+
         terminal.setContentDisplay(ContentDisplay.RIGHT);
         navigator.setContentDisplay(ContentDisplay.RIGHT);
+
+        colorPicker.setOnAction(__ -> {
+            MUIPopupColorPicker popupColorPicker = new MUIPopupColorPicker();
+            popupColorPicker.show(this.getScene().getWindow());
+        });
 
         terminal.setOnAction(event -> {
             if (terminal.getGraphic().getOpacity() <= 0.0)
@@ -158,7 +164,8 @@ public class ApplicationMenuBar extends MUIMenuBar implements SystemMenuBar
         menu.getItems().addAll(Arrays.asList(
                 terminal,
                 navigator,
-                settings
+                settings,
+                colorPicker
         ));
         terminal.getStyleClass().add("check-item");
         navigator.getStyleClass().add("check-item");

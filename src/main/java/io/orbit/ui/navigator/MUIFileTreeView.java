@@ -3,6 +3,7 @@ package io.orbit.ui.navigator;
 import io.orbit.api.event.FileTreeMenuEvent;
 import io.orbit.ui.contextmenu.NavigatorContextMenu;
 import javafx.collections.ListChangeListener;
+import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.input.ContextMenuEvent;
 import javafx.scene.input.MouseButton;
@@ -15,6 +16,8 @@ import java.util.*;
  */
 public class MUIFileTreeView extends TreeView<File>
 {
+    private static final String DEFAULT_STYLE_CLASS = "file-tree-view";
+
     private File root;
     private NavigatorContextMenu menu;
     private TreeItem<File> selectedItem;
@@ -31,6 +34,8 @@ public class MUIFileTreeView extends TreeView<File>
         this.build();
         registerListeners();
         this.mapRootFolder();
+        this.getStyleClass().remove("tree-view");
+        this.getStyleClass().add(DEFAULT_STYLE_CLASS);
     }
 
     private void registerListeners()

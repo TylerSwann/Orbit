@@ -81,7 +81,10 @@ public class CSSEditorController implements EditorController
                         updateDialogPosition();
                     }
                     else
+                    {
                         this.dialog.hide();
+                        this.currentOption = null;
+                    }
                     break;
             }
         });

@@ -209,15 +209,15 @@
  *                        Containers / Root Background                         *
  *                                                                             *
  ******************************************************************************/
-.root
-{
-    -fx-background-color: -color-grey;
-}
-.anchor-pane,
-.split-pane
-{
-    -fx-background-color: -color-grey, -fx-control-inner-background;
-}
+/*.root*/
+/*{*/
+    /*-fx-background-color: -color-grey;*/
+/*}*/
+/*.anchor-pane,*/
+/*.split-pane*/
+/*{*/
+    /*-fx-background-color: -color-grey, -fx-control-inner-background;*/
+/*}*/
 
 /*******************************************************************************
  *                                                                             *
@@ -332,6 +332,68 @@
 
 .tree-view .tree-cell:empty:hover,
 .tree-view .tree-cell:empty
+{
+    -fx-background-color: -color-grey;
+}
+
+
+/*******************************************************************************
+ *                                                                             *
+ *                               FileTreeView                                  *
+ *                                                                             *
+ ******************************************************************************/
+
+.file-tree-view
+{
+    -fx-background-color: -color-grey, -fx-control-inner-background;
+}
+.file-tree-view .tree-cell
+{
+    -fx-background-color: -color-grey;
+    -fx-text-fill: -fx-off-white;
+    -fx-font: 14px "Roboto Medium";
+    -fx-border-color: -color-grey;
+}
+
+.file-tree-view .tree-cell:selected
+{
+    -fx-background-color: -fx-box-border,-color-very-dark-grey;
+}
+
+
+.file-tree-view .tree-cell:hover,
+.file-tree-view .tree-cell:highlighted:hover
+{
+    -fx-background-color: -fx-box-border, -fx-light-dark;
+}
+
+.file-tree-view .tree-cell .tree-disclosure-node .arrow
+{
+    -fx-background-color: -fx-mark-highlight-color, -fx-off-white;
+}
+
+.file-tree-view .tree-cell:filled:hover .tree-disclosure-node .arrow
+{
+    -fx-background-color: -fx-mark-highlight-color, white;
+}
+
+.file-tree-view .corner
+{
+    -fx-background-color: -color-grey;
+    -fx-border-color: -color-grey;
+    -fx-background: -color-grey;
+}
+
+.file-tree-view .tree-cell:filled:focused:selected,
+.file-tree-view .tree-cell:filled:focused:selected:hover,
+.file-tree-view .tree-cell:filled:selected:hover,
+.file-tree-view .tree-cell:filled:focused:hover
+{
+    -fx-background-color: -fx-box-border, -color-very-dark-grey;
+}
+
+.file-tree-view .tree-cell:empty:hover,
+.file-tree-view .tree-cell:empty
 {
     -fx-background-color: -color-grey;
 }
@@ -653,13 +715,14 @@
     -fx-background: -color-medium-grey;
     -fx-background-color: -color-medium-grey;
     -fx-background-radius: 5px;
-    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.5), 10.0, 0.0, 1.5, 2.5);
+    /*-fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.5), 10.0, 0.0, 1.5, 2.5);*/
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.8), 10.0, 0.0, 2.0, 3.0);
 }
 .auto-completion-dialog .label
 {
     -fx-text-fill: -fx-off-white;
     -fx-font-family: "Roboto Medium";
-    -fx-font-size: 17px;
+    -fx-font-size: 16px;
 }
 .auto-completion-dialog .list-cell
 {
@@ -668,58 +731,15 @@
 }
 .auto-completion-dialog .list-cell:selected:focused
 {
-    -fx-background-color: -color-teal;
+    -fx-background-color: #494e55;
+    -fx-background: #494e55;
 }
 
 .auto-completion-dialog .list-cell:selected:focused .label
 {
-    -fx-text-fill: -color-grey;
+    -fx-text-fill: -fx-off-white;
 }
-/*.auto-completion-dialog*/
-/*{*/
-    /*-fx-background: -color-medium-grey;*/
-    /*-fx-background-color: -color-medium-grey;*/
-    /*-fx-background-radius: 5px;*/
-    /*-fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.5), 10.0, 0.0, 1.5, 2.5);*/
-/*}*/
 
-/*.auto-completion-node .label*/
-/*{*/
-    /*-fx-text-fill: -fx-off-white;*/
-    /*-fx-font-family: "Roboto Regular";*/
-    /*-fx-font-size: 18px;*/
-/*}*/
-/*.auto-completion-node:selected .label*/
-/*{*/
-    /*-fx-text-fill: -color-grey;*/
-/*}*/
-/*.auto-completion-node*/
-/*{*/
-    /*-fx-background-color: -color-medium-grey;*/
-
-    /*-fx-background-radius: 5px;*/
-/*}*/
-
-/*.auto-completion-node:selected*/
-/*{*/
-    /*-fx-background-color: -color-teal;*/
-/*}*/
-
-
-/*.auto-completion-dialog .scroll-bar*/
-/*{*/
-    /*-fx-background-color: -color-medium-grey;*/
-/*}*/
-/*.auto-completion-dialog .scroll-bar:horizontal .track,*/
-/*.auto-completion-dialog .scroll-bar:vertical .track*/
-/*{*/
-    /*-fx-background-color: -color-medium-grey;*/
-/*}*/
-/*.auto-completion-dialog .scroll-bar:vertical .track-background,*/
-/*.auto-completion-dialog .scroll-bar:horizontal .track-background*/
-/*{*/
-    /*-fx-background-color: -color-medium-grey;*/
-/*}*/
 
 /*******************************************************************************
  *                                                                             *

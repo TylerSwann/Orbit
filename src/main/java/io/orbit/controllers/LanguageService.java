@@ -98,7 +98,7 @@ public class LanguageService
 
     private static void applyHighlighting(StyleSpans<Collection<String>> highlighting)
     {
-        if (highlighting != null && highlighting.getSpanCount() > 0)
+        if (highlighting != null && highlighting.getSpanCount() > 0 && highlighting.length() < getActiveEditor().getText().length())
             getActiveEditor().setStyleSpans(0, highlighting);
     }
 

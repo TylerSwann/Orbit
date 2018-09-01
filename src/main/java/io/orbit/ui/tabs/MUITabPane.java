@@ -3,7 +3,11 @@ package io.orbit.ui.tabs;
 import javafx.application.Platform;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.ObservableList;
+import javafx.scene.Node;
 import javafx.scene.layout.AnchorPane;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Tyler Swann on Sunday August 19, 2018 at 13:02
@@ -44,8 +48,11 @@ public class MUITabPane extends AnchorPane
 
     private void goTo(MUITab tab)
     {
-        if (this.getSelectedTab() != null)
-            this.getChildren().remove(this.getSelectedTab().getContent());
+        List<Node> children = new ArrayList<>(this.getChildren());
+        children.forEach(child -> {
+            if (!(child instanceof MUITabBar))
+                this.getChildren().remove(child);
+        });
         if (tab.getContent() == null)
             return;
         if (this.tabBar.getHeight() <= 0.0)

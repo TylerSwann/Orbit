@@ -1,15 +1,20 @@
 package io.orbit.webtools.css;
 
 import io.orbit.api.text.CodeEditor;
+import io.orbit.util.Strings;
+import io.orbit.util.Tuple;
 import io.orbit.webtools.CodeFormatter;
 import javafx.application.Platform;
 import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyCodeCombination;
+import javafx.scene.input.KeyCombination;
 import javafx.scene.input.KeyEvent;
 import org.fxmisc.wellbehaved.event.EventPattern;
 import org.fxmisc.wellbehaved.event.InputMap;
 import org.fxmisc.wellbehaved.event.Nodes;
 import org.reactfx.EventStreams;
 
+import java.util.ArrayList;
 import java.util.regex.Pattern;
 
 
@@ -24,6 +29,16 @@ public class CSS3Formatter extends CodeFormatter
     private static final Pattern PROPERTY_PATTERN = Pattern.compile("([a-zA-Z-_]+:\\s*).*?[a-zA-Z0-9.#%()]+;");
 
     private boolean hasSelectedText = false;
+
+    private static final ArrayList<Tuple<KeyCodeCombination, String>> autocompletionChars = new ArrayList<>();
+
+    static {
+        autocompletionChars.add(new Tuple<>(new KeyCodeCombination(KeyCode.OPEN_BRACKET, KeyCombination.SHIFT_DOWN), "}"));
+        autocompletionChars.add(new Tuple<>(new KeyCodeCombination(KeyCode.QUOTE, KeyCombination.SHIFT_DOWN), "\""));
+        autocompletionChars.add(new Tuple<>(new KeyCodeCombination(KeyCode.QUOTE), "'"));
+//        autocompletionChars.add(new Tuple<>(new KeyCodeCombination(KeyCode.LEFT_PARENTHESIS, KeyCodeCombination.SHIFT_DOWN), ")"));
+        autocompletionChars.add(new Tuple<>(new KeyCodeCombination(KeyCode.OPEN_BRACKET), "]"));
+    }
 
     public CSS3Formatter(CodeEditor editor)
     {
@@ -73,6 +88,12 @@ public class CSS3Formatter extends CodeFormatter
                                 indent = getIndent((currentIndent.length() / 4));
                                 this.editor.insertText(characterNumber, String.format("\n%s", indent));
                             }
+                            else if (textLeftOfCaret.matches(".*;\\s?"))
+                            {
+                                currentIndent = Strings.trailingSpace(textLeftOfCaret);
+                                indent = getIndent((currentIndent.length() / 4));
+                                this.editor.insertText(characterNumber, String.format("\n%s", indent));
+                            }
                             else
                                 this.editor.insertText(characterNumber, "\n");
                             break;
@@ -84,6 +105,30 @@ public class CSS3Formatter extends CodeFormatter
                             this.editor.insertText(characterNumber, getIndent(1));
                             break;
                         default: break;
+                    }
+                });
+        EventStreams.eventsOf(this.editor, KeyEvent.KEY_RELEASED)
+                .pauseWhen(paused)
+                .addObserver(event -> {
+                    int lineNumber = this.editor.getFocusPosition().line;
+                    int characterNumber = this.editor.getFocusPosition().caretPositionInDocument;
+                    String lineText = this.editor.getIndexedDocument().lines.get(lineNumber).text;
+                    String leftChar = String.valueOf(this.editor.getCharacterLeftOfCaret());
+                    for (Tuple<KeyCodeCombination, String> charSet : autocompletionChars)
+                    {
+                        if (charSet.first.match(event))
+                        {
+                            this.editor.insertText(characterNumber, charSet.second);
+                            this.editor.moveTo(characterNumber);
+                            break;
+                        }
+//                        if (charSet.first.equals(leftChar))
+//                        {
+//                            System.out.println(String.format("equals %s; insert %s", leftChar, charSet.second));
+//                            this.editor.insertText(characterNumber, charSet.second);
+//                            this.editor.moveTo(characterNumber);
+//                            break;
+//                        }
                     }
                 });
     }

@@ -54,10 +54,12 @@ public class AutoCompletionDialog<T> extends PopupControl
         this.optionsView = new ListView<>();
         this.setAutoHide(true);
         this.optionsView.setFixedCellSize(41.5);
-        double width = 700.0;
-        double height = 250.0;
-        this.setPrefSize(width, height);
-        this.optionsView.setPrefSize(width, height);
+        double width = 500.0;
+        double height = 200.0;
+        this.setPrefHeight(height);
+        this.optionsView.setPrefHeight(height);
+        this.setMinWidth(width);
+        this.optionsView.setMinWidth(width);
         AnchorPane.setTopAnchor(optionsView, 0.0);
         AnchorPane.setBottomAnchor(optionsView, 0.0);
         AnchorPane.setLeftAnchor(optionsView, 0.0);
@@ -82,6 +84,7 @@ public class AutoCompletionDialog<T> extends PopupControl
         }
         this.setX(x + xOffset);
         this.setY(y + yOffset);
+        this.optionsView.getSelectionModel().selectFirst();
     }
 
     @Override

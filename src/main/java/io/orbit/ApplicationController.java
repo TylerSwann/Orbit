@@ -46,7 +46,7 @@ public class ApplicationController
         this.projectViewController = this.projectNavigatorController.getProjectViewController();
         this.editorTabPaneController = new OEditorTabPaneController(this.editorContainer);
         this.rootSplitPane.widthProperty().addListener(event -> this.rootSplitPane.getDividers().forEach(div -> div.setPosition(0.1911)));
-        LanguageService.open(OEditorTabPaneController.ACTIVE_EDITOR_CONTROLLER, 2);
+        LanguageService.open(OEditorTabPaneController.ACTIVE_EDITOR_CONTROLLER, 1);
         registerListeners();
     }
 
