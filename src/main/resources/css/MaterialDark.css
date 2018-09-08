@@ -209,15 +209,25 @@
  *                        Containers / Root Background                         *
  *                                                                             *
  ******************************************************************************/
-/*.root*/
-/*{*/
-    /*-fx-background-color: -color-grey;*/
-/*}*/
-/*.anchor-pane,*/
-/*.split-pane*/
-/*{*/
-    /*-fx-background-color: -color-grey, -fx-control-inner-background;*/
-/*}*/
+
+
+.background
+{
+    -fx-background-color: -color-grey, -fx-control-inner-background;
+}
+.accent-background.anchor-pane,
+.accent-background.split-pane
+{
+    -fx-background-color: -color-grey, -fx-control-inner-background;
+}
+.accent-background
+{
+    -fx-background-color: -color-grey;
+}
+.background
+{
+    -fx-background-color: -color-grey;
+}
 
 /*******************************************************************************
  *                                                                             *
@@ -1129,42 +1139,6 @@
  *                                                                             *
  ******************************************************************************/
 
-/*.mui-tab*/
-/*{*/
-    /*-fx-background-color: transparent;*/
-    /*-fx-text-fill: white;*/
-    /*-fx-font-family: 'Roboto Bold', sans-serif;*/
-    /*-fx-font-size: 16px;*/
-    /*-fx-background-radius: 0px;*/
-    /*-fx-padding: 0px 15px;*/
-/*}*/
-/*.mui-tab  .jfx-rippler*/
-/*{*/
-
-/*}*/
-/*.mui-tab-pane .indicator*/
-/*{*/
-    /*-fx-background-color: rgb(225, 0, 80);*/
-/*}*/
-/*.mui-tab-pane .mui-tab-bar*/
-/*{*/
-    /*-fx-background-color: #2196f3;*/
-/*}*/
-/*.mui-tab-bar .left,*/
-/*.mui-tab-bar .right*/
-/*{*/
-    /*-fx-background-color: #2196f3;*/
-/*}*/
-
-/*.mui-tab-bar .left .mui-icon-button .ikonli-font-icon,*/
-/*.mui-tab-bar .right .mui-icon-button .ikonli-font-icon*/
-/*{*/
-    /*-fx-icon-color: white;*/
-/*}*/
-/*.mui-tab*/
-/*{*/
-    /*-fx-background-color: -color-grey;*/
-/*}*/
 .editor-tab-pane
 {
     /* Background of tab bar */

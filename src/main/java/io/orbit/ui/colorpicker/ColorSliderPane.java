@@ -9,6 +9,8 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 
+import java.util.Objects;
+
 /**
  * Created by Tyler Swann on Friday August 31, 2018 at 12:13
  */
@@ -34,6 +36,7 @@ public class ColorSliderPane extends AnchorPane
     private TextFieldSlider lightnessSlider;
 
     private ColorModel model = ColorModel.RGBA;
+
     private SimpleObjectProperty<Color> color = new SimpleObjectProperty<>();
     public Color getColor() { return color.get(); }
     public ObservableValue<Color> colorProperty() { return color; }
@@ -141,5 +144,48 @@ public class ColorSliderPane extends AnchorPane
                 this.getChildren().add(hslContainer);
             }
         });
+        this.redSlider.valueProperty().addListener(__ -> updateColor());
+        this.greenSlider.valueProperty().addListener(__ -> updateColor());
+        this.blueSlider.valueProperty().addListener(__ -> updateColor());
+        this.alphaSlider.valueProperty().addListener(__ -> updateColor());
+        this.hueSlider.valueProperty().addListener(__ -> updateColor());
+        this.saturationSlider.valueProperty().addListener(__ -> updateColor());
+        this.lightnessSlider.valueProperty().addListener(__ -> updateColor());
+    }
+
+    public void setColor(Color color)
+    {
+        Objects.requireNonNull(color);
+        this.color.set(color);
+        this.redSlider.setValue(((int)(color.getRed() * 255.0)));
+        this.greenSlider.setValue(((int)(color.getGreen() * 255.0)));
+        this.blueSlider.setValue(((int)(color.getBlue() * 255.0)));
+        this.alphaSlider.setValue(color.getOpacity());
+        this.hueSlider.setValue(color.getHue());
+        this.saturationSlider.setValue(color.getSaturation() * 100.0);
+        this.lightnessSlider.setValue(color.getBrightness() * 100.0);
+    }
+
+    private void updateColor()
+    {
+        switch (this.model)
+        {
+            case RGBA:
+                this.color.set(Color.rgb(
+                        ((int)this.redSlider.getValue()),
+                        ((int)this.greenSlider.getValue()),
+                        ((int)this.blueSlider.getValue()),
+                        this.alphaSlider.getValue()
+                ));
+                break;
+            case HSL:
+                this.color.set(Color.hsb(
+                        this.hueSlider.getValue(),
+                        this.saturationSlider.getValue() / 100.0,
+                        this.lightnessSlider.getValue() / 100.0,
+                        this.alphaSlider.getValue()
+                ));
+                break;
+        }
     }
 }

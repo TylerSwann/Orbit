@@ -1,6 +1,6 @@
 package io.orbit.ui.colorpicker;
 
-import javafx.scene.Scene;
+import javafx.scene.paint.Color;
 import javafx.stage.PopupWindow;
 
 /**
@@ -11,7 +11,8 @@ public class MUIPopupColorPicker extends PopupWindow
 
     public MUIPopupColorPicker()
     {
-        MUIColorPicker colorPicker = new MUIColorPicker();
+        MUIColorPicker colorPicker = new MUIColorPicker(Color.BLUE);
         this.getScene().setRoot(colorPicker);
+        colorPicker.setOnCancel(this::hide);
     }
 }

@@ -14,9 +14,9 @@ public class ChooserPane extends Pane
     private boolean allowTranslateX;
     private boolean allowTranslateY;
 
-    public ChooserPane(Pane knob, boolean allowTranslateX, boolean allowTranslateY)
+    public ChooserPane(boolean allowTranslateX, boolean allowTranslateY)
     {
-        this.knob = knob;
+        this.knob = new Pane();
         this.allowTranslateX = allowTranslateX;
         this.allowTranslateY = allowTranslateY;
         registerListeners();
@@ -24,11 +24,22 @@ public class ChooserPane extends Pane
 
     private void registerListeners()
     {
-        this.knob.addEventHandler(MouseEvent.MOUSE_PRESSED, event -> {
+        this.addEventHandler(MouseEvent.MOUSE_PRESSED, event -> {
             this.mouseX = event.getSceneX();
             this.mouseY = event.getSceneY();
+            double x = event.getX() - (this.knob.getWidth() / 2.0);
+            double y = event.getY() - (this.knob.getHeight() / 2.0);
+            if (this.allowTranslateX && this.allowTranslateY)
+                if (!isXOutOfBounds(x) && !isYOutOfBounds(y))
+                    this.knob.relocate(x, y);
+            else if (this.allowTranslateX)
+                if (!isXOutOfBounds(x))
+                    this.knob.relocate(x, knob.getLayoutY());
+            else if (this.allowTranslateY)
+                if (!isYOutOfBounds(y))
+                    this.knob.relocate(knob.getLayoutX(), y);
         });
-        this.knob.addEventHandler(MouseEvent.MOUSE_DRAGGED, this::drag);
+        this.addEventHandler(MouseEvent.MOUSE_DRAGGED, this::drag);
         this.getChildren().add(knob);
     }
 

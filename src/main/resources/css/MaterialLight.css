@@ -7,10 +7,6 @@
 }
 
 
-.root
-{
-    -fx-background-color: cornflowerblue;
-}
 
 /*******************************************************************************
  *                                                                             *
@@ -317,12 +313,19 @@
 }
 
 
-.anchor-pane,
-.split-pane
+.accent-background.anchor-pane,
+.accent-background.split-pane
 {
     -fx-background-color: cornflowerblue, -fx-control-inner-background;
 }
-
+.accent-background
+{
+    -fx-background-color: cornflowerblue;
+}
+.background
+{
+    -fx-background-color: white;
+}
 
 
 

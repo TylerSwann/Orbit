@@ -38,6 +38,7 @@ public class CodeEditorTabPane extends MUITabPane
         this.getFiles().addListener((ListChangeListener<File>) change -> {
             while (change.next())
             {
+                //this.getTabWithFile(file).ifPresent(this::select);
                 change.getAddedSubList().forEach(this::addNewFile);
                 change.getRemoved().forEach(file -> this.getOpenTabs().forEach(tab -> {
                     if (tab.getFile().equals(file))
@@ -102,9 +103,7 @@ public class CodeEditorTabPane extends MUITabPane
 
     private void addNewFile(File file)
     {
-        if (fileIsOpen(file))
-            this.getTabWithFile(file).ifPresent(this::select);
-        else
+        if (!fileIsOpen(file))
         {
             EditorTab tab = new EditorTab(file);
             editors.add(tab.getEditor());
@@ -113,7 +112,6 @@ public class CodeEditorTabPane extends MUITabPane
             AnchorPane.setBottomAnchor(tab.getEditor(), 0.0);
             AnchorPane.setLeftAnchor(tab.getEditor(), 0.0);
             AnchorPane.setRightAnchor(tab.getEditor(), 0.0);
-            this.select(tab);
         }
     }
 

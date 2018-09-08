@@ -117,8 +117,8 @@ public class App extends Application
             ((SimpleObjectProperty<Stage>)OrbitApplication.PRIMARY_STAGE).set(stage);
         }
         OSplashPageController.show();
-        App.setApplicationTheme(new File(getClass().getClassLoader().getResource("css/MaterialDark.css").getFile()));
-        App.setSyntaxTheme(new File(getClass().getClassLoader().getResource("css/MaterialDarkSyntax.css").getFile()));
+//        App.setApplicationTheme(new File(getClass().getClassLoader().getResource("css/MaterialDark.css").getFile()));
+//        App.setSyntaxTheme(new File(getClass().getClassLoader().getResource("css/MaterialDarkSyntax.css").getFile()));
 //        App.setApplicationTheme(new File(getClass().getClassLoader().getResource("css/SolarOrbit.css").getFile()));
     }
 

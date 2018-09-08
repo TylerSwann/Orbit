@@ -157,8 +157,10 @@ public class ThemeSettingsPage
         ObservableList<Tuple<String, File>> appThemes = FXCollections.observableArrayList();
         ObservableList<Tuple<String, File>> syntaxThemes = FXCollections.observableArrayList();
         ObservableList<Tuple<String, SerializableFont>> fontFamilies = FXCollections.observableArrayList();
-        File[] syntaxThemeFiles = Directory.SYNTAX_THEMES_FOLDER.listFiles();
-        File[] appThemeFiles = Directory.APP_THEMES_FOLDER.listFiles();
+//        File[] syntaxThemeFiles = Directory.SYNTAX_THEMES_FOLDER.listFiles();
+//        File[] appThemeFiles = Directory.APP_THEMES_FOLDER.listFiles();
+        File[] syntaxThemeFiles = new File(getClass().getClassLoader().getResource("css/Default.css").getFile()).getParentFile().listFiles();
+        File[] appThemeFiles = new File(getClass().getClassLoader().getResource("css/Default.css").getFile()).getParentFile().listFiles();
         if (syntaxThemeFiles != null && syntaxThemeFiles.length > 0)
             addFilesToList(syntaxThemeFiles, syntaxThemes);
         if (appThemeFiles != null && appThemeFiles.length > 0)

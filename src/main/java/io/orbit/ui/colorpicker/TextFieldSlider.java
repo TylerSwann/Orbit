@@ -1,6 +1,7 @@
 package io.orbit.ui.colorpicker;
 
 import com.jfoenix.controls.JFXSlider;
+import javafx.beans.property.DoubleProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.value.ObservableValue;
 import javafx.geometry.Insets;
@@ -25,22 +26,22 @@ public class TextFieldSlider extends VBox
     private final double max;
     private final boolean useIntegerValues;
 
-    private SimpleObjectProperty<Double> value = new SimpleObjectProperty<>();
-    public double getValue() { return value.get(); }
-    public ObservableValue<Double> valueProperty() { return value; }
+    public double getValue() { return this.slider.getValue(); }
+    public DoubleProperty valueProperty() { return this.slider.valueProperty(); }
+    public void setValue(double value) { this.slider.setValue(value); }
 
     public TextFieldSlider(String text, double min, double max, double value, boolean useIntegerValues)
     {
         this.min = min;
         this.max = max;
         this.useIntegerValues = useIntegerValues;
-        this.value.set(value);
+        this.slider = new JFXSlider(min, max, value);
+        this.setValue(value);
         this.label = new Label(text);
         if (useIntegerValues)
             this.textField = new TextField(String.valueOf(Math.round(value)));
         else
             this.textField = new TextField(String.valueOf(value));
-        this.slider = new JFXSlider(min, max, value);
         this.getStyleClass().add(DEFAULT_STYLE_CLASS);
         build();
     }
@@ -83,7 +84,7 @@ public class TextFieldSlider extends VBox
                         this.textField.setText(String.valueOf(Math.round(value)));
                     else
                         this.textField.setText(String.valueOf(value));
-                    this.value.set(value);
+                    this.setValue(value);
                 }
             }
             catch (NumberFormatException ex) { this.textField.setText(oldVal); }

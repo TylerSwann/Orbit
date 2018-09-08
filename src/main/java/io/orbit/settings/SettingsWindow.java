@@ -11,6 +11,7 @@ import javafx.scene.control.SplitPane;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import javafx.stage.WindowEvent;
 
 /**
  * Created by Tyler Swann on Friday February 23, 2018 at 14:58
@@ -31,7 +32,7 @@ public class SettingsWindow extends Stage
         applyAnchors(settingsTreeView);
         this.contentContainer = new AnchorPane();
         contentContainer.setPrefSize(100.0, 160.0);
-        contentContainer.getStyleClass().add("root");
+        contentContainer.getStyleClass().add("background");
         SplitPane splitPane = new SplitPane(settingsTreeView, contentContainer);
         splitPane.setOrientation(Orientation.HORIZONTAL);
         splitPane.getDividers().forEach(div -> div.setPosition(0.26848249027237353));

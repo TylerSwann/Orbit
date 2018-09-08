@@ -5,6 +5,7 @@ import javafx.animation.PauseTransition;
 import javafx.animation.TranslateTransition;
 import javafx.application.Platform;
 import javafx.beans.InvalidationListener;
+import javafx.beans.Observable;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -13,19 +14,11 @@ import javafx.collections.ObservableList;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Scene;
-import javafx.scene.effect.BlurType;
-import javafx.scene.effect.DropShadow;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.Pane;
-import javafx.scene.layout.VBox;
-import javafx.scene.paint.Color;
+import javafx.scene.layout.*;
 import javafx.util.Duration;
 import org.kordamp.ikonli.fontawesome5.FontAwesomeSolid;
-
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -49,6 +42,7 @@ public class MUITabBar extends AnchorPane
     private boolean arrowsAreActive = false;
     private Scene scene;
     private InvalidationListener windowWidthChangeEvent;
+    private InvalidationListener indicatorWidthChange;
 
     public ObservableList<MUITab> getTabs() { return tabs; }
     private ObservableList<MUITab> tabs = FXCollections.observableArrayList();
@@ -67,17 +61,40 @@ public class MUITabBar extends AnchorPane
     {
         this.getStyleClass().add(DEFAULT_STYLE_CLASS);
         this.setPrefHeight(tabBarHeight);
-        build();
-        registerListeners();
+        setup();
+    }
+
+    private void setup()
+    {
+        this.tabsContainer = new HBox();
+        this.tabsContainer.setStyle("-fx-background-color: transparent;");
+        this.tabsContainer.setAlignment(Pos.CENTER_LEFT);
+        this.indicator = new Pane();
+        this.indicator.setPrefHeight(indicatorHeight);
+        this.indicator.getStyleClass().add(INDICATOR_STYLE_CLASS);
+        this.indicatorWidthChange = __ -> Platform.runLater(() -> {
+            this.indicator.setPrefWidth(this.selectedTab.get().getWidth());
+            translateIndicator();
+        });
+        registerTabListeners();
+        InvalidationListener load = new InvalidationListener() {
+            @Override
+            public void invalidated(Observable observable)
+            {
+                if (getHeight() <= 0.0)
+                    return;
+                build();
+                registerListeners();
+                heightProperty().removeListener(this);
+            }
+        };
+        this.heightProperty().addListener(load);
     }
 
     private void build()
     {
         this.container = new AnchorPane();
         this.container.setPrefHeight(tabBarHeight);
-        this.tabsContainer = new HBox();
-        this.tabsContainer.setStyle("-fx-background-color: transparent;");
-        this.tabsContainer.setAlignment(Pos.CENTER_LEFT);
         AnchorPane.setTopAnchor(this.tabsContainer, 0.0);
         AnchorPane.setBottomAnchor(this.tabsContainer, indicatorHeight);
         AnchorPane.setLeftAnchor(this.tabsContainer, 0.0);
@@ -102,43 +119,24 @@ public class MUITabBar extends AnchorPane
         this.rightArrowContainer.getStyleClass().add("right");
         this.leftArrowContainer.setAlignment(Pos.CENTER);
         this.rightArrowContainer.setAlignment(Pos.CENTER);
-        this.indicator = new Pane();
-        this.indicator.setPrefHeight(indicatorHeight);
-
-        this.indicator.getStyleClass().add(INDICATOR_STYLE_CLASS);
         AnchorPane.setBottomAnchor(this.indicator, 0.0);
         this.getChildren().add(this.container);
         this.container.getChildren().addAll(this.tabsContainer, this.indicator);
         this.windowWidthChangeEvent = __ -> Platform.runLater(this::checkWidth);
     }
 
-    private void registerListeners()
+    private void registerTabListeners()
     {
-        this.container.widthProperty().addListener(__ -> Platform.runLater(this::checkWidth));
-        this.selectedTab.addListener(__ -> {
-            if (this.selectedTab.get().getWidth() <= 0.0)
-            {
-                PauseTransition pause = new PauseTransition(Duration.millis(500.0));
-                pause.setOnFinished(e -> {
-                    this.indicator.setPrefWidth(this.selectedTab.get().getWidth());
-                    translateIndicator();
-                });
-                pause.play();
-            }
-            else
-            {
+        this.selectedTab.addListener((obs, oldVal, newVal) -> {
+            if (oldVal != null)
+                oldVal.widthProperty().removeListener(this.indicatorWidthChange);
+            this.selectedTab.get().widthProperty().addListener(this.indicatorWidthChange);
+            Platform.runLater(() -> {
                 this.indicator.setPrefWidth(this.selectedTab.get().getWidth());
                 translateIndicator();
-            }
+            });
         });
         this.tabs.addListener((ListChangeListener<MUITab>) change -> {
-            if (this.selectedTab.get() == null)
-            {
-                Platform.runLater(() -> {
-                    this.selectedTab.set(this.getTabs().get(0));
-                    this.select(this.selectedTab.get());
-                });
-            }
             while (change.next())
             {
                 change.getAddedSubList().forEach(tab -> {
@@ -160,6 +158,11 @@ public class MUITabBar extends AnchorPane
                 });
             }
         });
+    }
+
+    private void registerListeners()
+    {
+        this.container.widthProperty().addListener(__ -> Platform.runLater(this::checkWidth));
         leftArrow.setOnAction(__ -> {
             double amount = this.container.getTranslateX() + (this.getTabs().get(0).getWidth() * 3.0);
             if (amount > tabBarHeight)
@@ -229,5 +232,18 @@ public class MUITabBar extends AnchorPane
         translateAnimation.setFromX(this.indicator.getTranslateX());
         translateAnimation.setToX(this.selectedTab.get().getLayoutX());
         translateAnimation.play();
+    }
+
+    private class MUIIndicator extends Region
+    {
+        MUIIndicator()
+        {
+
+        }
+        @Override
+        public void setWidth(double width)
+        {
+            super.setWidth(width);
+        }
     }
 }
