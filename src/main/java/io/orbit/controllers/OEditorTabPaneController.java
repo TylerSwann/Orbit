@@ -88,7 +88,9 @@ public class OEditorTabPaneController
                     App.controller().getEditorTabPaneController().openFile(file);
             }
             if (lastOpenedFile != null)
+            {
                 Platform.runLater(() -> this.editorPane.select(lastOpenedFile));
+            }
         });
     }
 

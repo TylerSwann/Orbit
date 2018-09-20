@@ -7,6 +7,7 @@ import io.orbit.settings.LocalUser;
 import io.orbit.settings.ProjectFile;
 import io.orbit.util.FontLoader;
 import io.orbit.util.Size;
+import javafx.application.Platform;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.scene.control.SplitPane;
@@ -46,13 +47,13 @@ public class ApplicationController
         this.projectViewController = this.projectNavigatorController.getProjectViewController();
         this.editorTabPaneController = new OEditorTabPaneController(this.editorContainer);
         this.rootSplitPane.widthProperty().addListener(event -> this.rootSplitPane.getDividers().forEach(div -> div.setPosition(0.1911)));
-        LanguageService.open(OEditorTabPaneController.ACTIVE_EDITOR_CONTROLLER, 1);
         registerListeners();
     }
 
     private void registerListeners()
     {
-        App.appEventsProperty.addEventListener(ApplicationEvent.WILL_CLOSE, event -> {
+        App.appEventsProperty.addEventListener(ApplicationEvent.WILL_LOAD, __ -> LanguageService.open(OEditorTabPaneController.ACTIVE_EDITOR_CONTROLLER, 1));
+        App.appEventsProperty.addEventListener(ApplicationEvent.WILL_CLOSE, __ -> {
             Stage stage = App.PRIMARY_STAGE.get();
             Size windowSize = new Size(stage.getWidth(), stage.getHeight());
             LocalUser.userSettings.setWindowSize(windowSize);

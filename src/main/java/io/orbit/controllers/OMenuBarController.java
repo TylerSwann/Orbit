@@ -168,7 +168,7 @@ public class OMenuBarController extends EventTargetObject
 
     private void showSettingsPage()
     {
-        // TODO - update to new OEditorController
+//        // TODO - update to new OEditorController
         if (settingsWindow != null)
             return;
         Setting themeAndFonts = new Setting("Themes and Fonts", ThemeSettingsPage.load());

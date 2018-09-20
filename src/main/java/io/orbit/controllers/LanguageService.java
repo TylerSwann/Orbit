@@ -3,6 +3,7 @@ package io.orbit.controllers;
 import io.orbit.api.LanguageDelegate;
 import io.orbit.api.highlighting.SyntaxHighlighter;
 import io.orbit.api.text.CodeEditor;
+import javafx.application.Platform;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.value.ObservableValue;
@@ -11,6 +12,8 @@ import org.fxmisc.richtext.model.PlainTextChange;
 import org.fxmisc.richtext.model.StyleSpans;
 import org.reactfx.EventStream;
 import org.reactfx.Subscription;
+
+import javax.swing.*;
 import java.util.Collection;
 import java.util.Optional;
 import java.util.concurrent.ExecutorService;
@@ -78,7 +81,6 @@ public class LanguageService
                     return Optional.of(attempt.get());
                 })
                 .subscribe(LanguageService::applyHighlighting);
-        highlightForcibly();
     }
 
     private static Task<StyleSpans<Collection<String>>> computeHighlighting()

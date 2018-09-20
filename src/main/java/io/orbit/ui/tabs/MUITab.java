@@ -25,7 +25,18 @@ public class MUITab extends JFXButton
 
     public MUITab(String text)
     {
-        super(text);
+        this();
+        this.setText(text);
+    }
+
+    public MUITab(Node graphic)
+    {
+        this();
+        this.setGraphic(graphic);
+    }
+
+    public MUITab()
+    {
         this.setButtonType(JFXButton.ButtonType.FLAT);
         this.setRipplerFill(Color.rgb(255, 255, 255, 0.3));
         this.getStyleClass().add(DEFAULT_STYLE_CLASS);

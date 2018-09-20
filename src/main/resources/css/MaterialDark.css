@@ -22,6 +22,22 @@
 
 /*******************************************************************************
  *                                                                             *
+ *                                   Button                                    *
+ *                                                                             *
+ ******************************************************************************/
+
+.jfx-button
+{
+    -fx-background-color: transparent;
+}
+
+.jfx-button .jfx-rippler
+{
+    -jfx-rippler-fill: -fx-button-ripple;
+}
+
+/*******************************************************************************
+ *                                                                             *
  *                                 Buttons                                     *
  *                                                                             *
  ******************************************************************************/
@@ -36,7 +52,6 @@
 {
     -fx-background-color: -fx-button-hover;
     -fx-text-fill: -color-light-grey;
-
 }
 /*******************************************************************************
  *                                                                             *
@@ -73,23 +88,7 @@
     -fx-text-fill: -fx-off-white;
 }
 
-/*******************************************************************************
- *                                                                             *
- *                               Context Menus                                 *
- *                                                                             *
- ******************************************************************************/
-/*.mui-context-menu .mui-menu-button*/
-/*{*/
-    /*-fx-text-color: -fx-off-white;*/
-    /*-fx-icon-color: -fx-off-white;*/
-    /*-fx-font: 14 "Roboto Black";*/
-/*}*/
 
-/*.mui-context-menu*/
-/*{*/
-    /*-fx-background-color: -color-grey;*/
-    /*-fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.5), 10.0, 0.0, 1.5, 2.0);*/
-/*}*/
 
 /*******************************************************************************
  *                                                                             *
@@ -251,40 +250,7 @@
 {
     -fx-icon-color: -fx-off-white;
 }
-/*.jfx-tab-pane*/
-/*{*/
-    /*-fx-background-color: -color-grey;*/
-/*}*/
-/*.jfx-tab-pane .headers-region*/
-/*{*/
-    /*!* Background of tab bar *!*/
-    /*-fx-background-color: -color-grey;*/
-/*}*/
-/*.jfx-tab-pane .tab-header-background*/
-/*{*/
-    /*!* Background of the tabs *!*/
-    /*-fx-background-color: -color-grey;*/
-/*}*/
-/*.jfx-tab-pane .tab-selected-line*/
-/*{   !* Color of line under selected tab *!*/
-    /*-fx-background-color: -fx-light-green;*/
-/*}*/
 
-/*.jfx-tab-pane .tab-header-area .jfx-rippler*/
-/*{*/
-    /*!* Color of ripple *!*/
-    /*!*-jfx-rippler-fill: black;*!*/
-    /*-jfx-rippler-fill: -fx-button-ripple;*/
-/*}*/
-/*.jfx-tab-pane .tab .tab-label*/
-/*{*/
-    /*-fx-text-fill: -fx-faded-green;*/
-/*}*/
-
-/*.jfx-tab-pane .tab:selected .tab-label*/
-/*{*/
-    /*-fx-text-fill: -fx-light-green;*/
-/*}*/
 /*******************************************************************************
  *                                                                             *
  *                                  TreeViews                                  *
@@ -418,6 +384,29 @@
 .mui-message-box .ikonli-font-icon
 {
     -fx-icon-color: rgb(168, 183, 185);
+}
+.navigator-tab-pane.mui-tab-pane .mui-tab-bar
+{
+    -fx-background-color: -color-grey;
+    -fx-effect: null;
+}
+.navigator-tab-pane .mui-tab
+{
+    -fx-background-color: transparent;
+}
+.navigator-tab-pane.mui-tab-pane .mui-tab .ikonli-font-icon
+{
+    -fx-icon-color: -fx-off-white;
+}
+
+.navigator-tab-pane.mui-tab-pane .mui-tab-bar .indicator
+{
+    -fx-background-color: -fx-light-green;
+}
+
+.navigator-tab-pane .file-tree-view .ikonli-font-icon
+{
+    -fx-icon-color: -fx-off-white;
 }
 
 .config-label
@@ -865,6 +854,7 @@
 
 .navigator-context-menu.mui-context-menu .mui-context-item
 {
+    -fx-background-color: transparent;
     -fx-text-fill: -fx-off-white;
     -fx-alignment: center-left;
     -fx-font-size: 14px;
@@ -955,6 +945,7 @@
 .mui-menu-bar .mui-context-item,
 .application-context-menu .mui-context-item
 {
+    -fx-background-color: transparent;
     -fx-text-fill: -fx-off-white;
     -fx-alignment: center-left;
     -fx-font-size: 14px;
@@ -968,10 +959,6 @@
     -fx-padding: 5px 10px;
 }
 
-/*.mui-menu-bar .left .mui-context-item .ikonli-font-icon*/
-/*{*/
-    /*-fx-icon-size: 14px;*/
-/*}*/
 
 .mui-menu-bar .right .mui-context-item .ikonli-font-icon
 {
@@ -1045,6 +1032,7 @@
 .mui-modal .secondary,
 .mui-modal .destructive
 {
+    -fx-background-color: transparent;
     -fx-font-family: "Raleway Black", sans-serif;
     -fx-text-fill: -fx-off-white;
     -fx-padding: 9px 11px;
@@ -1086,51 +1074,51 @@
  *                                                                             *
  ******************************************************************************/
 
-.navigator-tab-pane
-{
-    -fx-background-color: -color-grey;
-}
-.navigator-tab-pane .headers-region
-{
-    /* Background of tab bar */
-    -fx-background-color: -color-grey;
-}
-.navigator-tab-pane .tab-header-background
-{
-    /* Background of the tabs */
-    -fx-background-color: -color-grey;
-}
-.navigator-tab-pane .tab-selected-line
-{   /* Color of line under selected tab */
-    -fx-background-color: -fx-light-green;
-}
+/*.navigator-tab-pane*/
+/*{*/
+    /*-fx-background-color: -color-grey;*/
+/*}*/
+/*.navigator-tab-pane .headers-region*/
+/*{*/
+    /*!* Background of tab bar *!*/
+    /*-fx-background-color: -color-grey;*/
+/*}*/
+/*.navigator-tab-pane .tab-header-background*/
+/*{*/
+    /*!* Background of the tabs *!*/
+    /*-fx-background-color: -color-grey;*/
+/*}*/
+/*.navigator-tab-pane .tab-selected-line*/
+/*{   !* Color of line under selected tab *!*/
+    /*-fx-background-color: -fx-light-green;*/
+/*}*/
 
-.navigator-tab-pane .tab-header-area .jfx-rippler
-{
-    /* Color of ripple */
-    -jfx-rippler-fill: -fx-button-ripple;
-}
+/*.navigator-tab-pane .tab-header-area .jfx-rippler*/
+/*{*/
+    /*!* Color of ripple *!*/
+    /*-jfx-rippler-fill: -fx-button-ripple;*/
+/*}*/
 
-.navigator-tab-pane .tab
-{
-    -fx-pref-width: 110px;
-    -fx-pref-height: 40px;
-}
+/*.navigator-tab-pane .tab*/
+/*{*/
+    /*-fx-pref-width: 110px;*/
+    /*-fx-pref-height: 40px;*/
+/*}*/
 
-.navigator-tab-pane .ikonli-font-icon
-{
-    -fx-icon-size: 24px;
-}
+/*.navigator-tab-pane .ikonli-font-icon*/
+/*{*/
+    /*-fx-icon-size: 24px;*/
+/*}*/
 
-.navigator-tab-pane .tab .tab-label
-{
-    -fx-text-fill: -fx-faded-green;
-}
+/*.navigator-tab-pane .tab .tab-label*/
+/*{*/
+    /*-fx-text-fill: -fx-faded-green;*/
+/*}*/
 
-.navigator-tab-pane .tab:selected .tab-label
-{
-    -fx-text-fill: -fx-light-green;
-}
+/*.navigator-tab-pane .tab:selected .tab-label*/
+/*{*/
+    /*-fx-text-fill: -fx-light-green;*/
+/*}*/
 
 
 /*******************************************************************************
@@ -1144,7 +1132,7 @@
     /* Background of tab bar */
     /*-fx-background-color: -color-grey;*/
 }
-.editor-tab-pane  .mui-tab-bar
+.editor-tab-pane.mui-tab-pane  .mui-tab-bar
 {
     /* Background of the tabs */
     -fx-background-color: -color-grey;
@@ -1154,6 +1142,11 @@
 {
     /* Color of line under selected tab */
     -fx-background-color: -fx-light-green;
+}
+
+.editor-tab-pane .mui-tab-bar .mui-tab
+{
+    -fx-background-color: transparent;
 }
 
 .editor-tab-pane .mui-tab-bar .mui-tab .jfx-rippler
@@ -1171,12 +1164,12 @@
 {
     -fx-icon-color: -fx-off-white;
 }
-.editor-tab-pane .mui-tab
+.editor-tab-pane .mui-tab-bar .mui-tab
 {
     -fx-text-fill: -fx-faded-green;
 }
 
-.editor-tab-pane .mui-tab:selected
+.editor-tab-pane .mui-tab-bar .mui-tab:selected
 {
     -fx-text-fill: -fx-light-green;
 }
@@ -1185,4 +1178,82 @@
 .editor-tab-pane .mui-tab-bar .right .mui-icon-button .jfx-rippler
 {
     -jfx-rippler-fill: -fx-button-ripple;
+}
+
+
+
+/*******************************************************************************
+ *                                                                             *
+ *                                Color Picker                                 *
+ *                                                                             *
+ ******************************************************************************/
+
+.mui-color-picker
+{
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.8), 10.0, 0.0, 1.0, 2.0);
+    -fx-background-color: -color-medium-grey;
+}
+
+.sl-color-chooser .sl-chooser-knob
+{
+    -fx-border-color: white;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.7), 10.0, 0.0, 1.0, 2.0);
+}
+
+.hsl-color-picker .slider.opacity .thumb,
+.hsl-color-picker .slider.hue .thumb
+{
+    -fx-background-color: transparent;
+    -fx-border-color: white;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.7), 10.0, 0.0, 1.0, 2.0);
+}
+
+
+
+.mui-color-picker .mui-picker-button
+{
+    /*-fx-font-family: "Roboto Black", sans-serif;*/
+    /*-fx-font-size: 14px;*/
+    -fx-text-fill: -fx-off-white;
+    -fx-font: 13.0 "Roboto Black";
+}
+
+.mui-color-picker .mui-picker-button:hover
+{
+    -fx-background-color: #494e55;
+    -fx-text-fill: -color-light-grey;
+}
+
+.mui-color-picker .mui-tab-bar .tab-selected-line
+{   /* Color of line under selected tab */
+    -fx-background-color: -fx-light-green;
+}
+
+
+
+.mui-color-picker .mui-tab-bar .mui-tab .jfx-rippler
+{
+    -jfx-rippler-fill: -fx-button-ripple;
+}
+.mui-color-picker .mui-tab-bar .indicator
+{
+    -fx-background-color: -fx-light-green;
+}
+.mui-color-picker .mui-tab-bar .mui-tab
+{
+    -fx-text-fill: -fx-faded-green;
+}
+
+.mui-color-picker .mui-tab-bar .mui-tab:selected
+{
+    -fx-text-fill: -fx-light-green;
+}
+.color-slider-pane .text-field
+{
+
+}
+
+.color-slider-pane .jfx-slider
+{
+
 }

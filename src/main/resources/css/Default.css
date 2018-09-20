@@ -1,29 +1,156 @@
 
 
+
 /*******************************************************************************
  *                                                                             *
- *                                  Various                                    *
+ *                                    Tabs                                     *
  *                                                                             *
  ******************************************************************************/
 
-/*.anchor-pane,*/
-/*.split-pane*/
-/*{*/
-    /*-fx-focus-color: transparent;*/
-    /*-fx-box-border: transparent;*/
-/*}*/
 
-.background
+.mui-tab .jfx-rippler
 {
-    -fx-focus-color: transparent;
-    -fx-box-border: transparent;
+    -jfx-rippler-fill: rgba(100, 100, 100, 0.4);
 }
 
-.navigator-tab-pane .tab
+.navigator-tab-pane .mui-tab
 {
     -fx-pref-width: 110px;
     -fx-pref-height: 40px;
 }
+.navigator-tab-pane .mui-tab .ikonli-font-icon
+{
+    -fx-icon-size: 23px;
+}
+
+
+.navigator-tab-pane .file-tree-view .ikonli-font-icon
+{
+    -fx-icon-size: 23px;
+    -fx-icon-color: rgb(100, 100, 100);
+}
+
+/*******************************************************************************
+ *                                                                             *
+ *                                ScrollBar                                    *
+ *                                                                             *
+ ******************************************************************************/
+.scroll-bar
+{
+    -fx-background-color: white;
+}
+
+.scroll-bar:horizontal .track,
+.scroll-bar:vertical .track
+{
+    -fx-background-color: white;
+    -fx-border-color:transparent;
+    -fx-background-radius: 0em;
+}
+
+.scroll-bar:vertical .track-background,
+.scroll-bar:horizontal .track-background
+{
+    -fx-background-color: white;
+    -fx-background-insets:  0;
+    -fx-background-radius: 0em;
+}
+
+.scroll-bar:horizontal .thumb
+{
+    -fx-background-color: rgb(205,205,205);
+    -fx-background-insets: 2 0 2 0;
+    -fx-background-radius: 0em;
+}
+
+.scroll-bar:vertical .thumb
+{
+    -fx-background-color: rgb(205,205,205);
+    -fx-background-insets: 0 2 0 2;
+    -fx-background-radius: 0em;
+}
+
+.scroll-bar:horizontal .thumb:hover,
+.scroll-bar:vertical .thumb:hover
+{
+    -fx-background-color: rgb(215,215,215);
+}
+.scroll-bar:horizontal .thumb:pressed,
+.scroll-bar:vertical .thumb:pressed {
+    -fx-background-color: rgb(96,96,96);
+}
+.scroll-bar:vertical .increment-button, .scroll-bar:vertical .decrement-button
+{
+    -fx-background-color:transparent;
+    -fx-background-radius: 0em;
+    -fx-padding: 5 5 5 5;
+}
+.scroll-bar:horizontal .increment-button, .scroll-bar:horizontal .decrement-button
+{
+    -fx-background-color:transparent;
+    -fx-background-radius: 0em;
+    -fx-padding: 5 5 5 5;
+}
+.scroll-bar:horizontal .increment-arrow
+{
+    -fx-shape: "M4,17v-2.889l4.124-3.86l4.125,3.86V17l-4.125-3.375L4,17z";
+    -fx-padding: 0.25em;
+    -fx-rotate: 90;
+}
+.scroll-bar:vertical .increment-arrow
+{
+    -fx-shape: "M4,17v-2.889l4.124-3.86l4.125,3.86V17l-4.125-3.375L4,17z";
+    -fx-padding: 0.25em;
+    -fx-rotate: 180;
+}
+.scroll-bar:horizontal .decrement-arrow {
+    -fx-shape: "M4,17v-2.889l4.124-3.86l4.125,3.86V17l-4.125-3.375L4,17z";
+    -fx-padding: 0.25em;
+    -fx-rotate: -90;
+}
+.scroll-bar:vertical .decrement-arrow
+{
+    -fx-shape: "M4,17v-2.889l4.124-3.86l4.125,3.86V17l-4.125-3.375L4,17z";
+    -fx-padding: 0.25em;
+}
+.scroll-bar:vertical:focused,
+.scroll-bar:horizontal:focused
+{
+    -fx-background-color: -fx-box-border,-fx-box-border,white;
+}
+
+
+/*******************************************************************************
+ *                                                                             *
+ *                                SplitPane                                    *
+ *                                                                             *
+ ******************************************************************************/
+
+.split-pane .split-pane-divider
+{
+    -fx-background-color: rgb(0, 210, 255);
+    -fx-border-color: rgb(0, 210, 255);
+    -fx-padding: 0 0.05em 0 0.05em;
+}
+
+.accent-background.anchor-pane,
+.accent-background.split-pane
+{
+    -fx-background-color: white, -fx-control-inner-background;
+}
+.accent-background
+{
+    -fx-background-color: white;
+    /*-fx-background-color: cornflowerblue, -fx-control-inner-background;*/
+}
+.background
+{
+    -fx-focus-color: transparent;
+    -fx-box-border: transparent;
+    -fx-background-color: white;
+}
+
+
 
 /*******************************************************************************
  *                                                                             *
@@ -90,94 +217,17 @@
 
 /*******************************************************************************
  *                                                                             *
- *                              Files TabPane                                  *
- *                                                                             *
- /*******************************************************************************!*/
-/*.jfx-tab-pane .headers-region*/
-/*{*/
-    /*!* Background of tab bar *!*/
-    /*-fx-background-color: rgba(235, 235, 235, 1.0);*/
-/*}*/
-/*.jfx-tab-pane .tab-header-background*/
-/*{*/
-    /*!* Background of the tabs *!*/
-    /*-fx-background-color: rgba(235, 235, 235, 1.0);*/
-/*}*/
-/*.jfx-tab-pane .tab-selected-line*/
-/*{   !* Color of line under selected tab *!*/
-    /*-fx-background-color: rgb(13, 128, 255);*/
-/*}*/
-
-/*.jfx-tab-pane .tab-header-area .jfx-rippler*/
-/*{*/
-    /*!* Color of ripple *!*/
-    /*!*-jfx-rippler-fill: black;*!*/
-    /*-jfx-rippler-fill: rgba(100, 100, 100, 0.4);*/
-/*}*/
-/*.jfx-tab-pane .tab .tab-label*/
-/*{*/
-    /*-fx-font-weight: normal;*/
-    /*-fx-text-fill: rgba(26, 103, 255, 0.5);*/
-    /*-fx-font-size: 16;*/
-/*}*/
-
-/*.jfx-tab-pane .tab:selected .tab-label*/
-/*{*/
-    /*-fx-font-weight: normal;*/
-    /*-fx-text-fill: rgba(26, 103, 255, 1.0);*/
-/*}*/
-
-/*.jfx-tab-pane .headers-region*/
-/*{*/
-/*!* Background of tab bar *!*/
-/*!*-fx-background-color: red;*!*/
-/*-fx-background-color: rgba(235, 235, 235, 1.0);*/
-/*}*/
-/*.jfx-tab-pane .tab-header-background*/
-/*{*/
-/*!* Background of the tabs *!*/
-/*!*-fx-background-color: red;*!*/
-/*-fx-background-color: rgba(235, 235, 235, 1.0);*/
-/*}*/
-/*.jfx-tab-pane .tab-selected-line*/
-/*{   !* Color of line under selected tab *!*/
-/*!* -fx-background-color: rgb(13, 128, 255);*!*/
-/*-fx-background-color: rgb(13, 128, 255);*/
-/*}*/
-
-/*.jfx-tab-pane .tab-header-area .jfx-rippler*/
-/*{*/
-/*!* Color of ripple *!*/
-/*!*-jfx-rippler-fill: black;*!*/
-/*-jfx-rippler-fill: rgba(100, 100, 100, 0.4);*/
-/*}*/
-/*.jfx-tab-pane .tab .tab-label*/
-/*{*/
-/*-fx-font-weight: normal;*/
-/*-fx-text-fill: rgba(26, 103, 255, 0.5);*/
-/*-fx-font-size: 16;*/
-/*}*/
-
-/*.jfx-tab-pane .tab:selected .tab-label*/
-/*{*/
-/*-fx-font-weight: normal;*/
-/*-fx-text-fill: rgba(26, 103, 255, 1.0);*/
-/*}*/
-
-/*******************************************************************************
- *                                                                             *
  *                                 MUITabPane                                  *
  *                                                                             *
  ******************************************************************************/
 
-.mui-tab-pane
+.mui-tab-pane .mui-tab-bar
 {
     -fx-effect: dropshadow(three-pass-box, grey, 10, 0, 0, 2);
 }
-.mui-tab
+.mui-tab-pane .mui-tab-bar .mui-tab
 {
-    -fx-background-color: transparent;
-    -fx-text-fill: white;
+    -fx-text-fill: black;
     -fx-font-family: 'Roboto Bold', sans-serif;
     -fx-font-size: 16px;
     -fx-background-radius: 0px;
@@ -193,18 +243,18 @@
 }
 .mui-tab-pane .mui-tab-bar
 {
-    -fx-background-color: #2196f3;
+    -fx-background-color: white;
 }
 .mui-tab-bar .left,
 .mui-tab-bar .right
 {
-    -fx-background-color: #2196f3;
+    -fx-background-color: white;
 }
 
 .mui-tab-bar .left .mui-icon-button .ikonli-font-icon,
 .mui-tab-bar .right .mui-icon-button .ikonli-font-icon
 {
-    -fx-icon-color: white;
+    -fx-icon-color: black;
 }
 
 /*******************************************************************************
@@ -231,11 +281,6 @@
     -fx-padding: 0px;
 }
 
-/*.mui-icon-button .jfx-rippler*/
-/*{*/
-/*-jfx-rippler-fill: rgba(0, 0, 0, 0.54);*/
-/*}*/
-
 
 /*******************************************************************************
  *                                                                             *
@@ -253,171 +298,142 @@
 
 /*******************************************************************************
  *                                                                             *
- *                          TreeView and TreeCell                              *
+ *                                  TreeViews                                  *
  *                                                                             *
  ******************************************************************************/
-.tree-cell {
-    -fx-padding: 0.8em 0em 0.8em 0.3em;
-    -fx-text-fill: #212121;
-    /*-fx-font: 12px "Segoe UI";*/
-}
-
-.tree-view:focused {
-    -fx-background-color: -fx-box-border,-fx-box-border,white;
-}
-.tree-view .tree-cell:empty:hover {
-    -fx-background-color: white;
-}
 
 
-.tree-cell .tree-disclosure-node {
-    -fx-padding: 4;
+.tree-view,
+.file-tree-view
+{
+    -fx-background-color: white, -fx-control-inner-background;
 }
-.tree-view .corner
+
+.tree-cell
 {
     -fx-background-color: white;
-    -fx-border-width: 0.0;
+    -fx-text-fill: black;
+    -fx-font: 14px "Roboto Medium";
+    -fx-border-color: white;
+}
+
+.tree-cell:selected
+{
+    -fx-background-color: -fx-box-border, rgba(100, 100, 100, 0.4);
+}
+
+
+
+.tree-cell:hover,
+.tree-cell:highlighted:hover
+{
+    -fx-background-color: -fx-box-border, rgba(50, 50, 50, 0.1);
+}
+
+
+.tree-cell .tree-disclosure-node .arrow
+{
+    -fx-background-color: -fx-mark-highlight-color, rgb(100, 100, 100);
+}
+
+
+.tree-cell:filled:hover .tree-disclosure-node .arrow
+{
+    -fx-background-color: -fx-mark-highlight-color, rgb(100, 100, 100);
+}
+
+.tree-view .corner,
+.file-tree-view .corner
+{
+    -fx-background-color: white;
     -fx-border-color: white;
     -fx-background: white;
 }
 
-.tree-view .tree-cell:hover {
--fx-background-color: -fx-box-border,rgb(231,231,231);
-}
-.tree-view .tree-cell:filled:selected:hover {
--fx-background-color: -fx-box-border, rgb(205,205,205);
-}
-.tree-view:focused .tree-cell:focused {
--fx-background-color: -fx-box-border, white;
-}
-.tree-view:focused .tree-cell:focused:hover {
--fx-background-color: -fx-box-border,rgb(231,231,231);
-}
-.tree-view:focused .tree-cell:filled:focused:selected,
-.tree-view:focused .tree-cell:filled:focused:selected:hover {
--fx-background-color: -fx-box-border, rgb(205,205,205);
-}
-.tree-cell:filled:selected:focused, .tree-cell:filled:selected {
--fx-background-color: -fx-box-border,rgb(205,205,205);
-}
-.tree-cell .tree-disclosure-node .arrow {
--fx-background-color: -fx-mark-highlight-color, -fx-mark-color;
--fx-padding: 0.27em;
--fx-shape: "M4,17v-2.889l4.124-3.86l4.125,3.86V17l-4.125-3.375L4,17z";
--fx-rotate: 90;
-}
-.tree-cell:expanded .tree-disclosure-node .arrow {
--fx-rotate: 180;
-}
-.tree-cell:filled:hover .tree-disclosure-node .arrow {
--fx-background-color: -fx-mark-highlight-color, -fx-mark-color;
-}
-.tree-view .tree-cell:highlighted
+.tree-cell:filled:focused:selected,
+.tree-cell:filled:focused:selected:hover,
+.tree-cell:filled:selected:hover,
+.tree-cell:filled:focused:hover
 {
--fx-font: 13px "Segoe UI Black";
-}
-/*******************************************************************************
- *                                                                             *
- *                                ScrollBar                                    *
- *                                                                             *
- ******************************************************************************/
-.scroll-bar{
-    -fx-background-color: white;
-}
-.scroll-bar:horizontal .track,
-.scroll-bar:vertical .track {
-    -fx-background-color: white;
-    -fx-border-color:transparent;
-    -fx-background-radius: 0em;
-}
-.scroll-bar:vertical .track-background,
-.scroll-bar:horizontal .track-background {
-    -fx-background-color: white;
-    -fx-background-insets:  0;
-    -fx-background-radius: 0em;
-
-}
-.scroll-bar:horizontal .thumb {
-    -fx-background-color: rgb(205,205,205);
-    -fx-background-insets: 2 0 2 0;
-    -fx-background-radius: 0em;
-}
-.scroll-bar:vertical .thumb {
-    -fx-background-color: rgb(205,205,205);
-    -fx-background-insets: 0 2 0 2;
-    -fx-background-radius: 0em;
-}
-.scroll-bar:horizontal .thumb:hover,
-.scroll-bar:vertical .thumb:hover {
-    -fx-background-color: rgb(215,215,215);
-}
-.scroll-bar:horizontal .thumb:pressed,
-.scroll-bar:vertical .thumb:pressed {
-    -fx-background-color: rgb(96,96,96);
-}
-.scroll-bar:vertical .increment-button, .scroll-bar:vertical .decrement-button {
-    -fx-background-color:transparent;
-    -fx-background-radius: 0em;
-    -fx-padding: 5 5 5 5;
-}
-.scroll-bar:horizontal .increment-button, .scroll-bar:horizontal .decrement-button {
-    -fx-background-color:transparent;
-    -fx-background-radius: 0em;
-    -fx-padding: 5 5 5 5;
-}
-.scroll-bar:horizontal .increment-arrow {
-    -fx-shape: "M4,17v-2.889l4.124-3.86l4.125,3.86V17l-4.125-3.375L4,17z";
-    -fx-padding: 0.25em;
-    -fx-rotate: 90;
-}
-.scroll-bar:vertical .increment-arrow {
-    -fx-shape: "M4,17v-2.889l4.124-3.86l4.125,3.86V17l-4.125-3.375L4,17z";
-    -fx-padding: 0.25em;
-    -fx-rotate: 180;
-}
-.scroll-bar:horizontal .decrement-arrow {
-    -fx-shape: "M4,17v-2.889l4.124-3.86l4.125,3.86V17l-4.125-3.375L4,17z";
-    -fx-padding: 0.25em;
-    -fx-rotate: -90;
-}
-.scroll-bar:vertical .decrement-arrow {
-    -fx-shape: "M4,17v-2.889l4.124-3.86l4.125,3.86V17l-4.125-3.375L4,17z";
-    -fx-padding: 0.25em;
-}
-.scroll-bar:vertical:focused,
-.scroll-bar:horizontal:focused {
-    -fx-background-color: -fx-box-border,-fx-box-border,white;
+    -fx-background-color: -fx-box-border, rgba(100, 100, 100, 0.4);
 }
 
-
-/*******************************************************************************
- *                                                                             *
- *                                SplitPane                                    *
- *                                                                             *
- ******************************************************************************/
-
-.split-pane .split-pane-divider
-{
-    -fx-background-color: rgb(0, 210, 255);
-    -fx-border-color: rgb(0, 210, 255);
-    -fx-padding: 0 0.05em 0 0.05em;
-}
-
-.accent-background.anchor-pane,
-.accent-background.split-pane
-{
-    -fx-background-color: cornflowerblue, -fx-control-inner-background;
-}
-.accent-background
-{
-    -fx-background-color: cornflowerblue;
-    /*-fx-background-color: cornflowerblue, -fx-control-inner-background;*/
-}
-.background
+.tree-cell:empty:hover,
+.tree-cell:empty
 {
     -fx-background-color: white;
 }
+.tree-cell
+{
+    -fx-padding: 0.8em 0em 0.8em 0.3em;
+}
 
+/*.tree-view:focused*/
+/*{*/
+    /*-fx-background-color: -fx-box-border,-fx-box-border,white;*/
+/*}*/
+/*.tree-view .tree-cell:empty:hover*/
+/*{*/
+    /*-fx-background-color: white;*/
+/*}*/
+
+
+/*.tree-cell .tree-disclosure-node*/
+/*{*/
+    /*-fx-padding: 4;*/
+/*}*/
+/*.tree-view .corner*/
+/*{*/
+    /*-fx-background-color: white;*/
+    /*-fx-border-width: 0.0;*/
+    /*-fx-border-color: white;*/
+    /*-fx-background: white;*/
+/*}*/
+
+/*.tree-view .tree-cell:hover*/
+/*{*/
+    /*-fx-background-color: -fx-box-border,rgb(231,231,231);*/
+/*}*/
+/*.tree-view .tree-cell:filled:selected:hover*/
+/*{*/
+    /*-fx-background-color: -fx-box-border, rgb(205,205,205);*/
+/*}*/
+/*.tree-view:focused .tree-cell:focused*/
+/*{*/
+    /*-fx-background-color: -fx-box-border, white;*/
+/*}*/
+/*.tree-view:focused .tree-cell:focused:hover*/
+/*{*/
+    /*-fx-background-color: -fx-box-border,rgb(231,231,231);*/
+/*}*/
+/*.tree-view:focused .tree-cell:filled:focused:selected,*/
+/*.tree-view:focused .tree-cell:filled:focused:selected:hover*/
+/*{*/
+    /*-fx-background-color: -fx-box-border, rgb(205,205,205);*/
+/*}*/
+/*.tree-cell:filled:selected:focused, .tree-cell:filled:selected*/
+/*{*/
+    /*-fx-background-color: -fx-box-border,rgb(205,205,205);*/
+/*}*/
+/*.tree-cell .tree-disclosure-node .arrow*/
+/*{*/
+    /*-fx-background-color: -fx-mark-highlight-color, -fx-mark-color;*/
+    /*-fx-padding: 0.27em;*/
+    /*-fx-shape: "M4,17v-2.889l4.124-3.86l4.125,3.86V17l-4.125-3.375L4,17z";*/
+    /*-fx-rotate: 90;*/
+/*}*/
+/*.tree-cell:expanded .tree-disclosure-node .arrow*/
+/*{*/
+    /*-fx-rotate: 180;*/
+/*}*/
+/*.tree-cell:filled:hover .tree-disclosure-node .arrow*/
+/*{*/
+    /*-fx-background-color: -fx-mark-highlight-color, -fx-mark-color;*/
+/*}*/
+/*.tree-view .tree-cell:highlighted*/
+/*{*/
+    /*-fx-font: 13px "Segoe UI Black";*/
+/*}*/
 
 
 
@@ -453,7 +469,6 @@
 }
 .hsl-color-picker .slider.hue .track
 {
-    /*-fx-background-color: linear-gradient(to bottom, red 0%, #ff0 17%, lime 33%, cyan 50%, blue 66%, #f0f 83%, red 100%);*/
     -fx-background-color: linear-gradient(to top, red 0%, #ff0 17%, lime 33%, cyan 50%, blue 66%, #f0f 83%, red 100%);
     -fx-pref-width: 19px;
 }
@@ -514,16 +529,6 @@
 .color-slider-pane .text-field
 {
     -fx-pref-width: 50.0;
-
-    /*-fx-border-width: 1px 1px 0 1px;*/
-    /*-fx-border-color: rgba(0, 0, 0, 0.2);*/
-    /*-fx-border-radius: 5px 5px 0 0;*/
-}
-
-.color-slider-pane .controls-container
-{
-    /*-fx-border-width: 0 0 2px 0;*/
-    /*-fx-border-color: black;*/
 }
 
 .color-slider-pane .jfx-slider
@@ -532,95 +537,194 @@
     -fx-pref-height: 25px;
 }
 
-/*.mui-color-picker .mui-tab-pane*/
+/*******************************************************************************
+ *                                                                             *
+ *                         Menu Bar/Menu Bar Buttons                           *
+ *                                                                             *
+ ******************************************************************************/
+/*.mui-menu-bar .mui-menu-button*/
 /*{*/
+    /*-fx-text-color: black;*/
+    /*-fx-icon-color: black;*/
+    /*-fx-font: 13px "Roboto Black";*/
+/*}*/
+.mui-menu-bar
+{
+    -fx-background-color: white;
+}
+
+.mui-menu-bar .mui-context-item
+{
+    -fx-text-fill: black;
+    -fx-alignment: center-left;
+    -fx-font-size: 14px;
+    -fx-font-family: "Roboto Medium";
+    -fx-padding: 10px 15px;
+}
+.mui-menu-bar .left .mui-context-item
+{
+    -fx-font-family: "Roboto Bold";
+    -fx-font-size: 14px;
+    -fx-padding: 5px 10px;
+}
+
+
+.mui-menu-bar .right .mui-context-item .ikonli-font-icon
+{
+    -fx-icon-size: 17px;
+
+}
+
+.mui-menu-bar .right .mui-context-item
+{
+    /*-fx-padding: 8px 10px;*/
+    -fx-background-radius: 50%;
+    /*-fx-padding: 10px 11px;*/
+    -fx-pref-width: 33px;
+    -fx-pref-height: 33px;
+    -fx-padding: 7px 0px;
+    -fx-alignment: center;
+    -fx-content-display: center;
+}
+
+.mui-menu-bar .right .mui-context-item .jfx-rippler
+{
+    -jfx-rippler-fill: rgba(100, 100, 100, 0.4);
+}
+
+/*******************************************************************************
+ *                                                                             *
+ *                             MUI Context Menu                                *
+ *                                                                             *
+ ******************************************************************************/
+
+/*.mui-context-menu*/
+/*{*/
+    /*-fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.6), 15.0, 0.0, 1.5, 2.0);*/
     /*-fx-background-color: white;*/
-    /*-fx-effect: null;*/
+    /*-fx-background-radius: 3px;*/
+    /*-fx-pref-width: 140.0;*/
 /*}*/
 
-/*.mui-color-picker .mui-tab-bar*/
+
+/*.mui-context-menu .mui-context-item*/
 /*{*/
-    /*-fx-background-color: transparent;*/
+    /*-fx-text-fill: black;*/
+    /*-fx-alignment: center-left;*/
+    /*-fx-font-size: 14px;*/
+    /*-fx-font-family: "Roboto Medium";*/
+    /*-fx-padding: 10px 15px;*/
+    /*-fx-pref-width: 140.0;*/
 /*}*/
-
-
-
-
-/*.mui-color-picker .color-chooser .slider.brightness,*/
-/*.mui-color-picker .color-chooser .slider.opacity*/
+/*.mui-context-menu .mui-context-item .ikonli-font-icon*/
 /*{*/
-    /*-fx-pref-height: 20px;*/
-    /*-fx-translate-x: -4px;*/
+    /*-fx-icon-size: 12px;*/
+    /*-fx-text-alignment: left;*/
+    /*-fx-alignment: center-left;*/
 /*}*/
-/*.mui-color-picker .color-chooser .slider.brightness .thumb,*/
-/*.mui-color-picker .color-chooser .slider.opacity .thumb,*/
-/*.mui-color-picker .color-chooser .slider.primary .thumb*/
+/*.mui-context-menu .mui-context-item:hover*/
 /*{*/
-    /*-fx-background-color: transparent;*/
-    /*-fx-border-width: 3px;*/
-    /*-fx-border-color: white;*/
-    /*-fx-border-radius: null;*/
-    /*-fx-background-radius: null;*/
-    /*-fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.7), 10.0, 0.0, 1.0, 2.0);*/
+    /*-fx-background-color: rgba(100, 100, 100, 0.4);*/
 /*}*/
-
-/*.mui-color-picker .color-chooser .slider.brightness .thumb,*/
-/*.mui-color-picker .color-chooser .slider.opacity .thumb*/
+/*.mui-context-menu .mui-context-item.mui-menu .ikonli-font-icon*/
 /*{*/
-    /*-fx-pref-width: 10px;*/
-    /*-fx-pref-height: 20px;*/
+    /*-fx-translate-x: 100px;*/
 /*}*/
 
-/*.mui-color-picker .color-chooser .slider.primary .thumb*/
+/*.navigator-context-menu.mui-context-menu*/
 /*{*/
-    /*-fx-pref-height: 10px;*/
-    /*-fx-pref-width: 20px;*/
+    /*-fx-pref-width: 175.0;*/
 /*}*/
-
-/*.mui-color-picker .color-chooser .slider.brightness .track,*/
-/*.mui-color-picker .color-chooser .slider.opacity .track,*/
-/*.mui-color-picker .color-chooser .slider.primary .track*/
+/*.navigator-context-menu.mui-context-menu .mui-context-item*/
 /*{*/
-    /*-fx-border-radius: null;*/
-    /*-fx-background-radius: null;*/
+    /*-fx-padding: 10px 15px;*/
+    /*-fx-pref-width: 175.0;*/
 /*}*/
-
-/*.mui-color-picker .color-chooser .slider.brightness .track,*/
-/*.mui-color-picker .color-chooser .slider.opacity .track*/
+/*.navigator-context-menu.mui-sub-menu*/
 /*{*/
-    /*-fx-background-color: linear-gradient(to right, black 0%, white 100%);*/
-    /*-fx-pref-height: 19px;*/
+    /*-fx-pref-width: 120.0;*/
 /*}*/
-
-/*.mui-color-picker .color-chooser .slider.primary*/
+/*.application-context-menu .mui-context-item.mui-menu .ikonli-font-icon*/
 /*{*/
-    /*-fx-padding: 0;*/
-    /*-fx-spacing: 0;*/
-
+    /*-fx-translate-x: 70px;*/
 /*}*/
-/*.mui-color-picker .color-chooser .slider.primary .track*/
-/*{*/
-    /*!*-fx-background-color: linear-gradient(to bottom, red 0%, #ff0 17%, lime 33%, cyan 50%, blue 66%, #f0f 83%, red 100%);*!*/
-    /*-fx-background-color: linear-gradient(to top, red 0%, #ff0 17%, lime 33%, cyan 50%, blue 66%, #f0f 83%, red 100%);*/
-    /*-fx-pref-width: 19px;*/
-/*}*/
+/*******************************************************************************
+ *                                                                             *
+ *                                   Button                                    *
+ *                                                                             *
+ ******************************************************************************/
 
-/*!*.mui-color-picker .omni-directional-color-picker*!*/
-/*!*{*!*/
-    /*!*-fx-background-image: url("images/checkered.png");*!*/
-/*!*}*!*/
+.jfx-button
+{
+    -fx-background-color: white;
+}
+
+.jfx-button .jfx-rippler
+{
+    -jfx-rippler-fill: rgba(100, 100, 100, 0.4);
+}
 
 
+/*******************************************************************************
+ *                                                                             *
+ *                                  Modal                                      *
+ *                                                                             *
+ ******************************************************************************/
 
+.mui-modal
+{
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.5), 30.0, 0.0, 1.5, 2.0);
+    /*-fx-background-color: -color-medium-grey;*/
+    -fx-background-color: white;
+    -fx-background-radius: 5px;
+}
 
+.mui-modal .title
+{
+    -fx-font-family: "Raleway Bold", sans-serif;
+    -fx-font-size: 21px;
+}
 
-/*.color-chooser .omnidirectional-knob*/
-/*{*/
-    /*-fx-background-color: transparent;*/
-    /*-fx-pref-width: 12px;*/
-    /*-fx-pref-height: 12px;*/
-    /*-fx-border-radius: 50%;*/
-    /*-fx-border-width: 3px;*/
-    /*-fx-border-color: white;*/
-/*}*/
+.mui-modal .message
+{
+    -fx-font-family: "Raleway Regular", sans-serif;
+    -fx-font-size: 16px;
+}
 
+.mui-modal .primary,
+.mui-modal .secondary,
+.mui-modal .destructive
+{
+    -fx-font-family: "Raleway Black", sans-serif;
+    -fx-text-fill: black;
+    -fx-padding: 9px 11px;
+}
+.mui-modal .primary:hover,
+.mui-modal .secondary:hover
+{
+    -fx-background-color: rgba(100, 100, 100, 0.4);
+}
+
+.mui-modal .destructive
+{
+    -fx-text-fill: white;
+    -fx-background-color: rgb(215, 76, 50);
+}
+.mui-modal .destructive:hover
+{
+    -fx-background-color: rgb(215, 87, 63);
+}
+
+.mui-modal .destructive .ikonli-font-icon
+{
+    -fx-icon-color: white;
+}
+
+.mui-modal .ikonli-font-icon.error-icon
+{
+    -fx-icon-color: rgb(215, 87, 63);
+}
+.mui-modal .ikonli-font-icon.warning-icon
+{
+    -fx-icon-color: rgb(135, 255, 126);
+}

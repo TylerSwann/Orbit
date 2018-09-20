@@ -72,7 +72,7 @@ public class MUIColorPicker extends AnchorPane
         this.setPrefWidth(330.0);
         this.setMinHeight(470.0);
 
-        this.choose.setOnAction(__ -> this.onChoose.accept(Color.RED));
+        this.choose.setOnAction(__ -> this.onChoose.accept(this.getColor()));
         this.cancel.setOnAction(__ -> this.onCancel.run());
         this.buttonContainer.setAlignment(Pos.BOTTOM_CENTER);
         this.buttonContainer.getChildren().addAll(choose, cancel);
@@ -111,7 +111,7 @@ public class MUIColorPicker extends AnchorPane
             this.choose.setPrefSize(this.getWidth() / 2.0, this.buttonContainer.getHeight());
             this.cancel.setPrefSize(this.getWidth() / 2.0, this.buttonContainer.getHeight());
             this.bottomContainer.setPrefHeight(this.tabBar.getHeight() + this.buttonContainer.getHeight() + 5.0);
-            this.tabBar.getTabs().forEach(tab -> tab.setPrefWidth(this.contentPane.getWidth() / 3.0));
+            this.tabBar.getTabs().forEach(tab -> tab.setPrefWidth(this.bottomContainer.getWidth() / 3.0));
             Platform.runLater(() -> applyAnchors(this.contentPane, this.colorPreview.getHeight() + 10.0, null, 0.0, 0.0));
         }));
         this.hslColorPicker.colorProperty().addListener(__ -> updateColor(this.hslColorPicker.getColor()));

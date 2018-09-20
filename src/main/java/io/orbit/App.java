@@ -22,6 +22,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
@@ -48,31 +49,6 @@ public class App extends Application
     public static SyncedObservableList<String> syntaxTheme = new SyncedObservableList<>();
     public static SimpleStringProperty editorFontStyle = new SimpleStringProperty();
     public static ReadOnlyObjectProperty<Stage> PRIMARY_STAGE;
-
-    /*
-     * API
-     *
-     *   PluginController:
-     *       provides:
-     *          Supported File Types
-     *          User Defined UI Elements
-     *          EditorController:
-     *             provides:
-     *                Functionality to an editor
-     *             receives:
-     *                Is notified when a new editor is created and the file that coincides with the editor
-     *          LanguageDelegate:
-     *             provides:
-     *                SyntaxHighlighter
-     *                File type of supported language
-     *             receives:
-     *                None
-     *         receives:
-     *            Editor Specific Events
-     *            Minor Application Events
-     * */
-
-    // TODO - restructure api to be better
 
     public void start(Stage stage)
     {
@@ -144,10 +120,10 @@ public class App extends Application
         {
             URL url = Paths.get(file.getPath()).toUri().toURL();
             String externalUrl = url.toExternalForm();
+            appTheme.append(externalUrl);
             if (userPreferredAppTheme != null)
                 appTheme.remove(userPreferredAppTheme);
             userPreferredAppTheme = externalUrl;
-            appTheme.append(userPreferredAppTheme);
         }
         catch (MalformedURLException ex)
         {

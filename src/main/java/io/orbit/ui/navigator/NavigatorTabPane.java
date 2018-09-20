@@ -1,7 +1,8 @@
 package io.orbit.ui.navigator;
 
-import com.jfoenix.controls.JFXTabPane;
-import javafx.scene.control.Tab;
+import io.orbit.ui.tabs.MUITab;
+import io.orbit.ui.tabs.MUITabPane;
+import javafx.application.Platform;
 import org.kordamp.ikonli.fontawesome5.FontAwesomeBrands;
 import org.kordamp.ikonli.fontawesome5.FontAwesomeSolid;
 import org.kordamp.ikonli.javafx.FontIcon;
@@ -11,7 +12,7 @@ import java.io.File;
 /**
  * Created by Tyler Swann on Friday July 20, 2018 at 15:21
  */
-public class NavigatorTabPane extends JFXTabPane
+public class NavigatorTabPane extends MUITabPane
 {
     public static final String DEFAULT_STYLE_CLASS = "navigator-tab-pane";
     private MUIFileTreeView projectTreeView;
@@ -29,21 +30,18 @@ public class NavigatorTabPane extends JFXTabPane
                 projectStructureTab(),
                 gitTab()
         );
+        Platform.runLater(() -> this.select(0));
     }
 
-    private Tab gitTab()
+    private MUITab gitTab()
     {
-        Tab gitTab = new Tab();
-        FontIcon gitIcon = new FontIcon(FontAwesomeBrands.GITHUB_SQUARE);
-        gitTab.setGraphic(gitIcon);
+        MUITab gitTab = new MUITab(new FontIcon(FontAwesomeBrands.GITHUB_SQUARE));
         return gitTab;
     }
 
-    private Tab projectStructureTab()
+    private MUITab projectStructureTab()
     {
-        Tab projectTab = new Tab();
-        FontIcon projectIcon = new FontIcon(FontAwesomeSolid.FOLDER_OPEN);
-        projectTab.setGraphic(projectIcon);
+        MUITab projectTab = new MUITab(new FontIcon(FontAwesomeSolid.FOLDER_OPEN));
         projectTab.setContent(this.projectTreeView);
         return projectTab;
     }

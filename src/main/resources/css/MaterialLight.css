@@ -254,47 +254,46 @@
  *                                                                             *
  ******************************************************************************/
 
-.editor-tab-pane
-{
-    -fx-background-color: cornflowerblue;
-}
-.editor-tab-pane .headers-region
-{
-    /* Background of tab bar */
-    -fx-background-color: cornflowerblue;
-}
-.editor-tab-pane .tab-header-background
+.editor-tab-pane  .mui-tab-bar
 {
     /* Background of the tabs */
     -fx-background-color: cornflowerblue;
 }
-.editor-tab-pane .tab-selected-line
+.editor-tab-pane .indicator
 {
     /* Color of line under selected tab */
-    /*-fx-background-color: -fx-light-green;*/
+    -fx-background-color: rgb(225, 0, 80);
 }
 
-.editor-tab-pane .tab-header-area .jfx-rippler
+/*.editor-tab-pane .mui-tab-bar .mui-tab .jfx-rippler*/
+/*{*/
+    /*!* Color of ripple *!*/
+    /*-jfx-rippler-fill: -fx-button-ripple;*/
+/*}*/
+.editor-tab-pane .mui-tab-bar .left,
+.editor-tab-pane .mui-tab-bar .right
 {
-    /* Color of ripple */
-    -jfx-rippler-fill: button-ripple;
+    -fx-background-color: cornflowerblue;
 }
-.editor-tab-pane .tab
+.editor-tab-pane .mui-tab-bar .left .mui-icon-button .ikonli-font-icon,
+.editor-tab-pane .mui-tab-bar .right .mui-icon-button .ikonli-font-icon
 {
-    /*-fx-pref-width: 110px;*/
-    -fx-pref-height: 40px;
+    -fx-icon-color: white;
 }
-.editor-tab-pane .tab .tab-label
+.editor-tab-pane .mui-tab
+{
+    -fx-text-fill: rgba(255, 255, 255, 0.7);
+}
+
+.editor-tab-pane .mui-tab:selected
 {
     -fx-text-fill: white;
-    -fx-font-family: "Roboto Light";
-    -fx-font-size: 15px;
-
 }
 
-.editor-tab-pane .tab:selected .tab-label
+.editor-tab-pane .mui-tab-bar .left .mui-icon-button .jfx-rippler,
+.editor-tab-pane .mui-tab-bar .right .mui-icon-button .jfx-rippler
 {
-    -fx-text-fill: white;
+    -jfx-rippler-fill: #bababa;
 }
 
 
@@ -330,71 +329,67 @@
 
 
 
-/*******************************************************************************
- *                                                                             *
- *                                  TreeViews                                  *
- *                                                                             *
- ******************************************************************************/
+/*!********************************************************************************/
+ /**                                                                             **/
+ /**                                  TreeViews                                  **/
+ /**                                                                             **/
+ /*******************************************************************************!*/
 
-.tree-view
-{
-    -fx-background-color: white, -fx-control-inner-background;
-}
-.tree-view .tree-cell,
-.tree-view .tree-cell:focused
-{
-    -fx-background-color: white;
-    -fx-text-fill: rgb(25, 25, 25);
-    -fx-font: 14px "Roboto Medium";
-}
-.tree-view .tree-cell:highlighted
-{
-    -fx-font: 14px "Roboto Black";
-}
-.tree-view:focused
-{
-    -fx-background-color: white;
-}
-.tree-view .tree-cell:empty:hover
-{
-    -fx-background-color: white;
-}
-.tree-view .tree-cell:hover
-{
-    -fx-background-color: -fx-box-border, hover-color;
-}
-.tree-view .tree-cell:filled:selected:hover
-{
-    -fx-background-color: -fx-box-border, selected-color;
-}
-.tree-view:focused .tree-cell:focused
-{
-    -fx-background-color: -fx-box-border, white;
-}
-.tree-view:focused .tree-cell:focused:hover {
-    -fx-background-color: -fx-box-border, selected-color;
-}
-.tree-view:focused .tree-cell:filled:focused:selected,
-.tree-view:focused .tree-cell:filled:focused:selected:hover {
-    -fx-background-color: -fx-box-border, selected-color;
-}
-.tree-cell:filled:selected:focused, .tree-cell:filled:selected {
-    -fx-background-color: -fx-box-border, selected-color;
-}
-.tree-cell .tree-disclosure-node .arrow {
-    -fx-background-color: -fx-mark-highlight-color, black;
-}
+/*.tree-view*/
+/*{*/
+    /*-fx-background-color: white, -fx-control-inner-background;*/
+/*}*/
+/*.tree-view .tree-cell*/
+/*{*/
+    /*-fx-background-color: white;*/
+    /*-fx-text-fill: black;*/
+    /*-fx-font: 14px "Roboto Medium";*/
+    /*-fx-border-color: white;*/
+/*}*/
 
-.tree-cell:filled:hover .tree-disclosure-node .arrow {
-    -fx-background-color: -fx-mark-highlight-color, black;
-}
+/*.tree-view .tree-cell:selected*/
+/*{*/
+    /*-fx-background-color: -fx-box-border, rgba(0, 0, 0, 0.4);*/
+/*}*/
 
-.tree-view .corner
-{
-    -fx-background-color: white;
-    -fx-border-color: white;
-    -fx-background: white;
-}
+
+/*.tree-view .tree-cell:hover,*/
+/*.tree-view .tree-cell:highlighted:hover*/
+/*{*/
+    /*-fx-background-color: -fx-box-border, rgba(0, 0, 0, 0.1);*/
+/*}*/
+
+/*.tree-cell .tree-disclosure-node .arrow*/
+/*{*/
+    /*-fx-background-color: -fx-mark-highlight-color, rgb(100, 100, 100);*/
+/*}*/
+
+/*.tree-cell:filled:hover .tree-disclosure-node .arrow*/
+/*{*/
+    /*-fx-background-color: -fx-mark-highlight-color, rgb(100, 100, 100);*/
+/*}*/
+
+/*.tree-view .corner*/
+/*{*/
+    /*-fx-background-color: white;*/
+    /*-fx-border-color: white;*/
+    /*-fx-background: white;*/
+/*}*/
+
+/*.tree-view .tree-cell:filled:focused:selected,*/
+/*.tree-view .tree-cell:filled:focused:selected:hover,*/
+/*.tree-view .tree-cell:filled:selected:hover,*/
+/*.tree-view .tree-cell:filled:focused:hover*/
+/*{*/
+    /*-fx-background-color: -fx-box-border, rgba(0, 0, 0, 0.4);*/
+/*}*/
+
+/*.tree-view .tree-cell:empty:hover,*/
+/*.tree-view .tree-cell:empty*/
+/*{*/
+    /*-fx-background-color: white;*/
+/*}*/
+
 
 
 
