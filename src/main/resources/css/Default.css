@@ -141,7 +141,6 @@
 .accent-background
 {
     -fx-background-color: white;
-    /*-fx-background-color: cornflowerblue, -fx-control-inner-background;*/
 }
 .background
 {
@@ -368,74 +367,6 @@
     -fx-padding: 0.8em 0em 0.8em 0.3em;
 }
 
-/*.tree-view:focused*/
-/*{*/
-    /*-fx-background-color: -fx-box-border,-fx-box-border,white;*/
-/*}*/
-/*.tree-view .tree-cell:empty:hover*/
-/*{*/
-    /*-fx-background-color: white;*/
-/*}*/
-
-
-/*.tree-cell .tree-disclosure-node*/
-/*{*/
-    /*-fx-padding: 4;*/
-/*}*/
-/*.tree-view .corner*/
-/*{*/
-    /*-fx-background-color: white;*/
-    /*-fx-border-width: 0.0;*/
-    /*-fx-border-color: white;*/
-    /*-fx-background: white;*/
-/*}*/
-
-/*.tree-view .tree-cell:hover*/
-/*{*/
-    /*-fx-background-color: -fx-box-border,rgb(231,231,231);*/
-/*}*/
-/*.tree-view .tree-cell:filled:selected:hover*/
-/*{*/
-    /*-fx-background-color: -fx-box-border, rgb(205,205,205);*/
-/*}*/
-/*.tree-view:focused .tree-cell:focused*/
-/*{*/
-    /*-fx-background-color: -fx-box-border, white;*/
-/*}*/
-/*.tree-view:focused .tree-cell:focused:hover*/
-/*{*/
-    /*-fx-background-color: -fx-box-border,rgb(231,231,231);*/
-/*}*/
-/*.tree-view:focused .tree-cell:filled:focused:selected,*/
-/*.tree-view:focused .tree-cell:filled:focused:selected:hover*/
-/*{*/
-    /*-fx-background-color: -fx-box-border, rgb(205,205,205);*/
-/*}*/
-/*.tree-cell:filled:selected:focused, .tree-cell:filled:selected*/
-/*{*/
-    /*-fx-background-color: -fx-box-border,rgb(205,205,205);*/
-/*}*/
-/*.tree-cell .tree-disclosure-node .arrow*/
-/*{*/
-    /*-fx-background-color: -fx-mark-highlight-color, -fx-mark-color;*/
-    /*-fx-padding: 0.27em;*/
-    /*-fx-shape: "M4,17v-2.889l4.124-3.86l4.125,3.86V17l-4.125-3.375L4,17z";*/
-    /*-fx-rotate: 90;*/
-/*}*/
-/*.tree-cell:expanded .tree-disclosure-node .arrow*/
-/*{*/
-    /*-fx-rotate: 180;*/
-/*}*/
-/*.tree-cell:filled:hover .tree-disclosure-node .arrow*/
-/*{*/
-    /*-fx-background-color: -fx-mark-highlight-color, -fx-mark-color;*/
-/*}*/
-/*.tree-view .tree-cell:highlighted*/
-/*{*/
-    /*-fx-font: 13px "Segoe UI Black";*/
-/*}*/
-
-
 
 /*******************************************************************************
  *                                                                             *
@@ -542,12 +473,7 @@
  *                         Menu Bar/Menu Bar Buttons                           *
  *                                                                             *
  ******************************************************************************/
-/*.mui-menu-bar .mui-menu-button*/
-/*{*/
-    /*-fx-text-color: black;*/
-    /*-fx-icon-color: black;*/
-    /*-fx-font: 13px "Roboto Black";*/
-/*}*/
+
 .mui-menu-bar
 {
     -fx-background-color: white;
@@ -594,62 +520,6 @@
 
 /*******************************************************************************
  *                                                                             *
- *                             MUI Context Menu                                *
- *                                                                             *
- ******************************************************************************/
-
-/*.mui-context-menu*/
-/*{*/
-    /*-fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.6), 15.0, 0.0, 1.5, 2.0);*/
-    /*-fx-background-color: white;*/
-    /*-fx-background-radius: 3px;*/
-    /*-fx-pref-width: 140.0;*/
-/*}*/
-
-
-/*.mui-context-menu .mui-context-item*/
-/*{*/
-    /*-fx-text-fill: black;*/
-    /*-fx-alignment: center-left;*/
-    /*-fx-font-size: 14px;*/
-    /*-fx-font-family: "Roboto Medium";*/
-    /*-fx-padding: 10px 15px;*/
-    /*-fx-pref-width: 140.0;*/
-/*}*/
-/*.mui-context-menu .mui-context-item .ikonli-font-icon*/
-/*{*/
-    /*-fx-icon-size: 12px;*/
-    /*-fx-text-alignment: left;*/
-    /*-fx-alignment: center-left;*/
-/*}*/
-/*.mui-context-menu .mui-context-item:hover*/
-/*{*/
-    /*-fx-background-color: rgba(100, 100, 100, 0.4);*/
-/*}*/
-/*.mui-context-menu .mui-context-item.mui-menu .ikonli-font-icon*/
-/*{*/
-    /*-fx-translate-x: 100px;*/
-/*}*/
-
-/*.navigator-context-menu.mui-context-menu*/
-/*{*/
-    /*-fx-pref-width: 175.0;*/
-/*}*/
-/*.navigator-context-menu.mui-context-menu .mui-context-item*/
-/*{*/
-    /*-fx-padding: 10px 15px;*/
-    /*-fx-pref-width: 175.0;*/
-/*}*/
-/*.navigator-context-menu.mui-sub-menu*/
-/*{*/
-    /*-fx-pref-width: 120.0;*/
-/*}*/
-/*.application-context-menu .mui-context-item.mui-menu .ikonli-font-icon*/
-/*{*/
-    /*-fx-translate-x: 70px;*/
-/*}*/
-/*******************************************************************************
- *                                                                             *
  *                                   Button                                    *
  *                                                                             *
  ******************************************************************************/
@@ -662,6 +532,21 @@
 .jfx-button .jfx-rippler
 {
     -jfx-rippler-fill: rgba(100, 100, 100, 0.4);
+}
+
+.light-button
+{
+    -fx-background-color: white;
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
+    -fx-border-width: 1px;
+    -fx-border-color: #e5e5e5;
+    -fx-font-family: "Roboto Bold";
+    -fx-font-size: 13px;
+    -fx-text-fill: #bd10e0;
+    -fx-pref-width: 88px;
+    -fx-pref-height: 36px;
+    -fx-pref-height: 36px;
 }
 
 
@@ -727,4 +612,86 @@
 .mui-modal .ikonli-font-icon.warning-icon
 {
     -fx-icon-color: rgb(135, 255, 126);
+}
+
+
+/*******************************************************************************
+ *                                                                             *
+ *                                 Settings                                    *
+ *                                                                             *
+ ******************************************************************************/
+.settings-page,
+.settings-page .anchor-pane,
+.settings-page .scroll-pane
+{
+    -fx-background-color: white;
+    -fx-background: white;
+}
+.settings-section-label
+{
+    -fx-text-fill: #323232;
+    -fx-font-family: "Roboto Bold";
+    -fx-font-size: 24px;
+}
+.settings-subsection-label
+{
+    -fx-text-fill: #646464;
+    -fx-font-family: "Roboto Medium";
+    -fx-font-size: 20px;
+}
+
+.settings-item
+{
+    -fx-border-width: 0px 0px 1px 0px;
+    -fx-border-color: #e5e5e5;
+}
+
+.setting-name-label
+{
+    -fx-font-family: "Roboto";
+}
+
+.mui-light-button
+{
+    -fx-pref-height: 25px;
+    -fx-font-family: "Roboto Bold";
+    -fx-padding: 5px;
+    -fx-font-size: 12px;
+    -fx-text-fill: #bd10e0;
+    -fx-background-radius: 5px;
+    -fx-border-radius: 5px;
+    -fx-border-width: 1px;
+    -fx-border-color: #e5e5e5;
+}
+
+.settings-header-pane
+{
+    -fx-background-color: #42B8D4;
+}
+
+.settings-header
+{
+    -fx-font-family: "Roboto";
+    -fx-font-size: 20px;
+    -fx-text-fill: white;
+}
+
+.settings-page .ikonli-font-icon
+{
+    -fx-icon-size: 20px;
+    -fx-icon-color: white;
+}
+
+.settings-page .mui-tab-bar .mui-tab
+{
+    -fx-background-color: transparent;
+    -fx-font-family: "Roboto Bold";
+    -fx-font-size: 14px;
+    -fx-text-fill: white;
+    -fx-pref-width: 110px;
+}
+
+.settings-page .mui-tab-bar .indicator
+{
+    -fx-background-color: #FFFF95;
 }

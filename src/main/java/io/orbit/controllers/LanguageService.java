@@ -81,6 +81,7 @@ public class LanguageService
                     return Optional.of(attempt.get());
                 })
                 .subscribe(LanguageService::applyHighlighting);
+        highlightForcibly();
     }
 
     private static Task<StyleSpans<Collection<String>>> computeHighlighting()

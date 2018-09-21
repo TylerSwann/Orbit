@@ -24,6 +24,7 @@ import java.util.function.Consumer;
 /**
  * Created by Tyler Swann on Thursday March 29, 2018 at 16:38
  */
+@Deprecated
 public class ThemeSettingsPage
 {
     private static SerializableFont[] fonts;

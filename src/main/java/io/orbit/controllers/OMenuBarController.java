@@ -168,16 +168,17 @@ public class OMenuBarController extends EventTargetObject
 
     private void showSettingsPage()
     {
-//        // TODO - update to new OEditorController
-        if (settingsWindow != null)
-            return;
-        Setting themeAndFonts = new Setting("Themes and Fonts", ThemeSettingsPage.load());
-        Setting editorSettings = new Setting("Editor", new Setting[] { new Setting("Key Bindings", KeyBindingsPageController.load()) });
-        settingsWindow = new SettingsWindow(new Setting[]{ themeAndFonts, editorSettings });
-//        ThemeSettingsPage.CONTROLLER.setOnEditSyntaxTheme(file -> App.controller().getTabPaneController().openNonProjectFile(file, UnownedProjectFile.UnownedProjectFileMode.EDIT_SYNTAX_THEME));
-//        ThemeSettingsPage.CONTROLLER.setOnEditUITheme(file -> App.controller().getTabPaneController().openNonProjectFile(file, UnownedProjectFile.UnownedProjectFileMode.EDIT_UI_THEME));
-        settingsWindow.setOnCloseRequest(event -> settingsWindow = null);
-        settingsWindow.show();
+////        // TODO - update to new OEditorController
+//        if (settingsWindow != null)
+//            return;
+//        Setting themeAndFonts = new Setting("Themes and Fonts", ThemeSettingsPage.load());
+//        Setting editorSettings = new Setting("Editor", new Setting[] { new Setting("Key Bindings", KeyBindingsPageController.load()) });
+//        settingsWindow = new SettingsWindow(new Setting[]{ themeAndFonts, editorSettings });
+////        ThemeSettingsPage.CONTROLLER.setOnEditSyntaxTheme(file -> App.controller().getTabPaneController().openNonProjectFile(file, UnownedProjectFile.UnownedProjectFileMode.EDIT_SYNTAX_THEME));
+////        ThemeSettingsPage.CONTROLLER.setOnEditUITheme(file -> App.controller().getTabPaneController().openNonProjectFile(file, UnownedProjectFile.UnownedProjectFileMode.EDIT_UI_THEME));
+//        settingsWindow.setOnCloseRequest(event -> settingsWindow = null);
+//        settingsWindow.show();
+        SettingsPage.show();
     }
 
     private void showFileChooserDialog()

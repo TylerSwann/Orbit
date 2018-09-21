@@ -17,7 +17,6 @@ public class MUITabPane extends AnchorPane
     public static final String DEFAULT_STYLE_CLASS = "mui-tab-pane";
 
     private MUITabBar tabBar;
-    private boolean hasInit = false;
 
     public MUITabPane()
     {
@@ -35,14 +34,6 @@ public class MUITabPane extends AnchorPane
         this.selectedTabProperty().addListener(__ -> {
             if (this.getSelectedTab() != null)
                 this.goTo(this.getSelectedTab());
-            if (!hasInit)
-            {
-                hasInit = true;
-                Platform.runLater(() -> {
-                    if (this.getTabs().size() > 0)
-                        this.goTo(this.getTabs().get(0));
-                });
-            }
         });
     }
 

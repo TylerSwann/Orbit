@@ -17,6 +17,7 @@ import java.util.Arrays;
 /**
  * Created by Tyler Swann on Thursday May 03, 2018 at 14:57
  */
+@Deprecated
 public class KeyBindingsPageController
 {
     public JFXButton saveAllPrimary;

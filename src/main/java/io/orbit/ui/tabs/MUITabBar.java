@@ -234,16 +234,4 @@ public class MUITabBar extends AnchorPane
         translateAnimation.play();
     }
 
-    private class MUIIndicator extends Region
-    {
-        MUIIndicator()
-        {
-
-        }
-        @Override
-        public void setWidth(double width)
-        {
-            super.setWidth(width);
-        }
-    }
 }

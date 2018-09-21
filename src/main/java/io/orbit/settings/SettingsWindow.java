@@ -16,6 +16,7 @@ import javafx.stage.WindowEvent;
 /**
  * Created by Tyler Swann on Friday February 23, 2018 at 14:58
  */
+@Deprecated
 public class SettingsWindow extends Stage
 {
     private MUITreeTableView<String> settingsTreeView;
