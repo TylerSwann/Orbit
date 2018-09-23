@@ -1,210 +1,223 @@
 
-
 * {
-    button-ripple: rgba(0, 0, 0, 0.4);
-    hover-color: rgba(0, 0, 0, 0.1);
-    selected-color: rgba(0, 0, 0, 0.3);
+    -accent-blue: #42B8D4;
+    -accent-strong-blue: #bd10e0;
+    -accent-yellow: #F9FA97;
+    -app-background: rgb(255, 255, 255);
+    -button-hover: rgba(0, 0, 0, 0.1);
+    -button-ripple: rgba(0, 0, 0, 0.5);
+    -white-button-ripple: rgba(255, 255, 255, 0.6);
+    -icon-fill: rgb(100, 100, 100);
+    -text-color: #323232;
+    -light-text-color: #646464;
+
 }
 
 
+.accent-background.anchor-pane,
+.accent-background.split-pane
+{
+    -fx-background-color: -accent-blue, -fx-control-inner-background;
+}
+.accent-background
+{
+    -fx-background-color: -accent-blue;
+}
+.background
+{
+    -fx-background-color: -app-background;
+}
+.jfx-button
+{
+    -fx-background-color: transparent;
+}
+
+.jfx-button .jfx-rippler
+{
+    -jfx-rippler-fill: -button-ripple;
+}
+
+
+.split-pane .split-pane-divider
+{
+    -fx-background-color: -accent-blue;
+    -fx-border-color: -accent-blue;
+}
 
 /*******************************************************************************
  *                                                                             *
- *                                  Menu Bar                                   *
+ *                         Menu Bar/Menu Bar Buttons                           *
  *                                                                             *
  ******************************************************************************/
-.mui-menu-bar .mui-menu-button
-{
-    -fx-text-color: white;
-    -fx-icon-color: white;
-    -fx-font: 13 "Roboto Black";
-}
+
 .mui-menu-bar
 {
-    -fx-background-color: cornflowerblue;
+    -fx-background-color: -accent-blue;
 }
-
-.application-context-menu
-{
-    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.7), 10.0, 0.0, 1.5, 2.0);
-    -fx-background-radius: 3px;
-    -fx-background-color: white;
-    -fx-pref-width: 150.0;
-}
-
 
 .mui-menu-bar .mui-context-item
 {
     -fx-text-fill: white;
-    -fx-alignment: center-left;
-    -fx-font-size: 15px;
-    -fx-font-family: "Roboto Black";
-    -fx-padding: 10px 15px;
-}
-
-.application-context-menu .mui-context-item
-{
-    -fx-text-fill: rgb(25, 25, 25);
-    -fx-alignment: center-left;
-    -fx-font-size: 15px;
-    -fx-font-family: "Roboto Medium";
-    -fx-padding: 10px 20px;
-    -fx-pref-width: 150.0;
-}
-.application-context-menu.view .check-item .ikonli-font-icon
-{
-    -fx-translate-x: 20px;
-}
-
-.application-context-menu .mui-context-item .ikonli-font-icon
-{
-    -fx-icon-size: 16px;
-    -fx-text-alignment: left;
-    -fx-alignment: center-left;
-    /*-fx-icon-color: rgb(100, 100, 100);*/
-    -fx-icon-color: rgba(0, 0, 0, 0.54);
-    -fx-translate-x: -10px;
-}
-
-
-
-.mui-menu-bar .left .mui-context-item
-{
-    -fx-font-family: "Roboto Black";
-    -fx-font-size: 13px;
-    /*-fx-padding: 5px 10px;*/
-    -fx-padding: 7px 13px;
-}
-
-.mui-menu-bar .right .mui-context-item .ikonli-font-icon
-{
-    -fx-icon-size: 17px;
-    -fx-icon-color: white;
-}
-
-.mui-menu-bar .right .mui-context-item
-{
-    -fx-background-radius: 50%;
-    -fx-padding: 7px 8px;
-    -fx-pref-width: 20px;
-    -fx-pref-height: 20px;
 }
 
 .mui-menu-bar .right .mui-context-item .jfx-rippler
 {
-    -jfx-rippler-fill: white;
+    -jfx-rippler-fill: -white-button-ripple;
 }
-
-
-.application-context-menu .mui-context-item:hover,
-.mui-menu-bar .left .mui-context-item:hover,
-.mui-menu-bar .right .mui-context-item:hover
+.mui-menu-bar .right .mui-context-item .ikonli-font-icon
 {
-    -fx-background-color: hover-color;
-}
-.application-context-menu .mui-context-item.mui-menu .ikonli-font-icon
-{
-    -fx-translate-x: 50px;
-}
-
-/*******************************************************************************
- *                                                                             *
- *                           Editor Context Menu                               *
- *                                                                             *
- ******************************************************************************/
-
-.editor-context-menu.mui-context-menu
-{
-    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.8), 15.0, 0.0, 1.5, 2.0);
-    -fx-background-color: white;
-    -fx-background-radius: 3px;
-    -fx-pref-width: 150.0;
-}
-
-
-.editor-context-menu.mui-context-menu .mui-context-item
-{
-    -fx-text-fill: black;
-    -fx-alignment: center-left;
-    -fx-font-size: 14px;
-    -fx-font-family: "Roboto Medium";
-    -fx-padding: 10px 15px;
-    -fx-pref-width: 150.0;
-}
-.editor-context-menu.mui-context-menu .mui-context-item .ikonli-font-icon
-{
-    -fx-icon-size: 12px;
-    -fx-text-alignment: left;
-    -fx-alignment: center-left;
-}
-.editor-context-menu.mui-context-menu .mui-context-item:hover
-{
-    -fx-background-color: hover-color;
-}
-.editor-context-menu.mui-context-menu .mui-context-item.mui-menu .ikonli-font-icon
-{
-    -fx-translate-x: 90px;
-}
-
-
-/*******************************************************************************
- *                                                                             *
- *                            Navigator Tab Pane                               *
- *                                                                             *
- ******************************************************************************/
-
-.navigator-tab-pane
-{
-    -fx-background-color: cornflowerblue;
-}
-.navigator-tab-pane .headers-region
-{
-    /* Background of tab bar */
-    -fx-background-color: cornflowerblue;
-}
-.navigator-tab-pane .tab-header-background
-{
-    /* Background of the tabs */
-    -fx-background-color: cornflowerblue;
-}
-.navigator-tab-pane .tab-selected-line
-{   /* Color of line under selected tab */
-    /*-fx-background-color: -fx-light-green;*/
-}
-
-.navigator-tab-pane .tab-header-area .jfx-rippler
-{
-    /* Color of ripple */
-    -jfx-rippler-fill: button-ripple;
-}
-
-.navigator-tab-pane .tab
-{
-    -fx-pref-width: 110px;
-    -fx-pref-height: 40px;
-}
-
-.navigator-tab-pane .ikonli-font-icon
-{
-    -fx-icon-size: 23px;
     -fx-icon-color: white;
 }
 
-.navigator-tab-pane .tab .tab-label
+.mui-menu-bar .mui-menu-item .jfx-rippler
 {
-    -fx-text-fill: white;
-}
-
-.navigator-tab-pane .tab:selected .tab-label
-{
-    -fx-text-fill: white;
+    -jfx-rippler-fill: -white-button-ripple;
 }
 
 /*******************************************************************************
  *                                                                             *
- *                              Navigator Menu                                 *
+ *                                 MUITabPane                                  *
  *                                                                             *
  ******************************************************************************/
+
+/*.mui-tab-pane .mui-tab-bar*/
+/*{*/
+/*-fx-effect: dropshadow(three-pass-box, grey, 10, 0, 0, 2);*/
+/*}*/
+.mui-tab-pane .mui-tab-bar .mui-tab
+{
+    /*-fx-text-fill: white;*/
+}
+.mui-tab-pane .mui-tab-bar .mui-tab .jfx-rippler
+{
+    -jfx-rippler-fill: -white-button-ripple;
+}
+.mui-tab-bar .indicator
+{
+    -fx-background-color: -accent-yellow;
+}
+.mui-tab-pane .mui-tab-bar
+{
+    -fx-background-color: -accent-blue;
+}
+.mui-tab-bar .left,
+.mui-tab-bar .right
+{
+    -fx-background-color: transparent;
+}
+
+.mui-tab-bar .left .mui-icon-button .ikonli-font-icon,
+.mui-tab-bar .right .mui-icon-button .ikonli-font-icon,
+.navigator-tab-pane .mui-tab .ikonli-font-icon
+{
+    -fx-icon-color: white;
+}
+.mui-tab-pane .mui-tab-bar .mui-tab
+{
+    -fx-text-fill: rgba(255, 255, 255, 0.7);
+}
+
+.mui-tab-pane .mui-tab-bar .mui-tab:selected
+{
+    -fx-text-fill: white;
+}
+
+
+/*******************************************************************************
+ *                                                                             *
+ *                                 Settings                                    *
+ *                                                                             *
+ ******************************************************************************/
+.settings-page,
+.settings-page .anchor-pane,
+.settings-page .scroll-pane
+{
+    -fx-background-color: white;
+    -fx-background: white;
+}
+.settings-section-label
+{
+    -fx-text-fill: -text-color;
+    -fx-font-family: "Roboto Bold";
+    -fx-font-size: 24px;
+}
+.settings-subsection-label
+{
+    -fx-text-fill: -light-text-color;
+    -fx-font-family: "Roboto Medium";
+    -fx-font-size: 20px;
+}
+
+.settings-item
+{
+    -fx-border-width: 0px 0px 1px 0px;
+    -fx-border-color: #e5e5e5;
+}
+
+.setting-name-label
+{
+    -fx-font-family: "Roboto";
+}
+
+.mui-light-button
+{
+    -fx-pref-height: 25px;
+    -fx-font-family: "Roboto Bold";
+    -fx-padding: 5px;
+    -fx-font-size: 12px;
+    -fx-text-fill: -accent-strong-blue;
+    -fx-background-radius: 5px;
+    -fx-border-radius: 5px;
+    -fx-border-width: 1px;
+    -fx-border-color: #e5e5e5;
+    -fx-cursor: hand;
+}
+
+.settings-header-pane
+{
+    -fx-background-color: -accent-blue;
+}
+
+.settings-header
+{
+    -fx-font-family: "Roboto";
+    -fx-font-size: 20px;
+    -fx-text-fill: white;
+}
+
+.settings-page .ikonli-font-icon
+{
+    -fx-icon-size: 20px;
+    -fx-icon-color: white;
+}
+
+.settings-page .mui-tab-bar .mui-tab
+{
+    -fx-background-color: transparent;
+    -fx-font-family: "Roboto Bold";
+    -fx-font-size: 14px;
+    -fx-text-fill: white;
+    -fx-pref-width: 110px;
+}
+
+.settings-page .mui-tab-bar .indicator
+{
+    -fx-background-color: -accent-yellow;
+}
+
+
+/*******************************************************************************
+ *                                                                             *
+ *                               Context Menus                                 *
+ *                                                                             *
+ ******************************************************************************/
+
+.mui-gutter-button
+{
+    -fx-background-color: rgb(240, 240, 240);
+    -fx-breakpoint-fill: rgb(101, 126, 189);
+    -fx-font: 13.0 "Roboto Medium";
+}
 
 .navigator-context-menu.mui-context-menu
 {
@@ -217,26 +230,26 @@
 
 .navigator-context-menu.mui-context-menu .mui-context-item
 {
-    -fx-text-fill: rgb(25, 25, 25);
+    -fx-text-fill: -text-color;
     -fx-alignment: center-left;
     -fx-font-size: 14px;
-    -fx-font-family: "Roboto Bold";
-    /*-fx-padding: 10px 20px;*/
-    -fx-padding: 10px 0px 10px 10px;
-    -fx-pref-width: 170.0;
+    -fx-font-family: "Roboto Medium";
+    /*-fx-padding: 10px 0px 10px 10px;*/
+    -fx-pref-width: 175.0;
+    -fx-padding: 0 15px;
+    -fx-pref-height: 35px;
 }
 .navigator-context-menu.mui-context-menu .mui-context-item .ikonli-font-icon
 {
-    -fx-icon-size: 16px;
+    -fx-icon-size: 12px;
     -fx-text-alignment: left;
     -fx-alignment: center-left;
-    /*-fx-icon-color: rgb(100, 100, 100);*/
-    -fx-icon-color: rgba(0, 0, 0, 0.54);
+    -fx-icon-color: -icon-fill;
     -fx-translate-x: 0px;
 }
 .navigator-context-menu.mui-context-menu .mui-context-item:hover
 {
-    -fx-background-color: hover-color;
+    -fx-background-color: -button-hover;
 }
 .navigator-context-menu.mui-context-menu .mui-context-item.mui-menu .ikonli-font-icon
 {
@@ -245,213 +258,162 @@
 
 .navigator-context-menu.mui-sub-menu
 {
+    -fx-pref-width: 110.0;
+}
+
+
+.editor-context-menu.mui-context-menu
+{
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.8), 15.0, 0.0, 1.5, 2.0);
+    -fx-background-color: white;
+    -fx-background-radius: 3px;
     -fx-pref-width: 120.0;
 }
 
-/*******************************************************************************
- *                                                                             *
- *                              Editor Tab Pane                                *
- *                                                                             *
- ******************************************************************************/
 
-.editor-tab-pane  .mui-tab-bar
+.editor-context-menu.mui-context-menu .mui-context-item
 {
-    /* Background of the tabs */
-    -fx-background-color: cornflowerblue;
+    -fx-text-fill: -text-color;
+    -fx-alignment: center-left;
+    -fx-font-size: 14px;
+    -fx-font-family: "Roboto Medium";
+    -fx-padding: 0 15px;
+    -fx-pref-height: 35px;
+    -fx-pref-width: 120.0;
 }
-.editor-tab-pane .indicator
+.editor-context-menu.mui-context-menu .mui-context-item .ikonli-font-icon
 {
-    /* Color of line under selected tab */
-    -fx-background-color: rgb(225, 0, 80);
+    -fx-icon-size: 12px;
+    -fx-text-alignment: left;
+    -fx-alignment: center-left;
+    -fx-icon-color: -icon-fill;
 }
-
-/*.editor-tab-pane .mui-tab-bar .mui-tab .jfx-rippler*/
-/*{*/
-    /*!* Color of ripple *!*/
-    /*-jfx-rippler-fill: -fx-button-ripple;*/
-/*}*/
-.editor-tab-pane .mui-tab-bar .left,
-.editor-tab-pane .mui-tab-bar .right
+.editor-context-menu.mui-context-menu .mui-context-item:hover
 {
-    -fx-background-color: cornflowerblue;
+    -fx-background-color: -button-hover;
 }
-.editor-tab-pane .mui-tab-bar .left .mui-icon-button .ikonli-font-icon,
-.editor-tab-pane .mui-tab-bar .right .mui-icon-button .ikonli-font-icon
+.editor-context-menu.mui-context-menu .mui-context-item.mui-menu .ikonli-font-icon
 {
-    -fx-icon-color: white;
-}
-.editor-tab-pane .mui-tab
-{
-    -fx-text-fill: rgba(255, 255, 255, 0.7);
+    -fx-translate-x: 90px;
 }
 
-.editor-tab-pane .mui-tab:selected
+.application-context-menu
 {
-    -fx-text-fill: white;
-}
-
-.editor-tab-pane .mui-tab-bar .left .mui-icon-button .jfx-rippler,
-.editor-tab-pane .mui-tab-bar .right .mui-icon-button .jfx-rippler
-{
-    -jfx-rippler-fill: #bababa;
-}
-
-
-
-/*******************************************************************************
- *                                                                             *
- *                                 SplitPane                                   *
- *                                                                             *
- ******************************************************************************/
-
-.split-pane .split-pane-divider
-{
-    -fx-background-color:  cornflowerblue;
-    -fx-border-color: cornflowerblue;
-    -fx-padding: 0.001em;
-}
-
-
-.accent-background.anchor-pane,
-.accent-background.split-pane
-{
-    -fx-background-color: cornflowerblue, -fx-control-inner-background;
-}
-.accent-background
-{
-    -fx-background-color: cornflowerblue;
-}
-.background
-{
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.8), 15.0, 0.0, 1.5, 2.0);
     -fx-background-color: white;
+    -fx-background-radius: 3px;
 }
 
-
-
-
-/*!********************************************************************************/
- /**                                                                             **/
- /**                                  TreeViews                                  **/
- /**                                                                             **/
- /*******************************************************************************!*/
-
-/*.tree-view*/
-/*{*/
-    /*-fx-background-color: white, -fx-control-inner-background;*/
-/*}*/
-/*.tree-view .tree-cell*/
-/*{*/
-    /*-fx-background-color: white;*/
-    /*-fx-text-fill: black;*/
-    /*-fx-font: 14px "Roboto Medium";*/
-    /*-fx-border-color: white;*/
-/*}*/
-
-/*.tree-view .tree-cell:selected*/
-/*{*/
-    /*-fx-background-color: -fx-box-border, rgba(0, 0, 0, 0.4);*/
-/*}*/
-
-
-/*.tree-view .tree-cell:hover,*/
-/*.tree-view .tree-cell:highlighted:hover*/
-/*{*/
-    /*-fx-background-color: -fx-box-border, rgba(0, 0, 0, 0.1);*/
-/*}*/
-
-/*.tree-cell .tree-disclosure-node .arrow*/
-/*{*/
-    /*-fx-background-color: -fx-mark-highlight-color, rgb(100, 100, 100);*/
-/*}*/
-
-/*.tree-cell:filled:hover .tree-disclosure-node .arrow*/
-/*{*/
-    /*-fx-background-color: -fx-mark-highlight-color, rgb(100, 100, 100);*/
-/*}*/
-
-/*.tree-view .corner*/
-/*{*/
-    /*-fx-background-color: white;*/
-    /*-fx-border-color: white;*/
-    /*-fx-background: white;*/
-/*}*/
-
-/*.tree-view .tree-cell:filled:focused:selected,*/
-/*.tree-view .tree-cell:filled:focused:selected:hover,*/
-/*.tree-view .tree-cell:filled:selected:hover,*/
-/*.tree-view .tree-cell:filled:focused:hover*/
-/*{*/
-    /*-fx-background-color: -fx-box-border, rgba(0, 0, 0, 0.4);*/
-/*}*/
-
-/*.tree-view .tree-cell:empty:hover,*/
-/*.tree-view .tree-cell:empty*/
-/*{*/
-    /*-fx-background-color: white;*/
-/*}*/
-
-
-
-
-/*******************************************************************************
- *                                                                             *
- *                                  Modal                                      *
- *                                                                             *
- ******************************************************************************/
-
-.mui-modal
+.application-context-menu .mui-context-item
 {
-    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.6), 30.0, 0.0, 1.5, 2.0);
+    /*-fx-pref-width: 100%;*/
+    -fx-text-fill: -text-color;
+    -fx-alignment: center-left;
+    -fx-font-size: 14px;
+    -fx-font-family: "Roboto Medium";
+    -fx-border-radius: null;
+    -fx-background-radius: null;
+    -fx-padding: 0 15px;
+    -fx-pref-height: 35px;
+}
+
+.application-context-menu .mui-context-item:hover
+{
+    -fx-background-color: -button-hover;
+}
+
+.application-context-menu .mui-context-item .ikonli-font-icon
+{
+    -fx-icon-size: 12px;
+    -fx-text-alignment: left;
+    -fx-alignment: center-left;
+    -fx-icon-color: -icon-fill;
+}
+
+.application-context-menu.edit .mui-context-item
+{
+    -fx-pref-width: 120px;
+}
+
+.application-context-menu.file .mui-context-item
+{
+    -fx-pref-width: 130px;
+}
+.application-context-menu.view .mui-context-item
+{
+    -fx-pref-width: 130px;
+}
+
+.application-context-menu .mui-context-item.mui-menu .ikonli-font-icon
+{
+    -fx-translate-x: 50px;
+}
+
+.application-context-menu.mui-sub-menu .mui-context-item
+{
+    -fx-pref-width: 100px;
+}
+
+.editor-tab-menu
+{
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.6), 15.0, 0.0, 1.5, 2.0);
+    -fx-background-color: white;
+    -fx-background-radius: 3px;
+    -fx-pref-width: 130.0;
+}
+
+.editor-tab-menu .mui-context-item:hover
+{
+    -fx-background-color: -button-hover;
+}
+
+.editor-tab-menu .mui-context-item
+{
+    -fx-text-fill: -text-color;
+    -fx-alignment: center-left;
+    -fx-pref-width: 130px;
+    -fx-pref-height: 35px;
+    -fx-font-size: 14px;
+    -fx-font-family: "Roboto Medium";
+    -fx-border-radius: null;
+    -fx-background-radius: null;
+    -fx-padding: 0 15px;
+}
+
+.editor-tab-menu  .mui-context-item .ikonli-font-icon
+{
+    -fx-icon-size: 12px;
+    -fx-text-alignment: left;
+    -fx-alignment: center-left;
+    -fx-icon-color: -icon-fill;
+}
+
+.auto-completion-dialog
+{
+    -fx-background: white;
+    -fx-background-color: white;
+    -fx-background-radius: 5px;
+    /*-fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.5), 10.0, 0.0, 1.5, 2.5);*/
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.8), 10.0, 0.0, 2.0, 3.0);
+}
+.auto-completion-dialog .label
+{
+    -fx-text-fill: -light-text-color;
+    -fx-font-family: "Roboto Medium";
+    -fx-font-size: 16px;
+}
+.auto-completion-dialog .list-cell
+{
     -fx-background-color: white;
     -fx-background-radius: 5px;
 }
-
-.mui-modal .title
+.auto-completion-dialog .list-cell:selected:focused
 {
-    -fx-font-family: "Raleway Bold", sans-serif;
-    -fx-font-size: 21px;
+    -fx-background-color: -button-hover;
+    -fx-background: -button-hover;
 }
 
-.mui-modal .message
+.auto-completion-dialog .list-cell:selected:focused .label
 {
-    -fx-font-family: "Raleway Regular", sans-serif;
-    -fx-font-size: 16px;
-}
-
-.mui-modal .primary,
-.mui-modal .secondary,
-.mui-modal .destructive
-{
-    -fx-font-family: "Raleway Black", sans-serif;
-    -fx-text-fill: rgba(0, 0, 0, 0.87);
-    -fx-padding: 9px 11px;
-}
-.mui-modal .primary:hover,
-.mui-modal .secondary:hover
-{
-    -fx-background-color: hover-color;
-}
-
-.mui-modal .destructive
-{
-    -fx-text-fill: #d2d2d2;
-    -fx-background-color: rgb(215, 76, 50);
-}
-.mui-modal .destructive:hover
-{
-    -fx-background-color: rgb(215, 87, 63);
-}
-
-.mui-modal .destructive .ikonli-font-icon
-{
-    -fx-icon-color: #d2d2d2;
-}
-
-.mui-modal .ikonli-font-icon.error-icon
-{
-    -fx-icon-color: rgb(215, 87, 63);
-}
-.mui-modal .ikonli-font-icon.warning-icon
-{
-    -fx-icon-color: rgb(135, 255, 126);
+    -fx-text-fill: -text-color;
 }

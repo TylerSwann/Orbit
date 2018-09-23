@@ -566,7 +566,7 @@
 
 .mui-modal .title
 {
-    -fx-font-family: "Raleway Bold", sans-serif;
+    -fx-font-family: "Roboto Bold", sans-serif;
     -fx-font-size: 21px;
 }
 
@@ -710,4 +710,39 @@
 .settings-page .mui-tab-bar .indicator
 {
     -fx-background-color: #FFFF95;
+}
+
+/*******************************************************************************
+ *                                                                             *
+ *                          Auto Completion Dialog                             *
+ *                                                                             *
+ ******************************************************************************/
+.auto-completion-dialog
+{
+    -fx-background: white;
+    -fx-background-color: white;
+    -fx-background-radius: 5px;
+    /*-fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.5), 10.0, 0.0, 1.5, 2.5);*/
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.8), 10.0, 0.0, 2.0, 3.0);
+}
+.auto-completion-dialog .label
+{
+    -fx-text-fill: black;
+    -fx-font-family: "Roboto Medium";
+    -fx-font-size: 16px;
+}
+.auto-completion-dialog .list-cell
+{
+    -fx-background-color: white;
+    -fx-background-radius: 5px;
+}
+.auto-completion-dialog .list-cell:selected:focused
+{
+    -fx-background-color: rgba(0, 0, 0, 0.2);
+    -fx-background: rgba(0, 0, 0, 0.2);
+}
+
+.auto-completion-dialog .list-cell:selected:focused .label
+{
+    -fx-text-fill: black;
 }

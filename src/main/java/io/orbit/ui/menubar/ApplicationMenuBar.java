@@ -8,6 +8,8 @@ import io.orbit.ui.contextmenu.MUIMenuItem;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.ContentDisplay;
+import javafx.scene.effect.BoxBlur;
+import javafx.scene.effect.GaussianBlur;
 import org.kordamp.ikonli.fontawesome5.FontAwesomeRegular;
 import org.kordamp.ikonli.fontawesome5.FontAwesomeSolid;
 import java.util.Arrays;
@@ -58,6 +60,7 @@ public class ApplicationMenuBar extends MUIMenuBar implements SystemMenuBar
         MUIMenuItem newFile = new MUIMenuItem(FontAwesomeSolid.FILE_ALT, "File");
         MUIMenuItem newFolder = new MUIMenuItem(FontAwesomeSolid.FOLDER, "Folder");
         MUIMenuItem newProject = new MUIMenuItem(FontAwesomeSolid.CUBES, "Project");
+        MUIMenuItem settings = new MUIMenuItem(FontAwesomeSolid.COG, "Settings");
         newMenu.getItems().addAll(Arrays.asList(newFile, newFolder, newProject));
 
         MUIMenuItem save = new MUIMenuItem(FontAwesomeRegular.SAVE, "Save");
@@ -70,7 +73,8 @@ public class ApplicationMenuBar extends MUIMenuBar implements SystemMenuBar
                 save,
                 save_all,
                 open,
-                openFolder
+                openFolder,
+                settings
         ));
         newFile.setOnAction(event -> this.onNewFile.handle(event));
         newFolder.setOnAction(event -> this.onNewFolder.handle(event));
@@ -79,6 +83,7 @@ public class ApplicationMenuBar extends MUIMenuBar implements SystemMenuBar
         save_all.setOnAction(event -> this.onSaveAll.handle(event));
         open.setOnAction(event -> this.onOpenFile.handle(event));
         openFolder.setOnAction(event -> this.onOpenFolder.handle(event));
+        settings.setOnAction(event -> this.onSettings.handle(event));
 
         menu.getRoot().getStyleClass().add(CONTEXT_MENU_STYLE_CLASS);
         newMenu.getSubmenu().getRoot().getStyleClass().add(CONTEXT_MENU_STYLE_CLASS);
@@ -131,7 +136,6 @@ public class ApplicationMenuBar extends MUIMenuBar implements SystemMenuBar
 
         MUIMenuItem terminal = new MUIMenuItem(FontAwesomeSolid.CHECK,"Terminal");
         MUIMenuItem navigator = new MUIMenuItem(FontAwesomeSolid.CHECK,"Navigator");
-        MUIMenuItem settings = new MUIMenuItem(FontAwesomeSolid.COG, "Settings");
         MUIMenuItem colorPicker = new MUIMenuItem(FontAwesomeSolid.PAINT_BRUSH, "Color Picker");
 
         terminal.setContentDisplay(ContentDisplay.RIGHT);
@@ -156,7 +160,6 @@ public class ApplicationMenuBar extends MUIMenuBar implements SystemMenuBar
                 navigator.getGraphic().setOpacity(0.0);
             this.onViewNavigator.handle(event);
         });
-        settings.setOnAction(event -> this.onSettings.handle(event));
         terminal.getGraphic().setOpacity((LocalUser.userSettings.isTerminalClosed() ? 0.0 : 1.0));
         navigator.getGraphic().setOpacity((LocalUser.userSettings.isNavigatorClosed() ? 0.0 : 1.0));
 
@@ -164,7 +167,6 @@ public class ApplicationMenuBar extends MUIMenuBar implements SystemMenuBar
         menu.getItems().addAll(Arrays.asList(
                 terminal,
                 navigator,
-                settings,
                 colorPicker
         ));
         terminal.getStyleClass().add("check-item");
