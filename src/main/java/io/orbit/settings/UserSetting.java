@@ -23,12 +23,14 @@ public class UserSetting
         DEFAULT_SETTINGS.setTerminalClosed(false);
         DEFAULT_SETTINGS.setNavigatorClosed(false);
         DEFAULT_SETTINGS.setEditorFont(SerializableFont.fromResources("fonts/SourceCodePro-Regular.otf.woff"));
+        DEFAULT_SETTINGS.setHotKeys(HotKeys.DEFAULT);
     }
     private SimpleObjectProperty<File> themeFile = new SimpleObjectProperty<>();
     private SimpleObjectProperty<File> syntaxThemeFile = new SimpleObjectProperty<>();
     private SimpleObjectProperty<SerializableFont> editorFont = new SimpleObjectProperty<>();
     private SimpleObjectProperty<ProjectData> lastModifiedProject = new SimpleObjectProperty<>(new ProjectData());
     private SimpleObjectProperty<Size> windowSize = new SimpleObjectProperty<>(new Size(1781.0, 891.0));
+    private transient SimpleObjectProperty<HotKeys> hotKeys = new SimpleObjectProperty<>(HotKeys.DEFAULT);
     private ProjectData[] projects;
     private double navigatorDividerPos;
     private double terminalDividerPos;
@@ -71,4 +73,8 @@ public class UserSetting
     public ObjectProperty<SerializableFont> editorFontProperty() { return editorFont; }
     public SerializableFont getEditorFont() { return editorFont.get(); }
     public void setEditorFont(SerializableFont font) { this.editorFont.setValue(font); }
+
+    public ObjectProperty<HotKeys> hotKeysProperty() { return hotKeys; }
+    public HotKeys getHotKeys() { return hotKeys.get(); }
+    public void setHotKeys(HotKeys hotKeys) { this.hotKeys.set(hotKeys); }
 }

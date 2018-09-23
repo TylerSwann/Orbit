@@ -12,137 +12,13 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-
-<AnchorPane xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="io.orbit.settings.GeneralSettings">
+<AnchorPane prefHeight="986.0" prefWidth="919.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="io.orbit.settings.GeneralSettings">
    <children>
-      <VBox alignment="CENTER" prefHeight="933.0" prefWidth="919.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <VBox alignment="CENTER" prefHeight="1124.0" prefWidth="919.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <Label prefWidth="700.0" styleClass="settings-section-label" text="Hotkeys" />
-            <VBox maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="386.0" prefWidth="700.0" spacing="10.0" style="-fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.5), 10.0, 0.0, 2, 3.0); -fx-background-color: white; -fx-background-radius: 3px;" styleClass="settings-section">
-               <children>
-                  <Label styleClass="settings-subsection-label" text="Editor" />
-                  <GridPane prefHeight="35.0" prefWidth="640.0" styleClass="settings-item">
-                     <columnConstraints>
-                        <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                        <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                     </columnConstraints>
-                     <rowConstraints>
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                     </rowConstraints>
-                     <children>
-                        <Label styleClass="setting-name-label" text="Save All Files in Project" />
-                        <JFXButton styleClass="mui-light-button" text="BUTTON" GridPane.columnIndex="1" />
-                     </children>
-                     <VBox.margin>
-                        <Insets bottom="5.0" />
-                     </VBox.margin>
-                     <padding>
-                        <Insets bottom="5.0" />
-                     </padding>
-                  </GridPane>
-                  <GridPane layoutX="40.0" layoutY="70.0" prefHeight="35.0" prefWidth="640.0" styleClass="settings-item">
-                     <columnConstraints>
-                        <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                        <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                     </columnConstraints>
-                     <rowConstraints>
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                     </rowConstraints>
-                     <children>
-                        <Label styleClass="setting-name-label" text="Save All Files in Project" />
-                        <JFXButton styleClass="mui-light-button" text="BUTTON" GridPane.columnIndex="1" />
-                     </children>
-                     <VBox.margin>
-                        <Insets bottom="5.0" />
-                     </VBox.margin>
-                     <padding>
-                        <Insets bottom="5.0" />
-                     </padding>
-                  </GridPane>
-                  <GridPane layoutX="40.0" layoutY="100.0" prefHeight="35.0" prefWidth="640.0" styleClass="settings-item">
-                     <columnConstraints>
-                        <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                        <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                     </columnConstraints>
-                     <rowConstraints>
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                     </rowConstraints>
-                     <children>
-                        <Label styleClass="setting-name-label" text="Save All Files in Project" />
-                        <JFXButton styleClass="mui-light-button" text="BUTTON" GridPane.columnIndex="1" />
-                     </children>
-                     <VBox.margin>
-                        <Insets bottom="5.0" />
-                     </VBox.margin>
-                     <padding>
-                        <Insets bottom="5.0" />
-                     </padding>
-                  </GridPane>
-                  <GridPane layoutX="40.0" layoutY="70.0" prefHeight="35.0" prefWidth="640.0" styleClass="settings-item">
-                     <columnConstraints>
-                        <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                        <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                     </columnConstraints>
-                     <rowConstraints>
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                     </rowConstraints>
-                     <children>
-                        <Label styleClass="setting-name-label" text="Save All Files in Project" />
-                        <JFXButton styleClass="mui-light-button" text="BUTTON" GridPane.columnIndex="1" />
-                     </children>
-                     <VBox.margin>
-                        <Insets bottom="5.0" />
-                     </VBox.margin>
-                     <padding>
-                        <Insets bottom="5.0" />
-                     </padding>
-                  </GridPane>
-                  <GridPane layoutX="40.0" layoutY="100.0" prefHeight="35.0" prefWidth="640.0" styleClass="settings-item">
-                     <columnConstraints>
-                        <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                        <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                     </columnConstraints>
-                     <rowConstraints>
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                     </rowConstraints>
-                     <children>
-                        <Label styleClass="setting-name-label" text="Save All Files in Project" />
-                        <JFXButton styleClass="mui-light-button" text="BUTTON" GridPane.columnIndex="1" />
-                     </children>
-                     <VBox.margin>
-                        <Insets bottom="5.0" />
-                     </VBox.margin>
-                     <padding>
-                        <Insets bottom="5.0" />
-                     </padding>
-                  </GridPane>
-                  <GridPane layoutX="40.0" layoutY="130.0" prefHeight="35.0" prefWidth="640.0" styleClass="settings-item">
-                     <columnConstraints>
-                        <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                        <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                     </columnConstraints>
-                     <rowConstraints>
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                     </rowConstraints>
-                     <children>
-                        <Label styleClass="setting-name-label" text="Save All Files in Project" />
-                        <JFXButton styleClass="mui-light-button" text="BUTTON" GridPane.columnIndex="1" />
-                     </children>
-                     <VBox.margin>
-                        <Insets bottom="5.0" />
-                     </VBox.margin>
-                     <padding>
-                        <Insets bottom="5.0" />
-                     </padding>
-                  </GridPane>
-               </children>
-               <padding>
-                  <Insets left="30.0" right="30.0" top="30.0" />
-               </padding>
-            </VBox>
             <Label layoutX="120.0" layoutY="200.0" prefWidth="700.0" styleClass="settings-section-label" text="Fonts and Colors">
                <VBox.margin>
-                  <Insets top="30.0" />
+                  <Insets />
                </VBox.margin>
             </Label>
             <VBox layoutX="120.0" layoutY="217.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="367.0" prefWidth="700.0" spacing="10.0" style="-fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.5), 10.0, 0.0, 2, 3.0); -fx-background-color: white; -fx-background-radius: 3px;" styleClass="settings-section">
@@ -159,7 +35,7 @@
                      </rowConstraints>
                      <children>
                         <Label styleClass="setting-name-label" text="Font Family:" />
-                        <JFXComboBox prefHeight="25.0" prefWidth="300.0" GridPane.rowIndex="1" />
+                        <JFXComboBox fx:id="fontFamilyBox" prefHeight="25.0" prefWidth="300.0" GridPane.rowIndex="1" />
                      </children>
                      <VBox.margin>
                         <Insets bottom="5.0" />
@@ -179,8 +55,8 @@
                      </rowConstraints>
                      <children>
                         <Label styleClass="setting-name-label" text="Font Size:" />
-                        <JFXSlider maxWidth="-Infinity" prefHeight="6.0" prefWidth="300.0" GridPane.rowIndex="1" />
-                        <JFXTextField alignment="CENTER" maxWidth="-Infinity" prefWidth="40.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                        <JFXSlider fx:id="fontSizeSlider" maxWidth="-Infinity" prefHeight="6.0" prefWidth="300.0" GridPane.rowIndex="1" />
+                        <JFXTextField fx:id="fontSizeField" alignment="CENTER" maxWidth="-Infinity" prefWidth="40.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                            <GridPane.margin>
                               <Insets bottom="8.0" />
                            </GridPane.margin>
@@ -201,8 +77,8 @@
                      </rowConstraints>
                      <children>
                         <Label styleClass="setting-name-label" text="Syntax Stylesheet:" />
-                        <JFXButton styleClass="mui-light-button" text="EDIT STYELSHEET" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                        <JFXComboBox prefHeight="25.0" prefWidth="300.0" GridPane.rowIndex="1" />
+                        <JFXButton fx:id="editSyntaxStyle" styleClass="mui-light-button" text="EDIT STYELSHEET" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <JFXComboBox fx:id="syntaxStyleBox" prefHeight="25.0" prefWidth="300.0" GridPane.rowIndex="1" />
                      </children>
                      <padding>
                         <Insets bottom="5.0" />
@@ -219,8 +95,214 @@
                      </rowConstraints>
                      <children>
                         <Label styleClass="setting-name-label" text="Application Stylesheet:" />
-                        <JFXButton styleClass="mui-light-button" text="EDIT STYELSHEET" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                        <JFXComboBox prefHeight="25.0" prefWidth="300.0" GridPane.rowIndex="1" />
+                        <JFXButton fx:id="editAppStyle" styleClass="mui-light-button" text="EDIT STYELSHEET" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <JFXComboBox fx:id="appStyleBox" prefHeight="25.0" prefWidth="300.0" GridPane.rowIndex="1" />
+                     </children>
+                     <padding>
+                        <Insets bottom="5.0" />
+                     </padding>
+                  </GridPane>
+               </children>
+               <padding>
+                  <Insets left="30.0" right="30.0" top="30.0" />
+               </padding>
+            </VBox>
+            <Label prefWidth="700.0" styleClass="settings-section-label" text="Hotkeys">
+               <VBox.margin>
+                  <Insets top="30.0" />
+               </VBox.margin></Label>
+            <VBox maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="592.0" prefWidth="700.0" spacing="10.0" style="-fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.5), 10.0, 0.0, 2, 3.0); -fx-background-color: white; -fx-background-radius: 3px;" styleClass="settings-section">
+               <children>
+                  <Label styleClass="settings-subsection-label" text="Editor" />
+                  <GridPane layoutX="40.0" layoutY="67.0" prefHeight="35.0" prefWidth="640.0" styleClass="settings-item">
+                     <columnConstraints>
+                        <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                     <children>
+                        <Label styleClass="setting-name-label" text="Cut" />
+                        <JFXButton fx:id="cut" styleClass="mui-light-button" text="BUTTON" GridPane.columnIndex="1" />
+                     </children>
+                     <padding>
+                        <Insets bottom="5.0" />
+                     </padding>
+                  </GridPane>
+                  <GridPane layoutX="40.0" layoutY="67.0" prefHeight="35.0" prefWidth="640.0" styleClass="settings-item">
+                     <columnConstraints>
+                        <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                     <children>
+                        <Label styleClass="setting-name-label" text="Copy" />
+                        <JFXButton fx:id="copy" styleClass="mui-light-button" text="BUTTON" GridPane.columnIndex="1" />
+                     </children>
+                     <padding>
+                        <Insets bottom="5.0" />
+                     </padding>
+                  </GridPane>
+                  <GridPane layoutX="40.0" layoutY="67.0" prefHeight="35.0" prefWidth="640.0" styleClass="settings-item">
+                     <columnConstraints>
+                        <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                     <children>
+                        <Label styleClass="setting-name-label" text="Paste" />
+                        <JFXButton fx:id="paste" styleClass="mui-light-button" text="BUTTON" GridPane.columnIndex="1" />
+                     </children>
+                     <padding>
+                        <Insets bottom="5.0" />
+                     </padding>
+                  </GridPane>
+                  <GridPane layoutX="40.0" layoutY="100.0" prefHeight="35.0" prefWidth="640.0" styleClass="settings-item">
+                     <columnConstraints>
+                        <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                     <children>
+                        <Label styleClass="setting-name-label" text="Undo" />
+                        <JFXButton fx:id="undo" styleClass="mui-light-button" text="BUTTON" GridPane.columnIndex="1" />
+                     </children>
+                     <VBox.margin>
+                        <Insets bottom="5.0" />
+                     </VBox.margin>
+                     <padding>
+                        <Insets bottom="5.0" />
+                     </padding>
+                  </GridPane>
+                  <GridPane layoutX="40.0" layoutY="70.0" prefHeight="35.0" prefWidth="640.0" styleClass="settings-item">
+                     <columnConstraints>
+                        <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                     <children>
+                        <Label styleClass="setting-name-label" text="Redo" />
+                        <JFXButton fx:id="redo" styleClass="mui-light-button" text="BUTTON" GridPane.columnIndex="1" />
+                     </children>
+                     <VBox.margin>
+                        <Insets bottom="5.0" />
+                     </VBox.margin>
+                     <padding>
+                        <Insets bottom="5.0" />
+                     </padding>
+                  </GridPane>
+                  <GridPane layoutX="40.0" layoutY="70.0" prefHeight="35.0" prefWidth="640.0" styleClass="settings-item">
+                     <columnConstraints>
+                        <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                     <children>
+                        <Label styleClass="setting-name-label" text="Save Current File" />
+                        <JFXButton fx:id="save" styleClass="mui-light-button" text="BUTTON" GridPane.columnIndex="1" />
+                     </children>
+                     <VBox.margin>
+                        <Insets bottom="5.0" />
+                     </VBox.margin>
+                     <padding>
+                        <Insets bottom="5.0" />
+                     </padding>
+                  </GridPane>
+                  <GridPane prefHeight="35.0" prefWidth="640.0" styleClass="settings-item">
+                     <columnConstraints>
+                        <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                     <children>
+                        <Label styleClass="setting-name-label" text="Save All Files in Project" />
+                        <JFXButton fx:id="saveAll" styleClass="mui-light-button" text="BUTTON" GridPane.columnIndex="1" />
+                     </children>
+                     <VBox.margin>
+                        <Insets bottom="5.0" />
+                     </VBox.margin>
+                     <padding>
+                        <Insets bottom="5.0" />
+                     </padding>
+                  </GridPane>
+                  <GridPane layoutX="40.0" layoutY="100.0" prefHeight="35.0" prefWidth="640.0" styleClass="settings-item">
+                     <columnConstraints>
+                        <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                     <children>
+                        <Label styleClass="setting-name-label" text="Find in File" />
+                        <JFXButton fx:id="find" styleClass="mui-light-button" text="BUTTON" GridPane.columnIndex="1" />
+                     </children>
+                     <VBox.margin>
+                        <Insets bottom="5.0" />
+                     </VBox.margin>
+                     <padding>
+                        <Insets bottom="5.0" />
+                     </padding>
+                  </GridPane>
+                  <GridPane layoutX="40.0" layoutY="402.0" prefHeight="35.0" prefWidth="640.0" styleClass="settings-item">
+                     <columnConstraints>
+                        <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                     <children>
+                        <Label styleClass="setting-name-label" text="Find and Replace" />
+                        <JFXButton fx:id="findReplace" styleClass="mui-light-button" text="BUTTON" GridPane.columnIndex="1" />
+                     </children>
+                     <padding>
+                        <Insets bottom="5.0" />
+                     </padding>
+                  </GridPane>
+                  <GridPane layoutX="40.0" layoutY="130.0" prefHeight="35.0" prefWidth="640.0" styleClass="settings-item">
+                     <columnConstraints>
+                        <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                     <children>
+                        <Label styleClass="setting-name-label" text="Find in Project" />
+                        <JFXButton fx:id="findInProject" styleClass="mui-light-button" text="BUTTON" GridPane.columnIndex="1" />
+                     </children>
+                     <VBox.margin>
+                        <Insets bottom="5.0" />
+                     </VBox.margin>
+                     <padding>
+                        <Insets bottom="5.0" />
+                     </padding>
+                  </GridPane>
+                  <GridPane layoutX="40.0" layoutY="497.0" prefHeight="35.0" prefWidth="640.0" styleClass="settings-item">
+                     <columnConstraints>
+                        <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                     <children>
+                        <Label styleClass="setting-name-label" text="Find Replace in Project" />
+                        <JFXButton fx:id="findReplaceInProject" styleClass="mui-light-button" text="BUTTON" GridPane.columnIndex="1" />
                      </children>
                      <padding>
                         <Insets bottom="5.0" />

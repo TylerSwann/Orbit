@@ -7,7 +7,8 @@ import io.orbit.api.event.CodeEditorEvent;
 import io.orbit.api.notification.Notifications;
 import io.orbit.api.text.CodeEditor;
 import io.orbit.plugin.PluginDispatch;
-import io.orbit.settings.UserHotKeys;
+import io.orbit.settings.HotKeys;
+import io.orbit.settings.LocalUser;
 import io.orbit.ui.contextmenu.EditorContextMenu;
 import javafx.application.Platform;
 import javafx.scene.input.KeyEvent;
@@ -51,25 +52,30 @@ public class OCodeEditorController
 
     private void addHotKeyEvents()
     {
+        HotKeys hotKeys = LocalUser.userSettings.getHotKeys();
         this.editor.addEventHandler(KeyEvent.KEY_PRESSED, event -> {
-            if (UserHotKeys.CUT().match(event))
+            if (hotKeys.getCut().match(event))
                 this.editor.fireEvent(new CodeEditorEvent(CodeEditorEvent.CUT, this.editor.getFile()));
-            else if (UserHotKeys.COPY().match(event))
+            else if (hotKeys.getCopy().match(event))
                 this.editor.fireEvent(new CodeEditorEvent(CodeEditorEvent.COPY, this.editor.getFile()));
-            else if (UserHotKeys.PASTE().match(event))
+            else if (hotKeys.getPaste().match(event))
                 this.editor.fireEvent(new CodeEditorEvent(CodeEditorEvent.PASTE, this.editor.getFile()));
-            else if (UserHotKeys.UNDO().match(event))
+            else if (hotKeys.getUndo().match(event))
                 this.editor.fireEvent(new CodeEditorEvent(CodeEditorEvent.UNDO, this.editor.getFile()));
-            else if (UserHotKeys.REDO().match(event))
+            else if (hotKeys.getRedo().match(event))
                 this.editor.fireEvent(new CodeEditorEvent(CodeEditorEvent.REDO, this.editor.getFile()));
-            else if (UserHotKeys.SAVE().match(event))
+            else if (hotKeys.getSave().match(event))
                 this.editor.fireEvent(new CodeEditorEvent(CodeEditorEvent.SAVE, this.editor.getFile()));
-            else if (UserHotKeys.SAVE_ALL().match(event))
+            else if (hotKeys.getSaveAll().match(event))
                 this.editor.fireEvent(new CodeEditorEvent(CodeEditorEvent.SAVE_ALL, this.editor.getFile()));
-            else if (UserHotKeys.FIND().match(event))
+            else if (hotKeys.getFind().match(event))
                 this.editor.fireEvent(new CodeEditorEvent(CodeEditorEvent.FIND, this.editor.getFile()));
-            else if (UserHotKeys.FIND_REPLACE().match(event))
+            else if (hotKeys.getFindReplace().match(event))
                 this.editor.fireEvent(new CodeEditorEvent(CodeEditorEvent.FIND_AND_REPLACE, this.editor.getFile()));
+            else if (hotKeys.getFindInProject().match(event))
+                System.out.println("TODO");
+            else if (hotKeys.getFindReplaceInProject().match(event))
+                System.out.println("TODO");
         });
     }
 

@@ -23,6 +23,7 @@ import java.io.IOException;
  */
 public class SettingsPage
 {
+
     public static void show()
     {
         try
@@ -30,7 +31,6 @@ public class SettingsPage
             AnchorPane root = FXMLLoader.load(SettingsPage.class.getClassLoader().getResource("views/SettingsPage.fxml"));
             Scene scene = new Scene(root, root.getPrefWidth(), root.getPrefHeight());
             Stage stage = new Stage(StageStyle.UTILITY);
-//            stage.setResizable(false);
             App.appTheme.sync(scene.getStylesheets());
             stage.setScene(scene);
             stage.show();
@@ -43,13 +43,18 @@ public class SettingsPage
     @FXML private VBox headerContainer;
     @FXML private HBox titleContainer;
     @FXML private ScrollPane scrollPane;
+    @FXML private AnchorPane root;
 
     public void initialize()
     {
         try
         {
             this.tabBar = new MUITabBar();
-            generalSettings = FXMLLoader.load(getClass().getClassLoader().getResource("views/GeneralSettingsPage.fxml"));
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getClassLoader().getResource("views/GeneralSettingsPage.fxml"));
+            generalSettings = loader.load();
+            GeneralSettings controller = loader.getController();
+            controller.setRoot(root);
             this.build();
         }
         catch (IOException e) { e.printStackTrace(); }
