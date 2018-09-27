@@ -1,16 +1,21 @@
 package io.orbit.settings;
 
 import com.jfoenix.controls.*;
+import io.orbit.App;
 import io.orbit.util.SerializableFont;
 import io.orbit.util.Tuple;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.scene.input.*;
+
+import javafx.scene.input.KeyCodeCombination;
+import javafx.scene.input.KeyCombination;
+import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.shape.Rectangle;
 import javafx.stage.WindowEvent;
 import javafx.util.StringConverter;
-
 import java.io.File;
 import java.util.*;
 import java.util.function.Consumer;
@@ -50,7 +55,7 @@ public class GeneralSettings
     private AnchorPane root;
     private HotKeys hotKeys;
     private boolean listening = false;
-    private Map<JFXButton, Consumer<KeyCombination>> hotKeyActions = new HashMap<>();
+    private Map<JFXButton, Consumer<Shortcut>> hotKeyActions = new HashMap<>();
     private JFXButton active;
 
     public void initialize()
@@ -187,12 +192,23 @@ public class GeneralSettings
         this.root.addEventFilter(KeyEvent.KEY_PRESSED, event -> {
             if (!listening)
                 return;
-            KeyCodeCombination combination = combinationFromEvent(event);
+            Shortcut combination = combinationFromEvent(event);
             if (combination == null)
                 return;
             this.active.setText(combination.getDisplayText());
             this.hotKeyActions.get(this.active).accept(combination);
             listening = false;
+        });
+
+        appStyleBox.valueProperty().addListener((obs, oldV, newV) -> {
+            if (oldV.second.equals(newV.second))
+                return;
+            App.setApplicationTheme(newV.second);
+        });
+        syntaxStyleBox.valueProperty().addListener((obs, oldV, newV) -> {
+            if (oldV.second.equals(newV.second))
+                return;
+            App.setSyntaxTheme(newV.second);
         });
     }
 
@@ -242,7 +258,7 @@ public class GeneralSettings
         this.root = root;
         registerListeners();
     }
-    private KeyCodeCombination combinationFromEvent(KeyEvent event)
+    private Shortcut combinationFromEvent(KeyEvent event)
     {
         ArrayList<KeyCombination.Modifier> modifiers = new ArrayList<>();
         if (event.getCode().isModifierKey())
@@ -255,6 +271,6 @@ public class GeneralSettings
             modifiers.add(KeyCodeCombination.ALT_DOWN);
         if (event.isMetaDown())
             modifiers.add(KeyCodeCombination.META_DOWN);
-        return new KeyCodeCombination(event.getCode(), modifiers.toArray(new KeyCombination.Modifier[modifiers.size()]));
+        return new Shortcut(event.getCode(), modifiers.toArray(new KeyCombination.Modifier[modifiers.size()]));
     }
 }

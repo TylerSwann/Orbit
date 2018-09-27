@@ -30,7 +30,7 @@ public class UserSetting
     private SimpleObjectProperty<SerializableFont> editorFont = new SimpleObjectProperty<>();
     private SimpleObjectProperty<ProjectData> lastModifiedProject = new SimpleObjectProperty<>(new ProjectData());
     private SimpleObjectProperty<Size> windowSize = new SimpleObjectProperty<>(new Size(1781.0, 891.0));
-    private transient SimpleObjectProperty<HotKeys> hotKeys = new SimpleObjectProperty<>(HotKeys.DEFAULT);
+    private SimpleObjectProperty<HotKeys> hotKeys = new SimpleObjectProperty<>(HotKeys.DEFAULT);
     private ProjectData[] projects;
     private double navigatorDividerPos;
     private double terminalDividerPos;

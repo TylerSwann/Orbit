@@ -21,7 +21,7 @@
                   <Insets />
                </VBox.margin>
             </Label>
-            <VBox layoutX="120.0" layoutY="217.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="367.0" prefWidth="700.0" spacing="10.0" style="-fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.5), 10.0, 0.0, 2, 3.0); -fx-background-color: white; -fx-background-radius: 3px;" styleClass="settings-section">
+            <VBox layoutX="120.0" layoutY="217.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="367.0" prefWidth="700.0" spacing="10.0" styleClass="settings-section">
                <children>
                   <Label styleClass="settings-subsection-label" text="Editor" />
                   <GridPane prefHeight="55.0" prefWidth="640.0">
@@ -111,7 +111,7 @@
                <VBox.margin>
                   <Insets top="30.0" />
                </VBox.margin></Label>
-            <VBox maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="592.0" prefWidth="700.0" spacing="10.0" style="-fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.5), 10.0, 0.0, 2, 3.0); -fx-background-color: white; -fx-background-radius: 3px;" styleClass="settings-section">
+            <VBox maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="613.0" prefWidth="700.0" spacing="10.0" styleClass="settings-section">
                <children>
                   <Label styleClass="settings-subsection-label" text="Editor" />
                   <GridPane layoutX="40.0" layoutY="67.0" prefHeight="35.0" prefWidth="640.0" styleClass="settings-item">

@@ -14,54 +14,54 @@ public class HotKeys
 
     static {
         DEFAULT = new HotKeys();
-        DEFAULT.setCut(new KeyCodeCombination(KeyCode.X, KeyCombination.SHORTCUT_DOWN));
-        DEFAULT.setCopy(new KeyCodeCombination(KeyCode.C, KeyCombination.SHORTCUT_DOWN));
-        DEFAULT.setPaste(new KeyCodeCombination(KeyCode.V, KeyCombination.SHORTCUT_DOWN));
-        DEFAULT.setUndo(new KeyCodeCombination(KeyCode.Z, KeyCombination.SHORTCUT_DOWN));
-        DEFAULT.setRedo(new KeyCodeCombination(KeyCode.Z, KeyCombination.SHORTCUT_DOWN, KeyCombination.SHIFT_DOWN));
-        DEFAULT.setSave(new KeyCodeCombination(KeyCode.S, KeyCombination.SHORTCUT_DOWN));
-        DEFAULT.setSaveAll(new KeyCodeCombination(KeyCode.A, KeyCombination.SHORTCUT_DOWN));
-        DEFAULT.setFind(new KeyCodeCombination(KeyCode.F, KeyCombination.SHORTCUT_DOWN));
-        DEFAULT.setFindReplace(new KeyCodeCombination(KeyCode.R, KeyCombination.SHORTCUT_DOWN));
-        DEFAULT.setFindInProject(new KeyCodeCombination(KeyCode.F, KeyCodeCombination.SHORTCUT_DOWN, KeyCodeCombination.SHIFT_DOWN));
-        DEFAULT.setFindReplaceInProject(new KeyCodeCombination(KeyCode.R, KeyCodeCombination.SHORTCUT_DOWN, KeyCodeCombination.SHIFT_DOWN));
+        DEFAULT.setCut(new Shortcut(KeyCode.X, KeyCombination.SHORTCUT_DOWN));
+        DEFAULT.setCopy(new Shortcut(KeyCode.C, KeyCombination.SHORTCUT_DOWN));
+        DEFAULT.setPaste(new Shortcut(KeyCode.V, KeyCombination.SHORTCUT_DOWN));
+        DEFAULT.setUndo(new Shortcut(KeyCode.Z, KeyCombination.SHORTCUT_DOWN));
+        DEFAULT.setRedo(new Shortcut(KeyCode.Z, KeyCombination.SHORTCUT_DOWN, KeyCombination.SHIFT_DOWN));
+        DEFAULT.setSave(new Shortcut(KeyCode.S, KeyCombination.SHORTCUT_DOWN));
+        DEFAULT.setSaveAll(new Shortcut(KeyCode.A, KeyCombination.SHORTCUT_DOWN));
+        DEFAULT.setFind(new Shortcut(KeyCode.F, KeyCombination.SHORTCUT_DOWN));
+        DEFAULT.setFindReplace(new Shortcut(KeyCode.R, KeyCombination.SHORTCUT_DOWN));
+        DEFAULT.setFindInProject(new Shortcut(KeyCode.F, KeyCodeCombination.SHORTCUT_DOWN, KeyCodeCombination.SHIFT_DOWN));
+        DEFAULT.setFindReplaceInProject(new Shortcut(KeyCode.R, KeyCodeCombination.SHORTCUT_DOWN, KeyCodeCombination.SHIFT_DOWN));
     }
 
-    private KeyCombination cut;
-    private KeyCombination copy;
-    private KeyCombination paste;
-    private KeyCombination undo;
-    private KeyCombination redo;
-    private KeyCombination save;
-    private KeyCombination saveAll;
-    private KeyCombination find;
-    private KeyCombination findReplace;
-    private KeyCombination findInProject;
-    private KeyCombination findReplaceProject;
+    private Shortcut cut;
+    private Shortcut copy;
+    private Shortcut paste;
+    private Shortcut undo;
+    private Shortcut redo;
+    private Shortcut save;
+    private Shortcut saveAll;
+    private Shortcut find;
+    private Shortcut findReplace;
+    private Shortcut findInProject;
+    private Shortcut findReplaceProject;
 
     public HotKeys() { }
 
-    public KeyCombination getCut() { return cut; }
-    public void setCut(KeyCombination cut) { this.cut = cut; }
-    public KeyCombination getCopy() { return copy; }
-    public void setCopy(KeyCombination copy) { this.copy = copy; }
-    public KeyCombination getPaste() { return paste; }
-    public void setPaste(KeyCombination paste) { this.paste = paste; }
-    public KeyCombination getUndo() { return undo; }
-    public void setUndo(KeyCombination undo) { this.undo = undo; }
-    public KeyCombination getRedo() { return redo; }
-    public void setRedo(KeyCombination redo) { this.redo = redo; }
-    public KeyCombination getSave() { return save; }
-    public void setSave(KeyCombination save) { this.save = save; }
-    public KeyCombination getSaveAll() { return saveAll; }
-    public void setSaveAll(KeyCombination saveAll) { this.saveAll = saveAll; }
-    public KeyCombination getFindReplace() { return findReplace; }
-    public void setFindReplace(KeyCombination find_replace) { this.findReplace = find_replace; }
-    public KeyCombination getFind() { return find; }
-    public void setFind(KeyCombination find) { this.find = find; }
-    public KeyCombination getFindInProject() { return findInProject; }
-    public void setFindInProject(KeyCombination find_in_project) { this.findInProject = find_in_project; }
-    public KeyCombination getFindReplaceInProject() { return findReplaceProject; }
-    public void setFindReplaceInProject(KeyCombination find_replace_project) { this.findReplaceProject = find_replace_project; }
+    public Shortcut getCut() { return cut; }
+    public void setCut(Shortcut cut) { this.cut = cut; }
+    public Shortcut getCopy() { return copy; }
+    public void setCopy(Shortcut copy) { this.copy = copy; }
+    public Shortcut getPaste() { return paste; }
+    public void setPaste(Shortcut paste) { this.paste = paste; }
+    public Shortcut getUndo() { return undo; }
+    public void setUndo(Shortcut undo) { this.undo = undo; }
+    public Shortcut getRedo() { return redo; }
+    public void setRedo(Shortcut redo) { this.redo = redo; }
+    public Shortcut getSave() { return save; }
+    public void setSave(Shortcut save) { this.save = save; }
+    public Shortcut getSaveAll() { return saveAll; }
+    public void setSaveAll(Shortcut saveAll) { this.saveAll = saveAll; }
+    public Shortcut getFindReplace() { return findReplace; }
+    public void setFindReplace(Shortcut find_replace) { this.findReplace = find_replace; }
+    public Shortcut getFind() { return find; }
+    public void setFind(Shortcut find) { this.find = find; }
+    public Shortcut getFindInProject() { return findInProject; }
+    public void setFindInProject(Shortcut find_in_project) { this.findInProject = find_in_project; }
+    public Shortcut getFindReplaceInProject() { return findReplaceProject; }
+    public void setFindReplaceInProject(Shortcut find_replace_project) { this.findReplaceProject = find_replace_project; }
 }
 

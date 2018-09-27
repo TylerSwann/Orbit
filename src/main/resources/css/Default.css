@@ -510,7 +510,6 @@
     -fx-pref-height: 33px;
     -fx-padding: 7px 0px;
     -fx-alignment: center;
-    -fx-content-display: center;
 }
 
 .mui-menu-bar .right .mui-context-item .jfx-rippler
@@ -566,7 +565,7 @@
 
 .mui-modal .title
 {
-    -fx-font-family: "Roboto Bold", sans-serif;
+    -fx-font-family: "Raleway Bold", sans-serif;
     -fx-font-size: 21px;
 }
 
@@ -642,6 +641,14 @@
     -fx-background-color: white;
     -fx-background: white;
 }
+
+.settings-section
+{
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.5), 10.0, 0.0, 2, 3.0);
+    -fx-background-color: white;
+    -fx-background-radius: 3px;
+}
+
 .settings-section-label
 {
     -fx-text-fill: #323232;

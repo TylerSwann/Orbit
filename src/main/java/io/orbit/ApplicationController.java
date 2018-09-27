@@ -7,7 +7,6 @@ import io.orbit.settings.LocalUser;
 import io.orbit.settings.ProjectFile;
 import io.orbit.util.FontLoader;
 import io.orbit.util.Size;
-import javafx.application.Platform;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.scene.control.SplitPane;

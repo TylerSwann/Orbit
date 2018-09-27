@@ -10,9 +10,7 @@ import io.orbit.settings.LocalUser;
 import io.orbit.settings.UserSetting;
 import io.orbit.util.JSON;
 import io.orbit.util.SerializableFont;
-import io.orbit.util.Strings;
 import io.orbit.util.SyncedObservableList;
-import javafx.animation.PauseTransition;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.beans.property.ReadOnlyObjectProperty;
@@ -22,11 +20,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
-import javafx.util.Duration;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.status.StatusLogger;
 import java.io.File;
@@ -34,7 +30,6 @@ import java.io.InputStream;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.nio.file.Paths;
-import java.util.Arrays;
 
 /**
  * Created by Tyler Swann on Friday January 05, 2018 at 16:14
@@ -94,8 +89,8 @@ public class App extends Application
             ((SimpleObjectProperty<Stage>)OrbitApplication.PRIMARY_STAGE).set(stage);
         }
         OSplashPageController.show();
-//        App.setApplicationTheme(new File(getClass().getClassLoader().getResource("css/MaterialDark.css").getFile()));
-//        App.setSyntaxTheme(new File(getClass().getClassLoader().getResource("css/MaterialDarkSyntax.css").getFile()));
+        App.setApplicationTheme(new File(getClass().getClassLoader().getResource("css/MaterialDark.css").getFile()));
+        App.setSyntaxTheme(new File(getClass().getClassLoader().getResource("css/MaterialDarkSyntax.css").getFile()));
 //        App.setApplicationTheme(new File(getClass().getClassLoader().getResource("css/MaterialDark.css").getFile()));
 //        App.setSyntaxTheme(new File(getClass().getClassLoader().getResource("css/MaterialDarkSyntax.css").getFile()));
 //        App.setApplicationTheme(new File(getClass().getClassLoader().getResource("css/SolarOrbit.css").getFile()));

@@ -38,6 +38,12 @@
     -fx-font-size: 18.0;
     /*-fx-highlight-fill: #28509f;*/
 }
+
+.styled-text-area .caret
+{
+    -fx-stroke: white;
+}
+
 .selection
 {
     -fx-fill: #28509f;
