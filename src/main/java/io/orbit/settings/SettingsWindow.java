@@ -1,6 +1,7 @@
 package io.orbit.settings;
 
 import io.orbit.App;
+import io.orbit.Themes;
 import io.orbit.ui.MUITreeItem;
 import io.orbit.ui.MUITreeTableView;
 import io.orbit.util.Setting;
@@ -60,7 +61,7 @@ public class SettingsWindow extends Stage
         addListeners();
         Scene scene = new Scene(root, 1287,749);
         this.setScene(scene);
-        App.appTheme.sync(this.getScene().getStylesheets());
+        Themes.sync(this.getScene());
     }
 
     private void addListeners()

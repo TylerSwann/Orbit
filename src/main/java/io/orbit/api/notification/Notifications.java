@@ -1,15 +1,14 @@
 package io.orbit.api.notification;
 
 import com.jfoenix.controls.JFXSnackbar;
+import io.orbit.App;
 import io.orbit.api.Nullable;
-import io.orbit.api.OrbitApplication;
 import io.orbit.api.notification.modal.MUIInputModal;
 import io.orbit.api.notification.modal.MUIModal;
 import io.orbit.api.notification.modal.MUIModalButton;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import org.kordamp.ikonli.fontawesome5.FontAwesomeSolid;
-
 import java.util.function.Consumer;
 
 /**
@@ -58,7 +57,7 @@ public final class Notifications
     }
     public static void showSnackBarMessage(String message, long timeout)
     {
-        AnchorPane root = (AnchorPane) OrbitApplication.PRIMARY_STAGE.getValue().getScene().getRoot();
+        AnchorPane root = (AnchorPane) App.stage().getScene().getRoot();
         JFXSnackbar snackBar = new JFXSnackbar(root);
         snackBar.show(message, timeout);
     }
@@ -70,8 +69,8 @@ public final class Notifications
      */
     public static void showModal(MUIModal modal)
     {
-        Stage owner = OrbitApplication.PRIMARY_STAGE.getValue();
-        modal.show(OrbitApplication.PRIMARY_STAGE.getValue());
+        Stage owner = App.stage();
+        modal.show(owner);
         double x = (owner.getX() + (owner.getWidth() / 2.0)) - modal.getWidth() / 2.0;
         double y = (owner.getY() + (owner.getHeight() / 2.0)) - modal.getHeight() / 2.0;
         modal.setX(x);

@@ -1,6 +1,7 @@
 package io.orbit.settings;
 
 import io.orbit.App;
+import io.orbit.Themes;
 import io.orbit.ui.tabs.MUITab;
 import io.orbit.ui.tabs.MUITabBar;
 import javafx.fxml.FXML;
@@ -28,10 +29,12 @@ public class SettingsPage
     {
         try
         {
-            AnchorPane root = FXMLLoader.load(SettingsPage.class.getClassLoader().getResource("views/SettingsPage.fxml"));
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(SettingsPage.class.getClassLoader().getResource("views/SettingsPage.fxml"));
+            AnchorPane root = loader.load();
             Scene scene = new Scene(root, root.getPrefWidth(), root.getPrefHeight());
             Stage stage = new Stage(StageStyle.UTILITY);
-            App.appTheme.sync(scene.getStylesheets());
+            Themes.sync(scene);
             stage.setScene(scene);
             stage.show();
         }

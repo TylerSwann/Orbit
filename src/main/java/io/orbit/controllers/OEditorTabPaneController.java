@@ -1,8 +1,8 @@
 package io.orbit.controllers;
 
 import io.orbit.App;
+import io.orbit.Themes;
 import io.orbit.api.text.CodeEditor;
-import io.orbit.controllers.events.ApplicationEvent;
 import io.orbit.settings.LocalUser;
 import io.orbit.settings.ProjectData;
 import io.orbit.ui.editorui.CodeEditorTabPane;
@@ -46,15 +46,10 @@ public class OEditorTabPaneController
 
     private void registerListeners()
     {
-        App.appEventsProperty.addEventListener(ApplicationEvent.WILL_CLOSE, event -> this.saveUserSettings());
+        App.addOnCloseHandler(this::saveUserSettings);
         this.editorPane.getEditors().addListener((ListChangeListener<CodeEditor>) change -> {
             while (change.next())
-            {
-                change.getAddedSubList().forEach(editor -> {
-                    App.syntaxTheme.sync(editor.getStylesheets());
-                    editor.styleProperty().bind(App.editorFontStyle);
-                });
-            }
+                change.getAddedSubList().forEach(Themes::sync);
         });
         this.editorPane.selectedTabProperty().addListener(__ -> {
             EditorTab activeTab = this.editorPane.getActiveTab();

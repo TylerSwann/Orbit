@@ -1,7 +1,6 @@
 package io.orbit.settings;
 
 import io.orbit.App;
-import io.orbit.controllers.events.ApplicationEvent;
 import io.orbit.util.JSON;
 import javafx.application.Platform;
 
@@ -38,7 +37,7 @@ public class Directory
     public static void checkDefaultDirectories()
     {
         if (!hasInitialized)
-            App.appEventsProperty.addEventListener(ApplicationEvent.WILL_CLOSE, event -> Platform.runLater(Directory::saveUserData));
+            App.addOnCloseHandler(() -> Platform.runLater(Directory::saveUserData));
         hasInitialized = true;
         File[] directories = new File[]{
                 ORBIT_PROJECTS,
@@ -65,14 +64,14 @@ public class Directory
         {
             List<URL> appThemeUrls = new ArrayList<>(Arrays.asList(
                     App.class.getClassLoader().getResource("css/Default.css"),
-                    App.class.getClassLoader().getResource("css/MaterialDark.css")));
+                    App.class.getClassLoader().getResource("css/app_themes/MaterialDark.css")));
             for (URL stylesheetUrl : appThemeUrls)
                 copyFilesToFolder(stylesheetUrl, APP_THEMES_FOLDER);
         }
         if (syntaxFiles == null || syntaxFiles.length <= 0)
         {
             List<URL> syntaxThemeUrls = new ArrayList<>(Arrays.asList(
-                    App.class.getClassLoader().getResource("css/MaterialDarkSyntax.css"),
+                    App.class.getClassLoader().getResource("css/syntax_themes/MaterialDarkSyntax.css"),
                     App.class.getClassLoader().getResource("css/DefaultSyntax.css")));
             for (URL stylesheetUrl : syntaxThemeUrls)
                 copyFilesToFolder(stylesheetUrl, SYNTAX_THEMES_FOLDER);

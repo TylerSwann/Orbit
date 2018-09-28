@@ -2,7 +2,6 @@ package io.orbit.controllers;
 
 import com.jfoenix.controls.JFXProgressBar;
 import io.orbit.App;
-import io.orbit.controllers.events.ApplicationEvent;
 import javafx.animation.PauseTransition;
 import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
@@ -10,14 +9,11 @@ import javafx.geometry.Rectangle2D;
 import javafx.scene.Scene;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.text.FontSmoothingType;
 import javafx.scene.text.Text;
-import javafx.scene.text.TextAlignment;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Duration;
-
 import java.io.IOException;
 import java.net.URL;
 import java.util.Arrays;
@@ -35,7 +31,7 @@ public class OSplashPageController
     private static OSplashPageController controller;
     public ImageView imageView;
 
-    public static void show()
+    public static void show(Runnable completion)
     {
         if (scene == null)
         {
@@ -56,7 +52,7 @@ public class OSplashPageController
         }
         stage.show();
         Platform.runLater(() -> controller.statusLabel.setText(""));
-        playAnimation();
+        playAnimation(completion);
     }
 
     public static void updateProgress(double progress, String message)
@@ -65,7 +61,7 @@ public class OSplashPageController
         controller.statusLabel.setText(message);
     }
 
-    private static void playAnimation()
+    private static void playAnimation(Runnable completion)
     {
         PauseTransition part1 = new PauseTransition();
         PauseTransition part2 = new PauseTransition();
@@ -91,8 +87,8 @@ public class OSplashPageController
                         part5.setOnFinished(event5 -> {
                             Platform.runLater(() -> OSplashPageController.updateProgress(1.0, "Done"));
                             OSplashPageController.close();
-                            App.appEventsProperty.fire(new ApplicationEvent(ApplicationEvent.WILL_LOAD));
-                            App.PRIMARY_STAGE.get().show();
+                            completion.run();
+                            App.stage().show();
                         });
                         part5.play();
                     });

@@ -2,7 +2,6 @@ package io.orbit;
 
 import io.orbit.api.text.CodeEditor;
 import io.orbit.controllers.*;
-import io.orbit.controllers.events.ApplicationEvent;
 import io.orbit.settings.LocalUser;
 import io.orbit.settings.ProjectFile;
 import io.orbit.util.FontLoader;
@@ -51,9 +50,9 @@ public class ApplicationController
 
     private void registerListeners()
     {
-        App.appEventsProperty.addEventListener(ApplicationEvent.WILL_LOAD, __ -> LanguageService.open(OEditorTabPaneController.ACTIVE_EDITOR_CONTROLLER, 1));
-        App.appEventsProperty.addEventListener(ApplicationEvent.WILL_CLOSE, __ -> {
-            Stage stage = App.PRIMARY_STAGE.get();
+        App.addWillLoadHandler(() -> LanguageService.open(OEditorTabPaneController.ACTIVE_EDITOR_CONTROLLER, 1));
+        App.addOnCloseHandler(() -> {
+            Stage stage = App.stage();
             Size windowSize = new Size(stage.getWidth(), stage.getHeight());
             LocalUser.userSettings.setWindowSize(windowSize);
         });

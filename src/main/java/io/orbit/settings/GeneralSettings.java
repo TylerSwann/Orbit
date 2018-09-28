@@ -1,9 +1,10 @@
 package io.orbit.settings;
 
 import com.jfoenix.controls.*;
-import io.orbit.App;
+import io.orbit.Themes;
 import io.orbit.util.SerializableFont;
 import io.orbit.util.Tuple;
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -13,7 +14,6 @@ import javafx.scene.input.KeyCombination;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.shape.Rectangle;
 import javafx.stage.WindowEvent;
 import javafx.util.StringConverter;
 import java.io.File;
@@ -61,11 +61,11 @@ public class GeneralSettings
     public void initialize()
     {
         this.hotKeys = LocalUser.userSettings.getHotKeys();
-        addHotKeyText();
+        buildHotKeys();
         loadUserSettings();
     }
 
-    private void addHotKeyText()
+    private void buildHotKeys()
     {
         cut.setText(this.hotKeys.getCut().getDisplayText());
         copy.setText(this.hotKeys.getCopy().getDisplayText());
@@ -78,6 +78,18 @@ public class GeneralSettings
         findReplace.setText(this.hotKeys.getFindReplace().getDisplayText());
         findInProject.setText(this.hotKeys.getFindInProject().getDisplayText());
         findReplaceInProject.setText(this.hotKeys.getFindReplaceInProject().getDisplayText());
+
+        this.hotKeyActions.put(this.cut, this.hotKeys::setCut);
+        this.hotKeyActions.put(this.copy, this.hotKeys::setCopy);
+        this.hotKeyActions.put(this.paste, this.hotKeys::setPaste);
+        this.hotKeyActions.put(this.undo, this.hotKeys::setUndo);
+        this.hotKeyActions.put(this.redo, this.hotKeys::setRedo);
+        this.hotKeyActions.put(this.save, this.hotKeys::setSave);
+        this.hotKeyActions.put(this.saveAll, this.hotKeys::setSaveAll);
+        this.hotKeyActions.put(this.find, this.hotKeys::setFind);
+        this.hotKeyActions.put(this.findReplace, this.hotKeys::setFindReplace);
+        this.hotKeyActions.put(this.findInProject, this.hotKeys::setFindInProject);
+        this.hotKeyActions.put(this.findReplaceInProject, this.hotKeys::setFindReplaceInProject);
     }
 
     private void loadUserSettings()
@@ -100,14 +112,8 @@ public class GeneralSettings
         ObservableList<Tuple<String, File>> appThemes = FXCollections.observableArrayList();
         ObservableList<Tuple<String, File>> syntaxThemes = FXCollections.observableArrayList();
         ObservableList<Tuple<String, SerializableFont>> fontFamilies = FXCollections.observableArrayList();
-//        File[] syntaxThemeFiles = Directory.SYNTAX_THEMES_FOLDER.listFiles();
-//        File[] appThemeFiles = Directory.APP_THEMES_FOLDER.listFiles();
-        File[] syntaxThemeFiles = new File(getClass().getClassLoader().getResource("css/Default.css").getFile()).getParentFile().listFiles();
-        File[] appThemeFiles = new File(getClass().getClassLoader().getResource("css/Default.css").getFile()).getParentFile().listFiles();
-        if (syntaxThemeFiles != null && syntaxThemeFiles.length > 0)
-            addFilesToList(syntaxThemeFiles, syntaxThemes);
-        if (appThemeFiles != null && appThemeFiles.length > 0)
-            addFilesToList(appThemeFiles, appThemes);
+        addFilesToList(new File[]{ Themes.MATERIAL_DARK, Themes.MATERIAL_LIGHT }, appThemes);
+        addFilesToList(new File[]{ Themes.MATERIAL_DARK_SYNTAX, Themes.MATERIAL_LIGHT_SYNTAX }, syntaxThemes);
         for (SerializableFont serializableFont : fonts)
             fontFamilies.add(new Tuple<>(serializableFont.getFamily(), serializableFont));
 
@@ -150,13 +156,16 @@ public class GeneralSettings
             listening = true;
             this.active = button;
         }));
-        this.root.sceneProperty().addListener(__ -> {
-            if (this.root.getScene() != null && this.root.getScene().getWindow() != null)
-                this.root.getScene().getWindow().addEventHandler(WindowEvent.WINDOW_CLOSE_REQUEST, e -> this.saveUserSettings());
+        Platform.runLater(() -> {
+            if (this.root.getScene() == null || this.root.getScene().getWindow() == null)
+                return;
+            this.root.getScene().getWindow().addEventHandler(WindowEvent.WINDOW_CLOSE_REQUEST, __ -> this.saveUserSettings());
         });
         this.fontSizeSlider.valueProperty().addListener(__ -> {
             int size = (int) this.fontSizeSlider.getValue();
             this.fontSizeField.setText(String.valueOf(size));
+            this.fontFamilyBox.getValue().second.setSize(this.fontSizeSlider.getValue());
+            Themes.setEditorFont(this.fontFamilyBox.getValue().second);
         });
         this.fontSizeField.textProperty().addListener((observable, oldValue, newValue) -> {
             if (oldValue.equals(newValue))
@@ -177,18 +186,6 @@ public class GeneralSettings
             this.fontSizeField.setText(String.valueOf(size));
             this.fontSizeSlider.setValue(size);
         });
-        this.hotKeyActions.put(this.cut, this.hotKeys::setCut);
-        this.hotKeyActions.put(this.copy, this.hotKeys::setCopy);
-        this.hotKeyActions.put(this.paste, this.hotKeys::setPaste);
-        this.hotKeyActions.put(this.undo, this.hotKeys::setUndo);
-        this.hotKeyActions.put(this.redo, this.hotKeys::setRedo);
-        this.hotKeyActions.put(this.save, this.hotKeys::setSave);
-        this.hotKeyActions.put(this.saveAll, this.hotKeys::setSaveAll);
-        this.hotKeyActions.put(this.find, this.hotKeys::setFind);
-        this.hotKeyActions.put(this.findReplace, this.hotKeys::setFindReplace);
-        this.hotKeyActions.put(this.findInProject, this.hotKeys::setFindInProject);
-        this.hotKeyActions.put(this.findReplaceInProject, this.hotKeys::setFindReplaceInProject);
-
         this.root.addEventFilter(KeyEvent.KEY_PRESSED, event -> {
             if (!listening)
                 return;
@@ -199,16 +196,22 @@ public class GeneralSettings
             this.hotKeyActions.get(this.active).accept(combination);
             listening = false;
         });
-
         appStyleBox.valueProperty().addListener((obs, oldV, newV) -> {
             if (oldV.second.equals(newV.second))
                 return;
-            App.setApplicationTheme(newV.second);
+            Themes.setApplicationTheme(newV.second);
         });
         syntaxStyleBox.valueProperty().addListener((obs, oldV, newV) -> {
             if (oldV.second.equals(newV.second))
                 return;
-            App.setSyntaxTheme(newV.second);
+            Themes.setSyntaxTheme(newV.second);
+        });
+        this.fontFamilyBox.valueProperty().addListener((obs, oldV, newV) -> {
+            if (oldV.second.equals(newV.second))
+                return;
+            SerializableFont font = newV.second;
+            font.setSize(this.fontSizeSlider.getValue());
+            Themes.setEditorFont(font);
         });
     }
 

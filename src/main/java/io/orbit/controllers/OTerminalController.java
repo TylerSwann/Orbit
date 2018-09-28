@@ -3,7 +3,6 @@ package io.orbit.controllers;
 import io.orbit.App;
 import io.orbit.ApplicationController;
 import io.orbit.settings.LocalUser;
-import io.orbit.controllers.events.ApplicationEvent;
 import io.orbit.controllers.events.MenuBarEvent;
 import io.orbit.ui.MUITerminalPane;
 import javafx.application.Platform;
@@ -26,7 +25,7 @@ public class OTerminalController
             Platform.runLater(() -> App.controller().getContentSplitPane().getItems().remove(container));
         else
             buildTerminal();
-        App.appEventsProperty.addEventListener(ApplicationEvent.WILL_CLOSE, event -> {
+        App.addOnCloseHandler(() -> {
             if (!LocalUser.userSettings.isTerminalClosed())
                 LocalUser.userSettings.setTerminalDividerPos(App.controller().getContentSplitPane().getDividerPositions()[0]);
         });

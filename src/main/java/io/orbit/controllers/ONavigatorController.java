@@ -2,7 +2,6 @@ package io.orbit.controllers;
 
 import io.orbit.App;
 import io.orbit.ApplicationController;
-import io.orbit.controllers.events.ApplicationEvent;
 import io.orbit.controllers.events.MenuBarEvent;
 import io.orbit.settings.LocalUser;
 import io.orbit.ui.navigator.NavigatorTabPane;
@@ -53,7 +52,7 @@ public class ONavigatorController
             Platform.runLater(() -> App.controller().getRootSplitPane().getItems().remove(container));
         else
             build();
-        App.appEventsProperty.addEventListener(ApplicationEvent.WILL_CLOSE, event -> {
+        App.addOnCloseHandler(() -> {
             if (!LocalUser.userSettings.isNavigatorClosed())
                 LocalUser.userSettings.setNavigatorDividerPos(App.controller().getRootSplitPane().getDividerPositions()[0]);
         });

@@ -92,16 +92,16 @@ public class ThemeSettingsPage
     {
         if (this.appThemeBox.getValue() != null)
         {
-            App.setApplicationTheme(this.appThemeBox.getValue().second);
+//            App.setApplicationTheme(this.appThemeBox.getValue().second);
         }
         if (this.syntaxThemeBox.getValue() != null)
         {
-            App.setSyntaxTheme(this.syntaxThemeBox.getValue().second);
+//            App.setSyntaxTheme(this.syntaxThemeBox.getValue().second);
         }
         if (this.fontFamilyBox.getValue() != null)
         {
             SerializableFont font = new SerializableFont(this.fontFamilyBox.getValue().second.getFamily(), this.fontSizeSlider.getValue());
-            App.setEditorFont(font);
+//            App.setEditorFont(font);
         }
         saveUserSettings();
         Platform.runLater(() -> this.onRequestClose.run());

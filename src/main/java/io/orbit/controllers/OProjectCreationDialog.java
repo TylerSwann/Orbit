@@ -2,6 +2,7 @@ package io.orbit.controllers;
 
 import com.jfoenix.controls.JFXButton;
 import io.orbit.App;
+import io.orbit.Themes;
 import io.orbit.settings.Directory;
 import io.orbit.api.Project;
 import io.orbit.api.SVGIcon;
@@ -48,7 +49,7 @@ public class OProjectCreationDialog
         {
             AnchorPane root = FXMLLoader.load(projectCreationFxml);
             Scene scene = new Scene(root, root.getPrefWidth(), root.getPrefHeight());
-            App.appTheme.sync(scene.getStylesheets());
+            Themes.sync(scene);
             Stage stage = new Stage(StageStyle.UTILITY);
             stage.setScene(scene);
             stage.setTitle("New Project");
