@@ -12,7 +12,6 @@ import io.orbit.ui.menubar.ApplicationMenuBar;
 import io.orbit.ui.menubar.SystemMenuBar;
 import io.orbit.util.OS;
 import io.orbit.util.EventTargetObject;
-import io.orbit.util.Setting;
 import javafx.application.Platform;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.DirectoryChooser;
@@ -197,7 +196,7 @@ public class OMenuBarController extends EventTargetObject
         if (root != null && root.exists() && root.isDirectory())
         {
             this.fireEvent(new MenuBarEvent(MenuBarEvent.OPEN_FOLDER, root));
-            LocalUser.userSettings.getLastModifiedProject().setProjectRoot(root);
+            LocalUser.settings.getLastModifiedProject().setProjectRoot(root);
         }
     }
 }

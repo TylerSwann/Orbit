@@ -22,7 +22,7 @@ public class ONavigatorController
 
     public ONavigatorController(AnchorPane container)
     {
-        this.root = LocalUser.userSettings.getLastModifiedProject().getProjectRoot();
+        this.root = LocalUser.settings.getLastModifiedProject().getProjectRoot();
         this.container = container;
         registerListeners();
     }
@@ -47,29 +47,29 @@ public class ONavigatorController
 
     private void registerListeners()
     {
-        boolean navigatorIsClosed = LocalUser.userSettings.isNavigatorClosed();
+        boolean navigatorIsClosed = LocalUser.settings.isNavigatorClosed();
         if (navigatorIsClosed)
             Platform.runLater(() -> App.controller().getRootSplitPane().getItems().remove(container));
         else
             build();
         App.addOnCloseHandler(() -> {
-            if (!LocalUser.userSettings.isNavigatorClosed())
-                LocalUser.userSettings.setNavigatorDividerPos(App.controller().getRootSplitPane().getDividerPositions()[0]);
+            if (!LocalUser.settings.isNavigatorClosed())
+                LocalUser.settings.setNavigatorDividerPos(App.controller().getRootSplitPane().getDividerPositions()[0]);
         });
         Platform.runLater(() -> App.controller().getMenuBarController().addEventHandler(MenuBarEvent.VIEW_NAVIGATOR, event -> toggleNavigator()));
     }
 
     public void toggleNavigator()
     {
-        boolean navigatorIsClosed = LocalUser.userSettings.isNavigatorClosed();
-        LocalUser.userSettings.setNavigatorClosed(!navigatorIsClosed);
+        boolean navigatorIsClosed = LocalUser.settings.isNavigatorClosed();
+        LocalUser.settings.setNavigatorClosed(!navigatorIsClosed);
         ApplicationController controller = App.controller();
         if (navigatorIsClosed)
         {
             controller.getRootSplitPane().getItems().add(0, this.container);
             if (this.navigator == null)
                 build();
-            controller.getRootSplitPane().setDividerPosition(0, LocalUser.userSettings.getNavigatorDividerPos());
+            controller.getRootSplitPane().setDividerPosition(0, LocalUser.settings.getNavigatorDividerPos());
         }
         else
             controller.getRootSplitPane().getItems().remove(this.container);
@@ -86,14 +86,14 @@ public class ONavigatorController
         container.getChildren().add(navigator);
         Platform.runLater(() -> {
             ApplicationController controller = App.controller();
-            controller.getRootSplitPane().setDividerPosition(0, LocalUser.userSettings.getNavigatorDividerPos());
+            controller.getRootSplitPane().setDividerPosition(0, LocalUser.settings.getNavigatorDividerPos());
             controller.getRootSplitPane()
                     .getDividers()
                     .get(0)
                     .positionProperty()
                     .addListener(event -> {
                         if (controller.getRootSplitPane().getDividers().size() > 0)
-                            LocalUser.userSettings.setNavigatorDividerPos(controller.getRootSplitPane().getDividerPositions()[0]);
+                            LocalUser.settings.setNavigatorDividerPos(controller.getRootSplitPane().getDividerPositions()[0]);
                     });
         });
     }

@@ -8,8 +8,6 @@ import io.orbit.ui.contextmenu.MUIMenuItem;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.ContentDisplay;
-import javafx.scene.effect.BoxBlur;
-import javafx.scene.effect.GaussianBlur;
 import org.kordamp.ikonli.fontawesome5.FontAwesomeRegular;
 import org.kordamp.ikonli.fontawesome5.FontAwesomeSolid;
 import java.util.Arrays;
@@ -160,8 +158,8 @@ public class ApplicationMenuBar extends MUIMenuBar implements SystemMenuBar
                 navigator.getGraphic().setOpacity(0.0);
             this.onViewNavigator.handle(event);
         });
-        terminal.getGraphic().setOpacity((LocalUser.userSettings.isTerminalClosed() ? 0.0 : 1.0));
-        navigator.getGraphic().setOpacity((LocalUser.userSettings.isNavigatorClosed() ? 0.0 : 1.0));
+        terminal.getGraphic().setOpacity((LocalUser.settings.isTerminalClosed() ? 0.0 : 1.0));
+        navigator.getGraphic().setOpacity((LocalUser.settings.isNavigatorClosed() ? 0.0 : 1.0));
 
         MUIContextMenu menu = new MUIContextMenu(this);
         menu.getItems().addAll(Arrays.asList(

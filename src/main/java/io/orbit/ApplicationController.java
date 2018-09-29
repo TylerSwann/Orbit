@@ -54,7 +54,7 @@ public class ApplicationController
         App.addOnCloseHandler(() -> {
             Stage stage = App.stage();
             Size windowSize = new Size(stage.getWidth(), stage.getHeight());
-            LocalUser.userSettings.setWindowSize(windowSize);
+            LocalUser.settings.setWindowSize(windowSize);
         });
     }
 

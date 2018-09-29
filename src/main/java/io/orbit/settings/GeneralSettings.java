@@ -60,7 +60,7 @@ public class GeneralSettings
 
     public void initialize()
     {
-        this.hotKeys = LocalUser.userSettings.getHotKeys();
+        this.hotKeys = LocalUser.settings.getHotKeys();
         buildHotKeys();
         loadUserSettings();
     }
@@ -94,7 +94,7 @@ public class GeneralSettings
 
     private void loadUserSettings()
     {
-        UserSetting settings = LocalUser.userSettings;
+        UserSetting settings = LocalUser.settings;
         if (settings == null)
             return;
         File appTheme = settings.getThemeFile();
@@ -144,7 +144,10 @@ public class GeneralSettings
     }
     private void saveUserSettings()
     {
-
+        UserSetting settings = LocalUser.settings;
+        settings.setThemeFile(this.appStyleBox.getValue().second);
+        settings.setSyntaxThemeFile(this.syntaxStyleBox.getValue().second);
+        settings.setEditorFont(new SerializableFont(this.fontFamilyBox.getValue().second.getFamily(), this.fontSizeSlider.getValue()));
     }
 
     private void registerListeners()

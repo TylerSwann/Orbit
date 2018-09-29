@@ -68,7 +68,7 @@ public class OEditorTabPaneController
     private void loadUserSettings()
     {
         Platform.runLater(() -> {
-            ProjectData lastModified = LocalUser.userSettings.getLastModifiedProject();
+            ProjectData lastModified = LocalUser.settings.getLastModifiedProject();
             File lastOpenedFile = lastModified.getOpenFile();
             if (lastModified.getOpenEditors() != null)
             {
@@ -91,8 +91,8 @@ public class OEditorTabPaneController
 
     private void saveUserSettings()
     {
-        LocalUser.userSettings.getLastModifiedProject().setOpenEditors(this.editorPane.getFiles());
+        LocalUser.settings.getLastModifiedProject().setOpenEditors(this.editorPane.getFiles());
         if (this.editorPane.getActiveTab() != null)
-            LocalUser.userSettings.getLastModifiedProject().setOpenFile(this.editorPane.getActiveTab().getFile());
+            LocalUser.settings.getLastModifiedProject().setOpenFile(this.editorPane.getActiveTab().getFile());
     }
 }

@@ -38,12 +38,12 @@ public class AppStage
     {
         Directory.checkDefaultDirectories();
         if (!Directory.USER_SETTINGS.exists())
-            LocalUser.userSettings = UserSetting.DEFAULT_SETTINGS;
+            LocalUser.settings = UserSetting.DEFAULT_SETTINGS;
         else
         {
 
             UserSetting userSetting = JSON.loadFromFile(UserSetting.class, Directory.USER_SETTINGS);
-            LocalUser.userSettings = userSetting;
+            LocalUser.settings = userSetting;
             if (userSetting.getLastModifiedProject() != null)
                 LocalUser.project = userSetting.getLastModifiedProject();
         }
@@ -52,8 +52,8 @@ public class AppStage
     private static void applySettings()
     {
         AnchorPane root = null;
-        double width = LocalUser.userSettings.getWindowSize().getWidth();
-        double height = LocalUser.userSettings.getWindowSize().getHeight();
+        double width = LocalUser.settings.getWindowSize().getWidth();
+        double height = LocalUser.settings.getWindowSize().getHeight();
         Rectangle2D screenSize = Screen.getPrimary().getVisualBounds();
         if (width >= screenSize.getWidth() && height >= screenSize.getHeight())
             stage.setMaximized(true);

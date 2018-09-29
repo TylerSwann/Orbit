@@ -1,7 +1,6 @@
 package io.orbit.settings;
 
 
-import io.orbit.App;
 import io.orbit.Themes;
 
 /**
@@ -10,18 +9,18 @@ import io.orbit.Themes;
 public class LocalUser
 {
     public static ProjectData project;
-    public static UserSetting userSettings;
+    public static UserSetting settings;
 
     public static void applySettings()
     {
-        if (userSettings == null)
+        if (settings == null)
             return;
-        if (userSettings.getThemeFile() != null)
-            Themes.setApplicationTheme(userSettings.getThemeFile());
-        if (userSettings.getSyntaxThemeFile() != null)
-            Themes.setSyntaxTheme(userSettings.getSyntaxThemeFile());
-        if (userSettings.getEditorFont() != null)
-            Themes.setEditorFont(userSettings.getEditorFont());
+        if (settings.getThemeFile() != null)
+            Themes.setApplicationTheme(settings.getThemeFile());
+        if (settings.getSyntaxThemeFile() != null)
+            Themes.setSyntaxTheme(settings.getSyntaxThemeFile());
+        if (settings.getEditorFont() != null)
+            Themes.setEditorFont(settings.getEditorFont());
     }
 
     private LocalUser() { }

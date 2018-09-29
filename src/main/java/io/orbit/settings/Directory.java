@@ -93,9 +93,9 @@ public class Directory
     private static void saveUserData()
     {
         UserSetting userSettings;
-        if (LocalUser.userSettings != null)
+        if (LocalUser.settings != null)
         {
-            userSettings = LocalUser.userSettings;
+            userSettings = LocalUser.settings;
             JSON.writeToFile(userSettings, USER_SETTINGS);
         }
     }

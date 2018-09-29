@@ -52,7 +52,7 @@ public class OCodeEditorController
 
     private void addHotKeyEvents()
     {
-        HotKeys hotKeys = LocalUser.userSettings.getHotKeys();
+        HotKeys hotKeys = LocalUser.settings.getHotKeys();
         this.editor.addEventHandler(KeyEvent.KEY_PRESSED, event -> {
             if (hotKeys.getCut().match(event))
                 this.editor.fireEvent(new CodeEditorEvent(CodeEditorEvent.CUT, this.editor.getFile()));

@@ -83,7 +83,7 @@ public class OProjectViewController
 
     private void copyRelativePath(FileTreeMenuEvent event)
     {
-        File root = LocalUser.userSettings.getLastModifiedProject().getProjectRoot();
+        File root = LocalUser.settings.getLastModifiedProject().getProjectRoot();
         StringBuffer buffer = new StringBuffer("");
 
         event.getSelectedFiles().forEach(file -> {
