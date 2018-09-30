@@ -55,3 +55,15 @@ area|base|br|col|command|embed|hr|img|input|keygen|link|menuitem|meta|param|sour
 (?<OPENTAG>((<)(?!(input|link))[a-zA-Z0-9]+[\\sa-zA-Z0-9=\":/.-]*>)).*(?<CLOSETAG>(</[a-zA-Z0-9\-]+>))
 
 
+FindAndReplace.java
+65Hyperlink.htm
+HyperlindfkButton.css
+5La5nguage Icons.js
+MUIGutterButton.html
+MUIIconButt567on.java
+MUIStepDialog.html
+MUIStepDialogEvent.java
+MUITerminalPane
+MUITreeItem
+MUITreeTableView
+NewProjectStep

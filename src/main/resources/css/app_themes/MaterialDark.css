@@ -510,7 +510,6 @@
     -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.6), 15.0, 0.0, 1.5, 2.0);
     -fx-background-color: -color-medium-grey;
     -fx-background-radius: 3px;
-    -fx-pref-width: 140.0;
 }
 
 .editor-context-menu.mui-context-menu .mui-context-item
@@ -520,7 +519,6 @@
     -fx-font-size: 14px;
     -fx-font-family: "Roboto Medium";
     -fx-padding: 10px 15px;
-    -fx-pref-width: 140.0;
 }
 .editor-context-menu.mui-context-menu .mui-context-item .ikonli-font-icon
 {
@@ -549,7 +547,6 @@
     -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.6), 15.0, 0.0, 1.5, 2.0);
     -fx-background-color: -color-medium-grey;
     -fx-background-radius: 3px;
-    -fx-pref-width: 175.0;
 }
 
 
@@ -561,7 +558,6 @@
     -fx-font-size: 14px;
     -fx-font-family: "Roboto Medium";
     -fx-padding: 10px 15px;
-    -fx-pref-width: 175.0;
 }
 .navigator-context-menu.mui-context-menu .mui-context-item .ikonli-font-icon
 {
@@ -577,11 +573,6 @@
 .navigator-context-menu.mui-context-menu .mui-context-item.mui-menu .ikonli-font-icon
 {
     -fx-translate-x: 100px;
-}
-
-.navigator-context-menu.mui-sub-menu
-{
-    -fx-pref-width: 120.0;
 }
 
 
@@ -603,7 +594,6 @@
     -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.6), 15.0, 0.0, 1.5, 2.0);
     -fx-background-color: -color-medium-grey;
     -fx-background-radius: 3px;
-    -fx-pref-width: 140.0;
 }
 
 
@@ -614,7 +604,6 @@
     -fx-font-size: 14px;
     -fx-font-family: "Roboto Medium";
     -fx-padding: 10px 0px 10px 15px;
-    -fx-pref-width: 175.0;
 }
 .editor-tab-menu.mui-context-menu .mui-context-item .ikonli-font-icon
 {
@@ -627,11 +616,6 @@
 {
     -fx-background-color: #494e55;
 }
-.editor-tab-menu.mui-context-menu .mui-context-item .ikonli-font-icon
-{
-    /*-fx-translate-x: -10px;*/
-}
-
 
 /*******************************************************************************
  *                                                                             *
@@ -644,13 +628,6 @@
     -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.6), 15.0, 0.0, 1.5, 2.0);
     -fx-background-color: -color-medium-grey;
     -fx-background-radius: 3px;
-    -fx-pref-width: 140.0;
-}
-
-
-.application-context-menu .mui-context-item
-{
-    -fx-pref-width: 140.0;
 }
 
 .mui-menu-bar .mui-context-item,
@@ -679,10 +656,7 @@
 
 .mui-menu-bar .right .mui-context-item
 {
-    /*-fx-padding: 8px 10px;*/
     -fx-background-radius: 50%;
-    /*-fx-padding: 10px 11px;*/
-    -fx-pref-width: 33px;
     -fx-pref-height: 33px;
     -fx-padding: 7px 0px;
     -fx-alignment: center;
@@ -780,11 +754,6 @@
  *                                                                             *
  ******************************************************************************/
 
-.editor-tab-pane
-{
-    /* Background of tab bar */
-    /*-fx-background-color: -color-grey;*/
-}
 .editor-tab-pane.mui-tab-pane  .mui-tab-bar
 {
     /* Background of the tabs */
@@ -865,8 +834,6 @@
 
 .mui-color-picker .mui-picker-button
 {
-    /*-fx-font-family: "Roboto Black", sans-serif;*/
-    /*-fx-font-size: 14px;*/
     -fx-text-fill: -fx-off-white;
     -fx-font: 13.0 "Roboto Black";
 }

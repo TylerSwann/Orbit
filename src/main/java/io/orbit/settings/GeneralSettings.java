@@ -19,6 +19,7 @@ import javafx.util.StringConverter;
 import java.io.File;
 import java.util.*;
 import java.util.function.Consumer;
+import java.util.stream.Collectors;
 
 /**
  * Created by Tyler Swann on Thursday September 20, 2018 at 19:45
@@ -51,7 +52,6 @@ public class GeneralSettings
     @FXML private JFXButton editAppStyle;
     @FXML private JFXComboBox<Tuple<String, File>> appStyleBox;
 
-    private SerializableFont[] fonts;
     private AnchorPane root;
     private HotKeys hotKeys;
     private boolean listening = false;
@@ -99,21 +99,27 @@ public class GeneralSettings
             return;
         File appTheme = settings.getThemeFile();
         File syntaxTheme = settings.getSyntaxThemeFile();
-        SerializableFont font = settings.getEditorFont();
-        File[] fontFiles = Directory.FONTS_FOLDER.listFiles();
+        SerializableFont editorFont = settings.getEditorFont();
+        ArrayList<File> fontFiles = new ArrayList<>(Arrays.asList(Directory.APP_FONTS.listFiles()));
+        fontFiles.addAll(Arrays.asList(Directory.USER_FONTS.listFiles()));
+        fontFiles = fontFiles.stream().filter(fontFile -> !fontFile.isDirectory() && fontFile != null).collect(Collectors.toCollection(ArrayList::new));
+
+        SerializableFont[] fonts;
         if (fontFiles == null)
             fonts = new SerializableFont[0];
         else
         {
-            fonts = new SerializableFont[fontFiles.length];
-            for (int i = 0; i < fontFiles.length; i++)
-                fonts[i] = SerializableFont.fromFile(fontFiles[i]);
+            fonts = new SerializableFont[fontFiles.size()];
+            for (int i = 0; i < fontFiles.size(); i++)
+                fonts[i] = SerializableFont.fromFile(fontFiles.get(i));
         }
         ObservableList<Tuple<String, File>> appThemes = FXCollections.observableArrayList();
         ObservableList<Tuple<String, File>> syntaxThemes = FXCollections.observableArrayList();
         ObservableList<Tuple<String, SerializableFont>> fontFamilies = FXCollections.observableArrayList();
         addFilesToList(new File[]{ Themes.MATERIAL_DARK, Themes.MATERIAL_LIGHT }, appThemes);
+        addFilesToList(Directory.USER_APP_THEMES.listFiles(), appThemes);
         addFilesToList(new File[]{ Themes.MATERIAL_DARK_SYNTAX, Themes.MATERIAL_LIGHT_SYNTAX }, syntaxThemes);
+        addFilesToList(Directory.USER_SYNTAX_THEMES.listFiles(), syntaxThemes);
         for (SerializableFont serializableFont : fonts)
             fontFamilies.add(new Tuple<>(serializableFont.getFamily(), serializableFont));
 
@@ -134,11 +140,11 @@ public class GeneralSettings
                 this.syntaxStyleBox.setValue(item);
         });
         this.fontFamilyBox.getItems().forEach(item -> {
-            if (item.second.getFamily().equals(font.getFamily()))
+            if (item.second.getFamily().equals(editorFont.getFamily()))
             {
                 this.fontFamilyBox.setValue(item);
-                this.fontSizeSlider.setValue(font.getSize());
-                this.fontSizeField.setText(String.valueOf(font.getSize()));
+                this.fontSizeSlider.setValue(editorFont.getSize());
+                this.fontSizeField.setText(String.valueOf(editorFont.getSize()));
             }
         });
     }
@@ -148,6 +154,7 @@ public class GeneralSettings
         settings.setThemeFile(this.appStyleBox.getValue().second);
         settings.setSyntaxThemeFile(this.syntaxStyleBox.getValue().second);
         settings.setEditorFont(new SerializableFont(this.fontFamilyBox.getValue().second.getFamily(), this.fontSizeSlider.getValue()));
+        settings.setHotKeys(this.hotKeys);
     }
 
     private void registerListeners()

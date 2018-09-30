@@ -10,7 +10,7 @@ import java.util.List;
 /**
  * Created by Tyler Swann on Friday March 09, 2018 at 15:51
  *
- * This class handles loading plugins.
+ * This class handles loading PLUGINS.
  * PluginDispatch provides plugin-defined ui elements to the Controllers as well
  * as invokes various event methods defined in the PluginController interface
  */
@@ -18,15 +18,10 @@ public final class PluginDispatch
 {
     private PluginDispatch() { }
 
-    public static final List<PluginController> plugins;
+    public static final List<PluginController> PLUGINS = new ArrayList<>();
+    public static final List<FileType> FILE_TYPES = new ArrayList<>();
     private static boolean hasOpened = false;
 
-    static {
-        // Later these will be read from jar files stored in the users .Orbit folder
-        plugins = new ArrayList<>();
-        plugins.add(new WebToolsController());
-        plugins.add(new PlainTextController());
-    }
 
     public static void open()
     {
@@ -34,12 +29,17 @@ public final class PluginDispatch
         if (hasOpened)
             throw new RuntimeException("PluginDispatch cannot be opened more than once!!");
         hasOpened = true;
+
+        // Later these will be read from jar files stored in the users .Orbit folder
+        PLUGINS.add(new WebToolsController());
+        PLUGINS.add(new PlainTextController());
+        PLUGINS.forEach(plugin -> FILE_TYPES.addAll(plugin.getFileTypes()));
     }
 
     public static List<PluginController> controllersForFileType(String extension)
     {
         List<PluginController> validPlugins = new ArrayList<>();
-        for (PluginController plugin : plugins)
+        for (PluginController plugin : PLUGINS)
         {
             List<FileType> types = plugin.getFileTypes();
             for (FileType type : types)

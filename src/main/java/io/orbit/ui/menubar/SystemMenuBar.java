@@ -1,13 +1,16 @@
 package io.orbit.ui.menubar;
 
+import io.orbit.api.text.FileType;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
 
+import java.util.function.BiConsumer;
+
 /**
  * Created by Tyler Swann on Sunday July 15, 2018 at 15:15
  */
-public interface SystemMenuBar
+public interface SystemMenuBar<T>
 {
     void setOnViewTerminal(EventHandler<ActionEvent> handler);
     void setOnViewNavigator(EventHandler<ActionEvent> handler);
@@ -26,5 +29,11 @@ public interface SystemMenuBar
     void setOnPaste(EventHandler<ActionEvent> handler);
     void setOnFind(EventHandler<ActionEvent> handler);
     void setOnSelectAll(EventHandler<ActionEvent> handler);
+    void setOnNewCustomFileType(BiConsumer<ActionEvent, FileType> handler);
+
+    T getFileMenu();
+    T getEditMenu();
+    T getViewMenu();
+
     Scene getScene();
 }

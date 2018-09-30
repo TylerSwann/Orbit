@@ -4,22 +4,27 @@ import io.orbit.App;
 import io.orbit.api.event.CodeEditorEvent;
 import io.orbit.api.notification.Notifications;
 import io.orbit.api.notification.modal.MUIInputModal;
+import io.orbit.api.notification.modal.MUIModal;
 import io.orbit.api.notification.modal.MUIModalButton;
 import io.orbit.api.text.CodeEditor;
+import io.orbit.api.text.FileType;
 import io.orbit.controllers.events.MenuBarEvent;
 import io.orbit.settings.*;
 import io.orbit.ui.menubar.ApplicationMenuBar;
 import io.orbit.ui.menubar.SystemMenuBar;
 import io.orbit.util.OS;
 import io.orbit.util.EventTargetObject;
+import io.orbit.util.Tuple;
 import javafx.application.Platform;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.DirectoryChooser;
 import javafx.stage.FileChooser;
-
 import java.io.File;
 import java.io.IOException;
 import java.util.Optional;
+import java.util.function.BiConsumer;
 
 /**
  * Created by Tyler Swann on Sunday July 15, 2018 at 15:39
@@ -28,7 +33,7 @@ public class OMenuBarController extends EventTargetObject
 {
     private SystemMenuBar menuBar;
     private Optional<CodeEditor> activeEditor;
-    private SettingsWindow settingsWindow;
+
 
     public OMenuBarController(AnchorPane container)
     {
@@ -73,6 +78,7 @@ public class OMenuBarController extends EventTargetObject
         this.menuBar.setOnPaste(__ -> this.fireEvent(new MenuBarEvent(this, this, MenuBarEvent.PASTE)));
         this.menuBar.setOnFind(__ -> this.fireEvent(new MenuBarEvent(this, this, MenuBarEvent.FIND)));
         this.menuBar.setOnSelectAll(__ -> this.fireEvent(new MenuBarEvent(this, this, MenuBarEvent.SELECT_ALL)));
+        this.menuBar.setOnNewCustomFileType((e, fileType) -> this.fireEvent(new MenuBarEvent(MenuBarEvent.NEW_CUSTOM_FILE_TYPE, ((FileType)fileType))));
     }
 
     private void registerListeners()
@@ -87,7 +93,7 @@ public class OMenuBarController extends EventTargetObject
         this.addEventHandler(MenuBarEvent.FIND, event -> this.showFindAndReplaceDialog());
         this.addEventHandler(MenuBarEvent.SAVE, this::saveFile);
         this.addEventHandler(MenuBarEvent.SAVE_ALL, event -> this.saveAll());
-        this.addEventHandler(MenuBarEvent.SETTINGS, event -> Platform.runLater(this::showSettingsPage));
+        this.addEventHandler(MenuBarEvent.SETTINGS, event -> Platform.runLater(SettingsPage::show));
         this.addEventHandler(MenuBarEvent.NEW_PROJECT, event -> Platform.runLater(OProjectCreationDialog::show));
         this.addEventHandler(MenuBarEvent.OPEN_FILE, event -> this.showFileChooserDialog());
         this.addEventHandler(MenuBarEvent.OPEN_FOLDER, event -> this.showFolderChooseDialog());
@@ -96,42 +102,42 @@ public class OMenuBarController extends EventTargetObject
         this.addEventHandler(MenuBarEvent.CUT, __ -> activeEditor.ifPresent(CodeEditor::cut));
         this.addEventHandler(MenuBarEvent.COPY, __ -> activeEditor.ifPresent(CodeEditor::copy));
         this.addEventHandler(MenuBarEvent.PASTE, __ -> activeEditor.ifPresent(CodeEditor::paste));
+        this.addEventHandler(MenuBarEvent.NEW_CUSTOM_FILE_TYPE, event -> event.getFileType().ifPresent(this::showFileCreationDialog));
+    }
+
+    private void showFileCreationDialog(FileType fileType)
+    {
+        BiConsumer<ActionEvent, String> onCreate = (event, text) -> {
+            String fileName = text == null ? "" : text;
+            if (!fileName.equals("") && !fileName.matches("^[\\w _-]+\\.\\w+$"))
+                fileName = String.format("%s.%s", fileName, fileType.getExtension());
+            else
+            {
+                String[] pieces = fileName.split("\\.");
+                String extension;
+                if (pieces.length >= 2)
+                {
+                    extension = pieces[1];
+                    if (!extension.equals(fileType.getExtension()))
+                        fileName = String.format("%s.%s", fileName, fileType.getExtension());
+                }
+            }
+            Tuple<Boolean, File> result = validateAndCreateFile(false, fileName);
+            if (result.first)
+                fileType.getOnCreate().accept(result.second);
+        };
+
+        showCreationDialog(String.format("New %s", fileType.getDisplayText()), "Name: ", onCreate);
     }
 
     private void showFileCreationDialog(boolean directory)
     {
         String type = directory ? "directory" : "file";
-        MUIModalButton cancel = new MUIModalButton("CANCEL", MUIModalButton.MUIModalButtonStyle.SECONDARY);
-        MUIModalButton create = new MUIModalButton("CREATE", MUIModalButton.MUIModalButtonStyle.PRIMARY);
-        MUIInputModal modal = new MUIInputModal(String.format("Create %s", type), String.format("Enter a new %s name:", type), cancel, create);
-        Notifications.showModal(modal);
-        create.setOnAction(__ -> {
-            String fileName = modal.getText() == null ? "" : modal.getText();
-            File file = new File(String.format("%s\\%s", LocalUser.project.getProjectRoot().getPath(), fileName));
-            if (fileName.equals("")|| !fileName.matches("^[\\w\\-.]+$"))
-                Notifications.showErrorAlert("ERROR", String.format("Sorry, that is not a valid %s name.", type));
-            else if (file.exists())
-                Notifications.showErrorAlert("ERROR", String.format("Sorry, that %s already exists!", type));
-            else
-            {
-                boolean hasError;
-                try
-                {
-                    if (!directory)
-                        hasError = !file.createNewFile();
-                    else
-                        hasError = !file.mkdir();
-                    App.controller().getProjectNavigatorController().forceRefresh();
-                }
-                catch (IOException ex)
-                {
-                    hasError = true;
-                    ex.printStackTrace();
-                }
-                if (hasError)
-                    Notifications.showErrorAlert("ERROR", String.format("Sorry, we ran into a problem and were unable to create that %s.", type));
-            }
-        });
+        BiConsumer<ActionEvent, String> onCreate = (event, text) -> {
+            String fileName = text == null ? "" : text;
+            validateAndCreateFile(directory, fileName);
+        };
+        showCreationDialog(String.format("Create %s", type), String.format("Enter a new %s name:", type), onCreate);
     }
 
     private void saveFile(MenuBarEvent event)
@@ -165,21 +171,6 @@ public class OMenuBarController extends EventTargetObject
         editor.fireEvent(new CodeEditorEvent(CodeEditorEvent.FIND, editor.getFile()));
     }
 
-    private void showSettingsPage()
-    {
-////        // TODO - update to new OEditorController
-//        if (settingsWindow != null)
-//            return;
-//        Setting themeAndFonts = new Setting("Themes and Fonts", ThemeSettingsPage.load());
-//        Setting editorSettings = new Setting("Editor", new Setting[] { new Setting("Key Bindings", KeyBindingsPageController.load()) });
-//        settingsWindow = new SettingsWindow(new Setting[]{ themeAndFonts, editorSettings });
-////        ThemeSettingsPage.CONTROLLER.setOnEditSyntaxTheme(file -> App.controller().getTabPaneController().openNonProjectFile(file, UnownedProjectFile.UnownedProjectFileMode.EDIT_SYNTAX_THEME));
-////        ThemeSettingsPage.CONTROLLER.setOnEditUITheme(file -> App.controller().getTabPaneController().openNonProjectFile(file, UnownedProjectFile.UnownedProjectFileMode.EDIT_UI_THEME));
-//        settingsWindow.setOnCloseRequest(event -> settingsWindow = null);
-//        settingsWindow.show();
-        SettingsPage.show();
-    }
-
     private void showFileChooserDialog()
     {
         FileChooser chooser = new FileChooser();
@@ -198,5 +189,51 @@ public class OMenuBarController extends EventTargetObject
             this.fireEvent(new MenuBarEvent(MenuBarEvent.OPEN_FOLDER, root));
             LocalUser.settings.getLastModifiedProject().setProjectRoot(root);
         }
+    }
+
+    private Tuple<Boolean, File> validateAndCreateFile(boolean directory, String fileName)
+    {
+        String type = directory ? "directory" : "file";
+        boolean hasError;
+        final File file = new File(String.format("%s\\%s", LocalUser.project.getProjectRoot().getPath(), fileName));
+        if (fileName.equals("")|| !fileName.matches("^[\\w\\-.]+$"))
+        {
+            Notifications.showErrorAlert("ERROR", String.format("Sorry, that is not a valid %s name.", type));
+            hasError = true;
+        }
+        else if (file.exists())
+        {
+            Notifications.showErrorAlert("ERROR", String.format("Sorry, that %s already exists!", type));
+            hasError = true;
+        }
+        else
+        {
+
+            try
+            {
+                if (!directory)
+                    hasError = !file.createNewFile();
+                else
+                    hasError = !file.mkdir();
+                App.controller().getProjectNavigatorController().forceRefresh();
+            }
+            catch (IOException ex)
+            {
+                hasError = true;
+                ex.printStackTrace();
+            }
+            if (hasError)
+                Notifications.showErrorAlert("ERROR", String.format("Sorry, we ran into a problem and were unable to create that %s.", type));
+        }
+        return new Tuple<>(hasError, file);
+    }
+
+    private void showCreationDialog(String title, String message, BiConsumer<ActionEvent, String> onCreate)
+    {
+        MUIModalButton cancel = new MUIModalButton("CANCEL", MUIModalButton.MUIModalButtonStyle.SECONDARY);
+        MUIModalButton create = new MUIModalButton("CREATE", MUIModalButton.MUIModalButtonStyle.PRIMARY);
+        MUIInputModal modal = new MUIInputModal(title, message, cancel, create);
+        Notifications.showModal(modal);
+        create.setOnAction(event -> onCreate.accept(event, modal.getText()));
     }
 }

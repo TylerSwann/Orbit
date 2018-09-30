@@ -1,6 +1,7 @@
 package io.orbit.controllers.events;
 
 import io.orbit.api.text.CodeEditor;
+import io.orbit.api.text.FileType;
 import javafx.event.Event;
 import javafx.event.EventTarget;
 import javafx.event.EventType;
@@ -19,6 +20,7 @@ public class MenuBarEvent extends Event
 
     // File Menu
     public static final EventType<MenuBarEvent> NEW_FILE = new EventType<>(Event.ANY, "NEW_FILE");
+    public static final EventType<MenuBarEvent> NEW_CUSTOM_FILE_TYPE = new EventType<>(Event.ANY, "NEW_CUSTOM_FILE_TYPE");
     public static final EventType<MenuBarEvent> NEW_FOLDER = new EventType<>(Event.ANY, "NEW_FOLDER");
     public static final EventType<MenuBarEvent> NEW_PROJECT = new EventType<>(Event.ANY, "NEW_PROJECT");
     public static final EventType<MenuBarEvent> SAVE = new EventType<>(Event.ANY, "SAVE");
@@ -46,10 +48,17 @@ public class MenuBarEvent extends Event
 
     private Optional<File> selectedFile = Optional.empty();
     private Optional<CodeEditor> targetEditor;
+    private Optional<FileType> fileType;
 
     public MenuBarEvent(Object source, EventTarget target, EventType<? extends Event> eventType)
     {
         super(source, target, eventType);
+    }
+
+    public MenuBarEvent(EventType<? extends Event> eventType, FileType fileType)
+    {
+        super(eventType);
+        this.fileType = Optional.of(fileType);
     }
 
     public MenuBarEvent(EventType<? extends Event> eventType, CodeEditor targetEditor)
@@ -72,5 +81,6 @@ public class MenuBarEvent extends Event
 
     public Optional<CodeEditor> getTargetEditor() { return targetEditor; }
     public Optional<File> getSelectedFile() { return selectedFile; }
+    public Optional<FileType> getFileType() { return fileType; }
 }
 

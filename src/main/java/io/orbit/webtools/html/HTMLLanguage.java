@@ -5,6 +5,7 @@ import io.orbit.api.SVGIcon;
 import io.orbit.api.highlighting.RegexSyntaxHighlighter;
 import io.orbit.api.highlighting.SyntaxHighlighter;
 import io.orbit.api.text.FileType;
+import io.orbit.webtools.WebToolsController;
 import org.kordamp.ikonli.fontawesome5.FontAwesomeBrands;
 import org.kordamp.ikonli.fontawesome5.FontAwesomeSolid;
 
@@ -22,6 +23,6 @@ public class HTMLLanguage implements LanguageDelegate
     @Override
     public FileType getFileNameExtension()
     {
-        return new FileType("html", "text/html", new SVGIcon(FontAwesomeBrands.HTML5));
+        return WebToolsController.HTML_FILE();
     }
 }

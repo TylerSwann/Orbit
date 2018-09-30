@@ -9,6 +9,8 @@ import io.orbit.api.highlighting.SyntaxHighlighter;
 import io.orbit.api.text.FileType;
 import org.kordamp.ikonli.fontawesome5.FontAwesomeSolid;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.regex.Pattern;
@@ -18,6 +20,12 @@ import java.util.regex.Pattern;
  */
 public class PlainText implements LanguageDelegate
 {
+    private static final FileType TEXT_FILE;
+
+    static {
+        TEXT_FILE = new FileType("txt", "text", "Text File", new SVGIcon(FontAwesomeSolid.FILE_ALT), PlainText::createTextFile);
+    }
+
     @Override
     public SyntaxHighlighter getSyntaxHighlighter()
     {
@@ -27,8 +35,18 @@ public class PlainText implements LanguageDelegate
     }
 
     @Override
-    public FileType getFileNameExtension()
+    public FileType getFileNameExtension() { return TEXT_FILE.clone(); }
+
+    private static void createTextFile(File file)
     {
-        return new FileType("txt", "text", new SVGIcon(FontAwesomeSolid.FILE_ALT));
+        try
+        {
+            boolean success = file.createNewFile();
+            if (!success)
+                System.out.println(String.format("Couldn't create text file at path %s", file.getPath()));
+        }
+        catch (IOException ex) {}
     }
+
+    public static FileType TEXT_FILE() { return TEXT_FILE.clone(); }
 }

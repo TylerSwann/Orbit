@@ -3,6 +3,7 @@ package io.orbit;
 
 import io.orbit.controllers.AppStage;
 import io.orbit.controllers.OSplashPageController;
+import io.orbit.plugin.PluginDispatch;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.stage.Stage;
@@ -30,6 +31,7 @@ public class App extends Application
         stage.setTitle("Orbit");
         StatusLogger.getLogger().setLevel(Level.OFF);
         Platform.setImplicitExit(false);
+        PluginDispatch.open();
         AppStage.build(stage);
         stage.setOnCloseRequest(event -> {
             onCloseHandlers.forEach(Runnable::run);

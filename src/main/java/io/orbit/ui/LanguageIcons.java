@@ -18,7 +18,7 @@ public final class LanguageIcons
     private LanguageIcons() {}
 
     /**
-     * Default Icon incase the loaded icon is unavailable, can't be loaded for whatever reason,
+     * Default Icon in case the loaded icon is unavailable, can't be loaded for whatever reason,
      * or there isn't an available Icon for the file type. This will probably not happen.
      */
     private static final Ikon DEFAULT_ICON = FontAwesomeSolid.FILE_ALT;

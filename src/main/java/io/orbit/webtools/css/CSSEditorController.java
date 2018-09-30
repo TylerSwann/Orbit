@@ -3,8 +3,11 @@ package io.orbit.webtools.css;
 import io.orbit.api.EditorController;
 import io.orbit.api.text.CodeEditor;
 import io.orbit.api.autocompletion.AutoCompletionDialog;
+import io.orbit.settings.LocalUser;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
+import org.reactfx.EventStreams;
+
 import java.io.File;
 import java.util.List;
 
@@ -17,6 +20,7 @@ public class CSSEditorController implements EditorController
     private AutoCompletionDialog<CSS3AutoCompletionOption> dialog;
     private CodeEditor editor;
     private CSS3AutoCompletionOption currentOption;
+    private boolean isHotKeyPress = false;
 
     @Override
     public void start(File file, CodeEditor editor)
@@ -55,7 +59,10 @@ public class CSSEditorController implements EditorController
                 updateDialogPosition();
             }
         }));
+        this.editor.addEventHandler(KeyEvent.KEY_PRESSED, event -> isHotKeyPress = LocalUser.settings.getHotKeys().isHotKeyEvent(event));
         this.editor.addEventHandler(KeyEvent.KEY_RELEASED, event -> {
+            if (isHotKeyPress)
+                return;
             int lineNumber = this.editor.getFocusPosition().line;
             String lineText = this.editor.getIndexedDocument().lines.get(lineNumber).text;
             switch (event.getCode())

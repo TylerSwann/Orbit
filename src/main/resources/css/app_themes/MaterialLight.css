@@ -224,7 +224,6 @@
     -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.6), 15.0, 0.0, 1.5, 2.0);
     -fx-background-color: white;
     -fx-background-radius: 3px;
-    -fx-pref-width: 170.0;
 }
 
 
@@ -234,8 +233,6 @@
     -fx-alignment: center-left;
     -fx-font-size: 14px;
     -fx-font-family: "Roboto Medium";
-    /*-fx-padding: 10px 0px 10px 10px;*/
-    -fx-pref-width: 175.0;
     -fx-padding: 0 15px;
     -fx-pref-height: 35px;
 }
@@ -256,18 +253,11 @@
     -fx-translate-x: 100px;
 }
 
-.navigator-context-menu.mui-sub-menu
-{
-    -fx-pref-width: 110.0;
-}
-
-
 .editor-context-menu.mui-context-menu
 {
     -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.8), 15.0, 0.0, 1.5, 2.0);
     -fx-background-color: white;
     -fx-background-radius: 3px;
-    -fx-pref-width: 120.0;
 }
 
 
@@ -279,7 +269,6 @@
     -fx-font-family: "Roboto Medium";
     -fx-padding: 0 15px;
     -fx-pref-height: 35px;
-    -fx-pref-width: 120.0;
 }
 .editor-context-menu.mui-context-menu .mui-context-item .ikonli-font-icon
 {
@@ -306,7 +295,6 @@
 
 .application-context-menu .mui-context-item
 {
-    /*-fx-pref-width: 100%;*/
     -fx-text-fill: -text-color;
     -fx-alignment: center-left;
     -fx-font-size: 14px;
@@ -330,28 +318,9 @@
     -fx-icon-color: -icon-fill;
 }
 
-.application-context-menu.edit .mui-context-item
-{
-    -fx-pref-width: 120px;
-}
-
-.application-context-menu.file .mui-context-item
-{
-    -fx-pref-width: 130px;
-}
-.application-context-menu.view .mui-context-item
-{
-    -fx-pref-width: 130px;
-}
-
 .application-context-menu .mui-context-item.mui-menu .ikonli-font-icon
 {
     -fx-translate-x: 50px;
-}
-
-.application-context-menu.mui-sub-menu .mui-context-item
-{
-    -fx-pref-width: 100px;
 }
 
 .editor-tab-menu
@@ -371,7 +340,6 @@
 {
     -fx-text-fill: -text-color;
     -fx-alignment: center-left;
-    -fx-pref-width: 130px;
     -fx-pref-height: 35px;
     -fx-font-size: 14px;
     -fx-font-family: "Roboto Medium";

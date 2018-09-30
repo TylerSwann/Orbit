@@ -28,7 +28,7 @@ public class PlainTextController implements PluginController
     @Override
     public List<FileType> getFileTypes()
     {
-        return Collections.singletonList(new FileType("txt", "text", new SVGIcon(FontAwesomeSolid.FILE_ALT)));
+        return Collections.singletonList(PlainText.TEXT_FILE());
     }
 
     @Override

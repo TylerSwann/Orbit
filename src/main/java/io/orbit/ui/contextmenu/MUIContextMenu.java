@@ -3,6 +3,8 @@ package io.orbit.ui.contextmenu;
 import javafx.animation.FadeTransition;
 import javafx.animation.ScaleTransition;
 import javafx.application.Platform;
+import javafx.beans.InvalidationListener;
+import javafx.beans.Observable;
 import javafx.collections.FXCollections;
 import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
@@ -46,6 +48,17 @@ public class MUIContextMenu extends PopupControl
         this.items.addAll(items);
         this.owner = owner;
         this.root.getStyleClass().add(DEFAULT_STYLE_CLASS);
+        InvalidationListener listener = new InvalidationListener() {
+            @Override
+            public void invalidated(Observable observable)
+            {
+                if (root.getWidth() <= 0.0)
+                    return;
+                loaded();
+                root.widthProperty().removeListener(this);
+            }
+        };
+        this.root.widthProperty().addListener(listener);
         registerListeners();
     }
 
@@ -75,9 +88,7 @@ public class MUIContextMenu extends PopupControl
                 }
             }
         });
-        this.addEventHandler(WindowEvent.WINDOW_HIDING, __ -> {
-            this.hideTransition(() -> {});
-        });
+        this.addEventHandler(WindowEvent.WINDOW_HIDING, __ -> this.hideTransition(() -> {}));
         this.addEventFilter(MouseEvent.MOUSE_CLICKED, event -> {
             if (!(event.getTarget() instanceof MUIMenu))
                 Platform.runLater(this::hide);
@@ -134,6 +145,34 @@ public class MUIContextMenu extends PopupControl
     protected void hideTransition(Runnable completion)
     {
         completion.run();
+    }
+
+    private void loaded()
+    {
+        Platform.runLater(() -> {
+            MUIMenuItem maxItem = this.widestItem();
+            if (maxItem == null)
+                return;
+            for (MUIMenuItem item : this.items)
+            {
+                if (item.prefWidthProperty().isBound() || item == maxItem)
+                    item.prefWidthProperty().unbind();
+                item.prefWidthProperty().bind(maxItem.widthProperty());
+            }
+        });
+    }
+
+    private MUIMenuItem widestItem()
+    {
+        if (this.items.size() <= 0)
+            return null;
+        MUIMenuItem maxItem = this.items.get(0);
+        for (MUIMenuItem item : this.items)
+        {
+            if (item.getWidth() > maxItem.getWidth())
+                maxItem = item;
+        }
+        return maxItem;
     }
 
     @Override

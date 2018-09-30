@@ -2,6 +2,7 @@ package io.orbit.ui.contextmenu;
 
 import com.jfoenix.controls.JFXButton;
 import com.sun.javafx.css.converters.PaintConverter;
+import io.orbit.api.SVGIcon;
 import javafx.css.*;
 import javafx.geometry.Bounds;
 import javafx.scene.control.ContentDisplay;
@@ -27,6 +28,15 @@ public class MUIMenuItem extends JFXButton
     public MUIMenuItem(Ikon iconCode, String text)
     {
         super(text, new FontIcon(iconCode));
+        this.setContentDisplay(ContentDisplay.LEFT);
+        this.getStyleClass().add(DEFAULT_STYLE_CLASS);
+        this.setDisableVisualFocus(true);
+        registerListeners();
+    }
+
+    public MUIMenuItem(SVGIcon icon, String text)
+    {
+        super(text, icon);
         this.setContentDisplay(ContentDisplay.LEFT);
         this.getStyleClass().add(DEFAULT_STYLE_CLASS);
         this.setDisableVisualFocus(true);
