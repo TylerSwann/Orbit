@@ -105,39 +105,14 @@ public class OMenuBarController extends EventTargetObject
         this.addEventHandler(MenuBarEvent.NEW_CUSTOM_FILE_TYPE, event -> event.getFileType().ifPresent(this::showFileCreationDialog));
     }
 
-    private void showFileCreationDialog(FileType fileType)
-    {
-        BiConsumer<ActionEvent, String> onCreate = (event, text) -> {
-            String fileName = text == null ? "" : text;
-            if (!fileName.equals("") && !fileName.matches("^[\\w _-]+\\.\\w+$"))
-                fileName = String.format("%s.%s", fileName, fileType.getExtension());
-            else
-            {
-                String[] pieces = fileName.split("\\.");
-                String extension;
-                if (pieces.length >= 2)
-                {
-                    extension = pieces[1];
-                    if (!extension.equals(fileType.getExtension()))
-                        fileName = String.format("%s.%s", fileName, fileType.getExtension());
-                }
-            }
-            Tuple<Boolean, File> result = validateAndCreateFile(false, fileName);
-            if (result.first)
-                fileType.getOnCreate().accept(result.second);
-        };
+    private void showFileCreationDialog(FileType fileType) { IOController.showFileCreationDialog(fileType, LocalUser.project.getProjectRoot()); }
 
-        showCreationDialog(String.format("New %s", fileType.getDisplayText()), "Name: ", onCreate);
-    }
-
-    private void showFileCreationDialog(boolean directory)
+    private void showFileCreationDialog(boolean isDirectory)
     {
-        String type = directory ? "directory" : "file";
-        BiConsumer<ActionEvent, String> onCreate = (event, text) -> {
-            String fileName = text == null ? "" : text;
-            validateAndCreateFile(directory, fileName);
-        };
-        showCreationDialog(String.format("Create %s", type), String.format("Enter a new %s name:", type), onCreate);
+        if (isDirectory)
+            IOController.showDirectoryCreationDialog(LocalUser.project.getProjectRoot());
+        else
+            IOController.showFileCreationDialog(LocalUser.project.getProjectRoot());
     }
 
     private void saveFile(MenuBarEvent event)
@@ -189,51 +164,5 @@ public class OMenuBarController extends EventTargetObject
             this.fireEvent(new MenuBarEvent(MenuBarEvent.OPEN_FOLDER, root));
             LocalUser.settings.getLastModifiedProject().setProjectRoot(root);
         }
-    }
-
-    private Tuple<Boolean, File> validateAndCreateFile(boolean directory, String fileName)
-    {
-        String type = directory ? "directory" : "file";
-        boolean hasError;
-        final File file = new File(String.format("%s\\%s", LocalUser.project.getProjectRoot().getPath(), fileName));
-        if (fileName.equals("")|| !fileName.matches("^[\\w\\-.]+$"))
-        {
-            Notifications.showErrorAlert("ERROR", String.format("Sorry, that is not a valid %s name.", type));
-            hasError = true;
-        }
-        else if (file.exists())
-        {
-            Notifications.showErrorAlert("ERROR", String.format("Sorry, that %s already exists!", type));
-            hasError = true;
-        }
-        else
-        {
-
-            try
-            {
-                if (!directory)
-                    hasError = !file.createNewFile();
-                else
-                    hasError = !file.mkdir();
-                App.controller().getProjectNavigatorController().forceRefresh();
-            }
-            catch (IOException ex)
-            {
-                hasError = true;
-                ex.printStackTrace();
-            }
-            if (hasError)
-                Notifications.showErrorAlert("ERROR", String.format("Sorry, we ran into a problem and were unable to create that %s.", type));
-        }
-        return new Tuple<>(hasError, file);
-    }
-
-    private void showCreationDialog(String title, String message, BiConsumer<ActionEvent, String> onCreate)
-    {
-        MUIModalButton cancel = new MUIModalButton("CANCEL", MUIModalButton.MUIModalButtonStyle.SECONDARY);
-        MUIModalButton create = new MUIModalButton("CREATE", MUIModalButton.MUIModalButtonStyle.PRIMARY);
-        MUIInputModal modal = new MUIInputModal(title, message, cancel, create);
-        Notifications.showModal(modal);
-        create.setOnAction(event -> onCreate.accept(event, modal.getText()));
     }
 }

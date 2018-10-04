@@ -63,7 +63,7 @@ MUIGutterButton.html
 MUIIconButt567on.java
 MUIStepDialog.html
 MUIStepDialogEvent.java
-MUITerminalPane
-MUITreeItem
-MUITreeTableView
-NewProjectStep
+MUITermi345nalPane
+MUITr eeItem
+MUIsdfTreeTa bleView
+N_ewPro-jectStep

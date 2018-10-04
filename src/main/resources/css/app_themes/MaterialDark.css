@@ -682,7 +682,7 @@
 }
 .application-context-menu .mui-context-item.mui-menu .ikonli-font-icon
 {
-    -fx-translate-x: 70px;
+    -fx-translate-x: 50px;
     -fx-icon-color: -fx-off-white;
 }
 

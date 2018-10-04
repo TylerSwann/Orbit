@@ -150,69 +150,14 @@ public class OProjectViewController
         Notifications.showModal(modal);
     }
 
-    private void newFile(FileTreeMenuEvent event)
-    {
-        MUIModalButton cancel = new MUIModalButton("CANCEL", MUIModalButton.MUIModalButtonStyle.SECONDARY);
-        MUIModalButton create = new MUIModalButton("CREATE", MUIModalButton.MUIModalButtonStyle.PRIMARY);
-        MUIInputModal modal = new MUIInputModal("Create File", "Enter a new file name:", cancel, create);
-        create.setOnAction(__ -> {
-            if (modal.getText() == null || modal.getText().equals(""))
-                return;
-            File targetFile = event.getSelectedFiles().get(0);
-            File parentFile = targetFile.isDirectory() ? targetFile : targetFile.getParentFile();
-            File newFile = new File(String.format("%s\\%s", parentFile.getPath(), modal.getText()));
-            if (newFile.exists())
-            {
-                Notifications.showErrorAlert("Already Exists!", "Sorry, a file with that name already exists!");
-                return;
-            }
-            boolean success;
-            try
-            {
-                success = newFile.createNewFile();
-            }
-            catch (IOException ex)
-            {
-                success = false;
-                ex.printStackTrace();
-            }
-            if (!success)
-                Notifications.showErrorAlert("Oops", "Sorry, we ran into a problem and were unable to create that file!");
-            else
-                App.controller().getProjectNavigatorController().addFiles(newFile);
-        });
-        if (event.getSelectedFiles().size() >= 1)
-            Notifications.showModal(modal);
-    }
-    private void newFolder(FileTreeMenuEvent event)
-    {
-        MUIModalButton cancel = new MUIModalButton("CANCEL", MUIModalButton.MUIModalButtonStyle.SECONDARY);
-        MUIModalButton create = new MUIModalButton("CREATE", MUIModalButton.MUIModalButtonStyle.PRIMARY);
-        MUIInputModal modal = new MUIInputModal("Create Directory", "Enter a new directory name:", cancel, create);
-        create.setOnAction(__ -> {
-            if (modal.getText() == null || modal.getText().equals(""))
-                return;
-            File targetFile = event.getSelectedFiles().get(0);
-            File parentDirectory = targetFile.isDirectory() ? targetFile : targetFile.getParentFile();
-            File folder = new File(String.format("%s\\%s", parentDirectory.getPath(), modal.getText()));
-            if (folder.exists())
-                Notifications.showErrorAlert("Already Exists!", "Sorry, a folder with this name already exists at the specified location!");
-            else
-            {
-                boolean success = folder.mkdirs();
-                if (!success)
-                    Notifications.showErrorAlert("Oops", "Sorry, we ran into a problem and were unable to create that file!");
-                else
-                    App.controller().getProjectNavigatorController().addFiles(folder);
-            }
-        });
-        if (event.getSelectedFiles().size() >= 1)
-            Notifications.showModal(modal);
-    }
+    private void newFile(FileTreeMenuEvent event) { IOController.showFileCreationDialog(getTargetFile(event)); }
 
-    private void newProject(FileTreeMenuEvent event)
-    {
+    private void newFolder(FileTreeMenuEvent event) { IOController.showDirectoryCreationDialog(getTargetFile(event)); }
 
+    private File getTargetFile(FileTreeMenuEvent event)
+    {
+        File targetFile = event.getSelectedFiles().get(0);
+        return targetFile.isDirectory() ? targetFile : targetFile.getParentFile();
     }
 
     private boolean relocateFiles(List<File> from, File to, boolean copy)
@@ -239,4 +184,6 @@ public class OProjectViewController
         }
         return movedAll;
     }
+
+    private void newProject(FileTreeMenuEvent event) { }
 }
