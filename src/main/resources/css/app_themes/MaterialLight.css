@@ -395,8 +395,6 @@
 
 .mui-tree-item .mui-tree-header .label
 {
-    -fx-font-family: "Roboto Bold";
-    -fx-font-size: 14px;
     -fx-text-fill: #797979;
 }
 
@@ -404,7 +402,10 @@
 {
     -fx-text-fill: #2962ff;
 }
-
+.mui-tree-item:selected .mui-tree-header .svg-icon
+{
+    -fx-icon-color: #2962ff;
+}
 .mui-tree-item:selected .mui-tree-header
 {
     -fx-background-color: #bbdefb;
@@ -418,9 +419,16 @@
 .mui-tree-item .mui-tree-header .mui-icon-button .ikonli-font-icon
 {
     -fx-icon-size: 15px;
-    -fx-icon-color: #303030;
+    -fx-icon-color: -icon-fill;
     -fx-padding: 0px;
 }
+
+.mui-tree-item .mui-tree-header .svg-icon
+{
+    -fx-icon-color: -icon-fill;
+    -fx-icon-size: 15px;
+}
+
 .mui-tree-item .mui-tree-header .mui-icon-button
 {
     -fx-pref-width: 25px;

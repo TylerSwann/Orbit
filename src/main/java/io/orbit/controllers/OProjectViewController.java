@@ -2,13 +2,11 @@ package io.orbit.controllers;
 
 import io.orbit.App;
 import io.orbit.api.notification.Notifications;
-import io.orbit.api.notification.modal.MUIInputModal;
 import io.orbit.api.notification.modal.MUIModal;
 import io.orbit.api.notification.modal.MUIModalButton;
 import io.orbit.settings.LocalUser;
 import io.orbit.api.event.FileTreeMenuEvent;
-//import io.orbit.ui.navigator.MUIFileTreeView;
-import io.orbit.ui.treeview.MUIFileTreeView2;
+import io.orbit.ui.navigator.MUIFileTreeView;
 import javafx.scene.input.Clipboard;
 import javafx.scene.input.DataFormat;
 import org.apache.commons.io.FileUtils;
@@ -24,14 +22,14 @@ import java.util.*;
  */
 public class OProjectViewController
 {
-    private MUIFileTreeView2 projectView;
+    private MUIFileTreeView projectView;
     private List<File> fileClipboard = new ArrayList<>();
     private Clipboard clipboard = Clipboard.getSystemClipboard();
     private Mode mode = Mode.NONE;
 
     private enum Mode { CUT, COPY, NONE }
     
-    public OProjectViewController(MUIFileTreeView2 projectView)
+    public OProjectViewController(MUIFileTreeView projectView)
     {
         this.projectView = projectView;
         this.registerListeners();

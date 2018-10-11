@@ -51,6 +51,9 @@ public class MUITreeItem<T> extends VBox
     public Node getGraphic() { return this.graphic.getValue(); }
     public void setGraphic(Node graphic) { this.graphic.set(graphic); }
 
+    private Function<MUITreeItem<T>, Node> graphicFactory;
+    public Function<MUITreeItem<T>, Node> getGraphicFactory() { return this.graphicFactory; }
+
     private Function<T, String> cellFactory;
     public Function<T, String> getCellFactory() { return this.cellFactory; }
 
@@ -68,6 +71,7 @@ public class MUITreeItem<T> extends VBox
         this.expandButton = new MUIIconButton(FontAwesomeSolid.CARET_RIGHT);
         this.getStyleClass().add(DEFAULT_STYLE_CLASS);
         this.header.getStyleClass().add("mui-tree-header");
+        this.header.setSpacing(10.0);
         this.build();
         this.registerListeners();
     }
@@ -79,7 +83,6 @@ public class MUITreeItem<T> extends VBox
         this.header.setMinHeight(USE_PREF_SIZE);
         this.header.setAlignment(Pos.CENTER_LEFT);
         this.setPrefHeight(ITEM_HEIGHT);
-
 
         if (this.getGraphic() != null)
             this.header.getChildren().addAll(this.expandButton, this.getGraphic(), this.label);
@@ -119,7 +122,7 @@ public class MUITreeItem<T> extends VBox
         });
         this.graphic.addListener((obs, oldV, newV) -> {
             this.header.getChildren().remove(oldV);
-            this.header.getChildren().add(newV);
+            this.header.getChildren().add(1, newV);
         });
     }
 
@@ -155,6 +158,14 @@ public class MUITreeItem<T> extends VBox
         this.cellFactory = factory;
         this.label.setText(factory.apply(this.value));
         this.branches.forEach(branch -> branch.setCellFactory(factory));
+    }
+
+    void setCellGraphicFactory(Function<MUITreeItem<T>, Node> graphicFactory)
+    {
+        this.graphicFactory = graphicFactory;
+        Node graphic = graphicFactory.apply(this);
+        this.setGraphic(graphic);
+        this.branches.forEach(branch -> branch.setCellGraphicFactory(graphicFactory));
     }
 
     private void add(MUITreeItem<T> item)

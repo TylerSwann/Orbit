@@ -174,7 +174,9 @@
 {
     -fx-background-color: -fx-box-border,-color-grey;
 }
-.scroll-pane
+.scroll-pane,
+.scroll-pane > .corner,
+.virtualized-scroll-pane .corner
 {
     -fx-background: -color-grey;
     -fx-background-color: -color-grey;
@@ -186,125 +188,42 @@
  *                                                                             *
  ******************************************************************************/
 
-.tree-view
+.mui-tree-item .mui-tree-header .label,
+.mui-tree-item:selected .mui-tree-header .label
 {
-    -fx-background-color: -color-grey, -fx-control-inner-background;
-}
-.tree-view .tree-cell
-{
-    -fx-background-color: -color-grey;
     -fx-text-fill: -fx-off-white;
-    -fx-font: 14px "Roboto Medium";
-    -fx-border-color: -color-grey;
 }
 
-.tree-view .tree-cell:selected
+.mui-tree-item:selected .mui-tree-header,
+.mui-tree-item:selected .mui-tree-header:hover
 {
-    -fx-background-color: -fx-box-border,-color-very-dark-grey;
+    -fx-background-color: -color-very-dark-grey;
 }
 
-.tree-view .tree-cell:hover,
-.tree-view .tree-cell:highlighted:hover
+.mui-tree-item .mui-tree-header .mui-icon-button .ikonli-font-icon
 {
-    -fx-background-color: -fx-box-border, -fx-light-dark;
-}
-
-.tree-cell .tree-disclosure-node .arrow
-{
-    -fx-background-color: -fx-mark-highlight-color, -fx-off-white;
-}
-
-.tree-cell:filled:hover .tree-disclosure-node .arrow
-{
-    -fx-background-color: -fx-mark-highlight-color, white;
-}
-
-.tree-view .corner
-{
-    -fx-background-color: -color-grey;
-    -fx-border-color: -color-grey;
-    -fx-background: -color-grey;
-}
-
-.tree-view .tree-cell:filled:focused:selected,
-.tree-view .tree-cell:filled:focused:selected:hover,
-.tree-view .tree-cell:filled:selected:hover,
-.tree-view .tree-cell:filled:focused:hover
-{
-    -fx-background-color: -fx-box-border, -color-very-dark-grey;
-}
-
-.tree-view .tree-cell:empty:hover,
-.tree-view .tree-cell:empty
-{
-    -fx-background-color: -color-grey;
-}
-
-/*******************************************************************************
- *                                                                             *
- *                               FileTreeView                                  *
- *                                                                             *
- ******************************************************************************/
-
-.file-tree-view
-{
-    -fx-background-color: -color-grey, -fx-control-inner-background;
-}
-.file-tree-view .tree-cell
-{
-    -fx-background-color: -color-grey;
-    -fx-text-fill: -fx-off-white;
-    -fx-font: 14px "Roboto Medium";
-    -fx-border-color: -color-grey;
-}
-
-.file-tree-view .tree-cell:selected
-{
-    -fx-background-color: -fx-box-border,-color-very-dark-grey;
-}
-
-
-.file-tree-view .tree-cell:hover,
-.file-tree-view .tree-cell:highlighted:hover
-{
-    -fx-background-color: -fx-box-border, -fx-light-dark;
-}
-
-.file-tree-view .tree-cell .tree-disclosure-node .arrow
-{
-    -fx-background-color: -fx-mark-highlight-color, -fx-off-white;
-}
-
-.file-tree-view .tree-cell:filled:hover .tree-disclosure-node .arrow
-{
-    -fx-background-color: -fx-mark-highlight-color, white;
-}
-
-.file-tree-view .corner
-{
-    -fx-background-color: -color-grey;
-    -fx-border-color: -color-grey;
-    -fx-background: -color-grey;
-}
-
-.file-tree-view .tree-cell:filled:focused:selected,
-.file-tree-view .tree-cell:filled:focused:selected:hover,
-.file-tree-view .tree-cell:filled:selected:hover,
-.file-tree-view .tree-cell:filled:focused:hover
-{
-    -fx-background-color: -fx-box-border, -color-very-dark-grey;
-}
-
-.file-tree-view .tree-cell:empty:hover,
-.file-tree-view .tree-cell:empty
-{
-    -fx-background-color: -color-grey;
-}
-
-.navigator-tab-pane .file-tree-view .ikonli-font-icon
-{
-    -fx-icon-size: 23px;
     -fx-icon-color: -fx-off-white;
+}
+
+.mui-tree-item .mui-tree-header
+{
+    -fx-background-color: transparent;
+}
+
+.mui-tree-item .mui-tree-header:hover
+{
+    -fx-background-color: #474e54;
+}
+
+.mui-tree-item .mui-tree-header .mui-icon-button:hover
+{
+    -fx-background-color: -fx-button-hover;
+}
+
+.mui-tree-item .mui-tree-header .svg-icon
+{
+    -fx-icon-color: -fx-off-white;
+    -fx-icon-size: 15px;
 }
 
 /*******************************************************************************

@@ -28,5 +28,5 @@ public class MUITreeViewEvent<T> extends Event
     }
 
     public MUITreeItem<T> getTarget() { return this.target; }
-    MouseEvent getMouseEvent() { return this.mouseEvent; }
+    public MouseEvent getMouseEvent() { return this.mouseEvent; }
 }

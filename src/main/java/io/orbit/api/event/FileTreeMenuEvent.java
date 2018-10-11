@@ -1,8 +1,7 @@
 package io.orbit.api.event;
 
 import io.orbit.api.text.FileType;
-//import io.orbit.ui.navigator.MUIFileTreeView;
-import io.orbit.ui.treeview.MUIFileTreeView2;
+import io.orbit.ui.navigator.MUIFileTreeView;
 import io.orbit.ui.treeview.MUITreeItem;
 import javafx.event.Event;
 import javafx.event.EventTarget;
@@ -18,8 +17,6 @@ import java.util.List;
  */
 public class FileTreeMenuEvent extends Event
 {
-    public static final EventType<FileTreeMenuEvent> ITEM_RIGHT_CLICK = new EventType<>(Event.ANY, "ITEM_RIGHT_CLICK");
-    public static final EventType<FileTreeMenuEvent> ITEM_CLICK = new EventType<>(Event.ANY, "ITEM_CLICK");
     public static final EventType<FileTreeMenuEvent> ITEM_DOUBLE_CLICK = new EventType<>(Event.ANY, "ITEM_DOUBLE_CLICK");
     public static final EventType<FileTreeMenuEvent> CUT = new EventType<>(Event.ANY, "FILE_CUT");
     public static final EventType<FileTreeMenuEvent> COPY = new EventType<>(Event.ANY, "FILE_COPY_PATH");
@@ -35,19 +32,19 @@ public class FileTreeMenuEvent extends Event
     private List<MUITreeItem<File>> selectedItems;
     private FileType fileType;
 
-    public FileTreeMenuEvent(EventType<FileTreeMenuEvent> eventType, MUIFileTreeView2 source, MUITreeItem<File> selectedItem)
+    public FileTreeMenuEvent(EventType<FileTreeMenuEvent> eventType, MUIFileTreeView source, MUITreeItem<File> selectedItem)
     {
         super(null, source, eventType);
         this.selectedItems = Collections.singletonList(selectedItem);
     }
 
-    public FileTreeMenuEvent(EventType<FileTreeMenuEvent> eventType, MUIFileTreeView2 source, List<MUITreeItem<File>> selectedItems)
+    public FileTreeMenuEvent(EventType<FileTreeMenuEvent> eventType, MUIFileTreeView source, List<MUITreeItem<File>> selectedItems)
     {
         super(null, source, eventType);
         this.selectedItems = selectedItems;
     }
 
-    public FileTreeMenuEvent(EventType<FileTreeMenuEvent> eventType, MUIFileTreeView2 source, FileType fileType, List<MUITreeItem<File>> selectedItems)
+    public FileTreeMenuEvent(EventType<FileTreeMenuEvent> eventType, MUIFileTreeView source, FileType fileType, List<MUITreeItem<File>> selectedItems)
     {
         super(null, source, eventType);
         this.selectedItems = selectedItems;

@@ -7,12 +7,15 @@ import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
+import javafx.scene.Node;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import org.reactfx.EventStreams;
+
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -39,6 +42,7 @@ public class MUITreeView<T> extends ScrollPane
     private VBox container;
     private AnchorPane root;
     private Function<T, String> cellFactory = Object::toString;
+    private Function<MUITreeItem<T>, Node> graphicFactory;
 
     public MUITreeView() { this(Collections.emptyList()); }
     public MUITreeView(MUITreeItem<T>... branches) { this(Arrays.asList(branches)); }
@@ -61,6 +65,7 @@ public class MUITreeView<T> extends ScrollPane
         AnchorPane.setTopAnchor(this.container, 0.0);
         AnchorPane.setLeftAnchor(this.container, 0.0);
         AnchorPane.setRightAnchor(this.container, 0.0);
+        this.setHbarPolicy(ScrollBarPolicy.NEVER);
         AnchorPane root = new AnchorPane();
         container.prefWidthProperty().bind(this.widthProperty());
         root.getChildren().add(this.container);
@@ -75,9 +80,6 @@ public class MUITreeView<T> extends ScrollPane
         this.root.setMaxHeight(AnchorPane.USE_PREF_SIZE);
         this.root.setPrefHeight(this.computeHeight());
         this.container.backgroundProperty().bind(this.backgroundProperty());
-//        this.setStyle("-fx-background: red");
-//        this.root.setStyle("-fx-background-color: green");
-//        container.setStyle("-fx-background-color: blue");
     }
 
     private void registerListeners()
@@ -189,10 +191,18 @@ public class MUITreeView<T> extends ScrollPane
         });
     }
 
+    public Function<T, String> getCellFactory() { return this.cellFactory; }
     public void setCellFactory(Function<T, String> factory)
     {
         this.cellFactory = factory;
         this.branches.forEach(branch -> branch.setCellFactory(factory));
+    }
+
+    public Function<MUITreeItem<T>, Node> getCellGraphicFactory() { return this.graphicFactory; }
+    public void setCellGraphicFactory(Function<MUITreeItem<T>, Node> graphicFactory)
+    {
+        this.graphicFactory = graphicFactory;
+        this.branches.forEach(branch -> branch.setCellGraphicFactory(graphicFactory));
     }
 
     public void deselectAll()
@@ -219,7 +229,6 @@ public class MUITreeView<T> extends ScrollPane
             this.tree.get(i).setSelected(selected);
     }
 
-    public Function<T, String> getCellFactory() { return this.cellFactory; }
 
     List<MUITreeItem<T>> getModifiableTree() { return this.tree; }
     protected List<MUITreeItem<T>> getTree() { return Collections.unmodifiableList(this.getModifiableTree()); }

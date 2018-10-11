@@ -79,8 +79,7 @@ public class OEditorTabPaneController
                     if (!lastModified.getOpenEditors().contains(file))
                         lastModified.getOpenEditors().add(file);
                 }
-                for (File file : lastModified.getOpenEditors())
-                    App.controller().getEditorTabPaneController().openFile(file);
+                this.editorPane.getFiles().addAll(files);
             }
             if (lastOpenedFile != null)
             {

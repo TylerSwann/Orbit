@@ -19,6 +19,8 @@ import java.net.URL;
  */
 public class SVGIcon extends Group implements Cloneable
 {
+    private static String DEFAULT_STYLE_CLASS = "svg-icon";
+
     private Object resource;
 
     /**
@@ -51,6 +53,7 @@ public class SVGIcon extends Group implements Cloneable
         SvgLoader loader = new SvgLoader();
         Group child = loader.loadSvg(inputStream);
         this.getChildren().add(child);
+        this.getStyleClass().add(DEFAULT_STYLE_CLASS);
     }
 
     /**
@@ -72,6 +75,7 @@ public class SVGIcon extends Group implements Cloneable
     {
         this.resource = fontIcon.getIconCode();
         this.getChildren().add(fontIcon);
+        fontIcon.getStyleClass().add(DEFAULT_STYLE_CLASS);
     }
 
     public static SVGIcon fromResource(URL resource)

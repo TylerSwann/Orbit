@@ -3,6 +3,7 @@ package io.orbit.ui.editorui;
 import io.orbit.api.text.CodeEditor;
 import io.orbit.ui.tabs.MUITab;
 import io.orbit.ui.tabs.MUITabPane;
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
@@ -38,8 +39,11 @@ public class CodeEditorTabPane extends MUITabPane
         this.getFiles().addListener((ListChangeListener<File>) change -> {
             while (change.next())
             {
-                //this.getTabWithFile(file).ifPresent(this::select);
-                change.getAddedSubList().forEach(this::addNewFile);
+                change.getAddedSubList().forEach(file -> {
+                    this.addNewFile(file);
+                    if (change.getAddedSubList().size() == 1)
+                        Platform.runLater(() -> this.select(file));
+                });
                 change.getRemoved().forEach(file -> this.getOpenTabs().forEach(tab -> {
                     if (tab.getFile().equals(file))
                         this.editors.remove(tab.getEditor());
