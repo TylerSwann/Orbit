@@ -46,26 +46,27 @@ public class MUIFileTreeView extends TreeView<File>
         });
         this.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> this.selectedItem = newValue);
         this.getSelectionModel().getSelectedItems().addListener((ListChangeListener<TreeItem<File>>) __ -> this.selectedItems = this.getSelectionModel().getSelectedItems());
-        this.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
-            if (this.selectedItem == null)
-                return;
-            if (event.getButton() == MouseButton.PRIMARY && event.getClickCount() == 2)
-                this.fireEvent(new FileTreeMenuEvent(FileTreeMenuEvent.ITEM_DOUBLE_CLICK, this, this.selectedItem));
-            else if (event.getButton() == MouseButton.PRIMARY)
-                this.fireEvent(new FileTreeMenuEvent(FileTreeMenuEvent.ITEM_CLICK, this, this.selectedItem));
-            else if (event.getButton() == MouseButton.SECONDARY)
-                this.fireEvent(new FileTreeMenuEvent(FileTreeMenuEvent.ITEM_RIGHT_CLICK, this, this.selectedItem));
-        });
-
-        this.menu.setOnCut(() -> this.fireEvent(new FileTreeMenuEvent(FileTreeMenuEvent.CUT, this, this.selectedItems)));
-        this.menu.setOnCopy(() -> this.fireEvent(new FileTreeMenuEvent(FileTreeMenuEvent.COPY, this, this.selectedItems)));
-        this.menu.setOnCopyPath(() -> this.fireEvent(new FileTreeMenuEvent(FileTreeMenuEvent.COPY_PATH, this, this.selectedItems)));
-        this.menu.setOnCopyRelativePath(() -> this.fireEvent(new FileTreeMenuEvent(FileTreeMenuEvent.COPY_RELATIVE_PATH, this, this.selectedItems)));
-        this.menu.setOnPaste(() -> this.fireEvent(new FileTreeMenuEvent(FileTreeMenuEvent.PASTE, this, this.selectedItems)));
-        this.menu.setOnDelete(() -> this.fireEvent(new FileTreeMenuEvent(FileTreeMenuEvent.DELETE, this, this.selectedItems)));
-        this.menu.setOnNewFile(() -> this.fireEvent(new FileTreeMenuEvent(FileTreeMenuEvent.NEW_FILE, this, this.selectedItems)));
-        this.menu.setOnNewFolder(() -> this.fireEvent(new FileTreeMenuEvent(FileTreeMenuEvent.NEW_FOLDER, this, this.selectedItems)));
-        this.menu.setOnNewProject(() -> this.fireEvent(new FileTreeMenuEvent(FileTreeMenuEvent.NEW_PROJECT, this, this.selectedItems)));
+//        this.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
+//            if (this.selectedItem == null)
+//                return;
+//            if (event.getButton() == MouseButton.PRIMARY && event.getClickCount() == 2)
+//                this.fireEvent(new FileTreeMenuEvent(FileTreeMenuEvent.ITEM_DOUBLE_CLICK, this, this.selectedItem));
+//            else if (event.getButton() == MouseButton.PRIMARY)
+//                this.fireEvent(new FileTreeMenuEvent(FileTreeMenuEvent.ITEM_CLICK, this, this.selectedItem));
+//            else if (event.getButton() == MouseButton.SECONDARY)
+//                this.fireEvent(new FileTreeMenuEvent(FileTreeMenuEvent.ITEM_RIGHT_CLICK, this, this.selectedItem));
+//        });
+//
+//        this.menu.setOnCut(() -> this.fireEvent(new FileTreeMenuEvent(FileTreeMenuEvent.CUT, this, this.selectedItems)));
+//        this.menu.setOnCopy(() -> this.fireEvent(new FileTreeMenuEvent(FileTreeMenuEvent.COPY, this, this.selectedItems)));
+//        this.menu.setOnCopyPath(() -> this.fireEvent(new FileTreeMenuEvent(FileTreeMenuEvent.COPY_PATH, this, this.selectedItems)));
+//        this.menu.setOnCopyRelativePath(() -> this.fireEvent(new FileTreeMenuEvent(FileTreeMenuEvent.COPY_RELATIVE_PATH, this, this.selectedItems)));
+//        this.menu.setOnPaste(() -> this.fireEvent(new FileTreeMenuEvent(FileTreeMenuEvent.PASTE, this, this.selectedItems)));
+//        this.menu.setOnDelete(() -> this.fireEvent(new FileTreeMenuEvent(FileTreeMenuEvent.DELETE, this, this.selectedItems)));
+//        this.menu.setOnNewFile(() -> this.fireEvent(new FileTreeMenuEvent(FileTreeMenuEvent.NEW_FILE, this, this.selectedItems)));
+//        this.menu.setOnNewFileType(type -> this.fireEvent(new FileTreeMenuEvent(FileTreeMenuEvent.NEW_FILE_TYPE, this, type, this.selectedItems)));
+//        this.menu.setOnNewFolder(() -> this.fireEvent(new FileTreeMenuEvent(FileTreeMenuEvent.NEW_FOLDER, this, this.selectedItems)));
+//        this.menu.setOnNewProject(() -> this.fireEvent(new FileTreeMenuEvent(FileTreeMenuEvent.NEW_PROJECT, this, this.selectedItems)));
     }
 
     private void mapRootFolder()

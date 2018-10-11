@@ -96,7 +96,11 @@ public class IOController
         catch (IOException e) { e.printStackTrace(); }
         if (!success)
             Notifications.showErrorAlert("Oops", String.format("Sorry, there was a problem and were unable to create that %s", type.toLowerCase()));
-        App.controller().getProjectNavigatorController().forceRefresh();
+        else
+        {
+//            App.controller().getProjectNavigatorController().forceRefresh();
+            App.controller().getProjectNavigatorController().addFiles(file);
+        }
     }
 
     private static boolean checkIsValidFolderName(String name)

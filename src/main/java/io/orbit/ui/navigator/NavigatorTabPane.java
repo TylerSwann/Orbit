@@ -2,11 +2,11 @@ package io.orbit.ui.navigator;
 
 import io.orbit.ui.tabs.MUITab;
 import io.orbit.ui.tabs.MUITabPane;
+import io.orbit.ui.treeview.MUIFileTreeView2;
 import javafx.application.Platform;
 import org.kordamp.ikonli.fontawesome5.FontAwesomeBrands;
 import org.kordamp.ikonli.fontawesome5.FontAwesomeSolid;
 import org.kordamp.ikonli.javafx.FontIcon;
-
 import java.io.File;
 
 /**
@@ -15,11 +15,11 @@ import java.io.File;
 public class NavigatorTabPane extends MUITabPane
 {
     public static final String DEFAULT_STYLE_CLASS = "navigator-tab-pane";
-    private MUIFileTreeView projectTreeView;
+    private MUIFileTreeView2 projectTreeView;
 
     public NavigatorTabPane(File root)
     {
-        this.projectTreeView = new MUIFileTreeView(root);
+        this.projectTreeView = new MUIFileTreeView2(root);
         this.build();
     }
 
@@ -46,5 +46,5 @@ public class NavigatorTabPane extends MUITabPane
         return projectTab;
     }
 
-    public MUIFileTreeView getProjectTreeView() { return projectTreeView; }
+    public MUIFileTreeView2 getProjectTreeView() { return projectTreeView; }
 }

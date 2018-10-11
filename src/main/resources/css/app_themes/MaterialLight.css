@@ -385,3 +385,49 @@
 {
     -fx-text-fill: -text-color;
 }
+
+/*******************************************************************************
+ *                                                                             *
+ *                                  TreeViews                                  *
+ *                                                                             *
+ ******************************************************************************/
+/*top right bottom left*/
+
+.mui-tree-item .mui-tree-header .label
+{
+    -fx-font-family: "Roboto Bold";
+    -fx-font-size: 14px;
+    -fx-text-fill: #797979;
+}
+
+.mui-tree-item:selected .mui-tree-header .label
+{
+    -fx-text-fill: #2962ff;
+}
+
+.mui-tree-item:selected .mui-tree-header
+{
+    -fx-background-color: #bbdefb;
+}
+
+.mui-tree-item .mui-tree-header .mui-icon-button.expanded
+{
+    -fx-rotate: 90;
+}
+
+.mui-tree-item .mui-tree-header .mui-icon-button .ikonli-font-icon
+{
+    -fx-icon-size: 15px;
+    -fx-icon-color: #303030;
+    -fx-padding: 0px;
+}
+.mui-tree-item .mui-tree-header .mui-icon-button
+{
+    -fx-pref-width: 25px;
+    -fx-pref-height: 25px;
+}
+
+.mui-tree-item .mui-tree-header .mui-icon-button:hover
+{
+    -fx-background-color: rgba(0, 0, 0, 0.1);
+}

@@ -1,9 +1,14 @@
 package io.orbit.ui.contextmenu;
 
+import io.orbit.api.text.FileType;
+import io.orbit.plugin.PluginDispatch;
 import org.kordamp.ikonli.fontawesome5.FontAwesomeRegular;
 import org.kordamp.ikonli.fontawesome5.FontAwesomeSolid;
+
+import java.io.File;
 import java.util.Arrays;
 import java.util.List;
+import java.util.function.Consumer;
 
 /**
  * Created by Tyler Swann on Friday July 06, 2018 at 19:48
@@ -19,6 +24,7 @@ public class NavigatorContextMenu extends MUIContextMenu
     private Runnable onPaste = () -> {};
     private Runnable onDelete = () -> {};
     private Runnable onNewFile = () -> {};
+    private Consumer<FileType> onNewFileType = (type) -> {};
     private Runnable onNewFolder = () -> {};
     private Runnable onNewProject = () -> {};
 
@@ -40,7 +46,13 @@ public class NavigatorContextMenu extends MUIContextMenu
         MUIMenuItem file = new MUIMenuItem(FontAwesomeSolid.FILE," File");
         MUIMenuItem directory = new MUIMenuItem(FontAwesomeSolid.FOLDER," Directory");
         MUIMenuItem project = new MUIMenuItem(FontAwesomeSolid.CUBES," Project");
-        MUIMenu newMenu = new MUIMenu("New", file, directory, project);
+        MUIMenu newMenu = new MUIMenu("New", file);
+        PluginDispatch.FILE_TYPES.forEach(fileType -> {
+            MUIMenuItem fileTypeItem = new MUIMenuItem(fileType.getIcon(), fileType.getDisplayText());
+            fileTypeItem.setOnAction(__ -> this.onNewFileType.accept(fileType));
+            newMenu.getItems().add(fileTypeItem);
+        });
+        newMenu.getItems().addAll(Arrays.asList(directory, project));
         List<MUIMenuItem> items = Arrays.asList(
                 newMenu,
                 cut,
@@ -72,6 +84,7 @@ public class NavigatorContextMenu extends MUIContextMenu
     public void setOnPaste(Runnable onPaste) { this.onPaste = onPaste; }
     public void setOnDelete(Runnable onDelete) { this.onDelete = onDelete; }
     public void setOnNewFile(Runnable onNewFile) { this.onNewFile = onNewFile; }
+    public void setOnNewFileType(Consumer<FileType> onNewFileType) { this.onNewFileType = onNewFileType; }
     public void setOnNewFolder(Runnable onNewFolder) { this.onNewFolder = onNewFolder; }
     public void setOnNewProject(Runnable onNewProject) { this.onNewProject = onNewProject; }
 }

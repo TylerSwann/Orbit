@@ -24,17 +24,22 @@
 }
 
 
-.navigator-tab-pane .file-tree-view .ikonli-font-icon
-{
-    -fx-icon-size: 23px;
-    -fx-icon-color: rgb(100, 100, 100);
-}
+/*.navigator-tab-pane .file-tree-view .ikonli-font-icon*/
+/*{*/
+    /*-fx-icon-size: 23px;*/
+    /*-fx-icon-color: rgb(100, 100, 100);*/
+/*}*/
 
 /*******************************************************************************
  *                                                                             *
- *                                ScrollBar                                    *
+ *                                ScrollPane                                   *
  *                                                                             *
  ******************************************************************************/
+.scroll-pane > .corner
+{
+    -fx-background-color: white;
+}
+
 .scroll-bar
 {
     -fx-background-color: white;
@@ -300,72 +305,125 @@
  *                                  TreeViews                                  *
  *                                                                             *
  ******************************************************************************/
-
-
-.tree-view,
-.file-tree-view
-{
-    -fx-background-color: white, -fx-control-inner-background;
-}
-
-.tree-cell
+.mui-tree-view
 {
     -fx-background-color: white;
-    -fx-text-fill: black;
-    -fx-font: 14px "Roboto Medium";
-    -fx-border-color: white;
-}
-
-.tree-cell:selected
-{
-    -fx-background-color: -fx-box-border, rgba(100, 100, 100, 0.4);
-}
-
-
-
-.tree-cell:hover,
-.tree-cell:highlighted:hover
-{
-    -fx-background-color: -fx-box-border, rgba(50, 50, 50, 0.1);
-}
-
-
-.tree-cell .tree-disclosure-node .arrow
-{
-    -fx-background-color: -fx-mark-highlight-color, rgb(100, 100, 100);
-}
-
-
-.tree-cell:filled:hover .tree-disclosure-node .arrow
-{
-    -fx-background-color: -fx-mark-highlight-color, rgb(100, 100, 100);
-}
-
-.tree-view .corner,
-.file-tree-view .corner
-{
-    -fx-background-color: white;
-    -fx-border-color: white;
     -fx-background: white;
 }
 
-.tree-cell:filled:focused:selected,
-.tree-cell:filled:focused:selected:hover,
-.tree-cell:filled:selected:hover,
-.tree-cell:filled:focused:hover
-{
-    -fx-background-color: -fx-box-border, rgba(100, 100, 100, 0.4);
-}
-
-.tree-cell:empty:hover,
-.tree-cell:empty
+/*top right bottom left*/
+.mui-tree-item .mui-tree-header
 {
     -fx-background-color: white;
+    -fx-padding: 1px 0 1px 5px;
 }
-.tree-cell
+.mui-tree-item .mui-tree-header:hover
 {
-    -fx-padding: 0.8em 0em 0.8em 0.3em;
+    -fx-background-color: #e6e6e6;
 }
+
+.mui-tree-item .mui-tree-header .label
+{
+    -fx-font-family: "Roboto Bold";
+    -fx-font-size: 14px;
+}
+
+.mui-tree-item:selected .mui-tree-header .label
+{
+    -fx-text-fill: #2962ff;
+}
+
+.mui-tree-item:selected .mui-tree-header
+{
+    -fx-background-color: #b3b3b3;
+}
+
+.mui-tree-item .mui-tree-header .mui-icon-button.expanded
+{
+    -fx-rotate: 90;
+}
+
+.mui-tree-item .mui-tree-header .mui-icon-button .ikonli-font-icon
+{
+    -fx-icon-size: 15px;
+    -fx-icon-color: rgba(0, 0, 0, 0.69);
+    -fx-padding: 0px;
+}
+.mui-tree-item .mui-tree-header .mui-icon-button
+{
+    -fx-pref-width: 25px;
+    -fx-pref-height: 25px;
+}
+
+.mui-tree-item .mui-tree-header .mui-icon-button:hover
+{
+    -fx-background-color: rgba(0, 0, 0, 0.1);
+}
+
+/*.tree-view,*/
+/*.file-tree-view*/
+/*{*/
+    /*-fx-background-color: white, -fx-control-inner-background;*/
+/*}*/
+
+/*.tree-cell*/
+/*{*/
+    /*-fx-background-color: white;*/
+    /*-fx-text-fill: black;*/
+    /*-fx-font: 14px "Roboto Medium";*/
+    /*-fx-border-color: white;*/
+/*}*/
+
+/*.tree-cell:selected*/
+/*{*/
+    /*-fx-background-color: -fx-box-border, rgba(100, 100, 100, 0.4);*/
+/*}*/
+
+
+
+/*.tree-cell:hover,*/
+/*.tree-cell:highlighted:hover*/
+/*{*/
+    /*-fx-background-color: -fx-box-border, rgba(50, 50, 50, 0.1);*/
+/*}*/
+
+
+/*.tree-cell .tree-disclosure-node .arrow*/
+/*{*/
+    /*-fx-background-color: -fx-mark-highlight-color, rgb(100, 100, 100);*/
+/*}*/
+
+
+/*.tree-cell:filled:hover .tree-disclosure-node .arrow*/
+/*{*/
+    /*-fx-background-color: -fx-mark-highlight-color, rgb(100, 100, 100);*/
+/*}*/
+
+/*.tree-view .corner,*/
+/*.file-tree-view .corner*/
+/*{*/
+    /*-fx-background-color: white;*/
+    /*-fx-border-color: white;*/
+    /*-fx-background: white;*/
+/*}*/
+
+/*.tree-cell:filled:focused:selected,*/
+/*.tree-cell:filled:focused:selected:hover,*/
+/*.tree-cell:filled:selected:hover,*/
+/*.tree-cell:filled:focused:hover*/
+/*{*/
+    /*-fx-background-color: -fx-box-border, rgba(100, 100, 100, 0.4);*/
+/*}*/
+
+/*.tree-cell:empty:hover,*/
+/*.tree-cell:empty*/
+/*{*/
+    /*-fx-background-color: white;*/
+/*}*/
+/*.tree-cell*/
+/*{*/
+    /*-fx-padding: 0.8em 0em 0.8em 0.3em;*/
+/*}*/
 
 
 /*******************************************************************************

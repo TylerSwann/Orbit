@@ -7,7 +7,8 @@ import io.orbit.api.notification.modal.MUIModal;
 import io.orbit.api.notification.modal.MUIModalButton;
 import io.orbit.settings.LocalUser;
 import io.orbit.api.event.FileTreeMenuEvent;
-import io.orbit.ui.navigator.MUIFileTreeView;
+//import io.orbit.ui.navigator.MUIFileTreeView;
+import io.orbit.ui.treeview.MUIFileTreeView2;
 import javafx.scene.input.Clipboard;
 import javafx.scene.input.DataFormat;
 import org.apache.commons.io.FileUtils;
@@ -23,14 +24,14 @@ import java.util.*;
  */
 public class OProjectViewController
 {
-    private MUIFileTreeView projectView;
+    private MUIFileTreeView2 projectView;
     private List<File> fileClipboard = new ArrayList<>();
     private Clipboard clipboard = Clipboard.getSystemClipboard();
     private Mode mode = Mode.NONE;
 
     private enum Mode { CUT, COPY, NONE }
     
-    public OProjectViewController(MUIFileTreeView projectView)
+    public OProjectViewController(MUIFileTreeView2 projectView)
     {
         this.projectView = projectView;
         this.registerListeners();
@@ -45,6 +46,7 @@ public class OProjectViewController
         this.projectView.addEventHandler(FileTreeMenuEvent.PASTE, this::paste);
         this.projectView.addEventHandler(FileTreeMenuEvent.DELETE, this::delete);
         this.projectView.addEventHandler(FileTreeMenuEvent.NEW_FILE, this::newFile);
+        this.projectView.addEventHandler(FileTreeMenuEvent.NEW_FILE_TYPE, this::newFile);
         this.projectView.addEventHandler(FileTreeMenuEvent.NEW_FOLDER, this::newFolder);
         this.projectView.addEventHandler(FileTreeMenuEvent.NEW_PROJECT, this::newProject);
         this.projectView.addEventHandler(FileTreeMenuEvent.ITEM_DOUBLE_CLICK, this::openFile);
@@ -150,12 +152,20 @@ public class OProjectViewController
         Notifications.showModal(modal);
     }
 
-    private void newFile(FileTreeMenuEvent event) { IOController.showFileCreationDialog(getTargetFile(event)); }
+    private void newFile(FileTreeMenuEvent event)
+    {
+        if (event.getFileType() != null)
+            IOController.showFileCreationDialog(event.getFileType(), getTargetFile(event));
+        else
+            IOController.showFileCreationDialog(getTargetFile(event));
+    }
 
     private void newFolder(FileTreeMenuEvent event) { IOController.showDirectoryCreationDialog(getTargetFile(event)); }
 
     private File getTargetFile(FileTreeMenuEvent event)
     {
+        if (event.getSelectedFiles().size() <= 0)
+            throw new RuntimeException("Selected files from FileTreeMenuEvent is null");
         File targetFile = event.getSelectedFiles().get(0);
         return targetFile.isDirectory() ? targetFile : targetFile.getParentFile();
     }

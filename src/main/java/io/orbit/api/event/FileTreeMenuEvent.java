@@ -1,10 +1,12 @@
 package io.orbit.api.event;
 
-import io.orbit.ui.navigator.MUIFileTreeView;
+import io.orbit.api.text.FileType;
+//import io.orbit.ui.navigator.MUIFileTreeView;
+import io.orbit.ui.treeview.MUIFileTreeView2;
+import io.orbit.ui.treeview.MUITreeItem;
 import javafx.event.Event;
 import javafx.event.EventTarget;
 import javafx.event.EventType;
-import javafx.scene.control.TreeItem;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -26,21 +28,30 @@ public class FileTreeMenuEvent extends Event
     public static final EventType<FileTreeMenuEvent> PASTE = new EventType<>(Event.ANY, "FILE_PASTE");
     public static final EventType<FileTreeMenuEvent> DELETE = new EventType<>(Event.ANY, "FILE_DELETE");
     public static final EventType<FileTreeMenuEvent> NEW_FILE = new EventType<>(Event.ANY, "NAV_NEW_FILE");
+    public static final EventType<FileTreeMenuEvent> NEW_FILE_TYPE = new EventType<>(Event.ANY, "NAV_NEW_FILE_TYPE");
     public static final EventType<FileTreeMenuEvent> NEW_FOLDER = new EventType<>(Event.ANY, "NAV_NEW_FOLDER");
     public static final EventType<FileTreeMenuEvent> NEW_PROJECT = new EventType<>(Event.ANY, "NAV_NEW_PROJECT");
 
-    private List<TreeItem<File>> selectedItems;
+    private List<MUITreeItem<File>> selectedItems;
+    private FileType fileType;
 
-    public FileTreeMenuEvent(EventType<FileTreeMenuEvent> eventType, MUIFileTreeView source, TreeItem<File> selectedItem)
+    public FileTreeMenuEvent(EventType<FileTreeMenuEvent> eventType, MUIFileTreeView2 source, MUITreeItem<File> selectedItem)
     {
         super(null, source, eventType);
         this.selectedItems = Collections.singletonList(selectedItem);
     }
 
-    public FileTreeMenuEvent(EventType<FileTreeMenuEvent> eventType, MUIFileTreeView source, List<TreeItem<File>> selectedItems)
+    public FileTreeMenuEvent(EventType<FileTreeMenuEvent> eventType, MUIFileTreeView2 source, List<MUITreeItem<File>> selectedItems)
     {
         super(null, source, eventType);
         this.selectedItems = selectedItems;
+    }
+
+    public FileTreeMenuEvent(EventType<FileTreeMenuEvent> eventType, MUIFileTreeView2 source, FileType fileType, List<MUITreeItem<File>> selectedItems)
+    {
+        super(null, source, eventType);
+        this.selectedItems = selectedItems;
+        this.fileType = fileType;
     }
 
     @Override
@@ -49,12 +60,13 @@ public class FileTreeMenuEvent extends Event
         return (FileTreeMenuEvent) super.copyFor(newSource, newTarget);
     }
 
-    public List<TreeItem<File>> getSelectedItems() { return selectedItems; }
+    public FileType getFileType() { return this.fileType; }
+    public List<MUITreeItem<File>> getSelectedItems() { return selectedItems; }
     public List<File> getSelectedFiles()
     {
-        List<TreeItem<File>> items = this.getSelectedItems();
+        List<MUITreeItem<File>> items = this.getSelectedItems();
         List<File> files = new ArrayList<>();
-        for (TreeItem<File> item : items)
+        for (MUITreeItem<File> item : items)
             files.add(item.getValue());
         return files;
     }
