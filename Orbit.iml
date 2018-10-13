@@ -69,7 +69,11 @@
     <orderEntry type="library" name="Maven: org.fxmisc.undo:undofx:2.1.0" level="project" />
     <orderEntry type="library" name="Maven: org.fxmisc.flowless:flowless:0.6" level="project" />
     <orderEntry type="library" name="Maven: org.fxmisc.wellbehaved:wellbehavedfx:0.3.3" level="project" />
+    <orderEntry type="library" name="Maven: com.kodedu.pty4j:pty4j:0.7.4" level="project" />
+    <orderEntry type="library" name="Maven: net.java.dev.jna:jna-platform:4.1.0" level="project" />
+    <orderEntry type="library" name="Maven: com.sparetimelabs:purejavacomm:0.0.17" level="project" />
     <orderEntry type="library" name="Maven: com.google.code.gson:gson:2.8.2" level="project" />
-    <orderEntry type="library" name="Maven: commons-io:commons-io:2.5" level="project" />
+    <orderEntry type="library" name="Maven: commons-io:commons-io:2.6" level="project" />
+    <orderEntry type="library" name="Maven: net.java.dev.jna:jna:4.1.0" level="project" />
   </component>
 </module>

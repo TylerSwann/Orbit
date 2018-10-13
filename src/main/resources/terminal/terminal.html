@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Terminal</title>
+    </head>
+    <body>
+        <div id="terminal"></div>
+    </body>
+</html>
+
+<style>
+
+    * {
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+    }
+    #terminal
+    {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+    }
+</style>
+<script src="hterm_all.js"></script>
+<script>
+
+    function loadTerminal()
+    {
+        hterm.defaultStorage = new lib.Storage.Memory();
+        hterm.copySelectionToClipboard = function(doc) {};
+        hterm.msg = function (name, args = [], string) { return string; };
+        window.terminal = new hterm.Terminal("Orbit Terminal");
+        setPreference("send-encoding", "raw");
+        setPreference("receive-encoding", "utf-8");
+        setPreference("enable-clipboard-notice", false);
+        terminal.onTerminalReady = function () {
+            application.terminalInit();
+            var io = terminal.io.push();
+            io.onVTKeystroke = function(text) { application.command(text); };
+            io.sendString = io.onVTKeystroke;
+            terminal.installKeyboard();
+            terminal.showOverlay = null;
+            application.terminalReady();
+        };
+        terminal.decorate(document.querySelector("#terminal"));
+    }
+    document.addEventListener("DOMContentLoaded", function () { loadTerminal(); });
+
+    function setPreference(key, value)
+    {
+        terminal.getPrefs().set(key, value);
+    }
+
+</script>

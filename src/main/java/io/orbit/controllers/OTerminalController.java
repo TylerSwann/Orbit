@@ -5,6 +5,7 @@ import io.orbit.ApplicationController;
 import io.orbit.settings.LocalUser;
 import io.orbit.controllers.events.MenuBarEvent;
 import io.orbit.ui.MUITerminalPane;
+import io.orbit.ui.terminal.MUITerminal;
 import javafx.application.Platform;
 import javafx.scene.layout.AnchorPane;
 
@@ -14,7 +15,7 @@ import javafx.scene.layout.AnchorPane;
 public class OTerminalController
 {
     private AnchorPane container;
-    private MUITerminalPane terminal;
+    private MUITerminal terminal;
 
 
     public OTerminalController(AnchorPane container)
@@ -26,6 +27,11 @@ public class OTerminalController
         else
             buildTerminal();
         App.addOnCloseHandler(() -> {
+            if (this.terminal != null)
+            {
+                this.terminal.dispose();
+                this.terminal = null;
+            }
             if (!LocalUser.settings.isTerminalClosed())
                 LocalUser.settings.setTerminalDividerPos(App.controller().getContentSplitPane().getDividerPositions()[0]);
         });
@@ -50,11 +56,8 @@ public class OTerminalController
 
     private void buildTerminal()
     {
-        this.terminal = new MUITerminalPane();
-        terminal.print("Microsoft Windows [Version 10.0.16299.192]");
-        terminal.print("(c) 2017 Microsoft Corporation. All rights reserved.");
-        terminal.print("");
-        terminal.input("C:\\Users\\TylersDesktop>", System.out::println);
+        this.terminal = new MUITerminal();
+        this.terminal.open();
         AnchorPane.setTopAnchor(terminal, 0.0);
         AnchorPane.setBottomAnchor(terminal, 0.0);
         AnchorPane.setLeftAnchor(terminal, 0.0);
