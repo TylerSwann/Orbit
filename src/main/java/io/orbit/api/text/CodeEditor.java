@@ -1,7 +1,7 @@
 package io.orbit.api.text;
 
 import io.orbit.settings.ProjectFile;
-import io.orbit.ui.MUIGutterButton;
+import io.orbit.ui.editorui.MUIGutterButton;
 import javafx.application.Platform;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.ReadOnlyObjectProperty;

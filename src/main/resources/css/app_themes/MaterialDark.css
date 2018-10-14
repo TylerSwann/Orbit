@@ -14,7 +14,6 @@
     -accent-strong-blue: #4da8f5;
 }
 
-
 .accent-background.anchor-pane,
 .accent-background.split-pane
 {
@@ -24,10 +23,19 @@
 {
     -fx-background-color: -color-grey;
 }
-.background
-{
-    -fx-background-color: -color-grey;
-}
+/*.accent-background.anchor-pane,*/
+/*.accent-background.split-pane*/
+/*{*/
+    /*-fx-background-color: -color-grey, -fx-control-inner-background;*/
+/*}*/
+/*.accent-background*/
+/*{*/
+    /*-fx-background-color: -color-grey;*/
+/*}*/
+/*.background*/
+/*{*/
+    /*-fx-background-color: -color-grey;*/
+/*}*/
 .jfx-button
 {
     -fx-background-color: transparent;
@@ -41,16 +49,9 @@
 
 .split-pane .split-pane-divider
 {
-    -fx-background-color:  -color-medium-grey;
-    -fx-border-color: -color-medium-grey;
-}
 
-
-.mui-gutter-button
-{
-    -fx-background-color: rgb(240, 240, 240);
-    -fx-breakpoint-fill: rgb(101, 126, 189);
-    -fx-font: 13.0 "Roboto Medium";
+    -fx-background-color:  linear-gradient(to bottom, -color-grey 4.5%, -color-medium-grey 4.5%);
+    -fx-border-color: linear-gradient(to bottom, -color-grey 4.5%, -color-medium-grey 4.5%);
 }
 
 .mui-text-field
@@ -233,12 +234,8 @@
  ******************************************************************************/
 .mui-gutter-button
 {
-    -fx-background-color: -color-grey;
-    -fx-breakpoint-fill: -fx-light-green;
+    -fx-background-color: -color-medium-grey;
     -fx-font: 14.0 "Roboto Black";
-    -fx-border-width: 0 1 0 0;
-    -fx-border-style: solid;
-    -fx-border-color: -fx-faded-green;
 }
 .mui-gutter-button .label
 {
@@ -251,14 +248,16 @@
  *                                                                             *
  ******************************************************************************/
 
-.terminal
+.mui-terminal
 {
-    -fx-font: 15 Monospaced;
-    -fx-font-color:  -fx-off-white;
-    -fx-background-color: -color-grey;
-    -fx-caret-color: -fx-off-white;
+    -fx-background-color: -color-medium-grey;
+    -fx-text-fill: -fx-off-white;
 }
 
+#terminalContainer
+{
+    -fx-background-color: -color-medium-grey;
+}
 /*******************************************************************************
  *                                                                             *
  *                                 Settings                                    *
@@ -522,7 +521,7 @@
     -fx-alignment: center-left;
     -fx-font-size: 14px;
     -fx-font-family: "Roboto Medium";
-    -fx-padding: 10px 0px 10px 15px;
+    -fx-padding: 10px 15px;
 }
 .editor-tab-menu.mui-context-menu .mui-context-item .ikonli-font-icon
 {

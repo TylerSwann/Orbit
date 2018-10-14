@@ -17,16 +17,13 @@
 .accent-background.anchor-pane,
 .accent-background.split-pane
 {
-    -fx-background-color: -accent-blue, -fx-control-inner-background;
+    -fx-background-color: white, -fx-control-inner-background;
 }
 .accent-background
 {
-    -fx-background-color: -accent-blue;
+    -fx-background-color: white;
 }
-.background
-{
-    -fx-background-color: -app-background;
-}
+
 .jfx-button
 {
     -fx-background-color: transparent;
@@ -42,6 +39,26 @@
 {
     -fx-background-color: -accent-blue;
     -fx-border-color: -accent-blue;
+}
+
+.mui-gutter-button
+{
+    -fx-background-color: -accent-blue;
+    -fx-text-fill: white;
+    -fx-font-family: "Roboto Bold";
+    -fx-font-size: 14px;
+}
+
+/*******************************************************************************
+ *                                                                             *
+ *                                 Terminal                                    *
+ *                                                                             *
+ ******************************************************************************/
+
+.mui-terminal
+{
+    -fx-background-color: white;
+    -fx-text-fill: #212121;
 }
 
 /*******************************************************************************
@@ -212,13 +229,6 @@
  *                                                                             *
  ******************************************************************************/
 
-.mui-gutter-button
-{
-    -fx-background-color: rgb(240, 240, 240);
-    -fx-breakpoint-fill: rgb(101, 126, 189);
-    -fx-font: 13.0 "Roboto Medium";
-}
-
 .navigator-context-menu.mui-context-menu
 {
     -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.6), 15.0, 0.0, 1.5, 2.0);
@@ -345,7 +355,7 @@
     -fx-font-family: "Roboto Medium";
     -fx-border-radius: null;
     -fx-background-radius: null;
-    -fx-padding: 0 15px;
+    -fx-padding: 10px 15px;
 }
 
 .editor-tab-menu  .mui-context-item .ikonli-font-icon

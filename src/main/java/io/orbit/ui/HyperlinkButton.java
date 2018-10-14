@@ -1,19 +1,40 @@
+/*
+ * <Orbit Editor. An Open Source Text Editor>
+ *
+ * Copyright (C) 2018 Jordan Swann
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <https://www.gnu.org/licenses/>.
+ */
 package io.orbit.ui;
 
 import com.jfoenix.controls.JFXButton;
+import io.orbit.ui.contextmenu.MUIMenuItem;
 import javafx.scene.Cursor;
 import javafx.scene.Node;
 import javafx.scene.input.MouseEvent;
+import org.kordamp.ikonli.Ikon;
+
 import java.net.URI;
+import java.net.URISyntaxException;
 
 /**
  * Created by Tyler Swann on Saturday May 12, 2018 at 15:31
  */
-public class HyperlinkButton extends JFXButton implements Hyperlink
+public class HyperlinkButton extends MUIMenuItem implements Hyperlink
 {
     private URI uri;
 
-    private HyperlinkButton() {  }
 
     public HyperlinkButton(String text, URI uri)
     {
@@ -21,9 +42,19 @@ public class HyperlinkButton extends JFXButton implements Hyperlink
         this.init(uri);
     }
 
-    public HyperlinkButton(String text, Node graphic, URI uri)
+    public HyperlinkButton(Ikon icon, String text, String url)
     {
-        super(text, graphic);
+        super(icon, text);
+        try
+        {
+            this.init(new URI(url));
+        }
+        catch (URISyntaxException ex) { ex.printStackTrace(); }
+    }
+
+    public HyperlinkButton(Ikon icon, String text, URI uri)
+    {
+        super(icon, text);
         this.init(uri);
     }
 

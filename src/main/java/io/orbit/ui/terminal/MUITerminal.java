@@ -26,7 +26,6 @@ public class MUITerminal extends EmbeddedTerminal
         this.setPreference("background-color", "white");
         this.setPreference("foreground-color", "black");
         this.setPreference("font-family", "Consolas, monospaced");
-        this.setPreference("scrollbar-visible", "false");
         this.registerListeners();
     }
 

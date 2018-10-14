@@ -1,8 +1,28 @@
+/*
+ * <Orbit Editor. An Open Source Text Editor>
+ *
+ * Copyright (C) 2018 Jordan Swann
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <https://www.gnu.org/licenses/>.
+ */
+
 package io.orbit.ui.menubar;
 
 import io.orbit.api.text.FileType;
 import io.orbit.plugin.PluginDispatch;
 import io.orbit.settings.LocalUser;
+import io.orbit.ui.HyperlinkButton;
 import io.orbit.ui.colorpicker.MUIPopupColorPicker;
 import io.orbit.ui.contextmenu.MUIContextMenu;
 import io.orbit.ui.contextmenu.MUIMenu;
@@ -12,6 +32,8 @@ import javafx.event.EventHandler;
 import javafx.scene.control.ContentDisplay;
 import org.kordamp.ikonli.fontawesome5.FontAwesomeRegular;
 import org.kordamp.ikonli.fontawesome5.FontAwesomeSolid;
+
+import java.net.URI;
 import java.util.Arrays;
 import java.util.List;
 import java.util.function.BiConsumer;
@@ -41,10 +63,14 @@ public class ApplicationMenuBar extends MUIMenuBar implements SystemMenuBar<MUIM
     private EventHandler<ActionEvent> onFind;
     private EventHandler<ActionEvent> onSelectAll;
     private BiConsumer<ActionEvent, FileType> onNewCustomFileType;
+    private EventHandler<ActionEvent> onVisitHomepage;
+    private EventHandler<ActionEvent> onViewLicense;
+    private EventHandler<ActionEvent> onAbout;
 
     private MUIMenuItem file;
     private MUIMenuItem edit;
     private MUIMenuItem view;
+    private MUIMenuItem help;
 
     public ApplicationMenuBar()
     {
@@ -52,7 +78,8 @@ public class ApplicationMenuBar extends MUIMenuBar implements SystemMenuBar<MUIM
         this.file = file();
         this.edit = edit();
         this.view = view();
-        this.getLeftItems().addAll(this.file, this.edit, this.view);
+        this.help = help();
+        this.getLeftItems().addAll(this.file, this.edit, this.view, this.help);
         this.getRightItems().addAll(iconBar());
         this.right.getStyleClass().add("mui-icon-bar");
     }
@@ -188,6 +215,27 @@ public class ApplicationMenuBar extends MUIMenuBar implements SystemMenuBar<MUIM
         return view;
     }
 
+    private MUIMenuItem help()
+    {
+        MUIMenuItem help = new MUIMenuItem("Help");
+        HyperlinkButton visitHomepage = new HyperlinkButton(FontAwesomeSolid.LINK, "Visit Homepage", "https://orbiteditor.com");
+        MUIMenuItem viewLicense = new MUIMenuItem(FontAwesomeSolid.ID_CARD, "View License");
+        MUIMenuItem about = new MUIMenuItem(FontAwesomeSolid.QUESTION_CIRCLE, "About");
+        visitHomepage.setOnAction(event -> this.onVisitHomepage.handle(event));
+        viewLicense.setOnAction(event -> this.onViewLicense.handle(event));
+        about.setOnAction(event -> this.onAbout.handle(event));
+        MUIContextMenu menu = new MUIContextMenu(this);
+        menu.getItems().addAll(Arrays.asList(
+                visitHomepage,
+                viewLicense,
+                about
+        ));
+        menu.getRoot().getStyleClass().add(CONTEXT_MENU_STYLE_CLASS);
+        menu.getRoot().getStyleClass().add("help");
+        help.setMUIContextMenu(menu);
+        return help;
+    }
+
     private List<MUIMenuItem> iconBar()
     {
         MUIMenuItem play = new MUIMenuItem(FontAwesomeSolid.PLAY_CIRCLE, "");
@@ -218,4 +266,7 @@ public class ApplicationMenuBar extends MUIMenuBar implements SystemMenuBar<MUIM
     @Override public void setOnFind(EventHandler<ActionEvent> handler) { this.onFind = handler; }
     @Override public void setOnSelectAll(EventHandler<ActionEvent> handler) { this.onSelectAll = handler; }
     @Override public void setOnNewCustomFileType(BiConsumer<ActionEvent, FileType> handler) { this.onNewCustomFileType = handler; }
+    @Override public void setOnVisitHomePage(EventHandler<ActionEvent> handler) { this.onVisitHomepage = handler; }
+    @Override public void setOnViewLicense(EventHandler<ActionEvent> handler) { this.onViewLicense = handler; }
+    @Override public void setOnAbout(EventHandler<ActionEvent> handler) { this.onAbout = handler; }
 }

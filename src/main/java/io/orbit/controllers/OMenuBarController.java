@@ -1,3 +1,21 @@
+/*
+ * <Orbit Editor. An Open Source Text Editor>
+ *
+ * Copyright (C) 2018 Jordan Swann
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <https://www.gnu.org/licenses/>.
+ */
 package io.orbit.controllers;
 
 import io.orbit.App;
@@ -79,6 +97,9 @@ public class OMenuBarController extends EventTargetObject
         this.menuBar.setOnFind(__ -> this.fireEvent(new MenuBarEvent(this, this, MenuBarEvent.FIND)));
         this.menuBar.setOnSelectAll(__ -> this.fireEvent(new MenuBarEvent(this, this, MenuBarEvent.SELECT_ALL)));
         this.menuBar.setOnNewCustomFileType((e, fileType) -> this.fireEvent(new MenuBarEvent(MenuBarEvent.NEW_CUSTOM_FILE_TYPE, ((FileType)fileType))));
+        this.menuBar.setOnVisitHomePage((e) -> {});
+        this.menuBar.setOnViewLicense((e) -> {});
+        this.menuBar.setOnAbout((e) -> {});
     }
 
     private void registerListeners()
@@ -94,7 +115,7 @@ public class OMenuBarController extends EventTargetObject
         this.addEventHandler(MenuBarEvent.SAVE, this::saveFile);
         this.addEventHandler(MenuBarEvent.SAVE_ALL, event -> this.saveAll());
         this.addEventHandler(MenuBarEvent.SETTINGS, event -> Platform.runLater(SettingsPage::show));
-        this.addEventHandler(MenuBarEvent.NEW_PROJECT, event -> Platform.runLater(OProjectCreationDialog::show));
+        this.addEventHandler(MenuBarEvent.NEW_PROJECT, event -> {});
         this.addEventHandler(MenuBarEvent.OPEN_FILE, event -> this.showFileChooserDialog());
         this.addEventHandler(MenuBarEvent.OPEN_FOLDER, event -> this.showFolderChooseDialog());
         this.addEventHandler(MenuBarEvent.NEW_FILE, event -> showFileCreationDialog(false));

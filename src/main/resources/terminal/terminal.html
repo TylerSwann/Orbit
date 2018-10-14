@@ -19,8 +19,10 @@
     #terminal
     {
         position: absolute;
-        height: 100%;
-        width: 100%;
+        top: 5px;
+        bottom: 5px;
+        left: 5px;
+        right: 5px;
     }
 </style>
 <script src="hterm_all.js"></script>
@@ -30,11 +32,12 @@
     {
         hterm.defaultStorage = new lib.Storage.Memory();
         hterm.copySelectionToClipboard = function(doc) {};
-        hterm.msg = function (name, args = [], string) { return string; };
+        hterm.msg = function (name, args, string) { return string; };
         window.terminal = new hterm.Terminal("Orbit Terminal");
         setPreference("send-encoding", "raw");
         setPreference("receive-encoding", "utf-8");
         setPreference("enable-clipboard-notice", false);
+        setPreference("scrollbar-visible", false);
         terminal.onTerminalReady = function () {
             application.terminalInit();
             var io = terminal.io.push();
@@ -51,6 +54,8 @@
     function setPreference(key, value)
     {
         terminal.getPrefs().set(key, value);
+        if (key === "background-color")
+            document.getElementsByTagName("body")[0].style.backgroundColor = value;
     }
 
 </script>

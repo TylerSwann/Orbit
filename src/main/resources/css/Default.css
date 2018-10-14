@@ -23,13 +23,6 @@
     -fx-icon-size: 23px;
 }
 
-
-/*.navigator-tab-pane .file-tree-view .ikonli-font-icon*/
-/*{*/
-    /*-fx-icon-size: 23px;*/
-    /*-fx-icon-color: rgb(100, 100, 100);*/
-/*}*/
-
 /*******************************************************************************
  *                                                                             *
  *                                ScrollPane                                   *
@@ -142,18 +135,26 @@
 .accent-background.split-pane
 {
     -fx-background-color: white, -fx-control-inner-background;
+    -fx-border-width: 0;
+    -fx-background-insets: 0;
+    -fx-padding: 0;
 }
 .accent-background
 {
     -fx-background-color: white;
+    -fx-border-width: 0;
+    -fx-background-insets: 0;
+    -fx-padding: 0;
 }
 .background
 {
     -fx-focus-color: transparent;
     -fx-box-border: transparent;
     -fx-background-color: white;
+    -fx-border-width: 0;
+    -fx-background-insets: 0;
+    -fx-padding: 0;
 }
-
 
 
 /*******************************************************************************
@@ -292,12 +293,10 @@
  *                                                                             *
  ******************************************************************************/
 
-.terminal
+.mui-terminal
 {
-    -fx-font: 15 Monospaced;
-    -fx-font-color: #282828;
+    -fx-text-fill: #282828;
     -fx-background-color: rgb(233, 233, 233);
-    -fx-caret-color: #161616;
 }
 
 /*******************************************************************************
