@@ -1,4 +1,4 @@
-package io.orbit.ui;
+package io.orbit.controllers;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXCheckBox;
@@ -6,7 +6,6 @@ import com.jfoenix.controls.JFXTextField;
 import com.jfoenix.validation.RequiredFieldValidator;
 import io.orbit.App;
 import io.orbit.api.text.CodeEditor;
-import io.orbit.controllers.LanguageService;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.IndexRange;
@@ -174,9 +173,9 @@ public class FindAndReplace
         this.dropDownButton.setOnAction(event -> {
             this.toggleReplacePane();
             if (replaceIsShowing)
-                AnchorPane.setTopAnchor(scrollPane, 88.0);
+                AnchorPane.setTopAnchor(scrollPane, 100.0);
             else
-                AnchorPane.setTopAnchor(scrollPane, 50.0);
+                AnchorPane.setTopAnchor(scrollPane, 45.0);
         });
         this.replaceButton.setOnAction(event -> {
             if (!this.replaceIsShowing)
@@ -231,7 +230,7 @@ public class FindAndReplace
             int end = matcher.end();
             this.matchRanges.add(new IndexRange(start, end));
             this.editor.clearStyle(start, end);
-            this.editor.setStyleClass(start, end, "highlighted");
+            this.editor.setStyleClass(start, end, "match");
         }
         if (matchRanges.size() > 0)
             this.goToMatch(0);
@@ -279,13 +278,13 @@ public class FindAndReplace
     private void setHighlighted(IndexRange range)
     {
         this.editor.clearStyle(range.getStart(), range.getEnd());
-        this.editor.setStyleClass(range.getStart(), range.getEnd(), "highlighted");
+        this.editor.setStyleClass(range.getStart(), range.getEnd(), "match");
     }
 
     private void setSelected(IndexRange range)
     {
         this.editor.clearStyle(range.getStart(), range.getEnd());
-        this.editor.setStyleClass(range.getStart(), range.getEnd(), "highlight-selected");
+        this.editor.setStyleClass(range.getStart(), range.getEnd(), "selected-match");
     }
 
     public void setOnCloseRequest(Runnable closeRequest)

@@ -82,9 +82,6 @@ public class AppStage
         URL defaultSyntax = AppStage.class.getClassLoader().getResource("css/DefaultSyntax.css");
         assert defaultCss != null && defaultSyntax != null && taskBarIcon != null;
         stage.getIcons().add(new Image(taskBarIcon));
-//        App.appTheme.append(defaultCss.toExternalForm());
-//        App.syntaxTheme.append(defaultSyntax.toExternalForm());
-//        App.appTheme.sync(stage().getScene().getStylesheets());
         LocalUser.applySettings();
     }
 }

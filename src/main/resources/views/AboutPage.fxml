@@ -1,14 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="io.orbit.ui.AboutPage"
-            prefHeight="400.0" prefWidth="600.0">
-
+<AnchorPane prefHeight="386.0" prefWidth="645.0" style="-fx-background-color: #f3f8e1;" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="io.orbit.controllers.Help">
+   <children>
+      <ImageView fitHeight="163.0" fitWidth="109.0" layoutX="268.0" layoutY="48.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/moon_logo.png" />
+         </image>
+      </ImageView>
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutY="157.0" prefHeight="36.0" prefWidth="139.0" text="Orbit" textAlignment="CENTER" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+         <font>
+            <Font name="Chelsea" size="62.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutY="227.0" style="-fx-font-family: &quot;Roboto&quot;; -fx-font-size: 13px;" text="Copyright (C) 2018 Jordan Swann" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+         <font>
+            <Font size="11.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutY="243.0" prefHeight="16.0" prefWidth="109.0" style="-fx-font-family: &quot;Roboto&quot;; -fx-font-size: 13px;" text="Version 0.1 Beta" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+         <font>
+            <Font size="11.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutY="268.0" prefHeight="70.0" prefWidth="800.0" style="-fx-font-family: &quot;Roboto&quot;; -fx-font-size: 13px;" text="This program is free software: you can redistribute it and/or modify it under the terms of the GNUv3 General Public License" textAlignment="CENTER" wrapText="true" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+         <font>
+            <Font size="11.0" />
+         </font>
+         <padding>
+            <Insets left="150.0" right="150.0" />
+         </padding>
+      </Label>
+   </children>
 </AnchorPane>

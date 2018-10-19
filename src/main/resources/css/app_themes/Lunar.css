@@ -1,0 +1,456 @@
+
+
+
+
+* {
+    -base-grey: #3c3d3f;
+    -base-blue: #30363f;
+    -secondary-grey: #4b4c4f;
+    -base-med-grey: #414244;
+    -base-light-grey: #4f4f50;
+    -button-ripple: #8a9bb5;
+    -button-hover: #414955;
+    -accent-blue: #2962FF;
+    -accent-faded: rgba(41, 98, 255, 0.52);
+    -text-color: #5e7a8e;
+    -text-color-disable: rgba(94, 122, 142, 0.54);
+    -icon-color: #888e97;
+}
+
+
+
+.accent-background.anchor-pane,
+.accent-background.split-pane
+{
+    -fx-background-color: -base-grey, -fx-control-inner-background;
+}
+.accent-background
+{
+    -fx-background-color: -base-grey;
+}
+
+
+.split-pane .split-pane-divider
+{
+
+    -fx-background-color:  -base-grey;
+    -fx-border-color: -base-grey;
+}
+
+.jfx-button
+{
+    -fx-background-color: transparent;
+}
+
+.jfx-button .jfx-rippler
+{
+    -jfx-rippler-fill: -button-ripple;
+}
+
+.mui-text-field
+{
+    -fx-text-fill: -text-color;
+    -fx-prompt-text-fill: -text-color-disable;
+    -jfx-focus-color: -accent-blue;
+    -jfx-unfocus-color: -accent-faded;
+    -fx-font-family: "Roboto";
+}
+
+.mui-check-box
+{
+    -jfx-checked-color: -accent-blue;
+    -jfx-unchecked-color: -accent-faded;
+    -fx-text-fill: -text-color;
+}
+
+/*******************************************************************************
+ *                                                                             *
+ *                                  TabPane                                    *
+ *                                                                             *
+ ******************************************************************************/
+
+.mui-tab-pane .mui-tab-bar
+{
+    -fx-effect: null;
+    -fx-background-color: -base-grey;
+}
+
+.mui-tab-pane .mui-tab-bar .mui-tab .ikonli-font-icon,
+.mui-tab-pane .mui-tab-bar .mui-tab
+{
+    -fx-icon-color: -icon-color;
+    -fx-text-fill: -text-color;
+}
+
+.mui-tab-pane .mui-tab-bar .mui-tab
+{
+    -fx-background-radius: 5px 5px 0 0;
+}
+.mui-tab-pane  .mui-tab-bar .indicator
+{
+    -fx-background-color: -base-blue;
+}
+
+.editor-tab-pane .mui-tab-bar .mui-tab:selected
+{
+    -fx-background-color: -base-blue;
+}
+
+.editor-tab-pane .mui-tab-bar .indicator
+{
+    -fx-background-color: -base-blue;
+}
+
+
+/*******************************************************************************
+ *                                                                             *
+ *                                  TreeViews                                  *
+ *                                                                             *
+ ******************************************************************************/
+
+.mui-tree-view
+{
+    -fx-background-color: -base-grey;
+    -fx-background: -base-grey;
+}
+
+.mui-tree-item .mui-tree-header .label,
+.mui-tree-item:selected .mui-tree-header .label
+{
+    -fx-text-fill: -text-color;
+}
+
+.mui-tree-item:selected .mui-tree-header,
+.mui-tree-item:selected .mui-tree-header:hover
+{
+    -fx-background-color: -button-hover;
+}
+
+.mui-tree-item .mui-tree-header .mui-icon-button .ikonli-font-icon
+{
+    -fx-icon-color: -icon-color;
+}
+
+.mui-tree-item .mui-tree-header
+{
+    -fx-background-color: transparent;
+}
+
+.mui-tree-item .mui-tree-header:hover
+{
+    -fx-background-color: -secondary-grey;
+}
+
+.mui-tree-item .mui-tree-header .mui-icon-button:hover
+{
+    -fx-background-color: -button-hover;
+}
+
+.mui-tree-item .mui-tree-header .svg-icon
+{
+    -fx-icon-color: -icon-color;
+    -fx-icon-size: 15px;
+}
+
+/*******************************************************************************
+ *                                                                             *
+ *                    Gutter Buttons / Line Number Buttons                     *
+ *                                                                             *
+ ******************************************************************************/
+.mui-gutter-button
+{
+    -fx-background-color: -base-blue;
+    -fx-font: 14.0 "Roboto Black";
+    -fx-text-fill: -text-color;
+}
+
+
+/*******************************************************************************
+ *                                                                             *
+ *                               Context Menu                                  *
+ *                                                                             *
+ ******************************************************************************/
+
+.mui-context-menu
+{
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.6), 15.0, 0.0, 1.5, 2.0);
+    -fx-background-color: -base-grey;
+    -fx-background-radius: 3px;
+}
+
+.mui-context-menu .mui-context-item
+{
+    -fx-text-fill: -text-color;
+    -fx-alignment: center-left;
+    -fx-font-size: 14px;
+    -fx-font-family: "Roboto Medium";
+    -fx-padding: 10px 15px;
+}
+.mui-context-menu .mui-context-item .ikonli-font-icon
+{
+    -fx-icon-size: 12px;
+    -fx-text-alignment: left;
+    -fx-alignment: center-left;
+    -fx-icon-color: -text-color;
+}
+.mui-context-menu .mui-context-item:hover
+{
+    -fx-background-color: -button-hover;
+}
+.mui-context-menu .mui-context-item.mui-menu .ikonli-font-icon
+{
+    -fx-translate-x: 50px;
+}
+
+/*******************************************************************************
+ *                                                                             *
+ *                                 Menu Bar                                    *
+ *                                                                             *
+ ******************************************************************************/
+
+.mui-menu-bar
+{
+    -fx-background-color: -base-grey;
+}
+
+.mui-menu-bar .mui-context-item
+{
+    -fx-background-color: transparent;
+    -fx-text-fill: -text-color;
+    -fx-alignment: center-left;
+    -fx-font-size: 14px;
+    -fx-font-family: "Roboto Medium";
+    -fx-padding: 10px 15px;
+}
+.mui-menu-bar .left .mui-context-item
+{
+    -fx-font-family: "Roboto Black";
+    -fx-font-size: 14px;
+    -fx-padding: 5px 10px;
+}
+
+
+.mui-menu-bar .right .mui-context-item .ikonli-font-icon
+{
+    -fx-icon-size: 17px;
+    -fx-icon-color: -text-color;
+}
+
+.mui-menu-bar .right .mui-context-item
+{
+    -fx-background-radius: 50%;
+    -fx-pref-height: 33px;
+    -fx-padding: 7px 0px;
+    -fx-alignment: center;
+}
+
+.application-context-menu .mui-context-item .ikonli-font-icon
+{
+    -fx-icon-size: 12px;
+    -fx-text-alignment: left;
+    -fx-alignment: center-left;
+    -fx-icon-color: -text-color;
+}
+.application-context-menu .mui-context-item:hover,
+.mui-menu-bar .left .mui-context-item:hover,
+.mui-menu-bar .right .mui-context-item:hover
+{
+    -fx-background-color: -button-hover;
+}
+.application-context-menu .mui-context-item.mui-menu .ikonli-font-icon
+{
+    -fx-translate-x: 50px;
+    -fx-icon-color: -text-color;
+}
+
+
+/*******************************************************************************
+ *                                                                             *
+ *                                ScrollBar                                    *
+ *                                                                             *
+ ******************************************************************************/
+.scroll-bar
+{
+    -fx-background-color: -base-grey;
+}
+.scroll-bar:horizontal .track,
+.scroll-bar:vertical .track
+{
+    -fx-background-color: -base-grey;
+}
+.scroll-bar:vertical .track-background,
+.scroll-bar:horizontal .track-background
+{
+    -fx-background-color: -base-grey;
+}
+.scroll-bar:horizontal .thumb
+{
+    -fx-background-color: -base-light-grey;
+}
+.scroll-bar:vertical .thumb
+{
+    -fx-background-color: -base-light-grey;
+}
+.scroll-bar:horizontal .thumb:hover,
+.scroll-bar:vertical .thumb:hover
+{
+    -fx-background-color: -base-light-grey;
+}
+.scroll-bar:horizontal .thumb:pressed,
+.scroll-bar:vertical .thumb:pressed
+{
+    -fx-background-color: -base-light-grey;
+}
+.scroll-bar:vertical:focused,
+.scroll-bar:horizontal:focused
+{
+    -fx-background-color: -fx-box-border, -base-grey;
+}
+.scroll-pane,
+.scroll-pane > .corner,
+.virtualized-scroll-pane .corner
+{
+    -fx-background: -base-grey;
+    -fx-background-color: -base-grey;
+}
+
+.scroll-bar > .increment-button > .increment-arrow,
+.scroll-bar > .decrement-button > .decrement-arrow
+{
+    -fx-background-color: -base-grey;
+}
+
+
+/*******************************************************************************
+ *                                                                             *
+ *                                 Terminal                                    *
+ *                                                                             *
+ ******************************************************************************/
+
+.mui-terminal
+{
+    -fx-background-color: -base-grey;
+    -fx-text-fill: -text-color;
+}
+
+#terminalContainer
+{
+    -fx-background-color: -base-grey;
+}
+
+/*******************************************************************************
+ *                                                                             *
+ *                              Find and Replace                               *
+ *                                                                             *
+ ******************************************************************************/
+
+.find-replace-pane
+{
+    -fx-background-color: -base-blue;
+}
+
+.find-replace-pane .find-and-replace-button
+{
+    -fx-background-radius: 50%;
+}
+
+.find-replace-pane .find-and-replace-button .ikonli-font-icon
+{
+    -fx-icon-color: -icon-color;
+    -fx-icon-size: 11px;
+}
+
+.find-replace-pane .button-secondary
+{
+    -fx-background-color: -accent-blue;
+    -fx-font-family: "Roboto Bold";
+    -fx-text-fill: white;
+    -fx-font-size: 11px;
+}
+
+/*******************************************************************************
+ *                                                                             *
+ *                                 Settings                                    *
+ *                                                                             *
+ ******************************************************************************/
+/*.settings-page,*/
+/*.settings-page .anchor-pane,*/
+/*.settings-page .scroll-pane*/
+/*{*/
+    /*-fx-background-color: -color-grey;*/
+    /*-fx-background: -color-grey;*/
+/*}*/
+/*.settings-section-label*/
+/*{*/
+    /*-fx-text-fill: -fx-off-white;*/
+    /*-fx-font-family: "Roboto Bold";*/
+    /*-fx-font-size: 24px;*/
+/*}*/
+/*.settings-subsection-label*/
+/*{*/
+    /*-fx-text-fill: -fx-off-white;*/
+    /*-fx-font-family: "Roboto Medium";*/
+    /*-fx-font-size: 20px;*/
+/*}*/
+
+/*.settings-section*/
+/*{*/
+    /*-fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.5), 10.0, 0.0, 2, 3.0);*/
+    /*-fx-background-color: #4e545c;*/
+    /*-fx-background-radius: 3px;*/
+/*}*/
+
+/*.settings-item*/
+/*{*/
+    /*-fx-border-width: 0px 0px 1px 0px;*/
+    /*-fx-border-color: -fx-off-white;*/
+/*}*/
+
+/*.setting-name-label*/
+/*{*/
+    /*-fx-font-family: "Roboto";*/
+    /*-fx-text-fill: -fx-off-white;*/
+/*}*/
+
+/*.mui-light-button*/
+/*{*/
+    /*-fx-font-family: "Roboto Black";*/
+    /*-fx-text-fill: -fx-off-white;*/
+    /*-fx-border-color: rgba(168, 183, 185, 0.25);*/
+/*}*/
+/*.mui-light-button:hover*/
+/*{*/
+    /*!*-fx-background-color: -color-grey;*!*/
+    /*-fx-border-color: -fx-light-green;*/
+/*}*/
+/*.settings-header-pane*/
+/*{*/
+    /*-fx-background-color: -color-medium-grey;*/
+/*}*/
+
+/*.settings-header*/
+/*{*/
+    /*-fx-font-family: "Roboto";*/
+    /*-fx-font-size: 20px;*/
+    /*-fx-text-fill: -fx-off-white;*/
+/*}*/
+
+/*.settings-page .ikonli-font-icon*/
+/*{*/
+    /*-fx-icon-size: 20px;*/
+    /*-fx-icon-color: -fx-off-white;*/
+/*}*/
+
+/*.settings-page .mui-tab-bar .mui-tab*/
+/*{*/
+    /*-fx-background-color: transparent;*/
+    /*-fx-font-family: "Roboto Bold";*/
+    /*-fx-font-size: 14px;*/
+    /*-fx-text-fill: -fx-off-white;*/
+    /*-fx-pref-width: 110px;*/
+/*}*/
+
+/*.settings-page .mui-tab-bar .indicator*/
+/*{*/
+    /*-fx-background-color: -fx-light-green;*/
+/*}*/

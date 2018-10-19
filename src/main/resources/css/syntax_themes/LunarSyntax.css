@@ -1,0 +1,96 @@
+
+
+
+.styled-text-area
+{
+    -fx-background-color: #30363f;
+}
+
+.paragraph-box:has-caret
+{
+    -fx-background-color: #3b4046;
+}
+
+.styled-text-area .caret
+{
+    -fx-stroke: white;
+}
+
+.selection
+{
+    -fx-fill: #28509f;
+}
+
+.styled-text-area .text.match
+{
+    -rtfx-background-color: #42A5F5;
+    -fx-fill: white;
+}
+
+.styled-text-area .text.selected-match
+{
+    -rtfx-background-color: #2962FF;
+    -fx-fill: white;
+}
+
+.styled-text-area .text
+{
+    -fx-fill: #7294ac;
+}
+
+
+.styled-text-area .text.keyword
+{
+    -fx-fill: #aaa8f5;
+}
+
+.styled-text-area .text.error
+{
+    -rtfx-background-color: rgba(255, 0, 48, 0.95);
+    -fx-strikethrough: true;
+}
+.styled-text-area .text.type
+{
+    /*-fx-fill: #889595;*/
+    /*-fx-fill: #cbff90;*/
+    -fx-fill: #ffe9b4;
+}
+
+.styled-text-area .text.block-comment
+{
+    -fx-fill: #545e6e;
+}
+
+.styled-text-area .text.line-comment
+{
+    -fx-fill: rgb(27, 207, 0);
+}
+.styled-text-area .text.string
+{
+    -fx-fill: #ba8377;
+}
+.styled-text-area .text.number
+{
+    -fx-fill: #3878f3;
+}
+.styled-text-area .text.semi-colon
+{
+    -fx-fill: #d1d7e0;
+}
+.styled-text-area .text.annotation
+{
+    /*-fx-fill: #c9b78e;*/
+    -fx-fill: #f7f4a5;
+}
+
+.styled-text-area .text.operator
+{
+    -fx-fill: #7dc9c3
+}
+
+.styled-text-area .text.static-field
+{
+    -fx-fill: #bababa;
+    -fx-font-style: italic;
+}
+

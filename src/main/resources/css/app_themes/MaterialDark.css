@@ -23,19 +23,7 @@
 {
     -fx-background-color: -color-grey;
 }
-/*.accent-background.anchor-pane,*/
-/*.accent-background.split-pane*/
-/*{*/
-    /*-fx-background-color: -color-grey, -fx-control-inner-background;*/
-/*}*/
-/*.accent-background*/
-/*{*/
-    /*-fx-background-color: -color-grey;*/
-/*}*/
-/*.background*/
-/*{*/
-    /*-fx-background-color: -color-grey;*/
-/*}*/
+
 .jfx-button
 {
     -fx-background-color: transparent;
@@ -236,9 +224,6 @@
 {
     -fx-background-color: -color-medium-grey;
     -fx-font: 14.0 "Roboto Black";
-}
-.mui-gutter-button .label
-{
     -fx-text-fill: -fx-off-white;
 }
 

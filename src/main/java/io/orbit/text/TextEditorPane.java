@@ -3,7 +3,7 @@ package io.orbit.text;
 import io.orbit.api.event.CodeEditorEvent;
 import io.orbit.api.text.CodeEditor;
 import io.orbit.controllers.OCodeEditorController;
-import io.orbit.ui.FindAndReplace;
+import io.orbit.controllers.FindAndReplace;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import org.fxmisc.flowless.VirtualizedScrollPane;
@@ -42,12 +42,12 @@ public class TextEditorPane extends AnchorPane
             if (findAndReplace.mode == FindAndReplace.Mode.FIND && withReplaceShowing)
             {
                 findAndReplace.toggleReplacePane();
-                AnchorPane.setTopAnchor(scrollPane, 88.0);
+                AnchorPane.setTopAnchor(scrollPane, 100.0);
             }
             else if (findAndReplace.mode == FindAndReplace.Mode.FIND_REPLACE && !withReplaceShowing)
             {
                 findAndReplace.toggleReplacePane();
-                AnchorPane.setTopAnchor(scrollPane, 50.0);
+                AnchorPane.setTopAnchor(scrollPane, 45.0);
             }
         }
         if (findAndReplace != null)
@@ -60,10 +60,11 @@ public class TextEditorPane extends AnchorPane
             AnchorPane.setTopAnchor(scrollPane, 0.0);
         });
         if (withReplaceShowing)
-            AnchorPane.setTopAnchor(scrollPane, 88.0);
+            AnchorPane.setTopAnchor(scrollPane, 100.0);
         else
-            AnchorPane.setTopAnchor(scrollPane, 50.0);
+            AnchorPane.setTopAnchor(scrollPane, 45.0);
         AnchorPane.setRightAnchor(findAndReplacePane, 0.0);
+        AnchorPane.setLeftAnchor(findAndReplacePane, 0.0);
         this.getChildren().add(0, findAndReplacePane);
     }
 

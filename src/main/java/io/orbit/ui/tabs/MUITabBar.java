@@ -70,7 +70,6 @@ public class MUITabBar extends AnchorPane
         this.tabsContainer.setStyle("-fx-background-color: transparent;");
         this.tabsContainer.setAlignment(Pos.CENTER_LEFT);
         this.indicator = new Pane();
-        this.indicator.setPrefHeight(indicatorHeight);
         this.indicator.getStyleClass().add(INDICATOR_STYLE_CLASS);
         this.indicatorWidthChange = __ -> Platform.runLater(() -> {
             this.indicator.setPrefWidth(this.selectedTab.get().getWidth());

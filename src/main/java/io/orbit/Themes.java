@@ -28,19 +28,25 @@ public class Themes
 
     public static final File MATERIAL_DARK;
     public static final File MATERIAL_LIGHT;
+    public static final File LUNAR;
     public static final File MATERIAL_DARK_SYNTAX;
     public static final File MATERIAL_LIGHT_SYNTAX;
+    public static final File LUNAR_SYNTAX;
 
     static {
         URL darkURL = Themes.class.getClassLoader().getResource("css/app_themes/MaterialDark.css");
         URL lightURL = Themes.class.getClassLoader().getResource("css/app_themes/MaterialLight.css");
+        URL lunarURL = Themes.class.getClassLoader().getResource("css/app_themes/Lunar.css");
         URL darkSyntaxURL = Themes.class.getClassLoader().getResource("css/syntax_themes/MaterialDarkSyntax.css");
         URL lightSyntaxURL = Themes.class.getClassLoader().getResource("css/syntax_themes/MaterialLightSyntax.css");
-        assert darkURL != null && lightURL != null && darkSyntaxURL != null && lightSyntaxURL != null;
+        URL lunarSyntaxURL = Themes.class.getClassLoader().getResource("css/syntax_themes/LunarSyntax.css");
+        assert darkURL != null && lightURL != null && darkSyntaxURL != null && lightSyntaxURL != null && lunarURL != null && lunarSyntaxURL != null;
         MATERIAL_DARK = new File(darkURL.getFile());
         MATERIAL_LIGHT = new File(lightURL.getFile());
+        LUNAR = new File(lunarURL.getFile());
         MATERIAL_DARK_SYNTAX = new File(darkSyntaxURL.getFile());
         MATERIAL_LIGHT_SYNTAX = new File(lightSyntaxURL.getFile());
+        LUNAR_SYNTAX = new File(lunarSyntaxURL.getFile());
     }
 
     private Themes() {}

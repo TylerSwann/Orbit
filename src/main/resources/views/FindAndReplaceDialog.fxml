@@ -6,12 +6,13 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<VBox fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="88.0" prefWidth="786.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="io.orbit.ui.FindAndReplace">
+<VBox fx:id="root" alignment="TOP_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="786.0" styleClass="find-replace-pane" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="io.orbit.controllers.FindAndReplace">
    <children>
-      <HBox alignment="BOTTOM_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="746.0" spacing="15.0" styleClass="find-and-replace-dialog">
+      <HBox alignment="BOTTOM_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="45.0" prefWidth="746.0" spacing="10.0" styleClass="find-and-replace-dialog">
          <children>
-            <JFXButton fx:id="dropDownButton" prefHeight="30.0" prefWidth="30.0" styleClass="find-and-replace-button" text="&gt;">
+            <JFXButton fx:id="dropDownButton" contentDisplay="GRAPHIC_ONLY" prefHeight="30.0" prefWidth="30.0" styleClass="find-and-replace-button" text="&gt;">
                <HBox.margin>
                   <Insets />
                </HBox.margin>
@@ -20,30 +21,45 @@
                <HBox.margin>
                   <Insets bottom="10.0" />
                </HBox.margin></JFXTextField>
-            <JFXButton fx:id="clearButton" prefHeight="30.0" prefWidth="30.0" styleClass="find-and-replace-button" text="X" />
-            <JFXButton fx:id="previousButton" prefHeight="30.0" prefWidth="30.0" styleClass="find-and-replace-button" text="&gt;" />
-            <JFXButton fx:id="nextButton" prefHeight="30.0" prefWidth="30.0" styleClass="find-and-replace-button" text="&lt;" />
+            <JFXButton fx:id="clearButton" contentDisplay="GRAPHIC_ONLY" prefHeight="30.0" prefWidth="30.0" styleClass="find-and-replace-button" text="X" />
+            <JFXButton fx:id="previousButton" contentDisplay="GRAPHIC_ONLY" prefHeight="30.0" prefWidth="30.0" styleClass="find-and-replace-button" text="&gt;" />
+            <JFXButton fx:id="nextButton" contentDisplay="GRAPHIC_ONLY" prefHeight="30.0" prefWidth="30.0" styleClass="find-and-replace-button" text="&lt;" />
             <JFXCheckBox fx:id="matchBox" prefHeight="30.0" prefWidth="55.0" styleClass="mui-check-box" text="Match" />
             <JFXCheckBox fx:id="regexBox" prefHeight="30.0" prefWidth="55.0" styleClass="mui-check-box" text="Regex" />
-            <JFXButton fx:id="closeButton" prefHeight="30.0" prefWidth="30.0" styleClass="find-and-replace-button" text="X">
+            <JFXButton fx:id="closeButton" contentDisplay="GRAPHIC_ONLY" prefHeight="30.0" prefWidth="30.0" styleClass="find-and-replace-button" text="X">
                <HBox.margin>
                   <Insets left="25.0" />
                </HBox.margin>
             </JFXButton>
          </children>
+         <VBox.margin>
+            <Insets />
+         </VBox.margin>
+         <padding>
+            <Insets bottom="5.0" right="15.0" />
+         </padding>
       </HBox>
-      <HBox fx:id="replacePane" alignment="BOTTOM_LEFT" prefHeight="40.0" prefWidth="721.0" spacing="20.0">
+      <HBox fx:id="replacePane" alignment="BOTTOM_LEFT" maxWidth="-Infinity" prefHeight="45.0" prefWidth="706.0" spacing="20.0">
          <children>
             <JFXTextField fx:id="replace" prefHeight="33.0" prefWidth="345.0" promptText="Search..." styleClass="mui-text-field">
                <HBox.margin>
                   <Insets bottom="10.0" />
                </HBox.margin></JFXTextField>
-            <JFXButton fx:id="replaceButton" prefHeight="36.0" prefWidth="88.0" styleClass="button-secondary" text="Replace" />
-            <JFXButton fx:id="replaceAllButton" prefHeight="36.0" prefWidth="100.0" styleClass="button-secondary" text="Replace All" />
+            <JFXButton fx:id="replaceButton" prefHeight="30.0" prefWidth="80.0" styleClass="button-secondary" text="REPLACE">
+               <font>
+                  <Font size="11.0" />
+               </font></JFXButton>
+            <JFXButton fx:id="replaceAllButton" prefHeight="30.0" styleClass="button-secondary" text="REPLACE ALL">
+               <font>
+                  <Font size="11.0" />
+               </font></JFXButton>
          </children>
          <VBox.margin>
-            <Insets left="45.0" />
+            <Insets />
          </VBox.margin>
+         <padding>
+            <Insets bottom="5.0" />
+         </padding>
       </HBox>
    </children>
    <padding>

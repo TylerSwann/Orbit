@@ -116,9 +116,9 @@ public class GeneralSettings
         ObservableList<Tuple<String, File>> appThemes = FXCollections.observableArrayList();
         ObservableList<Tuple<String, File>> syntaxThemes = FXCollections.observableArrayList();
         ObservableList<Tuple<String, SerializableFont>> fontFamilies = FXCollections.observableArrayList();
-        addFilesToList(new File[]{ Themes.MATERIAL_DARK, Themes.MATERIAL_LIGHT }, appThemes);
+        addFilesToList(new File[]{ Themes.MATERIAL_DARK, Themes.MATERIAL_LIGHT, Themes.LUNAR }, appThemes);
         addFilesToList(Directory.USER_APP_THEMES.listFiles(), appThemes);
-        addFilesToList(new File[]{ Themes.MATERIAL_DARK_SYNTAX, Themes.MATERIAL_LIGHT_SYNTAX }, syntaxThemes);
+        addFilesToList(new File[]{ Themes.MATERIAL_DARK_SYNTAX, Themes.MATERIAL_LIGHT_SYNTAX, Themes.LUNAR_SYNTAX }, syntaxThemes);
         addFilesToList(Directory.USER_SYNTAX_THEMES.listFiles(), syntaxThemes);
         for (SerializableFont serializableFont : fonts)
             fontFamilies.add(new Tuple<>(serializableFont.getFamily(), serializableFont));

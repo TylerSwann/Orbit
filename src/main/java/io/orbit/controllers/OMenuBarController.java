@@ -21,9 +21,6 @@ package io.orbit.controllers;
 import io.orbit.App;
 import io.orbit.api.event.CodeEditorEvent;
 import io.orbit.api.notification.Notifications;
-import io.orbit.api.notification.modal.MUIInputModal;
-import io.orbit.api.notification.modal.MUIModal;
-import io.orbit.api.notification.modal.MUIModalButton;
 import io.orbit.api.text.CodeEditor;
 import io.orbit.api.text.FileType;
 import io.orbit.controllers.events.MenuBarEvent;
@@ -32,17 +29,12 @@ import io.orbit.ui.menubar.ApplicationMenuBar;
 import io.orbit.ui.menubar.SystemMenuBar;
 import io.orbit.util.OS;
 import io.orbit.util.EventTargetObject;
-import io.orbit.util.Tuple;
 import javafx.application.Platform;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.DirectoryChooser;
 import javafx.stage.FileChooser;
 import java.io.File;
-import java.io.IOException;
 import java.util.Optional;
-import java.util.function.BiConsumer;
 
 /**
  * Created by Tyler Swann on Sunday July 15, 2018 at 15:39
@@ -98,8 +90,8 @@ public class OMenuBarController extends EventTargetObject
         this.menuBar.setOnSelectAll(__ -> this.fireEvent(new MenuBarEvent(this, this, MenuBarEvent.SELECT_ALL)));
         this.menuBar.setOnNewCustomFileType((e, fileType) -> this.fireEvent(new MenuBarEvent(MenuBarEvent.NEW_CUSTOM_FILE_TYPE, ((FileType)fileType))));
         this.menuBar.setOnVisitHomePage((e) -> {});
-        this.menuBar.setOnViewLicense((e) -> {});
-        this.menuBar.setOnAbout((e) -> {});
+        this.menuBar.setOnViewLicense((e) -> Help.showLicense());
+        this.menuBar.setOnAbout((e) -> Help.showAboutPage());
     }
 
     private void registerListeners()
