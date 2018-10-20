@@ -46,6 +46,7 @@ public class App extends Application
     public void start(Stage stage)
     {
         System.setProperty("prism.lcdtext", "false");
+        System.setProperty("prism.text", "t2k");
         stage.setTitle("Orbit");
         StatusLogger.getLogger().setLevel(Level.OFF);
         Platform.setImplicitExit(false);

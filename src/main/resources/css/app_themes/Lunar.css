@@ -11,6 +11,7 @@
     -button-ripple: #8a9bb5;
     -button-hover: #414955;
     -accent-blue: #2962FF;
+    -accent-light-blue: #448AFF;
     -accent-faded: rgba(41, 98, 255, 0.52);
     -text-color: #5e7a8e;
     -text-color-disable: rgba(94, 122, 142, 0.54);
@@ -202,6 +203,11 @@
     -fx-translate-x: 50px;
 }
 
+.navigator-context-menu.mui-context-menu .mui-context-item.mui-menu .ikonli-font-icon
+{
+    -fx-translate-x: 90px;
+}
+
 /*******************************************************************************
  *                                                                             *
  *                                 Menu Bar                                    *
@@ -373,84 +379,218 @@
  *                                 Settings                                    *
  *                                                                             *
  ******************************************************************************/
-/*.settings-page,*/
-/*.settings-page .anchor-pane,*/
-/*.settings-page .scroll-pane*/
-/*{*/
-    /*-fx-background-color: -color-grey;*/
-    /*-fx-background: -color-grey;*/
-/*}*/
-/*.settings-section-label*/
-/*{*/
-    /*-fx-text-fill: -fx-off-white;*/
-    /*-fx-font-family: "Roboto Bold";*/
-    /*-fx-font-size: 24px;*/
-/*}*/
-/*.settings-subsection-label*/
-/*{*/
-    /*-fx-text-fill: -fx-off-white;*/
-    /*-fx-font-family: "Roboto Medium";*/
-    /*-fx-font-size: 20px;*/
-/*}*/
+.settings-page,
+.settings-page .anchor-pane,
+.settings-page .scroll-pane
+{
+    -fx-background-color: -base-grey;
+    -fx-background: -base-grey;
+}
+.settings-section-label
+{
+    -fx-text-fill: -text-color;
+    -fx-font-family: "Roboto Bold";
+    -fx-font-size: 24px;
+}
+.settings-subsection-label
+{
+    -fx-text-fill: -text-color;
+    -fx-font-family: "Roboto Medium";
+    -fx-font-size: 20px;
+}
 
-/*.settings-section*/
-/*{*/
-    /*-fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.5), 10.0, 0.0, 2, 3.0);*/
-    /*-fx-background-color: #4e545c;*/
-    /*-fx-background-radius: 3px;*/
-/*}*/
+.settings-section
+{
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.5), 10.0, 0.0, 2, 3.0);
+    -fx-background-color: -base-light-grey;
+    -fx-background-radius: 3px;
+}
 
-/*.settings-item*/
-/*{*/
-    /*-fx-border-width: 0px 0px 1px 0px;*/
-    /*-fx-border-color: -fx-off-white;*/
-/*}*/
+.settings-item
+{
+    -fx-border-width: 0px 0px 1px 0px;
+    -fx-border-color: -text-color;
+}
 
-/*.setting-name-label*/
-/*{*/
-    /*-fx-font-family: "Roboto";*/
-    /*-fx-text-fill: -fx-off-white;*/
-/*}*/
+.setting-name-label
+{
+    -fx-font-family: "Roboto Medium";
+    -fx-text-fill: -text-color;
+    -fx-font-size: 15px;
+}
 
-/*.mui-light-button*/
-/*{*/
-    /*-fx-font-family: "Roboto Black";*/
-    /*-fx-text-fill: -fx-off-white;*/
-    /*-fx-border-color: rgba(168, 183, 185, 0.25);*/
-/*}*/
-/*.mui-light-button:hover*/
-/*{*/
-    /*!*-fx-background-color: -color-grey;*!*/
-    /*-fx-border-color: -fx-light-green;*/
-/*}*/
-/*.settings-header-pane*/
-/*{*/
-    /*-fx-background-color: -color-medium-grey;*/
-/*}*/
+.mui-light-button
+{
+    -fx-font-family: "Roboto Black";
+    -fx-text-fill: white;
+    -fx-border-color: transparent;
+    -fx-background-color: -accent-blue;
+}
+.mui-light-button:hover
+{
+    -fx-background-color: -accent-light-blue;
+}
 
-/*.settings-header*/
-/*{*/
-    /*-fx-font-family: "Roboto";*/
-    /*-fx-font-size: 20px;*/
-    /*-fx-text-fill: -fx-off-white;*/
-/*}*/
+.mui-light-button .jfx-rippler
+{
+    -jfx-rippler-fill: rgba(255, 255, 255, 0.5);
+}
 
-/*.settings-page .ikonli-font-icon*/
-/*{*/
-    /*-fx-icon-size: 20px;*/
-    /*-fx-icon-color: -fx-off-white;*/
-/*}*/
+.settings-header-pane
+{
+    -fx-background-color: -base-blue;
+}
 
-/*.settings-page .mui-tab-bar .mui-tab*/
-/*{*/
-    /*-fx-background-color: transparent;*/
-    /*-fx-font-family: "Roboto Bold";*/
-    /*-fx-font-size: 14px;*/
-    /*-fx-text-fill: -fx-off-white;*/
-    /*-fx-pref-width: 110px;*/
-/*}*/
+.settings-header
+{
+    -fx-font-family: "Roboto";
+    -fx-font-size: 20px;
+    -fx-text-fill: -text-color;
+}
 
-/*.settings-page .mui-tab-bar .indicator*/
-/*{*/
-    /*-fx-background-color: -fx-light-green;*/
-/*}*/
+.settings-page .ikonli-font-icon
+{
+    -fx-icon-size: 20px;
+    -fx-icon-color: -text-color;
+}
+
+.settings-page .mui-tab-bar .mui-tab
+{
+    -fx-background-color: -base-blue;
+    -fx-font-family: "Roboto Bold";
+    -fx-font-size: 14px;
+    -fx-text-fill: -text-color;
+    -fx-pref-width: 110px;
+    -fx-background-radius: 5px 5px 0 0;
+}
+
+.settings-page .mui-tab-bar .mui-tab:selected
+{
+    -fx-background-color: -base-grey;
+}
+
+.settings-page .mui-tab-bar .indicator
+{
+    -fx-background-color: -base-grey;
+}
+
+.settings-page .mui-text-field
+{
+    -fx-text-fill: -text-color;
+    -fx-prompt-text-fill: -text-color-disable;
+    -jfx-focus-color: -accent-blue;
+    -jfx-unfocus-color: -accent-faded;
+    -fx-font-family: "Roboto";
+}
+
+/*******************************************************************************
+ *                                                                             *
+ *                                  ComboBox                                   *
+ *                                                                             *
+ ******************************************************************************/
+
+.combo-box-popup .list-view
+{
+    -fx-background-color: transparent;
+    -fx-border-style: none;
+    -fx-border-width: 0px;
+}
+
+.combo-box .jfx-rippler
+{
+    -jfx-rippler-fill: rgba(137, 149, 151, 0.82);
+}
+.combo-box
+{
+    -fx-background-color: -base-light-grey;
+}
+.combo-box .cell
+{
+    -fx-text-fill: -text-color;
+}
+
+.combo-box .combo-box-popup .list-cell:focused
+{
+    -fx-background-color: -base-blue;
+    -fx-text-fill: -text-color;
+}
+.combo-box .combo-box-popup .list-cell:hover
+{
+    -fx-background-color: -button-hover;
+    -fx-text-fill: -text-color;
+}
+.combo-box .combo-box-popup .list-cell
+{
+    -fx-background-color: -base-blue;
+    -fx-text-fill: -text-color;
+}
+
+/*******************************************************************************
+ *                                                                             *
+ *                                  Modal                                      *
+ *                                                                             *
+ ******************************************************************************/
+
+.mui-modal
+{
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.5), 30.0, 0.0, 1.5, 2.0);
+    -fx-background-color: -base-grey;
+}
+
+.mui-modal .title
+{
+    -fx-text-fill: -text-color;
+    -fx-font-family: "Roboto Black";
+}
+
+.mui-modal .message
+{
+    -fx-text-fill: -text-color;
+}
+
+
+.mui-modal .secondary,
+.mui-modal .destructive
+{
+    -fx-background-color: transparent;
+    -fx-font-family: "Raleway Black", sans-serif;
+    -fx-text-fill: -text-color;
+}
+
+.mui-modal .primary
+{
+    -fx-background-color: -accent-blue;
+    -fx-text-fill: white;
+}
+.mui-modal .primary:hover
+{
+    -fx-background-color: -accent-light-blue;
+}
+.mui-modal .secondary:hover
+{
+    -fx-background-color: -button-hover;
+}
+
+.mui-modal .destructive
+{
+    -fx-text-fill: #d2d2d2;
+    -fx-background-color: rgb(215, 76, 50);
+}
+.mui-modal .destructive:hover
+{
+    -fx-background-color: rgb(215, 87, 63);
+}
+
+.mui-modal .destructive .ikonli-font-icon
+{
+    -fx-icon-color: -text-color;
+}
+
+.mui-modal .ikonli-font-icon.error-icon
+{
+    -fx-icon-color: rgb(215, 87, 63);
+}
+.mui-modal .ikonli-font-icon.warning-icon
+{
+    -fx-icon-color: rgb(135, 255, 126);
+}

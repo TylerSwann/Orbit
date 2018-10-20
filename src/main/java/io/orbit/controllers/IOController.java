@@ -97,18 +97,15 @@ public class IOController
         if (!success)
             Notifications.showErrorAlert("Oops", String.format("Sorry, there was a problem and were unable to create that %s", type.toLowerCase()));
         else
-        {
-//            App.controller().getProjectNavigatorController().forceRefresh();
             App.controller().getProjectNavigatorController().addFiles(file);
-        }
     }
 
     private static boolean checkIsValidFolderName(String name)
     {
-        boolean isValid;
+        boolean isValid = true;
         if (name == null || name.isEmpty())
             isValid = false;
-        isValid = name.matches(FOLDER_NAME_PATTERN);
+        isValid = isValid && name.matches(FOLDER_NAME_PATTERN);
         if (!isValid)
             showInvalidNameAlert(true);
         return isValid;

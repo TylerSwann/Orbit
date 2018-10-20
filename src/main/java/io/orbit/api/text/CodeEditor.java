@@ -13,6 +13,7 @@ import javafx.scene.Node;
 import javafx.scene.control.IndexRange;
 import javafx.scene.input.*;
 import org.fxmisc.richtext.StyleClassedTextArea;
+import org.fxmisc.richtext.util.UndoUtils;
 import org.fxmisc.wellbehaved.event.EventPattern;
 import org.fxmisc.wellbehaved.event.InputMap;
 import org.fxmisc.wellbehaved.event.Nodes;
@@ -21,6 +22,7 @@ import java.io.IOException;
 import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.time.Duration;
 import java.util.*;
 import java.util.function.IntFunction;
 
@@ -69,6 +71,7 @@ public class CodeEditor extends StyleClassedTextArea
         this.replaceText(0, 0, source);
         this.setParagraphGraphicFactory(line -> new MUIGutterButton(line + 1));
         this.setCursor(Cursor.TEXT);
+        this.setUndoManager(UndoUtils.plainTextUndoManager(this, Duration.ofMillis(500)));
     }
 
 
@@ -156,20 +159,7 @@ public class CodeEditor extends StyleClassedTextArea
             Nodes.addInputMap(this, disabled);
         }
     }
-//    public final <T extends Event> EventStream<T> ignoreDefaultBehaviorOfEvents(EventType<T> eventType)
-//    {
-//        return EventStreams.eventsOf(this, eventType);
-//    }
-//    public final void ignoreDefaultBehaviorOf(ObservableValue<Boolean> when, KeyCode... keys)
-//    {
-//        List<InputMap<Event>> disabledKeys = new ArrayList<>();
-//        Arrays.stream(keys).forEach(key -> disabledKeys.add(InputMap.consume(EventPattern.anyOf(EventPattern.keyPressed(key)))));
-//        if (when.getValue())
-//            disabledKeys.forEach(disabledKey -> Nodes.addInputMap(this, disabledKey));
-//        when.addListener(event -> {
-//
-//        });
-//    }
+
     /**
      * KeyPresses that match this KeyCombination pattern will be ignored
      *
@@ -213,12 +203,6 @@ public class CodeEditor extends StyleClassedTextArea
     }
 
     @Override
-    public void undo() { }
-
-    @Override
-    public void redo() { }
-
-    @Override
     public void copy()
     {
         if (this.selectedTextProperty().getValue().equals(""))
@@ -244,7 +228,6 @@ public class CodeEditor extends StyleClassedTextArea
         content.put(DataFormat.PLAIN_TEXT, selectedText);
         clipboard.setContent(content);
         this.deleteText(range.getStart(), range.getEnd());
-//        this.fireEvent(new CodeEditorEvent(this, this, CodeEditorEvent.CUT));
     }
 
     @Override
@@ -255,7 +238,6 @@ public class CodeEditor extends StyleClassedTextArea
         String content = clipboard.getString();
         int caretPos = this.getCaretPosition();
         this.replaceText(caretPos, caretPos, content);
-//        this.fireEvent(new CodeEditorEvent(this, this, CodeEditorEvent.PASTE));
     }
 
     public ProjectFile getFile() { return file; }

@@ -1,11 +1,8 @@
 package io.orbit.webtools;
 
-import com.jfoenix.controls.JFXButton;
 import io.orbit.api.Project;
 import io.orbit.api.SVGIcon;
 import javafx.scene.layout.Pane;
-import javafx.scene.layout.VBox;
-
 import java.io.File;
 import java.net.URL;
 
