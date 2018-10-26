@@ -1,3 +1,22 @@
+/*
+ * <Orbit Editor. An Open Source Text Editor>
+ *
+ * Copyright (C) 2018 Jordan Swann
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <https://www.gnu.org/licenses/>.
+ */
+
 package io.orbit.ui.tabs;
 
 import io.orbit.ui.MUIIconButton;
@@ -38,7 +57,6 @@ public class MUITabBar extends AnchorPane
     private Pane indicator;
 
     private final double tabBarHeight = 40.0;
-    private final double indicatorHeight = 2.0;
     private boolean arrowsAreActive = false;
     private Scene scene;
     private InvalidationListener windowWidthChangeEvent;
@@ -95,7 +113,7 @@ public class MUITabBar extends AnchorPane
         this.container = new AnchorPane();
         this.container.setPrefHeight(tabBarHeight);
         AnchorPane.setTopAnchor(this.tabsContainer, 0.0);
-        AnchorPane.setBottomAnchor(this.tabsContainer, indicatorHeight);
+        AnchorPane.setBottomAnchor(this.tabsContainer, this.indicator.getPrefHeight());
         AnchorPane.setLeftAnchor(this.tabsContainer, 0.0);
         AnchorPane.setTopAnchor(this.container, 0.0);
         AnchorPane.setBottomAnchor(this.container, 0.0);
@@ -105,10 +123,10 @@ public class MUITabBar extends AnchorPane
         this.leftArrowContainer.setPrefWidth(tabBarHeight);
         this.rightArrowContainer.setPrefWidth(tabBarHeight);
         AnchorPane.setTopAnchor(this.rightArrowContainer, 0.0);
-        AnchorPane.setBottomAnchor(this.rightArrowContainer, indicatorHeight);
+        AnchorPane.setBottomAnchor(this.rightArrowContainer, this.indicator.getPrefHeight());
         AnchorPane.setRightAnchor(this.rightArrowContainer, 0.0);
         AnchorPane.setTopAnchor(this.leftArrowContainer, 0.0);
-        AnchorPane.setBottomAnchor(this.leftArrowContainer, indicatorHeight);
+        AnchorPane.setBottomAnchor(this.leftArrowContainer, this.indicator.getPrefHeight());
         AnchorPane.setLeftAnchor(this.leftArrowContainer, 0.0);
         leftArrow = new MUIIconButton(FontAwesomeSolid.ARROW_ALT_CIRCLE_LEFT);
         rightArrow = new MUIIconButton(FontAwesomeSolid.ARROW_ALT_CIRCLE_RIGHT);
@@ -129,11 +147,14 @@ public class MUITabBar extends AnchorPane
         this.selectedTab.addListener((obs, oldVal, newVal) -> {
             if (oldVal != null)
                 oldVal.widthProperty().removeListener(this.indicatorWidthChange);
-            this.selectedTab.get().widthProperty().addListener(this.indicatorWidthChange);
+            this.selectedTab.get().setSelected(true);
+            if (this.indicator.getHeight() <= 0.0)
+                return;
             Platform.runLater(() -> {
                 this.indicator.setPrefWidth(this.selectedTab.get().getWidth());
                 translateIndicator();
             });
+            this.selectedTab.get().widthProperty().addListener(this.indicatorWidthChange);
         });
         this.tabs.addListener((ListChangeListener<MUITab>) change -> {
             while (change.next())
@@ -182,6 +203,11 @@ public class MUITabBar extends AnchorPane
                 this.scene = this.getScene();
                 this.scene.widthProperty().addListener(this.windowWidthChangeEvent);
             }
+        });
+        this.indicator.heightProperty().addListener(__ -> {
+            AnchorPane.setBottomAnchor(this.tabsContainer, this.indicator.getPrefHeight());
+            AnchorPane.setBottomAnchor(this.rightArrowContainer, this.indicator.getPrefHeight());
+            AnchorPane.setBottomAnchor(this.leftArrowContainer, this.indicator.getPrefHeight());
         });
     }
 

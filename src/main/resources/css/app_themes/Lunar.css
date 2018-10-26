@@ -90,6 +90,7 @@
 .mui-tab-pane  .mui-tab-bar .indicator
 {
     -fx-background-color: -base-blue;
+    -fx-pref-height: 0px;
 }
 
 .editor-tab-pane .mui-tab-bar .mui-tab:selected
@@ -101,7 +102,11 @@
 {
     -fx-background-color: -base-blue;
 }
-
+.navigator-tab-pane .mui-tab-bar .indicator
+{
+    -fx-pref-height: 2px;
+    -fx-background-color: -base-blue;
+}
 
 /*******************************************************************************
  *                                                                             *
@@ -593,4 +598,35 @@
 .mui-modal .ikonli-font-icon.warning-icon
 {
     -fx-icon-color: rgb(135, 255, 126);
+}
+
+/*******************************************************************************
+ *                                                                             *
+ *                               AutoCompletion                                *
+ *                                                                             *
+ ******************************************************************************/
+
+.auto-completion-dialog
+{
+    -fx-background: -base-grey;
+    -fx-background-color: -base-grey;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.8), 10.0, 0.0, 2.0, 3.0);
+}
+.auto-completion-dialog .label
+{
+    -fx-text-fill: -text-color;
+}
+.auto-completion-dialog .list-cell
+{
+    -fx-background-color: -base-grey;
+}
+.auto-completion-dialog .list-cell:selected:focused
+{
+    -fx-background-color: -accent-blue;
+    -fx-background: -accent-blue;
+}
+
+.auto-completion-dialog .list-cell:selected:focused .label
+{
+    -fx-text-fill: white;
 }

@@ -18,6 +18,8 @@ public enum HighlightType
     INSTANCE_METHOD("instance-method"),
     STATIC_FIELD("static-field"),
     STATIC_METHOD("static-method"),
+    FUNCTION_NAME("function-name"),
+    LOCAL_VAR_NAME("local-var-name"),
     ERROR("error"),
     EMPTY("empty");
     

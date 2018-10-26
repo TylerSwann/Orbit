@@ -1,70 +1,119 @@
 
 
-
+java -jar antlr.jar -lib C:\Users\TylersDesktop\IdeaProjects\Orbit\src\main\java\io\orbit\webtools\javascript\antlr -visitor C:\Users\TylersDesktop\IdeaProjects\Orbit\src\main\java\io\orbit\webtools\javascript\antlr\JavaScriptParser.g4
+java -jar antlr.jar -lib C:\Users\TylersDesktop\IdeaProjects\Orbit\src\main\java\io\orbit\webtools\javascript\antlr -visitor C:\Users\TylersDesktop\IdeaProjects\Orbit\src\main\java\io\orbit\webtools\javascript\antlr\JavaScriptLexer.g4
 view.html
 demo-view.html
 another_file.css
 
-(?<SELECTOR>([.#][a-zA-Z]+[a-zA-Z0-9\-\_\[\]]+))(?<PSEUDOCLASS>((?:\:)([a-zA-Z]+)))*
-App.class.getClassLoader().getResource("fonts/roboto/Roboto-Black.ttf"),
-App.class.getClassLoader().getResource("fonts/roboto/Roboto-BlackItalic.ttf"),
-App.class.getClassLoader().getResource("fonts/roboto/Roboto-Bold.ttf"),
-App.class.getClassLoader().getResource("fonts/roboto/Roboto-BoldItalic.ttf"),
-App.class.getClassLoader().getResource("fonts/roboto/Roboto-Italic.ttf"),
-App.class.getClassLoader().getResource("fonts/roboto/Roboto-Light.ttf"),
-App.class.getClassLoader().getResource("fonts/roboto/Roboto-LightItalic.ttf"),
-App.class.getClassLoader().getResource("fonts/roboto/Roboto-Medium.ttf"),
-App.class.getClassLoader().getResource("fonts/roboto/Roboto-MediumItalic.ttf"),
-App.class.getClassLoader().getResource("fonts/roboto/Roboto-Regular.ttf"),
-App.class.getClassLoader().getResource("fonts/roboto/Roboto-Thin.ttf"),
-App.class.getClassLoader().getResource("fonts/roboto/Roboto-ThinItalic.ttf"),
-App.class.getClassLoader().getResource("fonts/roboto/RobotoCondensed-Bold.ttf"),
-App.class.getClassLoader().getResource("fonts/roboto/RobotoCondensed-BoldItalic.ttf"),
-App.class.getClassLoader().getResource("fonts/roboto/RobotoCondensed-Italic.ttf"),
-App.class.getClassLoader().getResource("fonts/roboto/RobotoCondensed-Light.ttf"),
-App.class.getClassLoader().getResource("fonts/roboto/RobotoCondensed-LightItalic.ttf"),
-App.class.getClassLoader().getResource("fonts/roboto/RobotoCondensed-Regular.ttf")
+JavaScriptLexer.OpenBracket,
+JavaScriptLexer.CloseBracket,
+JavaScriptLexer.OpenParen,
+JavaScriptLexer.CloseParen,
+JavaScriptLexer.OpenBrace,
+JavaScriptLexer.CloseBrace,
+JavaScriptLexer.SemiColon,
+JavaScriptLexer.Comma,
+JavaScriptLexer.Assign,
+JavaScriptLexer.QuestionMark,
+JavaScriptLexer.Colon,
+JavaScriptLexer.Ellipsis,
+JavaScriptLexer.Dot,
+JavaScriptLexer.PlusPlus,
+JavaScriptLexer.MinusMinus,
+JavaScriptLexer.Plus,
+JavaScriptLexer.Minus,
+JavaScriptLexer.BitNot,
+JavaScriptLexer.Not,
+JavaScriptLexer.Multiply,
+JavaScriptLexer.Divide,
+JavaScriptLexer.Modulus,
+JavaScriptLexer.RightShiftArithmetic,
+JavaScriptLexer.LeftShiftArithmetic,
+JavaScriptLexer.RightShiftLogical,
+JavaScriptLexer.LessThan,
+JavaScriptLexer.MoreThan,
+JavaScriptLexer.LessThanEquals,
+JavaScriptLexer.GreaterThanEquals,
+JavaScriptLexer.Equals_,
+JavaScriptLexer.NotEquals,
+JavaScriptLexer.IdentityEquals,
+JavaScriptLexer.IdentityNotEquals,
+JavaScriptLexer.BitAnd,
+JavaScriptLexer.BitXOr,
+JavaScriptLexer.BitOr,
+JavaScriptLexer.And,
+JavaScriptLexer.Or,
+JavaScriptLexer.MultiplyAssign,
+JavaScriptLexer.DivideAssign,
+JavaScriptLexer.ModulusAssign,
+JavaScriptLexer.PlusAssign,
+JavaScriptLexer.MinusAssign,
+JavaScriptLexer.LeftShiftArithmeticAssign,
+JavaScriptLexer.RightShiftArithmeticAssign,
+JavaScriptLexer.RightShiftLogicalAssign,
+JavaScriptLexer.BitAndAssign,
+JavaScriptLexer.BitXorAssign,
+JavaScriptLexer.BitOrAssign,
+JavaScriptLexer.ARROW
 
-App.class.getClassLoader().getResource("fonts/raleway/Raleway-Black.ttf"),
-App.class.getClassLoader().getResource("fonts/raleway/Raleway-Bold.ttf"),
-App.class.getClassLoader().getResource("fonts/raleway/Raleway-ExtraBold.ttf"),
-App.class.getClassLoader().getResource("fonts/raleway/Raleway-SemiBold.ttf"),
-App.class.getClassLoader().getResource("fonts/raleway/Raleway-Medium.ttf"),
-App.class.getClassLoader().getResource("fonts/raleway/Raleway-Regular.ttf"),
-App.class.getClassLoader().getResource("fonts/raleway/Raleway-Light.ttf"),
-App.class.getClassLoader().getResource("fonts/raleway/Raleway-ExtraLight.ttf"),
-App.class.getClassLoader().getResource("fonts/raleway/Raleway-Thin.ttf")
 
 
-(<.*>.*</[a-zA-Z0-9\-]+>)
-
-area|base|br|col|command|embed|hr|img|input|keygen|link|menuitem|meta|param|source|track|wbr
-\<(?!(meta|link))
-(\<)?:(link|head|meta)([a-zA-Z0-9]+).*(\>)
-(\<)(?!(area|base|br|col|command|embed|hr|img|input|keygen|link|menuitem|meta|param|source|track|wbr))([a-zA-Z0-9]+).*(\>)
-'area'|'base'|'br'|'col'|'command'|'embed'|'hr'|'img'|'input'|'keygen'|'link'|'menuitem'|'meta'|'param'|'source'|'track'|'wbr'
-<!--(?<OPENTAG>(<link|img>?[\\sa-zA-Z0-9=\":/.]*>))-->
-
-(\<)(?!(area|base|br|col|command|img|input|keygen|link))[a-zA-Z0-9]+[\sa-zA-Z0-9=\":/.]*>
-
-(?<VOIDTAG><(area|base|br|col|command|embed|hr|img|input|keygen|link|menuitem|meta|param|source|track|wbr)[\sa-zA-Z0-9=\".=\+\-_:\?/,]*>)
-(?<CLOSETAG>(</[a-zA-Z0-9\\-]+>))
-(?<OPENTAG>((<)(?!(area|base|br|col|command|embed|hr|img|input|keygen|link|menuitem|meta|param|source|track|wbr))[a-zA-Z0-9]+[\sa-zA-Z0-9=\":/.-_]*>))
-
-(?<OPENTAG>((<)(?!(area|base|br|col|command|embed|hr|img|input|keygen|link|menuitem|meta|param|source|track|wbr))[a-zA-Z0-9]+[\sa-zA-Z0-9=\":/.-]*>))
-(?<OPENTAG>((<)(?!(input|link))[a-zA-Z0-9]+[\\sa-zA-Z0-9=\":/.-]*>)).*(?<CLOSETAG>(</[a-zA-Z0-9\-]+>))
 
 
-FindAndReplace.java
-65Hyperlink.htm
-HyperlindfkButton.css
-5La5nguage Icons.js
-MUIGutterButton.html
-MUIIconButt567on.java
-MUIStepDialog.html
-MUIStepDialogEvent.java
-MUITermi345nalPane
-MUITr eeItem
-MUIsdfTreeTa bleView
-N_ewPro-jectStep
 
+
+
+
+
+
+    | OpenBracket
+    | CloseBracket
+    | OpenParen
+    | CloseParen
+    | OpenBrace
+    | CloseBrace
+    | SemiColon
+    | Comma
+    | Assign
+    | QuestionMark
+    | Colon
+    | Ellipsis
+    | Dot
+    | PlusPlus
+    | MinusMinus
+    | Plus
+    | Minus
+    | BitNot
+    | Not
+    | Multiply
+    | Divide
+    | Modulus
+    | RightShiftArithmetic
+    | LeftShiftArithmetic
+    | RightShiftLogical
+    | LessThan
+    | MoreThan
+    | LessThanEquals
+    | GreaterThanEquals
+    | Equals_
+    | NotEquals
+    | IdentityEquals
+    | IdentityNotEquals
+    | BitAnd
+    | BitXOr
+    | BitOr
+    | And
+    | Or
+    | MultiplyAssign
+    | DivideAssign
+    | ModulusAssign
+    | PlusAssign
+    | MinusAssign
+    | LeftShiftArithmeticAssign
+    | RightShiftArithmeticAssign
+    | RightShiftLogicalAssign
+    | BitAndAssign
+    | BitXorAssign
+    | BitOrAssign
+    | ARROW
