@@ -86,7 +86,7 @@ public class ApplicationController
     public OProjectViewController getProjectViewController() { return projectViewController; }
     public ObservableValue<OCodeEditorController> activeControllerProperty() { return OEditorTabPaneController.ACTIVE_EDITOR_CONTROLLER; }
     public OCodeEditorController getActiveController() {  return activeControllerProperty().getValue();  }
-    public CodeEditor getActiveEditor() { return activeControllerProperty().getValue().getEditor(); }
+    public Optional<CodeEditor> getActiveEditor() { return Optional.of(activeControllerProperty().getValue().getEditor()); }
     public List<ProjectFile> getActiveProjectFiles()
     {
         List<ProjectFile> activeFiles = new ArrayList<>();
@@ -95,8 +95,8 @@ public class ApplicationController
     }
     public Optional<ProjectFile> getActiveProjectFile()
     {
-        if (getActiveEditor() != null)
-            return Optional.of(getActiveEditor().getFile());
+        if (getActiveEditor().isPresent())
+            return Optional.of(getActiveEditor().get().getFile());
         return Optional.empty();
     }
 }

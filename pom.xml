@@ -30,6 +30,12 @@
             <artifactId>ikonli-javafx</artifactId>
             <version>2.1.1</version>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/org.kordamp.ikonli/ikonli-materialdesign-pack -->
+        <dependency>
+            <groupId>org.kordamp.ikonli</groupId>
+            <artifactId>ikonli-materialdesign-pack</artifactId>
+            <version>1.9.0</version>
+        </dependency>
         <dependency>
             <groupId>com.github.afester.javafx</groupId>
             <artifactId>FranzXaver</artifactId>
@@ -72,6 +78,7 @@
             <artifactId>jna</artifactId>
             <version>4.1.0</version>
         </dependency>
+
     </dependencies>
     <repositories>
         <repository>

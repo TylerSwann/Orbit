@@ -15,6 +15,7 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
+ *
  */
 package io.orbit;
 
@@ -29,8 +30,10 @@ import org.apache.logging.log4j.status.StatusLogger;
 import java.util.ArrayList;
 
 /**
- *
- * Created by Tyler Swann on Friday January 05, 2018 at 16:14
+ * Created By: Tyler Swann.
+ * Date: Friday, January 05, 2018
+ * Time: 4:14 PM
+ * Website: https://orbiteditor.com
  */
 public class App extends Application
 {

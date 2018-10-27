@@ -275,22 +275,94 @@
 
 .mui-icon-button
 {
-    /*-fx-border-radius: 50%;*/
     -fx-background-radius: 50%;
     -fx-pref-width: 35px;
     -fx-pref-height: 35px;
-    -fx-padding: 5px;
     -fx-alignment: center;
     -fx-text-alignment: center;
 }
 
-.mui-icon-button .ikonli-font-icon
+.mui-icon-button .mui-icon.ikonli-font-icon
 {
     -fx-icon-size: 20px;
     -fx-icon-color: rgba(0, 0, 0, 0.69);
     -fx-padding: 0px;
 }
 
+/*******************************************************************************
+ *                                                                             *
+ *                               Notification                                  *
+ *                                                                             *
+ ******************************************************************************/
+.mui-notification
+{
+    -fx-background-color: rgb(49, 49, 49);
+    -fx-background-radius: 4px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.4), 10.0, 0.0, 1,1.5);
+}
+
+.mui-notification .label
+{
+    -fx-text-fill: white;
+    -fx-font-size: 13px;
+}
+
+.mui-notification .jfx-button
+{
+    -fx-text-fill: rgb(225, 0, 80);
+}
+.mui-notification .ikonli-font-icon
+{
+    -fx-icon-size: 15px;
+}
+.mui-notification .ikonli-font-icon,
+.mui-notification .mui-icon-button .ikonli-font-icon
+{
+    -fx-icon-color: white;
+}
+.mui-notification .mui-icon-button:hover
+{
+    -fx-background-color: rgba(255, 255, 255, 0.2);
+}
+.mui-notification .mui-icon-button .jfx-rippler
+{
+    -jfx-rippler-fill: rgba(255, 255, 255, 0.4);
+}
+
+.mui-notification.error
+{
+    -fx-background-color: #d32f2f;
+}
+
+.mui-notification.warning
+{
+    -fx-background-color: #ffa000;
+}
+
+.mui-notification.informational
+{
+    -fx-background-color: #1976d2;
+}
+
+.mui-notification.success
+{
+    -fx-background-color: #43a047;
+}
+
+
+.mui-progress-pane
+{
+    -fx-background-color: white;
+    -fx-background-radius: 3px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.2), 10.0, 0.0, 1,1.5);
+}
+
+.mui-progress-pane .label
+{
+    -fx-text-fill: rgb(50, 50, 50);
+    -fx-font-family: "Roboto Medium";
+    -fx-font-size: 14px;
+}
 
 /*******************************************************************************
  *                                                                             *

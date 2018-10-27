@@ -32,6 +32,7 @@
     <orderEntry type="library" name="Maven: org.kordamp.ikonli:ikonli-fontawesome5-pack:2.1.1" level="project" />
     <orderEntry type="library" name="Maven: org.kordamp.ikonli:ikonli-core:2.1.1" level="project" />
     <orderEntry type="library" name="Maven: org.kordamp.ikonli:ikonli-javafx:2.1.1" level="project" />
+    <orderEntry type="library" name="Maven: org.kordamp.ikonli:ikonli-materialdesign-pack:1.9.0" level="project" />
     <orderEntry type="library" name="Maven: com.github.afester.javafx:FranzXaver:0.1" level="project" />
     <orderEntry type="library" name="Maven: org.apache.xmlgraphics:batik-dom:1.9" level="project" />
     <orderEntry type="library" name="Maven: org.apache.xmlgraphics:batik-css:1.9" level="project" />

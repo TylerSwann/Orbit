@@ -17,31 +17,17 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
  */
-package io.orbit.webtools.javascript;
-
-import io.orbit.api.LanguageDelegate;
-import io.orbit.api.highlighting.SyntaxHighlighter;
-import io.orbit.api.text.FileType;
-import io.orbit.webtools.WebToolsController;
-import io.orbit.webtools.javascript.highlighting.JavaScriptHighlighter;
+package io.orbit.webtools.javascript.typedefinitions;
 
 /**
  * Created By: Tyler Swann.
- * Date: Saturday, Oct 20, 2018
- * Time: 5:13 PM
+ * Date: Saturday, Oct 27, 2018
+ * Time: 2:09 PM
  * Website: https://orbiteditor.com
  */
-public class JavaScriptLanguage implements LanguageDelegate
-{
-    @Override
-    public SyntaxHighlighter getSyntaxHighlighter()
-    {
-        return new JavaScriptHighlighter();
-    }
 
-    @Override
-    public FileType getFileNameExtension()
-    {
-        return WebToolsController.JS_FILE();
+public class Type {
+    public Type() {
+
     }
 }

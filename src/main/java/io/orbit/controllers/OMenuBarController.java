@@ -103,9 +103,12 @@ public class OMenuBarController extends EventTargetObject
             else
                 this.activeEditor = Optional.empty();
         });
-        this.addEventHandler(MenuBarEvent.FIND, event -> this.showFindAndReplaceDialog());
+        this.addEventHandler(MenuBarEvent.FIND, event -> App.controller().getActiveEditor().ifPresent(editor -> editor.fireEvent(new CodeEditorEvent(CodeEditorEvent.FIND, editor.getFile()))));
+        this.addEventHandler(MenuBarEvent.UNDO, event -> App.controller().getActiveEditor().ifPresent(CodeEditor::undo));
+        this.addEventHandler(MenuBarEvent.REDO, event -> App.controller().getActiveEditor().ifPresent(CodeEditor::redo));
         this.addEventHandler(MenuBarEvent.SAVE, this::saveFile);
         this.addEventHandler(MenuBarEvent.SAVE_ALL, event -> this.saveAll());
+        this.addEventHandler(MenuBarEvent.SELECT_ALL, event -> App.controller().getActiveEditor().ifPresent(CodeEditor::selectAll));
         this.addEventHandler(MenuBarEvent.SETTINGS, event -> Platform.runLater(SettingsPage::show));
         this.addEventHandler(MenuBarEvent.NEW_PROJECT, event -> {});
         this.addEventHandler(MenuBarEvent.OPEN_FILE, event -> this.showFileChooserDialog());
@@ -151,12 +154,6 @@ public class OMenuBarController extends EventTargetObject
             Notifications.showSnackBarMessage("Saved All!", 2000);
         else
             Notifications.showSnackBarMessage("ERROR Saving Some Files!", 3000);
-    }
-
-    private void showFindAndReplaceDialog()
-    {
-        CodeEditor editor = App.controller().getActiveEditor();
-        editor.fireEvent(new CodeEditorEvent(CodeEditorEvent.FIND, editor.getFile()));
     }
 
     private void showFileChooserDialog()

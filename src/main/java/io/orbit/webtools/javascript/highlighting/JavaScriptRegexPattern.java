@@ -17,31 +17,35 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
  */
-package io.orbit.webtools.javascript;
+package io.orbit.webtools.javascript.highlighting;
 
-import io.orbit.api.LanguageDelegate;
-import io.orbit.api.highlighting.SyntaxHighlighter;
-import io.orbit.api.text.FileType;
-import io.orbit.webtools.WebToolsController;
-import io.orbit.webtools.javascript.highlighting.JavaScriptHighlighter;
+import io.orbit.api.highlighting.HighlightType;
+import io.orbit.api.highlighting.RegexStylePattern;
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.regex.Pattern;
 
 /**
  * Created By: Tyler Swann.
  * Date: Saturday, Oct 20, 2018
- * Time: 5:13 PM
+ * Time: 5:34 PM
  * Website: https://orbiteditor.com
  */
-public class JavaScriptLanguage implements LanguageDelegate
+public class JavaScriptRegexPattern extends RegexStylePattern
 {
-    @Override
-    public SyntaxHighlighter getSyntaxHighlighter()
-    {
-        return new JavaScriptHighlighter();
+    private static final Pattern pattern;
+    private static final Map<String, HighlightType> map;
+
+    private static final String KEYWORDS = "";
+
+    static {
+        pattern = Pattern.compile("");
+        map = new HashMap<>();
     }
 
-    @Override
-    public FileType getFileNameExtension()
+    public JavaScriptRegexPattern()
     {
-        return WebToolsController.JS_FILE();
+        super(pattern, map);
     }
 }
