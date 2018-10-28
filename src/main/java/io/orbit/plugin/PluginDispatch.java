@@ -23,6 +23,8 @@ import io.orbit.api.PluginController;
 import io.orbit.api.text.FileType;
 import io.orbit.webtools.WebToolsController;
 import io.orbit.text.plaintext.PlainTextController;
+
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -55,6 +57,19 @@ public final class PluginDispatch
         PLUGINS.forEach(plugin -> FILE_TYPES.addAll(plugin.getFileTypes()));
     }
 
+    public static FileType fileTypeOf(File file)
+    {
+        String extension = extensionOfFile(file);
+        if (extension == null)
+            return null;
+        for (FileType type : FILE_TYPES)
+        {
+            if (extension.equals(type.getExtension()))
+                return type;
+        }
+        return null;
+    }
+
     public static List<PluginController> controllersForFileType(String extension)
     {
         List<PluginController> validPlugins = new ArrayList<>();
@@ -66,5 +81,14 @@ public final class PluginDispatch
                     validPlugins.add(plugin);
         }
         return validPlugins;
+    }
+
+    private static String extensionOfFile(File file)
+    {
+        int index = file.getName().lastIndexOf('.');
+        String extension = null;
+        if (index > 0)
+            extension = file.getName().substring(index + 1);
+        return extension;
     }
 }

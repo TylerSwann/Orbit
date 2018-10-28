@@ -20,7 +20,7 @@ package io.orbit.controllers;
 
 import io.orbit.App;
 import io.orbit.api.event.CodeEditorEvent;
-import io.orbit.api.notification.Notifications;
+import io.orbit.ui.notification.Notifications;
 import io.orbit.api.text.CodeEditor;
 import io.orbit.api.text.FileType;
 import io.orbit.controllers.events.MenuBarEvent;

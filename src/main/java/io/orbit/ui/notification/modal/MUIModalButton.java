@@ -1,4 +1,4 @@
-package io.orbit.api.notification.modal;
+package io.orbit.ui.notification.modal;
 
 import com.jfoenix.controls.JFXButton;
 import org.kordamp.ikonli.fontawesome5.FontAwesomeSolid;

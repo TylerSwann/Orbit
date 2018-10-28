@@ -1,6 +1,7 @@
 package io.orbit.api.text;
 
 import io.orbit.api.SVGIcon;
+import javafx.scene.paint.Color;
 
 import java.io.File;
 import java.io.Serializable;
@@ -15,6 +16,7 @@ public class FileType implements Serializable, Cloneable
     private String mimeType;
     private String displayText;
     private SVGIcon icon;
+    private Color themeColor;
     private Consumer<File> onCreate;
 
     /**
@@ -27,12 +29,13 @@ public class FileType implements Serializable, Cloneable
      *                   onCreate is called passing the requested file path including name. Once the function
      *                   is called, provide any template code you may want to include.
      */
-    public FileType(String extension, String mimeType, String displayText,  SVGIcon icon, Consumer<File> onCreate)
+    public FileType(String extension, String mimeType, String displayText, SVGIcon icon, Color themeColor, Consumer<File> onCreate)
     {
         this.extension = extension;
         this.mimeType = mimeType;
         this.displayText = displayText;
         this.icon = icon;
+        this.themeColor = themeColor;
         this.onCreate = onCreate;
     }
 
@@ -44,6 +47,7 @@ public class FileType implements Serializable, Cloneable
     public void setIcon(SVGIcon icon) { this.icon = icon; }
     public String getDisplayText() { return this.displayText; }
     public void setDisplayText(String text) { this.displayText = text; }
+    public Color getThemeColor() { return this.themeColor; }
 
     public void setOnCreate(Consumer<File> action) { this.onCreate = onCreate; }
     public Consumer<File> getOnCreate() { return onCreate; }
@@ -62,6 +66,6 @@ public class FileType implements Serializable, Cloneable
     @Override
     public FileType clone()
     {
-        return new FileType(this.extension, this.mimeType, this.displayText, this.icon.clone(), this.onCreate);
+        return new FileType(this.extension, this.mimeType, this.displayText, this.icon.clone(), this.themeColor, this.onCreate);
     }
 }

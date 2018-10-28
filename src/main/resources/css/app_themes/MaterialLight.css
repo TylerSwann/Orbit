@@ -387,13 +387,13 @@
 }
 .auto-completion-dialog .list-cell:selected:focused
 {
-    -fx-background-color: -button-hover;
-    -fx-background: -button-hover;
+    -fx-background-color: #bbdefb;
+    -fx-background: #bbdefb;
 }
 
 .auto-completion-dialog .list-cell:selected:focused .label
 {
-    -fx-text-fill: -text-color;
+    -fx-text-fill: #2962ff;
 }
 
 /*******************************************************************************

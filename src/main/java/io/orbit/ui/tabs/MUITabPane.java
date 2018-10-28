@@ -19,6 +19,8 @@
 package io.orbit.ui.tabs;
 
 import javafx.application.Platform;
+import javafx.beans.InvalidationListener;
+import javafx.beans.Observable;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.ObservableList;
 import javafx.scene.Node;
@@ -53,15 +55,15 @@ public class MUITabPane extends AnchorPane
             if (this.getSelectedTab() != null)
                 this.goTo(this.getSelectedTab());
         });
+        this.tabBar.getTabs().addListener((InvalidationListener) observable -> {
+            if (this.tabBar.getTabs().size() <= 0)
+                this.clearContent();
+        });
     }
 
     private void goTo(MUITab tab)
     {
-        List<Node> children = new ArrayList<>(this.getChildren());
-        children.forEach(child -> {
-            if (!(child instanceof MUITabBar))
-                this.getChildren().remove(child);
-        });
+        this.clearContent();
         if (tab.getContent() == null)
             return;
         if (this.tabBar.getHeight() <= 0.0)
@@ -74,6 +76,15 @@ public class MUITabPane extends AnchorPane
         setRightAnchor(tab.getContent(), 0.0);
         this.getChildren().add(tab.getContent());
         this.tabBar.toFront();
+    }
+
+    private void clearContent()
+    {
+        List<Node> children = new ArrayList<>(this.getChildren());
+        children.forEach(child -> {
+            if (!(child instanceof MUITabBar))
+                this.getChildren().remove(child);
+        });
     }
 
     public ObservableValue<MUITab> selectedTabProperty() {  return this.tabBar.selectedTabProperty();  }

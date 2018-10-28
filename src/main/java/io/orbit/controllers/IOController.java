@@ -3,9 +3,9 @@ package io.orbit.controllers;
 
 import io.orbit.App;
 import io.orbit.api.Nullable;
-import io.orbit.api.notification.Notifications;
-import io.orbit.api.notification.modal.MUIInputModal;
-import io.orbit.api.notification.modal.MUIModalButton;
+import io.orbit.ui.notification.Notifications;
+import io.orbit.ui.notification.modal.MUIInputModal;
+import io.orbit.ui.notification.modal.MUIModalButton;
 import io.orbit.api.text.FileType;
 import javafx.event.ActionEvent;
 

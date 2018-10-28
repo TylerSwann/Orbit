@@ -1,4 +1,4 @@
-package io.orbit.api.notification.modal;
+package io.orbit.ui.notification.modal;
 
 import javafx.animation.FadeTransition;
 import javafx.application.Platform;

@@ -1,9 +1,9 @@
 package io.orbit.controllers;
 
 import io.orbit.App;
-import io.orbit.api.notification.Notifications;
-import io.orbit.api.notification.modal.MUIModal;
-import io.orbit.api.notification.modal.MUIModalButton;
+import io.orbit.ui.notification.Notifications;
+import io.orbit.ui.notification.modal.MUIModal;
+import io.orbit.ui.notification.modal.MUIModalButton;
 import io.orbit.settings.LocalUser;
 import io.orbit.api.event.FileTreeMenuEvent;
 import io.orbit.ui.navigator.MUIFileTreeView;

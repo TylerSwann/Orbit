@@ -21,7 +21,12 @@ package io.orbit.webtools.javascript;
 
 import io.orbit.api.EditorController;
 import io.orbit.api.text.CodeEditor;
+import io.orbit.webtools.javascript.typedefinitions.TypeDefinition;
+
 import java.io.File;
+import java.io.IOException;
+import java.net.URL;
+import java.util.ArrayList;
 
 /**
  * Created By: Tyler Swann.
@@ -32,12 +37,20 @@ import java.io.File;
 public class JavaScriptController implements EditorController
 {
     private JavaScriptCodeFormatter formatter;
+    private ArrayList<TypeDefinition> typeDefs = new ArrayList<>();
 
     @Override
     public void start(File file, CodeEditor editor)
     {
         this.formatter = new JavaScriptCodeFormatter(editor);
         this.registerListeners();
+        URL consoleTypeDef = getClass().getClassLoader().getResource("webtools/typedefs/console.d.ts");
+        assert consoleTypeDef != null;
+        try
+        {
+            this.typeDefs.add(new TypeDefinition(new File(consoleTypeDef.getFile())));
+        }
+        catch (IOException e) { e.printStackTrace(); }
     }
 
     private void registerListeners()

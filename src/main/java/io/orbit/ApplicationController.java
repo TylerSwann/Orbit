@@ -78,6 +78,7 @@ public class ApplicationController
 
     public SplitPane getRootSplitPane() { return rootSplitPane; }
     public SplitPane getContentSplitPane() { return contentSplitPane; }
+    public AnchorPane container() { return this.container; }
 
     public OMenuBarController getMenuBarController() { return menuBarController; }
     public OEditorTabPaneController getEditorTabPaneController() { return this.editorTabPaneController; }

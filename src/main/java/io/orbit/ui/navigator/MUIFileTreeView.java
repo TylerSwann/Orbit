@@ -18,7 +18,10 @@
  */
 package io.orbit.ui.navigator;
 
+import io.orbit.api.SVGIcon;
 import io.orbit.api.event.FileTreeMenuEvent;
+import io.orbit.api.text.FileType;
+import io.orbit.plugin.PluginDispatch;
 import io.orbit.ui.LanguageIcons;
 import io.orbit.ui.contextmenu.NavigatorContextMenu;
 import io.orbit.ui.treeview.MUITreeItem;
@@ -54,7 +57,22 @@ public class MUIFileTreeView extends MUITreeView<File>
         registerListeners();
         this.getStyleClass().add(DEFAULT_STYLE_CLASS);
         this.setCellFactory(File::getName);
-        this.setCellGraphicFactory(cell -> LanguageIcons.iconForFile(cell.getValue()));
+        this.setCellGraphicFactory(cell -> {
+            FileType type = PluginDispatch.fileTypeOf(cell.getValue());
+            // TODO - make colors work
+            if (type != null)
+            {
+                SVGIcon icon = type.getIcon().clone();
+                icon.setStyle(String.format(
+                        "-fx-icon-color: rgb(%d, %d, %d)",
+                        (int)(type.getThemeColor().getRed() * 255.0),
+                        (int)(type.getThemeColor().getGreen() * 255.0),
+                        (int)(type.getThemeColor().getBlue() * 255.0)
+                ));
+                return icon;
+            }
+            return LanguageIcons.iconForFile(cell.getValue());
+        });
     }
 
     private void registerListeners()

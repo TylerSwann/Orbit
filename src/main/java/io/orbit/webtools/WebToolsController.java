@@ -30,6 +30,7 @@ import io.orbit.webtools.html.HTMLEditorController;
 import io.orbit.webtools.html.HTMLLanguage;
 import io.orbit.webtools.javascript.JavaScriptController;
 import io.orbit.webtools.javascript.JavaScriptLanguage;
+import javafx.scene.paint.Color;
 import org.kordamp.ikonli.fontawesome5.FontAwesomeBrands;
 
 import java.io.File;
@@ -47,9 +48,9 @@ public class WebToolsController implements PluginController
     private static final FileType JS_FILE_TYPE;
 
     static {
-        HTML_FILE_TYPE = new FileType("html", "text/html", "HTML File", new SVGIcon(FontAwesomeBrands.HTML5), WebToolsController::createHTMLFile);
-        CSS_FILE_TYPE = new FileType("css", "text/css", "Stylesheet", new SVGIcon(FontAwesomeBrands.CSS3_ALT), WebToolsController::createCSSFile);
-        JS_FILE_TYPE = new FileType("js", "application/javascript", "JavaScript File", new SVGIcon(FontAwesomeBrands.JS_SQUARE), WebToolsController::createJSFile);
+        HTML_FILE_TYPE = new FileType("html", "text/html", "HTML File", new SVGIcon(FontAwesomeBrands.HTML5), Color.valueOf("#E25133"), WebToolsController::createHTMLFile);
+        CSS_FILE_TYPE = new FileType("css", "text/css", "Stylesheet", new SVGIcon(FontAwesomeBrands.CSS3_ALT), Color.valueOf("#1F71B1"), WebToolsController::createCSSFile);
+        JS_FILE_TYPE = new FileType("js", "application/javascript", "JavaScript File", new SVGIcon(FontAwesomeBrands.JS_SQUARE), Color.valueOf("#EFD960"), WebToolsController::createJSFile);
     }
 
     @Override

@@ -22,7 +22,7 @@ import io.orbit.api.EditorController;
 import io.orbit.api.LanguageDelegate;
 import io.orbit.api.PluginController;
 import io.orbit.api.event.CodeEditorEvent;
-import io.orbit.api.notification.Notifications;
+import io.orbit.ui.notification.Notifications;
 import io.orbit.api.text.CodeEditor;
 import io.orbit.plugin.PluginDispatch;
 import io.orbit.settings.HotKeys;

@@ -7,6 +7,7 @@ import io.orbit.api.highlighting.RegexStylePattern;
 import io.orbit.api.highlighting.RegexSyntaxHighlighter;
 import io.orbit.api.highlighting.SyntaxHighlighter;
 import io.orbit.api.text.FileType;
+import javafx.scene.paint.Color;
 import org.kordamp.ikonli.fontawesome5.FontAwesomeSolid;
 
 import java.io.File;
@@ -23,7 +24,12 @@ public class PlainText implements LanguageDelegate
     private static final FileType TEXT_FILE;
 
     static {
-        TEXT_FILE = new FileType("txt", "text", "Text File", new SVGIcon(FontAwesomeSolid.FILE_ALT), PlainText::createTextFile);
+        TEXT_FILE = new FileType("txt",
+                "text",
+                "Text File",
+                new SVGIcon(FontAwesomeSolid.FILE_ALT),
+                Color.rgb(50, 50, 50),
+                PlainText::createTextFile);
     }
 
     @Override

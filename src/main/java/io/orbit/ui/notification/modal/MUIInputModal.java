@@ -1,4 +1,4 @@
-package io.orbit.api.notification.modal;
+package io.orbit.ui.notification.modal;
 
 import com.jfoenix.controls.JFXTextField;
 import javafx.beans.property.SimpleStringProperty;

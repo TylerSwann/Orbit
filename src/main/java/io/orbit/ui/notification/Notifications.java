@@ -17,14 +17,14 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-package io.orbit.api.notification;
+package io.orbit.ui.notification;
 
 import com.jfoenix.controls.JFXSnackbar;
 import io.orbit.App;
 import io.orbit.api.Nullable;
-import io.orbit.api.notification.modal.MUIInputModal;
-import io.orbit.api.notification.modal.MUIModal;
-import io.orbit.api.notification.modal.MUIModalButton;
+import io.orbit.ui.notification.modal.MUIInputModal;
+import io.orbit.ui.notification.modal.MUIModal;
+import io.orbit.ui.notification.modal.MUIModalButton;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import org.kordamp.ikonli.fontawesome5.FontAwesomeSolid;
@@ -37,6 +37,30 @@ public final class Notifications
 {
     private Notifications(){}
 
+
+    public static void showSuccessNotification(String message)
+    {
+        MUINotification notification = MUINotification.success(message);
+        notification.show(App.controller().container(), MUINotification.NotificationPos.BOTTOM_RIGHT);
+    }
+
+    public static void showErrorNotification(String message)
+    {
+        MUINotification notification = MUINotification.error(message);
+        notification.show(App.controller().container(), MUINotification.NotificationPos.BOTTOM_RIGHT);
+    }
+
+    public static void showInfoNotification(String message)
+    {
+        MUINotification notification = MUINotification.informational(message);
+        notification.show(App.controller().container(), MUINotification.NotificationPos.BOTTOM_RIGHT);
+    }
+
+    public static void showWarningNotification(String message)
+    {
+        MUINotification notification = MUINotification.warning(message);
+        notification.show(App.controller().container(), MUINotification.NotificationPos.BOTTOM_RIGHT);
+    }
 
     public static void showErrorAlert(String title, String message)
     {

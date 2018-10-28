@@ -17,7 +17,7 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
  */
-package io.orbit.ui.info;
+package io.orbit.ui.notification;
 
 import com.jfoenix.controls.JFXButton;
 import io.orbit.ui.MUIIconButton;
@@ -139,6 +139,7 @@ public class MUINotification extends HBox
                 AnchorPane.setRightAnchor(this, 20.0);
                 break;
         }
+        this.toFront();
         transition(true, null);
         PauseTransition transition = new PauseTransition(Duration.millis(this.timeout));
         transition.setOnFinished(__ -> this.hide());

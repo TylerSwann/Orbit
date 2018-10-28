@@ -197,6 +197,8 @@ public class MUITreeItem<T> extends VBox
         }
         if (this.cellFactory != null)
             item.setCellFactory(this.cellFactory);
+        if (this.graphicFactory != null)
+            item.setCellGraphicFactory(this.graphicFactory);
         item.setIndent(this.indent + INDENT_LEVEL);
         this.content.getChildren().add(item);
     }
