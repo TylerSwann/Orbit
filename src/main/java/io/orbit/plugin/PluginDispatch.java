@@ -20,6 +20,7 @@
 package io.orbit.plugin;
 
 import io.orbit.api.PluginController;
+import io.orbit.api.language.Project;
 import io.orbit.api.text.FileType;
 import io.orbit.webtools.WebToolsController;
 import io.orbit.text.plaintext.PlainTextController;
@@ -81,6 +82,18 @@ public final class PluginDispatch
                     validPlugins.add(plugin);
         }
         return validPlugins;
+    }
+
+    public static List<Project> getProjectTypes()
+    {
+        List<Project> projectTypes = new ArrayList<>();
+        for (PluginController controller : PLUGINS)
+        {
+            List<Project> types = controller.getProjectTypes();
+            if (types != null)
+                projectTypes.addAll(types);
+        }
+        return projectTypes;
     }
 
     private static String extensionOfFile(File file)

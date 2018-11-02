@@ -17,28 +17,39 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
  */
-package io.orbit.webtools.css;
+package io.orbit.webtools.projects;
 
-import io.orbit.api.highlighting.RegexSyntaxHighlighter;
-import io.orbit.api.highlighting.SyntaxHighlighter;
-import io.orbit.api.language.LanguageDelegate;
-import io.orbit.api.text.FileType;
-import io.orbit.webtools.WebToolsController;
+import io.orbit.api.SVGIcon;
+import io.orbit.api.language.Project;
+import io.orbit.settings.Directory;
+import javafx.scene.layout.Pane;
+import org.kordamp.ikonli.fontawesome5.FontAwesomeBrands;
 
 /**
- * Created by Tyler Swann on Friday February 16, 2018 at 14:00
+ * Created By: Tyler Swann.
+ * Date: Thursday, Nov 01, 2018
+ * Time: 2:12 PM
+ * Website: https://orbiteditor.com
  */
-public class CSS3Language implements LanguageDelegate
+public class ReactAppProject implements Project
 {
     @Override
-    public SyntaxHighlighter getSyntaxHighlighter()
+    public String getName() { return "React App"; }
+    @Override
+    public SVGIcon getIcon() { return new SVGIcon(FontAwesomeBrands.REACT); }
+
+    @Override
+    public Pane getProjectCreationPane() { return new NPMProjectPane(Directory.ORBIT_PROJECTS.getPath()); }
+
+    @Override
+    public boolean validate()
     {
-        return new RegexSyntaxHighlighter(new CSS3RegexPattern());
+        return false;
     }
 
     @Override
-    public FileType getFileNameExtension()
+    public void create()
     {
-        return WebToolsController.STYLESHEET();
+
     }
 }

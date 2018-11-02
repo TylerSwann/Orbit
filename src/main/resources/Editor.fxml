@@ -10,7 +10,7 @@
         <items>
           <AnchorPane fx:id="navigatorContainer" minHeight="0.0" minWidth="0.0" prefHeight="779.0" prefWidth="307.0">
                <styleClass>
-                  <String fx:value="background" />
+                  <String fx:value="accent-background" />
                   <String fx:value="edge-to-edge" />
                </styleClass></AnchorPane>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
@@ -19,35 +19,35 @@
                     <items>
                       <AnchorPane fx:id="editorContainer" minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="1444.0">
                            <styleClass>
-                              <String fx:value="accent-background" />
+                              <String fx:value="background" />
                               <String fx:value="edge-to-edge" />
                            </styleClass></AnchorPane>
                       <AnchorPane fx:id="terminalContainer" minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
                            <styleClass>
-                              <String fx:value="accent-background" />
+                              <String fx:value="background" />
                               <String fx:value="edge-to-edge" />
                            </styleClass></AnchorPane>
                     </items>
                      <styleClass>
-                        <String fx:value="accent-background" />
+                        <String fx:value="background" />
                         <String fx:value="edge-to-edge" />
                      </styleClass>
                   </SplitPane>
                </children>
                <styleClass>
-                  <String fx:value="background" />
+                  <String fx:value="accent-background" />
                   <String fx:value="edge-to-edge" />
                </styleClass>
             </AnchorPane>
         </items>
          <styleClass>
-            <String fx:value="accent-background" />
+            <String fx:value="background" />
             <String fx:value="edge-to-edge" />
          </styleClass>
       </SplitPane>
    </children>
    <styleClass>
-      <String fx:value="accent-background" />
+      <String fx:value="background" />
       <String fx:value="edge-to-edge" />
    </styleClass>
 </AnchorPane>

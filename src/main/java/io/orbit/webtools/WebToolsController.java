@@ -20,9 +20,10 @@
 package io.orbit.webtools;
 
 import io.orbit.api.EditorController;
-import io.orbit.api.LanguageDelegate;
+import io.orbit.api.language.LanguageDelegate;
 import io.orbit.api.PluginController;
 import io.orbit.api.SVGIcon;
+import io.orbit.api.language.Project;
 import io.orbit.api.text.FileType;
 import io.orbit.webtools.css.CSS3Language;
 import io.orbit.webtools.css.CSSEditorController;
@@ -30,11 +31,16 @@ import io.orbit.webtools.html.HTMLEditorController;
 import io.orbit.webtools.html.HTMLLanguage;
 import io.orbit.webtools.javascript.JavaScriptController;
 import io.orbit.webtools.javascript.JavaScriptLanguage;
+import io.orbit.webtools.projects.HTML5Project;
+import io.orbit.webtools.projects.MeteorProject;
+import io.orbit.webtools.projects.NodeExpressProject;
+import io.orbit.webtools.projects.ReactAppProject;
 import javafx.scene.paint.Color;
 import org.kordamp.ikonli.fontawesome5.FontAwesomeBrands;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -83,6 +89,17 @@ public class WebToolsController implements PluginController
         else if (fileExtension.equals(JS_FILE_TYPE.getExtension()))
             return new JavaScriptController();
         return null;
+    }
+
+    @Override
+    public List<Project> getProjectTypes()
+    {
+        return new ArrayList<>(Arrays.asList(
+                new HTML5Project(),
+                new MeteorProject(),
+                new NodeExpressProject(),
+                new ReactAppProject()
+        ));
     }
 
     public static FileType STYLESHEET() { return CSS_FILE_TYPE.clone(); }

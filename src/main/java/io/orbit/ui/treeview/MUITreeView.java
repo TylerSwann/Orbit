@@ -182,6 +182,8 @@ public class MUITreeView<T> extends ScrollPane
             if (branch.isSelected())
                 selectedItems.add(branch);
         });
+        if (selectedItems.size() > 0)
+            this.selectedBranch.set(selectedItems.get(0));
         this.selectedBranches.set(selectedItems);
     }
 

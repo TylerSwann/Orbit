@@ -1,10 +1,9 @@
 package io.orbit.api;
 
 
+import io.orbit.api.language.LanguageDelegate;
+import io.orbit.api.language.Project;
 import io.orbit.api.text.FileType;
-import javafx.scene.control.Menu;
-import javafx.scene.control.Tab;
-
 import java.io.File;
 import java.util.List;
 
@@ -13,34 +12,6 @@ import java.util.List;
  */
 public interface PluginController
 {
-
-    /**************************************************************************
-     *                                                                        *
-     *                         Creating UI Elements                           *
-     *                                                                        *
-     **************************************************************************/
-
-    /**
-     *
-     * These buttons will be added to the menu bar.
-     * MUIMenuButton has a menu property, use this in order to add a MUIContextMenu to the button.
-     * If you want one of the MUIContextMenu buttons to have a submenu, create an instance of the
-     * MUISubMenu class and then add it to the MUIContextMenu's items.
-     *
-     */
-    @Nullable
-    default Menu[] getMenuBarButtons() { return null; }
-
-    /**
-     *
-     * These tabs will be added to the side tab pane or the Navigator Tab Pane.
-     * This is the same TabPane that the project file/folder names are displayed in.
-     *
-     */
-    @Nullable
-    default Tab[] getNavigatorTabs() { return null; }
-
-
     /**************************************************************************
      *                                                                        *
      *              Registering Project Types and Language Support            *
@@ -66,7 +37,7 @@ public interface PluginController
      * @return Classes that implement the Project interface
      */
     @Nullable
-    default Project[] getProjectTypes() { return null; }
+    default List<Project> getProjectTypes() { return null; }
 
     /**
      *
@@ -79,7 +50,6 @@ public interface PluginController
      */
     @NotNullable
     List<FileType> getFileTypes();
-
 
     /**
      *

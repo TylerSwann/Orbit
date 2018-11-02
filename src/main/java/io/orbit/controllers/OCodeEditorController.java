@@ -19,7 +19,7 @@
 package io.orbit.controllers;
 
 import io.orbit.api.EditorController;
-import io.orbit.api.LanguageDelegate;
+import io.orbit.api.language.LanguageDelegate;
 import io.orbit.api.PluginController;
 import io.orbit.api.event.CodeEditorEvent;
 import io.orbit.ui.notification.Notifications;

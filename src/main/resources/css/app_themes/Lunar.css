@@ -18,18 +18,25 @@
     -icon-color: #888e97;
 }
 
+.label
+{
+    -fx-text-fill: -text-color;
+}
 
-
-.accent-background.anchor-pane,
-.accent-background.split-pane
+.background.anchor-pane,
+.background.split-pane
 {
     -fx-background-color: -base-grey, -fx-control-inner-background;
 }
-.accent-background
+.background
 {
     -fx-background-color: -base-grey;
 }
 
+.accent-background
+{
+    -fx-background-color: -base-blue;
+}
 
 .split-pane .split-pane-divider
 {
@@ -62,6 +69,19 @@
     -jfx-checked-color: -accent-blue;
     -jfx-unchecked-color: -accent-faded;
     -fx-text-fill: -text-color;
+}
+
+.button-secondary
+{
+    -fx-background-color: -accent-blue;
+    -fx-font-family: "Roboto Bold";
+    -fx-text-fill: white;
+    -fx-font-size: 11px;
+}
+
+.button-secondary .jfx-rippler
+{
+    -jfx-rippler-fill: rgba(255, 255, 255, 0.4);
 }
 
 /*******************************************************************************
@@ -369,14 +389,6 @@
 {
     -fx-icon-color: -icon-color;
     -fx-icon-size: 11px;
-}
-
-.find-replace-pane .button-secondary
-{
-    -fx-background-color: -accent-blue;
-    -fx-font-family: "Roboto Bold";
-    -fx-text-fill: white;
-    -fx-font-size: 11px;
 }
 
 /*******************************************************************************

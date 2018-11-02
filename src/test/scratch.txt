@@ -117,3 +117,14 @@ JavaScriptLexer.ARROW
     | BitXorAssign
     | BitOrAssign
     | ARROW
+
+
+
+
+Type:
+    Members:
+        Property:
+            Type
+        Function:
+            Return Type
+            Argument Type

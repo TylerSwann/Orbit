@@ -110,7 +110,7 @@ public class OMenuBarController extends EventTargetObject
         this.addEventHandler(MenuBarEvent.SAVE_ALL, event -> this.saveAll());
         this.addEventHandler(MenuBarEvent.SELECT_ALL, event -> App.controller().getActiveEditor().ifPresent(CodeEditor::selectAll));
         this.addEventHandler(MenuBarEvent.SETTINGS, event -> Platform.runLater(SettingsPage::show));
-        this.addEventHandler(MenuBarEvent.NEW_PROJECT, event -> {});
+        this.addEventHandler(MenuBarEvent.NEW_PROJECT, event -> Platform.runLater(OProjectCreationController::showDialog));
         this.addEventHandler(MenuBarEvent.OPEN_FILE, event -> this.showFileChooserDialog());
         this.addEventHandler(MenuBarEvent.OPEN_FOLDER, event -> this.showFolderChooseDialog());
         this.addEventHandler(MenuBarEvent.NEW_FILE, event -> showFileCreationDialog(false));

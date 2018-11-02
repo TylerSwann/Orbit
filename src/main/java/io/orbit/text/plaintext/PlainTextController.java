@@ -1,11 +1,9 @@
 package io.orbit.text.plaintext;
 
 import io.orbit.api.EditorController;
-import io.orbit.api.LanguageDelegate;
+import io.orbit.api.language.LanguageDelegate;
 import io.orbit.api.PluginController;
-import io.orbit.api.SVGIcon;
 import io.orbit.api.text.FileType;
-import org.kordamp.ikonli.fontawesome5.FontAwesomeSolid;
 
 import java.io.File;
 import java.util.Collections;

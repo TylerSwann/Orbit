@@ -17,17 +17,30 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
  */
-package io.orbit.webtools.javascript.typedefinitions;
+package io.orbit.util;
+
+import io.orbit.App;
+import io.orbit.api.SVGIcon;
+
+import java.io.IOException;
+import java.net.URL;
 
 /**
  * Created By: Tyler Swann.
- * Date: Saturday, Oct 27, 2018
- * Time: 2:09 PM
+ * Date: Sunday, Oct 28, 2018
+ * Time: 5:07 PM
  * Website: https://orbiteditor.com
  */
-
-public class Type {
-    public Type() {
-
+public class Icons
+{
+    public static SVGIcon METEOR_JS()
+    {
+        try
+        {
+            URL url = App.class.getClassLoader().getResource("images/icons/meteor-icon.svg");
+            return new SVGIcon(url);
+        }
+        catch (IOException ex) { ex.printStackTrace(); }
+        return null;
     }
 }

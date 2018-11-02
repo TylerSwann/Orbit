@@ -1,5 +1,6 @@
-package io.orbit.api;
+package io.orbit.api.language;
 
+import io.orbit.api.NotNullable;
 import io.orbit.api.highlighting.SyntaxHighlighter;
 import io.orbit.api.text.FileType;
 

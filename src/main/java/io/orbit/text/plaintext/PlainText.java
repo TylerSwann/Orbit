@@ -1,6 +1,6 @@
 package io.orbit.text.plaintext;
 
-import io.orbit.api.LanguageDelegate;
+import io.orbit.api.language.LanguageDelegate;
 import io.orbit.api.SVGIcon;
 import io.orbit.api.highlighting.HighlightType;
 import io.orbit.api.highlighting.RegexStylePattern;

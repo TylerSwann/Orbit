@@ -17,28 +17,43 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
  */
-package io.orbit.webtools.css;
+package io.orbit.webtools.projects;
 
-import io.orbit.api.highlighting.RegexSyntaxHighlighter;
-import io.orbit.api.highlighting.SyntaxHighlighter;
-import io.orbit.api.language.LanguageDelegate;
-import io.orbit.api.text.FileType;
-import io.orbit.webtools.WebToolsController;
+import io.orbit.api.SVGIcon;
+import io.orbit.api.language.Project;
+import io.orbit.util.Icons;
+import javafx.scene.layout.Pane;
 
 /**
- * Created by Tyler Swann on Friday February 16, 2018 at 14:00
+ * Created By: Tyler Swann.
+ * Date: Thursday, Nov 01, 2018
+ * Time: 2:12 PM
+ * Website: https://orbiteditor.com
  */
-public class CSS3Language implements LanguageDelegate
+public class MeteorProject implements Project
 {
     @Override
-    public SyntaxHighlighter getSyntaxHighlighter()
+    public String getName() { return "Meteor App"; }
+    @Override
+    public SVGIcon getIcon() { return Icons.METEOR_JS(); }
+
+    @Override
+    public Pane getProjectCreationPane()
     {
-        return new RegexSyntaxHighlighter(new CSS3RegexPattern());
+        Pane pane = new Pane();
+        pane.setStyle("-fx-background-color: blue;");
+        return pane;
     }
 
     @Override
-    public FileType getFileNameExtension()
+    public boolean validate()
     {
-        return WebToolsController.STYLESHEET();
+        return false;
+    }
+
+    @Override
+    public void create()
+    {
+
     }
 }
