@@ -19,14 +19,18 @@
  */
 package io.orbit.webtools.javascript;
 
+import com.google.gson.Gson;
 import io.orbit.api.EditorController;
 import io.orbit.api.text.CodeEditor;
-import io.orbit.webtools.javascript.typedefinitions.TypeDefinition;
+import io.orbit.webtools.javascript.typedefs.ParameterFragment;
+import io.orbit.webtools.javascript.typedefs.TypeDeclaration;
+import io.orbit.webtools.javascript.typedefs.parsing.TypeDefinition;
 
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 
 /**
  * Created By: Tyler Swann.
@@ -37,20 +41,22 @@ import java.util.ArrayList;
 public class JavaScriptController implements EditorController
 {
     private JavaScriptCodeFormatter formatter;
-    private ArrayList<TypeDefinition> typeDefs = new ArrayList<>();
 
     @Override
     public void start(File file, CodeEditor editor)
     {
         this.formatter = new JavaScriptCodeFormatter(editor);
-        this.registerListeners();
-        URL consoleTypeDef = getClass().getClassLoader().getResource("webtools/typedefs/console.d.ts");
-        assert consoleTypeDef != null;
         try
         {
-            this.typeDefs.add(new TypeDefinition(new File(consoleTypeDef.getFile())));
+            URL url = getClass().getClassLoader().getResource("webtools/typedefs/primitives.json");
+            assert url != null;
+            byte[] data = Files.readAllBytes(Paths.get(new File(url.getFile()).getPath()));
+            String json = new String(data);
+            Gson gson = new Gson();
+            TypeDeclaration def = gson.fromJson(json, TypeDeclaration.class);
+            TypeDefinition definition = new TypeDefinition(def);
         }
-        catch (IOException e) { e.printStackTrace(); }
+        catch (IOException ex) { ex.printStackTrace(); }
     }
 
     private void registerListeners()

@@ -207,15 +207,15 @@ generatorMethod
 formalParameterList
     : formalParameterArg (',' formalParameterArg)* (',' lastFormalParameterArg)?
     | lastFormalParameterArg
-    | arrayLiteral                            // ECMAScript 6: Parameter Context Matching
-    | objectLiteral                           // ECMAScript 6: Parameter Context Matching
+    | arrayLiteral                            // ECMAScript 6: ParameterFragment Context Matching
+    | objectLiteral                           // ECMAScript 6: ParameterFragment Context Matching
     ;
 
 formalParameterArg
     : Identifier ('=' singleExpression)?      // ECMAScript 6: Initialization
     ;
 
-lastFormalParameterArg                        // ECMAScript 6: Rest Parameter
+lastFormalParameterArg                        // ECMAScript 6: Rest ParameterFragment
     : Ellipsis Identifier
     ;
 
