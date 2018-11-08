@@ -19,10 +19,8 @@
  */
 package io.orbit.webtools.javascript.typedefs.parsing;
 
-import io.orbit.webtools.javascript.typedefs.Signature;
-import io.orbit.webtools.javascript.typedefs.TypeFragment;
-import javafx.application.Platform;
-
+import io.orbit.webtools.javascript.typedefs.fragments.Signature;
+import io.orbit.webtools.javascript.typedefs.fragments.TypeFragment;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -34,18 +32,18 @@ import java.util.stream.Collectors;
  */
 public class Scope
 {
-    public static final Map<String, Interface> interfaces = new HashMap<>();
-    public static final Map<String, Variable> globalVariables = new HashMap<>();
-    private static ArrayFactory ARRAY_FACTORY;
+    public final Map<String, Interface> interfaces = new HashMap<>();
+    public final Map<String, Variable> globalVariables = new HashMap<>();
+    private ArrayFactory ARRAY_FACTORY;
 
 
-    public static void resolve(Map<String, Interface> interfaces)
+    public void resolve(Map<String, Interface> interfaces)
     {
         Interface arrayInterface = interfaces.get(TypeDefinition.ARRAY);
         ARRAY_FACTORY = new ArrayFactory(arrayInterface.getMethods(), arrayInterface.getProperties());
     }
 
-    public static Type typeWithName(String name)
+    public Type typeWithName(String name)
     {
         boolean isPrimitive = isPrimitive(name);
         if (name != null)
@@ -68,47 +66,49 @@ public class Scope
         return Type.NULL;
     }
 
-    public static Type typeWithSignature(Signature signature)
-    {
-        return typeOfFragment(signature.getType());
-    }
-
-    public static Type typeOfFragment(TypeFragment fragment)
+    public Type typeOfFragment(TypeFragment fragment)
     {
         switch (fragment.getType())
         {
             case TypeDefinition.UNION:
                 StringBuilder builder = new StringBuilder("(");
                 List<TypeFragment> types = Arrays.asList(fragment.getTypes());
-                types.forEach(type -> {
-                    if (types.indexOf(type) == types.size() - 1)
+                List<Type> typeParams = types.stream().map(this::typeOfFragment).collect(Collectors.toList());
+                typeParams.forEach(type -> {
+                    if (typeParams.indexOf(type) == typeParams.size() - 1)
                         builder.append(String.format("%s)", type.getName()));
                     else
                         builder.append(String.format("%s | ", type.getName()));
                 });
                 return new Type(builder.toString(), Collections.emptyList(), Collections.emptyList());
             case TypeDefinition.REFLECTION:
+                if (fragment.getDeclaration().getSignatures().length <= 0)
+                    break;
                 Signature signature = fragment.getDeclaration().getSignatures()[0];
                 List<Parameter> parameters = Arrays.stream(signature.getParameters()).map(Parameter::new).collect(Collectors.toList());
-                parameters.forEach(Parameter::resolve);
-                return new FunctionalType(typeWithSignature(signature), parameters);
+                parameters.forEach(parameter -> parameter.resolve(this));
+                return new FunctionalType(typeOfFragment(signature.getType()), parameters);
             case TypeDefinition.TYPE_PARAMETER:
                 return new Type(fragment.getName(), Collections.emptyList(), Collections.emptyList());
             case TypeDefinition.ARRAY_ELEMENT:
                 if (TypeDefinition.TYPE_PARAMETER.equals(fragment.getElementType().getType()))
                     return ARRAY_FACTORY.arrayOf(new Type(fragment.getElementType().getName(), Collections.emptyList(), Collections.emptyList()));
                 return ARRAY_FACTORY.arrayOf(typeWithName(fragment.getElementType().getName()));
-            default: break;
+            case TypeDefinition.INTRINSIC:
+                return typeWithName(fragment.getName());
+            case TypeDefinition.REFERENCE:
+                return typeWithName(fragment.getName());
+            default:
+                System.out.println(String.format("%s: %s", fragment.getName(), fragment.getType()));
+                break;
         }
         return typeWithName(fragment.getName());
     }
 
-    private static boolean isPrimitive(String typeName)
+    private boolean isPrimitive(String typeName)
     {
         if (typeName == null)
             return false;
         return typeName.equals("string") || typeName.equals("number") || typeName.equals("boolean") || typeName.equals("any");
     }
-
-    private Scope(){}
 }

@@ -36,10 +36,10 @@ public class FunctionalType extends Type
     {
         super("Function", returnType.getProperties(), returnType.getMethods());
         this.parameters = parameters;
-        StringBuilder builder = new StringBuilder("(");
+        StringBuilder builder = new StringBuilder("((");
         parameters.forEach(para -> {
             if (parameters.indexOf(para) == parameters.size() - 1)
-                builder.append(String.format("%s: %s): %s", para.getName(), para.getType().getName(), returnType.getName()));
+                builder.append(String.format("%s: %s) => %s)", para.getName(), para.getType().getName(), returnType.getName()));
             else
                 builder.append(String.format("%s: %s, ", para.getName(), para.getType().getName()));
         });
@@ -47,4 +47,5 @@ public class FunctionalType extends Type
     }
 
     public List<Parameter> getParameters() { return parameters; }
+    public void setParameters(List<Parameter> parameters) { this.parameters = parameters; }
 }

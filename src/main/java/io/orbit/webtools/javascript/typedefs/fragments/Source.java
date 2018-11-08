@@ -17,10 +17,7 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
  */
-package io.orbit.webtools.javascript.typedefs.parsing;
-
-import io.orbit.webtools.javascript.typedefs.fragments.TypeDeclaration;
-
+package io.orbit.webtools.javascript.typedefs.fragments;
 
 /**
  * Created By: Tyler Swann.
@@ -28,15 +25,16 @@ import io.orbit.webtools.javascript.typedefs.fragments.TypeDeclaration;
  * Time: 3:31 PM
  * Website: https://orbiteditor.com
  */
-public class Method extends Function
+public class Source extends TypeNode
 {
-    private Type owner;
+    private String fileName;
+    private int line;
+    private int character;
 
-    public Method(TypeDeclaration declaration)
-    {
-        super(declaration);
-    }
-
-    public void setOwner(Type type) { this.owner = type; }
-    public Type getOwner() { return owner; }
+    public String getFileName() { return fileName; }
+    public void setFileName(String fileName) { this.fileName = fileName; }
+    public int getLine() { return line; }
+    public void setLine(int line) { this.line = line; }
+    public int getCharacter() { return character; }
+    public void setCharacter(int character) { this.character = character; }
 }

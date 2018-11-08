@@ -17,23 +17,41 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
  */
-package io.orbit.webtools.javascript.typedefs;
+package io.orbit.webtools.javascript.typedefs.fragments;
 
 /**
  * Created By: Tyler Swann.
  * Date: Friday, Nov 02, 2018
- * Time: 8:22 PM
+ * Time: 3:31 PM
  * Website: https://orbiteditor.com
  */
-public class Signature extends TypeNode
+public class Group
 {
-    private String kindString;
-    private ParameterFragment[] parameters = new ParameterFragment[0];
-    private TypeFragment type;
+    private String title;
+    private int kind;
+    private int[] children = new int[0];
 
-    public TypeFragment getType() { return this.type; }
-    public String getKindString() { return kindString; }
-    public void setKindString(String kindString) { this.kindString = kindString; }
-    public ParameterFragment[] getParameters() { return parameters; }
-    public void setParameters(ParameterFragment[] parameters) { this.parameters = parameters; }
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public int getKind() {
+        return kind;
+    }
+
+    public void setKind(int kind) {
+        this.kind = kind;
+    }
+
+    public int[] getChildren() {
+        return children;
+    }
+
+    public void setChildren(int[] children) {
+        this.children = children;
+    }
 }

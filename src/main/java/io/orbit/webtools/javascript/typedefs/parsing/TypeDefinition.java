@@ -19,12 +19,11 @@
  */
 package io.orbit.webtools.javascript.typedefs.parsing;
 
-import io.orbit.webtools.javascript.typedefs.TypeDeclaration;
+import io.orbit.webtools.javascript.typedefs.fragments.TypeDeclaration;
 import javafx.application.Platform;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.stream.Collectors;
 
 /**
  * Created By: Tyler Swann.
@@ -34,7 +33,12 @@ import java.util.stream.Collectors;
  */
 public class TypeDefinition
 {
+    public static final String EXTERNAL_MODULE = "External module";
+    public static final String MODULE = "Module";
+    public static final String CLASS = "Class";
     public static final String INTERFACE = "Interface";
+    public static final String FUNCTION = "Function";
+    public static final String TYPE_ALIAS = "Type alias";
     public static final String PROPERTY = "Property";
     public static final String METHOD = "Method";
     public static final String VARIABLE = "Variable";
@@ -43,27 +47,37 @@ public class TypeDefinition
     public static final String TYPE_PARAMETER = "typeParameter";
     public static final String REFLECTION = "reflection";
     public static final String INTRINSIC = "intrinsic";
+    public static final String REFERENCE = "reference";
     public static final String UNION = "union";
+    public static final String STRING_LITERAL = "stringLiteral";
+    public static final String INTERSECTION = "intersection";
 
     private Map<String, Interface> interfaces = new HashMap<>();
     private Map<String, Variable> globalVariables = new HashMap<>();
+    private Map<String, Class> classes = new HashMap<>();
+    private Map<String, Function> functions = new HashMap<>();
+    private Scope libScope;
 
-    public TypeDefinition(TypeDeclaration declaration)
+
+    public TypeDefinition()
     {
-        read(declaration);
+        libScope = new Scope();
+    }
+
+    public void resolve()
+    {
+        libScope.interfaces.putAll(this.interfaces);
+        libScope.globalVariables.putAll(this.globalVariables);
+        libScope.resolve(this.interfaces);
         Platform.runLater(() -> {
-            Scope.interfaces.putAll(this.interfaces);
-            Scope.globalVariables.putAll(this.globalVariables);
-            Scope.resolve(this.interfaces);
-            Platform.runLater(() -> {
-                this.interfaces.forEach((key, anInterface) -> anInterface.resolve());
-                this.globalVariables.forEach((key, variable) -> variable.resolve());
-                this.print();
-            });
+            this.interfaces.forEach((key, anInterface) -> anInterface.resolve(this.libScope));
+            this.globalVariables.forEach((key, variable) -> variable.resolve(this.libScope));
+            this.functions.forEach((key, func) -> func.resolve(this.libScope));
+            this.print(this.interfaces.get("Array"));
         });
     }
 
-    private void read(TypeDeclaration declaration)
+    public void read(TypeDeclaration declaration)
     {
         switch (declaration.getKindString())
         {
@@ -73,6 +87,12 @@ public class TypeDefinition
             case TypeDefinition.METHOD:
                 break;
             case TypeDefinition.PROPERTY:
+                break;
+            case TypeDefinition.CLASS:
+                this.classes.put(declaration.getName(), new Class(declaration));
+                break;
+            case TypeDefinition.FUNCTION:
+                this.functions.put(declaration.getName(), new Function(declaration));
                 break;
             case TypeDefinition.VARIABLE:
                 this.globalVariables.put(declaration.getName(), new Variable(declaration));
@@ -86,18 +106,51 @@ public class TypeDefinition
 
     private void print()
     {
-        this.interfaces.forEach((key, _interface) -> {
-            System.out.println(String.format("Interface %s", _interface.getName()));
-            _interface.getMethods().forEach(method -> {
-                System.out.print(String.format("\tmethod %s(", method.getName()));
-                method.getParameters().forEach(param -> {
+        this.interfaces.forEach((key, value) -> this.print(value));
+        this.functions.forEach((key, value) -> this.print(value));
+    }
+
+    private void print(Interface interfce)
+    {
+        System.out.println(String.format("Interface %s", interfce.getName()));
+        interfce.getMethods().forEach(method -> {
+            System.out.print(String.format("\tMethod %s(", method.getName()));
+            method.getParameters().forEach(param -> {
+                if (method.getParameters().indexOf(param) == method.getParameters().size() - 1)
+                    System.out.print(String.format("%s: %s) => %s\n", param.getName(), param.getType().getName(), method.getReturnType().getName()));
+                else
                     System.out.print(String.format("%s: %s, ", param.getName(), param.getType().getName()));
-                });
-                System.out.print(String.format("):%s\n", method.getReturnType().getName()));
             });
-            _interface.getProperties().forEach(prop -> {
-                System.out.println(String.format("\t%s: %s", prop.getName(), prop.getTypeName()));
-            });
+            if (method.getParameters().size() <= 0)
+                System.out.print(String.format(") => %s\n", method.getReturnType().getName()));
+        });
+        interfce.getProperties().forEach(prop -> System.out.println(String.format("\tProperty %s: %s", prop.getName(), prop.getType().getName())));
+    }
+
+    private void print(Function function)
+    {
+        System.out.print(String.format("Function %s(", function.getName()));
+        function.getParameters().forEach(param -> {
+            if (function.getParameters().indexOf(param) == function.getParameters().size() - 1)
+            {
+                System.out.print(String.format("%s: %s) => %s",
+                        param.getName(),
+                        param.getType().getName(),
+                        function.getReturnType().getName()));
+            }
+            else
+            {
+                System.out.print(String.format("%s: %s, ",
+                        param.getName(),
+                        param.getType().getName()));
+            }
         });
     }
+
+    public Map<String, Interface> getInterfaces() { return interfaces; }
+    public void setInterfaces(Map<String, Interface> interfaces) { this.interfaces = interfaces; }
+    public Map<String, Variable> getGlobalVariables() { return globalVariables; }
+    public void setGlobalVariables(Map<String, Variable> globalVariables) { this.globalVariables = globalVariables; }
+    public Scope getLibScope() { return libScope; }
+    public void setLibScope(Scope libScope) { this.libScope = libScope; }
 }

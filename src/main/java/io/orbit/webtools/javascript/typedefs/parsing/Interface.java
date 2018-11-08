@@ -19,7 +19,7 @@
  */
 package io.orbit.webtools.javascript.typedefs.parsing;
 
-import io.orbit.webtools.javascript.typedefs.TypeDeclaration;
+import io.orbit.webtools.javascript.typedefs.fragments.TypeDeclaration;
 
 /**
  * Created By: Tyler Swann.
@@ -34,9 +34,11 @@ public class Interface extends Type
         super(declaration);
     }
 
-    public void resolve()
+    public void resolve(Scope scope)
     {
-        this.getProperties().forEach(Property::resolve);
-        this.getMethods().forEach(Method::resolve);
+        this.getProperties().forEach(prop -> prop.resolve(scope));
+        this.getMethods().forEach(method -> method.resolve(scope));
+        this.getMethods().forEach(method -> method.setOwner(this));
+        this.getProperties().forEach(property -> property.setOwner(this));
     }
 }

@@ -19,7 +19,7 @@
  */
 package io.orbit.webtools.javascript.typedefs.parsing;
 
-import io.orbit.webtools.javascript.typedefs.TypeDeclaration;
+import io.orbit.webtools.javascript.typedefs.fragments.TypeDeclaration;
 
 /**
  * Created By: Tyler Swann.
@@ -37,7 +37,7 @@ public class Variable
         this.name = declaration.getName();
     }
 
-    public void resolve()
+    public void resolve(Scope scope)
     {
 
     }

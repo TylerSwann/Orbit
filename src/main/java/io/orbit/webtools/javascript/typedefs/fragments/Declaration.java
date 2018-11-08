@@ -17,24 +17,32 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
  */
-package io.orbit.webtools.javascript.typedefs;
+package io.orbit.webtools.javascript.typedefs.fragments;
 
 /**
  * Created By: Tyler Swann.
- * Date: Friday, Nov 02, 2018
- * Time: 3:31 PM
+ * Date: Sunday, Nov 04, 2018
+ * Time: 5:05 PM
  * Website: https://orbiteditor.com
  */
-public class Source extends TypeNode
+public class Declaration extends TypeNode
 {
-    private String fileName;
-    private int line;
-    private int character;
+    private String kindString;
+    private Signature[] signatures = new Signature[0];
 
-    public String getFileName() { return fileName; }
-    public void setFileName(String fileName) { this.fileName = fileName; }
-    public int getLine() { return line; }
-    public void setLine(int line) { this.line = line; }
-    public int getCharacter() { return character; }
-    public void setCharacter(int character) { this.character = character; }
+    public String getKindString() {
+        return kindString;
+    }
+
+    public void setKindString(String kindString) {
+        this.kindString = kindString;
+    }
+
+    public Signature[] getSignatures() {
+        return signatures;
+    }
+
+    public void setSignatures(Signature[] signatures) {
+        this.signatures = signatures;
+    }
 }

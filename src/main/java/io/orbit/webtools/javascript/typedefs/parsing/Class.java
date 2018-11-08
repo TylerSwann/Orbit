@@ -19,34 +19,26 @@
  */
 package io.orbit.webtools.javascript.typedefs.parsing;
 
-import io.orbit.webtools.javascript.typedefs.fragments.ParameterFragment;
-import io.orbit.webtools.javascript.typedefs.fragments.TypeFragment;
+import io.orbit.webtools.javascript.typedefs.fragments.TypeDeclaration;
 
 /**
  * Created By: Tyler Swann.
- * Date: Saturday, Nov 03, 2018
- * Time: 2:20 PM
+ * Date: Wednesday, Nov 07, 2018
+ * Time: 3:00 PM
  * Website: https://orbiteditor.com
  */
-public class Parameter
+public class Class extends Type
 {
-    private String name;
-    private Type type;
-    private transient TypeFragment typeFragment;
-
-    public Parameter(ParameterFragment fragment)
+    public Class(TypeDeclaration declaration)
     {
-        this.name = fragment.getName();
-        this.typeFragment = fragment.getType();
+        super(declaration);
     }
 
     public void resolve(Scope scope)
     {
-        this.type = scope.typeOfFragment(this.typeFragment);
+        this.getProperties().forEach(prop -> prop.resolve(scope));
+        this.getMethods().forEach(method -> method.resolve(scope));
+        this.getMethods().forEach(method -> method.setOwner(this));
+        this.getProperties().forEach(property -> property.setOwner(this));
     }
-
-    public String getName() { return name; }
-    public Type getType() { return type; }
-    public void setName(String name) { this.name = name; }
-    public void setType(Type type) { this.type = type; }
 }

@@ -19,7 +19,7 @@
  */
 package io.orbit.webtools.javascript.typedefs.parsing;
 
-import io.orbit.webtools.javascript.typedefs.TypeDeclaration;
+import io.orbit.webtools.javascript.typedefs.fragments.TypeDeclaration;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -89,5 +89,7 @@ public class Type
     public List<Property> getProperties() { return properties; }
     public List<Method> getMethods() { return methods; }
     public String getName() { return name; }
-    protected void setName(String name) { this.name = name; }
+    public void setName(String name) { this.name = name; }
+    public boolean isArray() { return isArray; }
+    public void setArray(boolean array) { isArray = array; }
 }

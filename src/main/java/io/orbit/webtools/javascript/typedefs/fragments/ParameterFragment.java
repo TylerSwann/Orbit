@@ -17,26 +17,21 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
  */
-package io.orbit.webtools.javascript.typedefs.parsing;
-
-import io.orbit.webtools.javascript.typedefs.fragments.TypeDeclaration;
-
+package io.orbit.webtools.javascript.typedefs.fragments;
 
 /**
  * Created By: Tyler Swann.
  * Date: Friday, Nov 02, 2018
- * Time: 3:31 PM
+ * Time: 8:23 PM
  * Website: https://orbiteditor.com
  */
-public class Method extends Function
+public class ParameterFragment extends TypeNode
 {
-    private Type owner;
+    private String kindString;
+    private TypeFragment type;
 
-    public Method(TypeDeclaration declaration)
-    {
-        super(declaration);
-    }
-
-    public void setOwner(Type type) { this.owner = type; }
-    public Type getOwner() { return owner; }
+    public String getKindString() { return kindString; }
+    public void setKindString(String kindString) { this.kindString = kindString; }
+    public TypeFragment getType() { return type; }
+    public void setType(TypeFragment type) { this.type = type; }
 }

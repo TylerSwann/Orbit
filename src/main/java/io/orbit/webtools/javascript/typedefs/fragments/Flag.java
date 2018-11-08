@@ -17,7 +17,7 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
  */
-package io.orbit.webtools.javascript.typedefs;
+package io.orbit.webtools.javascript.typedefs.fragments;
 
 /**
  * Created By: Tyler Swann.
@@ -30,28 +30,24 @@ public class Flag
     private boolean isOptional = false;
     private boolean isRest = false;
     private boolean isExported = false;
+    private boolean isStatic = false;
 
-    public boolean isOptional() {
-        return isOptional;
-    }
-
+    public boolean isOptional() { return isOptional; }
     public void setOptional(boolean optional) {
         isOptional = optional;
     }
-
     public boolean isRest() {
         return isRest;
     }
-
     public void setRest(boolean rest) {
         isRest = rest;
     }
-
     public boolean isExported() {
         return isExported;
     }
-
     public void setExported(boolean exported) {
         isExported = exported;
     }
+    public boolean isStatic() { return isStatic; }
+    public void setStatic(boolean aStatic) { isStatic = aStatic; }
 }

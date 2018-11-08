@@ -17,30 +17,19 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
  */
-package io.orbit.webtools.javascript.typedefs;
+package io.orbit.webtools.javascript.autocompletion;
 
 /**
  * Created By: Tyler Swann.
- * Date: Saturday, Nov 03, 2018
- * Time: 1:49 PM
+ * Date: Thursday, Nov 08, 2018
+ * Time: 3:12 PM
  * Website: https://orbiteditor.com
  */
-public class ElementType
+public class JavaScriptAutoCompleter
 {
-    private String type;
-    private String name;
-    private TypeArgument[] typeArguments;
 
-    public String getType() { return type; }
-    public void setType(String type) {
-        this.type = type;
+    public JavaScriptAutoCompleter()
+    {
+
     }
-    public String getName() {
-        return name;
-    }
-    public void setName(String name) {
-        this.name = name;
-    }
-    public TypeArgument[] getTypeArguments() { return typeArguments; }
-    public void setTypeArguments(TypeArgument[] typeArguments) { this.typeArguments = typeArguments; }
 }

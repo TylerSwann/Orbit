@@ -20,7 +20,7 @@
 package io.orbit.webtools.javascript.typedefs.parsing;
 
 
-import io.orbit.webtools.javascript.typedefs.TypeDeclaration;
+import io.orbit.webtools.javascript.typedefs.fragments.TypeDeclaration;
 
 /**
  * Created By: Tyler Swann.
@@ -34,20 +34,31 @@ public class Property
     private String typeName;
     private Type type;
     private Type owner;
+    private transient TypeDeclaration declaration;
 
     public Property(TypeDeclaration declaration)
     {
         this.name = declaration.getName();
         this.typeName = declaration.getType().getName();
+        this.declaration = declaration;
     }
 
-    public void resolve()
+    public void resolve(Scope scope)
     {
-        this.type = Scope.typeWithName(this.name);
+        this.type = scope.typeWithName(this.typeName);
+        if (this.type == Type.NULL)
+        {
+            this.type = scope.typeOfFragment(this.declaration.getType());
+//            System.out.println(declaration.getKindString() + "  :  " + declaration.getType().getType());
+        }
     }
 
     public String getName() { return name; }
+    public void setName(String name) { this.name = name; }
     public String getTypeName() { return typeName; }
+    public void setTypeName(String typeName) { this.typeName = typeName; }
     public Type getType() { return type; }
+    public void setType(Type type) { this.type = type; }
     public Type getOwner() { return owner; }
+    public void setOwner(Type owner) { this.owner = owner; }
 }

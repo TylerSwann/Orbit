@@ -17,7 +17,7 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
  */
-package io.orbit.webtools.javascript.typedefs;
+package io.orbit.webtools.javascript.typedefs.fragments;
 
 /**
  * Created By: Tyler Swann.
@@ -25,33 +25,22 @@ package io.orbit.webtools.javascript.typedefs;
  * Time: 3:31 PM
  * Website: https://orbiteditor.com
  */
-public class Group
+public class TypeNode
 {
-    private String title;
+    private int id;
     private int kind;
-    private int[] children = new int[0];
+    private String name;
+    private Flag flags;
+    private Comment comment;
 
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public int getKind() {
-        return kind;
-    }
-
-    public void setKind(int kind) {
-        this.kind = kind;
-    }
-
-    public int[] getChildren() {
-        return children;
-    }
-
-    public void setChildren(int[] children) {
-        this.children = children;
-    }
+    public int getId() { return id; }
+    public void setId(int id) { this.id = id; }
+    public int getKind() { return kind; }
+    public void setKind(int kind) { this.kind = kind; }
+    public String getName() { return name; }
+    public void setName(String name) { this.name = name; }
+    public Flag getFlags() { return flags; }
+    public void setFlags(Flag flags) { this.flags = flags; }
+    public Comment getComment() { return comment; }
+    public void setComment(Comment comment) { this.comment = comment; }
 }

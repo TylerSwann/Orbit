@@ -17,32 +17,40 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
  */
-package io.orbit.webtools.javascript.typedefs;
+package io.orbit.webtools.javascript.typedefs.fragments;
 
 /**
  * Created By: Tyler Swann.
- * Date: Sunday, Nov 04, 2018
- * Time: 9:27 AM
+ * Date: Friday, Nov 02, 2018
+ * Time: 3:31 PM
  * Website: https://orbiteditor.com
  */
-public class TypeArgument
+public class TypeFragment
 {
-    private String name;
     private String type;
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
+    private String name;
+    private ElementType elementType;
+    private Declaration declaration;
+    private TypeFragment[] types = new TypeFragment[0];
 
     public String getType() {
         return type;
     }
-
     public void setType(String type) {
         this.type = type;
     }
+    public String getName() { return name; }
+    public void setName(String name) {
+        this.name = name;
+    }
+    public ElementType getElementType() {
+        return elementType;
+    }
+    public void setElementType(ElementType elementType) {
+        this.elementType = elementType;
+    }
+    public void setDeclaration(Declaration declaration) { this.declaration = declaration; }
+    public Declaration getDeclaration() { return this.declaration; }
+    public TypeFragment[] getTypes() { return types; }
+    public void setTypes(TypeFragment[] types) { this.types = types; }
 }

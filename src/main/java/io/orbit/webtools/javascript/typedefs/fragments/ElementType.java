@@ -17,21 +17,30 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
  */
-package io.orbit.webtools.javascript.typedefs;
+package io.orbit.webtools.javascript.typedefs.fragments;
 
 /**
  * Created By: Tyler Swann.
- * Date: Friday, Nov 02, 2018
- * Time: 8:23 PM
+ * Date: Saturday, Nov 03, 2018
+ * Time: 1:49 PM
  * Website: https://orbiteditor.com
  */
-public class ParameterFragment extends TypeNode
+public class ElementType
 {
-    private String kindString;
-    private TypeFragment type;
+    private String type;
+    private String name;
+    private TypeArgument[] typeArguments;
 
-    public String getKindString() { return kindString; }
-    public void setKindString(String kindString) { this.kindString = kindString; }
-    public TypeFragment getType() { return type; }
-    public void setType(TypeFragment type) { this.type = type; }
+    public String getType() { return type; }
+    public void setType(String type) {
+        this.type = type;
+    }
+    public String getName() {
+        return name;
+    }
+    public void setName(String name) {
+        this.name = name;
+    }
+    public TypeArgument[] getTypeArguments() { return typeArguments; }
+    public void setTypeArguments(TypeArgument[] typeArguments) { this.typeArguments = typeArguments; }
 }

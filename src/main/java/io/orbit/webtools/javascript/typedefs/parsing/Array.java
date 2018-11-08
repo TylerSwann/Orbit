@@ -39,4 +39,5 @@ public class Array extends Type
     }
 
     public Type getElementType() { return elementType; }
+    public void setElementType(Type type) { this.elementType = type; }
 }

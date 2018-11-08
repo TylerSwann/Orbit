@@ -17,27 +17,21 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
  */
-package io.orbit.webtools.javascript.typedefs;
+package io.orbit.webtools.javascript.typedefs.fragments;
 
 /**
  * Created By: Tyler Swann.
- * Date: Friday, Nov 02, 2018
- * Time: 3:31 PM
+ * Date: Wednesday, Nov 07, 2018
+ * Time: 3:08 PM
  * Website: https://orbiteditor.com
  */
-public class TypeNode
+public class Comment
 {
-    private int id;
-    private int kind;
-    private String name;
-    private Flag flags;
+    private String text;
+    private String shortText;
 
-    public int getId() { return id; }
-    public void setId(int id) { this.id = id; }
-    public int getKind() { return kind; }
-    public void setKind(int kind) { this.kind = kind; }
-    public String getName() { return name; }
-    public void setName(String name) { this.name = name; }
-    public Flag getFlags() { return flags; }
-    public void setFlags(Flag flags) { this.flags = flags; }
+    public String getText() { return text; }
+    public void setText(String text) { this.text = text; }
+    public String getShortText() { return shortText; }
+    public void setShortText(String shortText) { this.shortText = shortText; }
 }

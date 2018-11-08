@@ -17,31 +17,63 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
  */
-package io.orbit.webtools.javascript.typedefs;
+package io.orbit.webtools.javascript.typedefs.fragments;
 
 /**
  * Created By: Tyler Swann.
- * Date: Sunday, Nov 04, 2018
- * Time: 5:05 PM
+ * Date: Saturday, Nov 03, 2018
+ * Time: 11:12 AM
  * Website: https://orbiteditor.com
  */
-public class Declaration extends TypeNode
+public class TypeDeclaration extends TypeNode
 {
-    private String kindString;
+    private String kindString = "";
+    private String originalName;
+    private TypeFragment type;
+    private Group[] groups = new Group[0];
+    private Source[] sources = new Source[0];
+    private TypeDeclaration[] children = new TypeDeclaration[0];
     private Signature[] signatures = new Signature[0];
 
     public String getKindString() {
         return kindString;
     }
-
     public void setKindString(String kindString) {
         this.kindString = kindString;
     }
-
+    public String getOriginalName() {
+        return originalName;
+    }
+    public void setOriginalName(String originalName) {
+        this.originalName = originalName;
+    }
+    public TypeFragment getType() {
+        return type;
+    }
+    public void setType(TypeFragment type) {
+        this.type = type;
+    }
+    public Group[] getGroups() {
+        return groups;
+    }
+    public void setGroups(Group[] groups) {
+        this.groups = groups;
+    }
+    public Source[] getSources() {
+        return sources;
+    }
+    public void setSources(Source[] sources) {
+        this.sources = sources;
+    }
+    public TypeDeclaration[] getChildren() {
+        return children;
+    }
+    public void setChildren(TypeDeclaration[] children) {
+        this.children = children;
+    }
     public Signature[] getSignatures() {
         return signatures;
     }
-
     public void setSignatures(Signature[] signatures) {
         this.signatures = signatures;
     }
