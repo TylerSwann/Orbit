@@ -25,15 +25,19 @@ import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.value.ObservableValue;
 import javafx.concurrent.Task;
+import javafx.concurrent.WorkerStateEvent;
 import org.fxmisc.richtext.model.PlainTextChange;
 import org.fxmisc.richtext.model.StyleSpans;
 import org.reactfx.EventStream;
 import org.reactfx.Subscription;
 
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 import java.util.Optional;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.function.Consumer;
 
 /**
  * Created by Tyler Swann on Friday July 06, 2018 at 16:35
@@ -46,19 +50,38 @@ public class LanguageService
     private static ObservableValue<OCodeEditorController> activeControllerProperty;
     private static LanguageDelegate language;
     private static ObjectProperty<Boolean> isHighlighting = new SimpleObjectProperty<>(true);
+    private static List<Runnable> onOpenHandlers = new ArrayList<>();
+    private static boolean isOpen = false;
+    public static boolean isOpen() { return isOpen; }
 
     private LanguageService(){}
 
     public static void open(ObservableValue<OCodeEditorController> activeControllerProperty, int threadCount)
     {
-        if (service == null)
+        if (!isOpen)
         {
             service = Executors.newFixedThreadPool(threadCount);
             LanguageService.activeControllerProperty =  activeControllerProperty;
+            isOpen = true;
+            onOpenHandlers.forEach(Runnable::run);
+            onOpenHandlers.clear();
+            onOpenHandlers = null;
             build();
         }
         else
             throw new RuntimeException("LanguageService is already open!");
+    }
+
+    public static void addOnOpenListener(Runnable runnable)
+    {
+        onOpenHandlers.add(runnable);
+    }
+
+    public static <T> void execute(Task<T> task, Consumer<WorkerStateEvent> completion)
+    {
+        service.execute(task);
+        task.setOnFailed(completion::accept);
+        task.setOnSucceeded(completion::accept);
     }
 
     private static void build()

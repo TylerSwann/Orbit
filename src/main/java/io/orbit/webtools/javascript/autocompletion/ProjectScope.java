@@ -17,92 +17,103 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
  */
-package io.orbit.webtools.javascript.typedefs.parsing;
+package io.orbit.webtools.javascript.autocompletion;
 
+import com.google.gson.Gson;
+import io.orbit.controllers.LanguageService;
 import io.orbit.webtools.javascript.typedefs.fragments.TypeDeclaration;
-import javafx.application.Platform;
-
-import java.util.HashMap;
-import java.util.Map;
+import io.orbit.webtools.javascript.typedefs.parsing.*;
+import io.orbit.webtools.javascript.typedefs.parsing.Class;
+import javafx.concurrent.Task;
+import java.io.File;
+import java.io.IOException;
+import java.net.URL;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.function.Consumer;
 
 /**
  * Created By: Tyler Swann.
- * Date: Friday, Nov 02, 2018
- * Time: 3:31 PM
+ * Date: Friday, Nov 09, 2018
+ * Time: 3:50 PM
  * Website: https://orbiteditor.com
  */
-public class TypeDefinition
+public class ProjectScope
 {
-    public static final String EXTERNAL_MODULE = "External module";
-    public static final String MODULE = "Module";
-    public static final String CLASS = "Class";
-    public static final String INTERFACE = "Interface";
-    public static final String FUNCTION = "Function";
-    public static final String TYPE_ALIAS = "Type alias";
-    public static final String PROPERTY = "Property";
-    public static final String METHOD = "Method";
-    public static final String VARIABLE = "Variable";
-    public static final String ARRAY = "Array";
-    public static final String ARRAY_ELEMENT = "array";
-    public static final String TYPE_PARAMETER = "typeParameter";
-    public static final String REFLECTION = "reflection";
-    public static final String INTRINSIC = "intrinsic";
-    public static final String REFERENCE = "reference";
-    public static final String UNION = "union";
-    public static final String STRING_LITERAL = "stringLiteral";
-    public static final String INTERSECTION = "intersection";
+    private static final String NODE_MODULES = "node_modules";
+    public final Scope library;
 
-    private Map<String, Interface> interfaces = new HashMap<>();
-    private Map<String, Variable> variables = new HashMap<>();
-    private Map<String, Class> classes = new HashMap<>();
-    private Map<String, Function> functions = new HashMap<>();
-    private Scope scope;
-
-
-    public TypeDefinition()
-    {}
-
-    public void resolve()
+    public ProjectScope(File root)
     {
-        scope.resolve();
-        Platform.runLater(() -> {
-            this.interfaces.forEach((key, anInterface) -> anInterface.resolve(this.scope));
-            this.variables.forEach((key, variable) -> variable.resolve(this.scope));
-            this.functions.forEach((key, func) -> func.resolve(this.scope));
-        });
+        this.library = new Scope();
     }
 
-    public void read(TypeDeclaration declaration)
+    public void loadLibrary(File lib, Consumer<Scope> completion)
+    {
+        Runnable action = () -> this.readDirectoryAsync(lib, this.library, () -> {
+            this.library.resolve();
+            completion.accept(this.library);
+        });
+        if (LanguageService.isOpen())
+            action.run();
+        else
+            LanguageService.addOnOpenListener(action);
+    }
+
+    private void readDirectoryAsync(File path, Scope scope, Runnable completion)
+    {
+        File [] files = path.listFiles();
+        if (!path.isDirectory() || files == null)
+            throw new RuntimeException("Library provided to ProjectScope must be a directory containing files!");
+        Task<Integer> readTask = new Task<Integer>() {
+            @Override
+            protected Integer call() throws Exception
+            {
+                for (File file : files)
+                {
+                    TypeDeclaration declaration = read(file);
+                    read(declaration, scope);
+                }
+                return 0;
+            }
+        };
+        LanguageService.execute(readTask, event -> completion.run());
+    }
+
+
+    private TypeDeclaration read(File path) throws IOException
+    {
+        byte[] data = Files.readAllBytes(Paths.get(path.getPath()));
+        String json = new String(data);
+        Gson gson = new Gson();
+        return gson.fromJson(json, TypeDeclaration.class);
+    }
+
+    private void read(TypeDeclaration declaration, Scope scope)
     {
         switch (declaration.getKindString())
         {
             case TypeDefinition.INTERFACE:
-                this.interfaces.put(declaration.getName(), new Interface(declaration));
+                scope.interfaces.put(declaration.getName(), new Interface(declaration));
                 break;
             case TypeDefinition.METHOD:
                 break;
             case TypeDefinition.PROPERTY:
                 break;
             case TypeDefinition.CLASS:
-                this.classes.put(declaration.getName(), new Class(declaration));
+                scope.classes.put(declaration.getName(), new Class(declaration));
                 break;
             case TypeDefinition.FUNCTION:
-                this.functions.put(declaration.getName(), new Function(declaration));
+                scope.functions.put(declaration.getName(), new Function(declaration));
                 break;
             case TypeDefinition.VARIABLE:
-                this.variables.put(declaration.getName(), new Variable(declaration));
+                scope.variables.put(declaration.getName(), new Variable(declaration));
                 break;
             default:
                 for (int i = 0; i < declaration.getChildren().length; i++)
-                    read(declaration.getChildren()[i]);
+                    read(declaration.getChildren()[i], scope);
                 break;
         }
-    }
-
-    private void print()
-    {
-        this.interfaces.forEach((key, value) -> this.print(value));
-        this.functions.forEach((key, value) -> this.print(value));
     }
 
     private void print(Interface interfce)
@@ -142,8 +153,22 @@ public class TypeDefinition
         });
     }
 
-    public Map<String, Interface> getInterfaces() { return interfaces; }
-    public void setInterfaces(Map<String, Interface> interfaces) { this.interfaces = interfaces; }
-    public Map<String, Variable> getVariables() { return variables; }
-    public void setVariables(Map<String, Variable> variables) { this.variables = variables; }
+    private File findFolderNamed(String name, File folder)
+    {
+        File[] files = folder.listFiles();
+        if (files == null)
+            return null;
+        for (File file : files)
+        {
+            if (file.isDirectory() && file.getName().equals(name))
+                return file;
+            else if (file.isDirectory())
+            {
+                File targetFolder = findFolderNamed(name, file);
+                if (targetFolder != null)
+                    return targetFolder;
+            }
+        }
+        return null;
+    }
 }

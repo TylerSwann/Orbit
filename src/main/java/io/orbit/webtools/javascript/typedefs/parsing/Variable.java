@@ -31,14 +31,23 @@ public class Variable
 {
     private Type type;
     private String name;
+    private transient TypeDeclaration declaration;
 
     public Variable(TypeDeclaration declaration)
     {
+        this.declaration = declaration;
         this.name = declaration.getName();
     }
 
     public void resolve(Scope scope)
     {
-
+        this.type = scope.typeOfFragment(this.declaration.getType());
     }
+
+    public Type getType() { return type; }
+    public void setType(Type type) { this.type = type; }
+    public String getName() { return name; }
+    public void setName(String name) { this.name = name; }
+    public TypeDeclaration getDeclaration() { return declaration; }
+    public void setDeclaration(TypeDeclaration declaration) { this.declaration = declaration; }
 }

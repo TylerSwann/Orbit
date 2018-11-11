@@ -21,6 +21,8 @@ package io.orbit.webtools.javascript.typedefs.parsing;
 
 import io.orbit.webtools.javascript.typedefs.fragments.Signature;
 import io.orbit.webtools.javascript.typedefs.fragments.TypeFragment;
+import javafx.application.Platform;
+
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -33,14 +35,34 @@ import java.util.stream.Collectors;
 public class Scope
 {
     public final Map<String, Interface> interfaces = new HashMap<>();
-    public final Map<String, Variable> globalVariables = new HashMap<>();
-    private ArrayFactory ARRAY_FACTORY;
+    public final Map<String, Variable> variables = new HashMap<>();
+    public final Map<String, Class> classes = new HashMap<>();
+    public final Map<String, Function> functions = new HashMap<>();
+    private ArrayFactory factory;
 
-
-    public void resolve(Map<String, Interface> interfaces)
+    public Scope()
     {
-        Interface arrayInterface = interfaces.get(TypeDefinition.ARRAY);
-        ARRAY_FACTORY = new ArrayFactory(arrayInterface.getMethods(), arrayInterface.getProperties());
+
+    }
+
+    public Scope(ArrayFactory factory)
+    {
+        this.factory = factory;
+    }
+
+    public void resolve()
+    {
+        if (this.factory == null)
+        {
+            Interface arrayInterface = interfaces.get(TypeDefinition.ARRAY);
+            factory = new ArrayFactory(arrayInterface.getMethods(), arrayInterface.getProperties());
+        }
+        Platform.runLater(() -> {
+            this.interfaces.forEach((key, anInterface) -> anInterface.resolve(this));
+            this.classes.forEach((key, aClass) -> aClass.resolve(this));
+            this.variables.forEach((key, variable) -> variable.resolve(this));
+            this.functions.forEach((key, func) -> func.resolve(this));
+        });
     }
 
     public Type typeWithName(String name)
@@ -92,8 +114,8 @@ public class Scope
                 return new Type(fragment.getName(), Collections.emptyList(), Collections.emptyList());
             case TypeDefinition.ARRAY_ELEMENT:
                 if (TypeDefinition.TYPE_PARAMETER.equals(fragment.getElementType().getType()))
-                    return ARRAY_FACTORY.arrayOf(new Type(fragment.getElementType().getName(), Collections.emptyList(), Collections.emptyList()));
-                return ARRAY_FACTORY.arrayOf(typeWithName(fragment.getElementType().getName()));
+                    return factory.arrayOf(new Type(fragment.getElementType().getName(), Collections.emptyList(), Collections.emptyList()));
+                return factory.arrayOf(typeWithName(fragment.getElementType().getName()));
             case TypeDefinition.INTRINSIC:
                 return typeWithName(fragment.getName());
             case TypeDefinition.REFERENCE:
@@ -111,4 +133,7 @@ public class Scope
             return false;
         return typeName.equals("string") || typeName.equals("number") || typeName.equals("boolean") || typeName.equals("any");
     }
+
+    public ArrayFactory getFactory() { return factory; }
+    public void setFactory(ArrayFactory factory) { this.factory = factory; }
 }

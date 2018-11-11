@@ -19,6 +19,11 @@
  */
 package io.orbit.webtools.javascript.autocompletion;
 
+import io.orbit.api.autocompletion.AutoCompletionDialog;
+import io.orbit.api.text.CodeEditor;
+import io.orbit.webtools.javascript.typedefs.parsing.Type;
+import javafx.scene.input.KeyEvent;
+
 /**
  * Created By: Tyler Swann.
  * Date: Thursday, Nov 08, 2018
@@ -27,8 +32,39 @@ package io.orbit.webtools.javascript.autocompletion;
  */
 public class JavaScriptAutoCompleter
 {
+    private AutoCompletionDialog<JSOption> dialog;
+    private ProjectScope scope;
+    private CodeEditor editor;
 
-    public JavaScriptAutoCompleter()
+    public JavaScriptAutoCompleter(CodeEditor editor, ProjectScope scope)
+    {
+        this.editor = editor;
+        this.scope = scope;
+        this.dialog = new AutoCompletionDialog<>(editor);
+        this.dialog.setCellFactory(JSOption::getDisplayText);
+        this.registerListeners();
+    }
+
+    private void registerListeners()
+    {
+        this.editor.addEventHandler(KeyEvent.KEY_RELEASED, event -> {
+            switch (event.getCode())
+            {
+                case ENTER: break;
+                case BACK_SPACE:
+                case COLON:
+                case END:
+                case HOME:
+                    this.dialog.hide();
+                    break;
+                default:
+                    this.keyWasReleased(event);
+                    break;
+            }
+        });
+    }
+
+    private void keyWasReleased(KeyEvent event)
     {
 
     }

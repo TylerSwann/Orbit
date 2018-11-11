@@ -17,28 +17,50 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
  */
-package io.orbit.webtools.javascript.typedefs.parsing;
+package io.orbit.webtools.javascript.autocompletion;
+
+import io.orbit.webtools.javascript.typedefs.parsing.*;
+import io.orbit.webtools.javascript.typedefs.parsing.Class;
 
 import java.util.List;
 
 /**
  * Created By: Tyler Swann.
- * Date: Sunday, Nov 04, 2018
- * Time: 6:16 PM
+ * Date: Thursday, Nov 08, 2018
+ * Time: 7:39 PM
  * Website: https://orbiteditor.com
  */
-public class FunctionalType extends Type
+public class JSOption
 {
-    private List<Parameter> parameters;
-    private Type returnType;
+    private String displayText;
+    private String insertionText;
 
-    public FunctionalType(Type returnType, List<Parameter> parameters)
+    private JSOption(String displayText, String insertionText)
     {
-        super("Function", returnType.getProperties(), returnType.getMethods());
-        this.returnType = returnType;
-        this.parameters = parameters;
+        this.displayText = displayText;
+        this.insertionText = insertionText;
+    }
+
+    static JSOption from(Class aClass)
+    {
+        return new JSOption(String.format("interface %s", aClass.getName()), aClass.getName());
+    }
+
+    static JSOption from(Interface anInterface)
+    {
+        return new JSOption(String.format("interface %s", anInterface.getName()), anInterface.getName());
+    }
+
+    static JSOption from(Property property)
+    {
+        return new JSOption(String.format("%s: %s", property.getName(), property.getType().getName()), property.getName());
+    }
+
+
+    private static String displayTextWith(String name, List<Parameter> parameters, Type returnType)
+    {
         StringBuilder builder = new StringBuilder();
-        builder.append("((");
+        builder.append(String.format("%s((", name));
         parameters.forEach(param -> {
             if (parameters.indexOf(param) == parameters.size() - 1)
                 builder.append(String.format("%s: %s) => %s)", param.getName(), param.getType().getName(), returnType.getName()));
@@ -47,11 +69,9 @@ public class FunctionalType extends Type
         });
         if (parameters.size() <= 0)
             builder.append(String.format(") => %s)", returnType.getName()));
-        this.setName(builder.toString());
+        return builder.toString();
     }
 
-    public List<Parameter> getParameters() { return parameters; }
-    public void setParameters(List<Parameter> parameters) { this.parameters = parameters; }
-    public Type getReturnType() { return returnType; }
-    public void setReturnType(Type returnType) { this.returnType = returnType; }
+    public String getDisplayText() { return displayText; }
+    public String getInsertionText() { return insertionText; }
 }
