@@ -24,8 +24,6 @@ import io.orbit.api.text.CodeEditor;
 import io.orbit.settings.LocalUser;
 import io.orbit.webtools.javascript.autocompletion.JavaScriptAutoCompleter;
 import io.orbit.webtools.javascript.autocompletion.ProjectScope;
-import io.orbit.webtools.javascript.typedefs.parsing.Scope;
-
 import java.io.File;
 import java.net.URL;
 
@@ -46,12 +44,12 @@ public class JavaScriptController implements EditorController
         this.editor = editor;
         JavaScriptCodeFormatter formatter = new JavaScriptCodeFormatter(editor);
         formatter.play();
-        if (projectScope != null)
-        {
+        if (projectScope != null && projectScope.isResolved())
             new JavaScriptAutoCompleter(this.editor, projectScope);
-            return;
-        }
-        loadProjectScope(() -> new JavaScriptAutoCompleter(this.editor, projectScope));
+        else if (projectScope != null && !projectScope.isResolved())
+            projectScope.addOnResolveHandler(() -> new JavaScriptAutoCompleter(this.editor, projectScope));
+        else
+            loadProjectScope(() -> new JavaScriptAutoCompleter(this.editor, projectScope));
     }
 
     private void loadProjectScope(Runnable completion)
@@ -61,58 +59,4 @@ public class JavaScriptController implements EditorController
         assert lib != null;
         projectScope.loadLibrary(new File(lib.getFile()).getParentFile(), (library) -> completion.run());
     }
-
-//
-//    private static void loadEs5Lib()
-//    {
-//        Task<TypeDefinition> task = new Task<TypeDefinition>() {
-//            @Override
-//            protected TypeDefinition call() throws Exception
-//            {
-//                TypeDefinition definition = new TypeDefinition();
-//                URL lib = getClass().getClassLoader().getResource("webtools/typedefs/es5/lib.es5.json");
-//                assert lib != null;
-//                File libDir = new File(lib.getFile()).getParentFile();
-//                File[] files = libDir.listFiles();
-//                assert files != null;
-//                for (File file : files)
-//                {
-//                    try
-//                    {
-//                        byte[] data = Files.readAllBytes(Paths.get(file.getPath()));
-//                        String json = new String(data);
-//                        Gson gson = new Gson();
-//                        TypeDeclaration declaration = gson.fromJson(json, TypeDeclaration.class);
-//                        definition.read(declaration);
-//                    }
-//                    catch (IOException ex) { ex.printStackTrace(); }
-//                }
-//                return definition;
-//            }
-//        };
-//        task.setOnSucceeded(event -> {
-//            ES5 = task.getValue();
-//            ES5.resolve();
-//        });
-//        task.setOnFailed(event -> System.err.println("ERROR: Failed to load ES5 lib from threaded task!"));
-//        service.execute(task);
-//
-//    }
-//
-//    private static void load(String path)
-//    {
-//        try
-//        {
-//            URL url = JavaScriptController.class.getClassLoader().getResource(path);
-//            assert url != null;
-//            byte[] data = Files.readAllBytes(Paths.get(new File(url.getFile()).getPath()));
-//            String json = new String(data);
-//            Gson gson = new Gson();
-//            TypeDeclaration declaration = gson.fromJson(json, TypeDeclaration.class);
-//            TypeDefinition definition = new TypeDefinition();
-//            definition.read(declaration);
-//            definition.resolve();
-//        }
-//        catch (IOException ex) { ex.printStackTrace(); }
-//    }
 }

@@ -22,7 +22,9 @@ package io.orbit.webtools.javascript.autocompletion;
 import io.orbit.webtools.javascript.typedefs.parsing.*;
 import io.orbit.webtools.javascript.typedefs.parsing.Class;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * Created By: Tyler Swann.
@@ -32,30 +34,75 @@ import java.util.List;
  */
 public class JSOption
 {
-    private String displayText;
-    private String insertionText;
+    public final String displayText;
+    public final String insertionText;
+    public final Type type;
+    public final boolean isFunction;
 
-    private JSOption(String displayText, String insertionText)
+    enum OptionType
+    {
+        VARIABLE,
+        FUNCTION,
+        CLASS,
+        INTERFACE,
+        PROPERTY
+    }
+
+    private JSOption(String displayText, String insertionText, boolean isFunction, Type type)
     {
         this.displayText = displayText;
         this.insertionText = insertionText;
+        this.isFunction = isFunction;
+        this.type = type;
+    }
+
+    static JSOption from(Variable variable)
+    {
+        return new JSOption(String.format("%s: %s", variable.getName(), variable.getType().getName()), variable.getName(), false, variable.getType());
     }
 
     static JSOption from(Class aClass)
     {
-        return new JSOption(String.format("interface %s", aClass.getName()), aClass.getName());
+        return new JSOption(String.format("interface %s", aClass.getName()), aClass.getName(), false, aClass);
     }
 
     static JSOption from(Interface anInterface)
     {
-        return new JSOption(String.format("interface %s", anInterface.getName()), anInterface.getName());
+        return new JSOption(String.format("interface %s", anInterface.getName()), anInterface.getName(), false, anInterface);
     }
 
     static JSOption from(Property property)
     {
-        return new JSOption(String.format("%s: %s", property.getName(), property.getType().getName()), property.getName());
+        return new JSOption(String.format("%s: %s", property.getName(), property.getType().getName()), property.getName(), false, property.getType());
     }
 
+    static JSOption from(Function function)
+    {
+        String displayText = displayTextWith(function.getName(), function.getParameters(), function.getReturnType());
+        return new JSOption(displayText, String.format("%s()", function.getName()), true, function.getReturnType());
+    }
+
+    static <T extends Type> List<JSOption> from(T type)
+    {
+        return from(type.getProperties(), type.getMethods());
+    }
+
+    static List<JSOption> from(List<Property> properties, List<? extends Function> functions)
+    {
+        List<JSOption> options = new ArrayList<>(fromProperties(properties));
+        options.addAll(fromFunctions(functions));
+        return options;
+    }
+
+    static List<JSOption> fromProperties(List<Property> properties)
+    {
+        return properties.stream().map(JSOption::from).collect(Collectors.toList());
+    }
+
+    static List<JSOption> fromFunctions(List<? extends Function> functions)
+    {
+        return functions.stream().map(JSOption::from).collect(Collectors.toList());
+    }
 
     private static String displayTextWith(String name, List<Parameter> parameters, Type returnType)
     {
@@ -71,7 +118,4 @@ public class JSOption
             builder.append(String.format(") => %s)", returnType.getName()));
         return builder.toString();
     }
-
-    public String getDisplayText() { return displayText; }
-    public String getInsertionText() { return insertionText; }
 }

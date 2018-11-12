@@ -77,6 +77,10 @@ public class LanguageService
         onOpenHandlers.add(runnable);
     }
 
+    public static <T> void execute(Task<T> task)
+    {
+        service.execute(task);
+    }
     public static <T> void execute(Task<T> task, Consumer<WorkerStateEvent> completion)
     {
         service.execute(task);

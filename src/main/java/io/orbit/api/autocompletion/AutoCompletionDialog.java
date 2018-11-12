@@ -58,7 +58,10 @@ public class AutoCompletionDialog<T> extends PopupControl
         double height = 200.0;
         this.setPrefHeight(height);
         this.optionsView.setPrefHeight(height);
+        this.optionsView.setMinWidth(width);
+        this.optionsView.setPrefWidth(ListView.USE_COMPUTED_SIZE);
         this.setMinWidth(width);
+        this.setMaxWidth(PopupControl.USE_COMPUTED_SIZE);
         this.optionsView.setMinWidth(width);
         AnchorPane.setTopAnchor(optionsView, 0.0);
         AnchorPane.setBottomAnchor(optionsView, 0.0);

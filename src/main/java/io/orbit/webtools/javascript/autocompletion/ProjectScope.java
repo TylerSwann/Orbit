@@ -27,9 +27,11 @@ import io.orbit.webtools.javascript.typedefs.parsing.Class;
 import javafx.concurrent.Task;
 import java.io.File;
 import java.io.IOException;
-import java.net.URL;
+import java.lang.reflect.Type;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.function.Consumer;
 
 /**
@@ -42,6 +44,10 @@ public class ProjectScope
 {
     private static final String NODE_MODULES = "node_modules";
     public final Scope library;
+    private boolean isResolved = false;
+    public boolean isResolved() { return isResolved; }
+    private List<Runnable> onResolveHandlers = new ArrayList<>();
+    public void addOnResolveHandler(Runnable runnable) { this.onResolveHandlers.add(runnable); }
 
     public ProjectScope(File root)
     {
@@ -53,6 +59,8 @@ public class ProjectScope
         Runnable action = () -> this.readDirectoryAsync(lib, this.library, () -> {
             this.library.resolve();
             completion.accept(this.library);
+            isResolved = true;
+            this.onResolveHandlers.forEach(Runnable::run);
         });
         if (LanguageService.isOpen())
             action.run();
@@ -74,11 +82,13 @@ public class ProjectScope
                     TypeDeclaration declaration = read(file);
                     read(declaration, scope);
                 }
+                completion.run();
                 return 0;
             }
         };
-        LanguageService.execute(readTask, event -> completion.run());
+        LanguageService.execute(readTask);
     }
+
 
 
     private TypeDeclaration read(File path) throws IOException
