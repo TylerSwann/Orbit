@@ -39,6 +39,8 @@ public class Variable
         this.name = declaration.getName();
     }
 
+    public Variable() { }
+
     public void resolve(Scope scope)
     {
         this.type = scope.typeOfFragment(this.declaration.getType());
@@ -48,6 +50,4 @@ public class Variable
     public void setType(Type type) { this.type = type; }
     public String getName() { return name; }
     public void setName(String name) { this.name = name; }
-    public TypeDeclaration getDeclaration() { return declaration; }
-    public void setDeclaration(TypeDeclaration declaration) { this.declaration = declaration; }
 }

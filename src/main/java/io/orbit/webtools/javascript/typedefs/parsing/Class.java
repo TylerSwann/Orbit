@@ -38,7 +38,10 @@ public class Class extends Type
     {
         this.getProperties().forEach(prop -> prop.resolve(scope));
         this.getMethods().forEach(method -> method.resolve(scope));
-        this.getMethods().forEach(method -> method.setOwner(this));
-        this.getProperties().forEach(property -> property.setOwner(this));
+    }
+
+    public Class()
+    {
+
     }
 }

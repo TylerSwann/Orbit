@@ -50,6 +50,8 @@ public class FunctionalType extends Type
         this.setName(builder.toString());
     }
 
+    public FunctionalType() { }
+
     public List<Parameter> getParameters() { return parameters; }
     public void setParameters(List<Parameter> parameters) { this.parameters = parameters; }
     public Type getReturnType() { return returnType; }

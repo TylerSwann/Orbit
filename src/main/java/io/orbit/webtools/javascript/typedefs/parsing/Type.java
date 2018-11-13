@@ -33,13 +33,13 @@ import java.util.List;
  */
 public class Type
 {
-    public static final Type VOID = new Type("void", Collections.emptyList(), Collections.emptyList());
-    public static final Type NULL = new Type("null", Collections.emptyList(), Collections.emptyList());
-    public static final Type THIS = new Type("this", Collections.emptyList(), Collections.emptyList());
-    public static final Type ANY = new Type("any", Collections.emptyList(), Collections.emptyList());
+    public static transient final Type VOID = new Type("void", Collections.emptyList(), Collections.emptyList());
+    public static transient final Type NULL = new Type("null", Collections.emptyList(), Collections.emptyList());
+    public static transient final Type THIS = new Type("this", Collections.emptyList(), Collections.emptyList());
+    public static transient final Type ANY = new Type("any", Collections.emptyList(), Collections.emptyList());
 
-    private final List<Property> properties;
-    private final List<Method> methods;
+    private List<Property> properties;
+    private List<Method> methods;
     private String name;
     private boolean isArray = false;
 
@@ -86,10 +86,14 @@ public class Type
         this.name = declaration.getName();
     }
 
+    public Type() { }
+
     public List<Property> getProperties() { return properties; }
     public List<Method> getMethods() { return methods; }
     public String getName() { return name; }
     public void setName(String name) { this.name = name; }
     public boolean isArray() { return isArray; }
     public void setArray(boolean array) { isArray = array; }
+    public void setProperties(List<Property> properties) { this.properties = properties; }
+    public void setMethods(List<Method> methods) { this.methods = methods; }
 }

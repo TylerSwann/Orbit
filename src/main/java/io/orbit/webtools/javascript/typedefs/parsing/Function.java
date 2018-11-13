@@ -34,7 +34,7 @@ import java.util.List;
 public class Function
 {
     private String name;
-    private Type returnType;
+    private transient Type returnType;
     private List<Parameter> parameters = new ArrayList<>();
     private transient Signature signature;
 
@@ -45,6 +45,8 @@ public class Function
         for (int j = 0; j < signature.getParameters().length; j++)
             this.parameters.add(new Parameter(signature.getParameters()[j]));
     }
+
+    public Function() { }
 
     public void resolve(Scope scope)
     {

@@ -19,15 +19,26 @@
  */
 package io.orbit.webtools.javascript.autocompletion;
 
+import com.google.gson.Gson;
 import io.orbit.api.autocompletion.AutoCompletionDialog;
 import io.orbit.api.text.CodeEditor;
+import io.orbit.util.Tuple;
 import io.orbit.webtools.javascript.typedefs.parsing.Method;
 import io.orbit.webtools.javascript.typedefs.parsing.Property;
 import io.orbit.webtools.javascript.typedefs.parsing.Type;
+import io.orbit.webtools.javascript.typedefs.parsing.Variable;
+import javafx.application.Platform;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
+
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Function;
+import java.util.stream.Collectors;
 
 /**
  * Created By: Tyler Swann.
@@ -49,11 +60,30 @@ public class JavaScriptAutoCompleter
         this.scope = scope;
         this.dialog = new AutoCompletionDialog<>(editor);
         this.dialog.setCellFactory(option -> option.displayText);
+        Platform.runLater(() -> {
+            try
+            {
+                Gson gson = new Gson();
+                int index = 0;
+                for (Property property : scope.library.interfaces.get("String").getProperties())
+                {
+                    if (property.getName().equals("length"))
+                    {
+                        index = scope.library.interfaces.get("String").getProperties().indexOf(property);
+                        break;
+                    }
+                }
+                byte[] data = gson.toJson(scope.library.interfaces.get("String")).getBytes();
+                Files.write(Paths.get(new File("C:\\Users\\TylersDesktop\\Downloads\\es5.json").getPath()), data);
+            }
+            catch (IOException e) { e.printStackTrace(); }
+        });
         this.registerListeners();
     }
 
     private void registerListeners()
     {
+        System.out.println("load");
         this.editor.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> this.dialog.hide());
         this.editor.addEventHandler(KeyEvent.KEY_RELEASED, event -> {
             switch (event.getCode())
@@ -74,82 +104,152 @@ public class JavaScriptAutoCompleter
                     break;
             }
         });
-        this.dialog.selectedOptionProperty().addListener((obs, oldValue, newValue) -> {
-            newValue.ifPresent(option -> {
-                String textLeftOfCaret = this.textLeftOfCaret().trim();
-                int caretPos = this.editor.getFocusPosition().caretPositionInDocument;
-                String insertionText = option.insertionText.replaceFirst(textLeftOfCaret, "");
-                this.editor.insertText(caretPos, insertionText);
+        this.dialog.selectedOptionProperty().addListener((obs, oldValue, newValue) -> newValue.ifPresent(option -> {
+            String textLeftOfCaret = this.textLeftOfCaret().trim();
+            int caretPos = this.editor.getFocusPosition().caretPositionInDocument;
+            String insertionText = option.insertionText.replaceFirst(textLeftOfCaret, "");
+            String[] pieces = textLeftOfCaret.split("\\.");
+            if (pieces != null && pieces.length > 0)
+                insertionText = option.insertionText.replaceFirst(pieces[pieces.length - 1], "");
+            this.editor.insertText(caretPos, insertionText);
+            if (!option.isFunction || option.type != Type.VOID)
                 updateDialogPosition();
-            });
-        });
+            else
+                dialog.hide();
+        }));
     }
 
     private void dotWasTyped(KeyEvent event)
     {
         String textLeftOfCaret = this.textLeftOfCaret();
-        String[] pieces = textLeftOfCaret.split("\\.");
-        String first;
-        if (pieces == null || pieces.length <= 0)
-            return;
-        first = pieces[0];
-        System.out.println(first);
-        Type type = this.typeOfIdentifier(first);
-        for (int i = 1; i < pieces.length; i++)
-        {
-            String piece = pieces[i];
-            System.out.println(piece);
-            if (piece.matches(FN_PATTERN))
-            {
-                Method method = this.methodWithName(piece, type.getMethods());
-                if (method != null)
-                {
-                    type = method.getReturnType();
-                    continue;
-                }
-            }
-            if (piece.matches(ID_PATTERN))
-            {
-                Property property = this.propertyWithName(piece, type.getProperties());
-                if (property != null)
-                    type = property.getType();
-            }
-        }
-        if (type == Type.VOID)
+        Type type = lastTypeOfFragment(textLeftOfCaret).second;
+        if (type == Type.VOID || type == null)
         {
             this.dialog.hide();
             return;
         }
-        if (type != null)
-        {
-            System.out.println("Options For: " + type.getName());
-            List<JSOption> options = JSOption.from(type);
-            this.dialog.updateOptions(options);
-            this.updateDialogPosition();
-        }
+
+        List<JSOption> options = JSOption.from(type);
+        this.dialog.updateOptions(options);
+        this.updateDialogPosition();
     }
 
     private void keyWasReleased(KeyEvent event)
     {
         String textLeftOfCaret = this.textLeftOfCaret();
-        List<JSOption> options = optionsFor(textLeftOfCaret);
+        List<JSOption> options = optionsForFragment(textLeftOfCaret);
         if (options.isEmpty())
+        {
+            dialog.hide();
             return;
+        }
         this.dialog.updateOptions(options);
         updateDialogPosition();
     }
 
-    private List<JSOption> optionsFor(String text)
+    private List<JSOption> optionsForFragment(String text)
     {
         List<JSOption> options = new ArrayList<>();
-        if (text == null || text.equals("") || text.matches("^\\s+$"))
+        text = text == null ? "" : text;
+        String[] pieces = text.split("\\.");
+        if (text.equals("") || text.matches("^\\s+$") || pieces.length <= 0)
             return options;
-        for (String varName : this.scope.library.variables.keySet())
+        if (pieces.length == 1)
         {
-            if (varName.startsWith(text))
-                options.add(JSOption.from(this.scope.library.variables.get(varName)));
+            for (String varName : this.scope.library.variables.keySet())
+            {
+                if (varName.startsWith(text))
+                    options.add(JSOption.from(this.scope.library.variables.get(varName)));
+            }
+            for (String fnName : this.scope.library.functions.keySet())
+            {
+                if (fnName.startsWith(text))
+                    options.add(JSOption.from(this.scope.library.functions.get(fnName)));
+            }
+            return options;
         }
+
+        Tuple<String, Type> fragment = lastTypeOfFragment(text);
+        List<Property> filteredProperties = filter(fragment.second.getProperties(), prop -> prop.getName().equals(fragment.first));
+        List<Method> filteredMethods = filter(fragment.second.getMethods(), method -> method.getName().startsWith(fragment.first));
+        options.addAll(JSOption.fromProperties(filteredProperties));
+        options.addAll(JSOption.fromFunctions(filteredMethods));
+
         return options;
+    }
+
+    private Tuple<String, Type> lastTypeOfFragment(String text)
+    {
+        String[] pieces = text.split("\\.");
+        Type type = Type.ANY;
+        if (pieces == null || pieces.length <= 0)
+            return new Tuple<>(text, type);
+        String last = pieces[pieces.length - 1];
+        for (int i = 0; i < pieces.length; i++)
+        {
+            String piece = pieces[i];
+            if (piece.matches(FN_PATTERN))
+            {
+                piece = piece.replaceAll("\\(\\)", "");
+                Method method = methodWithName(piece, type.getMethods());
+                if (method != null)
+                    type = method.getReturnType();
+            }
+            else if (i == 0 && piece.matches(ID_PATTERN))
+            {
+                Variable variable = this.variableWithName(piece);
+                if (variable != null)
+                    type = variable.getType();
+            }
+            else if (piece.matches(ID_PATTERN))
+            {
+                Property property = propertyWithName(piece, type.getProperties());
+                if (property != null)
+                    type = property.getType();
+            }
+        }
+        return new Tuple<>(last, type);
+    }
+
+    private Type typeOfIdentifier(String id)
+    {
+        if (this.scope.library.variables.get(id) != null)
+            return this.scope.library.variables.get(id).getType();
+        else if (this.scope.library.interfaces.get(id) != null)
+            return this.scope.library.interfaces.get(id);
+        else if (this.scope.library.classes.get(id) != null)
+            return this.scope.library.classes.get(id);
+        return Type.ANY;
+    }
+
+    private static Property propertyWithName(String name, List<Property> properties)
+    {
+        for (Property property : properties)
+        {
+            if (property.getName().equals(name))
+                return property;
+        }
+        return null;
+    }
+
+    private static Method methodWithName(String name, List<Method> methods)
+    {
+        for (Method method : methods)
+        {
+            if (method.getName().equals(name))
+                return method;
+        }
+        return null;
+    }
+
+    private Variable variableWithName(String name)
+    {
+        for (String key : this.scope.library.variables.keySet())
+        {
+            if (key.equals(name))
+                return this.scope.library.variables.get(key);
+        }
+        return null;
     }
 
     private void updateDialogPosition()
@@ -163,35 +263,10 @@ public class JavaScriptAutoCompleter
         textLeftOfCaret = textLeftOfCaret == null ? "" : textLeftOfCaret;
         return textLeftOfCaret;
     }
-    private Type typeOfIdentifier(String id)
-    {
-        if (this.scope.library.variables.get(id) != null)
-            return this.scope.library.variables.get(id).getType();
-        else if (this.scope.library.interfaces.get(id) != null)
-            return this.scope.library.interfaces.get(id);
-        else if (this.scope.library.classes.get(id) != null)
-            return this.scope.library.classes.get(id);
-        return Type.ANY;
-    }
 
-    private Property propertyWithName(String name, List<Property> properties)
+    private static <T> List<T> filter(List<T> items, Function<T, Boolean> condition)
     {
-        for (Property property : properties)
-        {
-            if (property.getName().equals(name))
-                return property;
-        }
-        return null;
-    }
-
-    private Method methodWithName(String name, List<Method> methods)
-    {
-        for (Method method : methods)
-        {
-            if (method.getName().equals(name))
-                return method;
-        }
-        return null;
+        return items.stream().filter(condition::apply).collect(Collectors.toList());
     }
 }
 

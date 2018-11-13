@@ -33,7 +33,6 @@ public class Property
     private String name;
     private String typeName;
     private Type type;
-    private Type owner;
     private transient TypeDeclaration declaration;
 
     public Property(TypeDeclaration declaration)
@@ -43,14 +42,13 @@ public class Property
         this.declaration = declaration;
     }
 
+    public Property() { }
+
     public void resolve(Scope scope)
     {
         this.type = scope.typeWithName(this.typeName);
         if (this.type == Type.NULL)
-        {
             this.type = scope.typeOfFragment(this.declaration.getType());
-//            System.out.println(declaration.getKindString() + "  :  " + declaration.getType().getType());
-        }
     }
 
     public String getName() { return name; }
@@ -58,7 +56,9 @@ public class Property
     public String getTypeName() { return typeName; }
     public void setTypeName(String typeName) { this.typeName = typeName; }
     public Type getType() { return type; }
-    public void setType(Type type) { this.type = type; }
-    public Type getOwner() { return owner; }
-    public void setOwner(Type owner) { this.owner = owner; }
+    public void setType(Type type)
+    {
+        this.type = type;
+        this.type.getProperties().add(this);
+    }
 }

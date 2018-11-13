@@ -30,13 +30,16 @@ import io.orbit.webtools.javascript.typedefs.fragments.TypeDeclaration;
  */
 public class Method extends Function
 {
-    private Type owner;
-
     public Method(TypeDeclaration declaration)
     {
         super(declaration);
     }
 
-    public void setOwner(Type type) { this.owner = type; }
-    public Type getOwner() { return owner; }
+    public Method() { }
+    @Override
+    public void setReturnType(Type returnType)
+    {
+        super.setReturnType(returnType);
+        returnType.getMethods().add(this);
+    }
 }

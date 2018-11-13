@@ -32,16 +32,13 @@ import java.util.stream.Collectors;
  */
 public class Scope
 {
-    public final Map<String, Interface> interfaces = new HashMap<>();
-    public final Map<String, Variable> variables = new HashMap<>();
-    public final Map<String, Class> classes = new HashMap<>();
-    public final Map<String, Function> functions = new HashMap<>();
+    public Map<String, Interface> interfaces = new HashMap<>();
+    public Map<String, Variable> variables = new HashMap<>();
+    public Map<String, Class> classes = new HashMap<>();
+    public Map<String, Function> functions = new HashMap<>();
     private ArrayFactory factory;
 
-    public Scope()
-    {
-
-    }
+    public Scope() { }
 
     public Scope(ArrayFactory factory)
     {
@@ -117,7 +114,6 @@ public class Scope
             case TypeDefinition.REFERENCE:
                 return typeWithName(fragment.getName());
             default:
-//                System.out.println(String.format("%s: %s", fragment.getName(), fragment.getType()));
                 break;
         }
         return typeWithName(fragment.getName());
@@ -132,4 +128,12 @@ public class Scope
 
     public ArrayFactory getFactory() { return factory; }
     public void setFactory(ArrayFactory factory) { this.factory = factory; }
+    public Map<String, Interface> getInterfaces() { return interfaces; }
+    public void setInterfaces(Map<String, Interface> interfaces) { this.interfaces = interfaces; }
+    public Map<String, Variable> getVariables() { return variables; }
+    public void setVariables(Map<String, Variable> variables) { this.variables = variables; }
+    public Map<String, Class> getClasses() { return classes; }
+    public void setClasses(Map<String, Class> classes) { this.classes = classes; }
+    public Map<String, Function> getFunctions() { return functions; }
+    public void setFunctions(Map<String, Function> functions) { this.functions = functions; }
 }

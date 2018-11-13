@@ -107,15 +107,15 @@ public class JSOption
     private static String displayTextWith(String name, List<Parameter> parameters, Type returnType)
     {
         StringBuilder builder = new StringBuilder();
-        builder.append(String.format("%s((", name));
+        builder.append(String.format("%s(", name));
         parameters.forEach(param -> {
             if (parameters.indexOf(param) == parameters.size() - 1)
-                builder.append(String.format("%s: %s) => %s)", param.getName(), param.getType().getName(), returnType.getName()));
+                builder.append(String.format("%s: %s) => %s", param.getName(), param.getType().getName(), returnType.getName()));
             else
                 builder.append(String.format("%s: %s, ", param.getName(), param.getType().getName()));
         });
         if (parameters.size() <= 0)
-            builder.append(String.format(") => %s)", returnType.getName()));
+            builder.append(String.format(") => %s", returnType.getName()));
         return builder.toString();
     }
 }

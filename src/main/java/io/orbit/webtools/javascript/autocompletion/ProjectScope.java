@@ -58,6 +58,7 @@ public class ProjectScope
     {
         Runnable action = () -> this.readDirectoryAsync(lib, this.library, () -> {
             this.library.resolve();
+            this.print(this.library.interfaces.get("String"));
             completion.accept(this.library);
             isResolved = true;
             this.onResolveHandlers.forEach(Runnable::run);

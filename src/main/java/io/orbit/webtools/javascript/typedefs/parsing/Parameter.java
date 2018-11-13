@@ -40,6 +40,8 @@ public class Parameter
         this.typeFragment = fragment.getType();
     }
 
+    public Parameter() { }
+
     public void resolve(Scope scope)
     {
         this.type = scope.typeOfFragment(this.typeFragment);

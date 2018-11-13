@@ -38,6 +38,8 @@ public class Array extends Type
         this.elementType = elementType;
     }
 
+    public Array() { }
+
     public Type getElementType() { return elementType; }
     public void setElementType(Type type) { this.elementType = type; }
 }

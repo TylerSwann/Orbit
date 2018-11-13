@@ -38,8 +38,15 @@ public class ArrayFactory
         this.properties = properties;
     }
 
+    public ArrayFactory() { }
+
     public Array arrayOf(Type type)
     {
         return new Array(String.format("%s[]", type.getName()), type, this.properties, this.methods);
     }
+
+    public List<Method> getMethods() { return methods; }
+    public void setMethods(List<Method> methods) { this.methods = methods; }
+    public List<Property> getProperties() { return properties; }
+    public void setProperties(List<Property> properties) { this.properties = properties; }
 }
