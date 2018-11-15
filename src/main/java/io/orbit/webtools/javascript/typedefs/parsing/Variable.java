@@ -29,9 +29,9 @@ import io.orbit.webtools.javascript.typedefs.fragments.TypeDeclaration;
  */
 public class Variable
 {
-    private Type type;
+    private transient Type type;
     private String name;
-    private transient TypeDeclaration declaration;
+    private TypeDeclaration declaration;
 
     public Variable(TypeDeclaration declaration)
     {
@@ -47,7 +47,8 @@ public class Variable
     }
 
     public Type getType() { return type; }
-    public void setType(Type type) { this.type = type; }
     public String getName() { return name; }
     public void setName(String name) { this.name = name; }
+    public TypeDeclaration getDeclaration() { return declaration; }
+    public void setDeclaration(TypeDeclaration declaration) { this.declaration = declaration; }
 }

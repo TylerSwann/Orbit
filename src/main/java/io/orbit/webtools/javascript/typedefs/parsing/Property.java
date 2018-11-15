@@ -33,7 +33,7 @@ public class Property
     private String name;
     private String typeName;
     private Type type;
-    private transient TypeDeclaration declaration;
+    private TypeDeclaration declaration;
 
     public Property(TypeDeclaration declaration)
     {
@@ -52,13 +52,6 @@ public class Property
     }
 
     public String getName() { return name; }
-    public void setName(String name) { this.name = name; }
     public String getTypeName() { return typeName; }
-    public void setTypeName(String typeName) { this.typeName = typeName; }
     public Type getType() { return type; }
-    public void setType(Type type)
-    {
-        this.type = type;
-        this.type.getProperties().add(this);
-    }
 }

@@ -57,6 +57,7 @@ public class JavaScriptController implements EditorController
         projectScope = new ProjectScope(LocalUser.project.getProjectRoot());
         URL lib = getClass().getClassLoader().getResource("webtools/typedefs/es5/lib.es5.json");
         assert lib != null;
-        projectScope.loadLibrary(new File(lib.getFile()).getParentFile(), (library) -> completion.run());
+        File libFile = new File(lib.getFile()).getParentFile();
+        projectScope.loadLibrary(libFile, (library) -> completion.run());
     }
 }

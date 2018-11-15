@@ -35,7 +35,9 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.function.Function;
 import java.util.stream.Collectors;
@@ -60,29 +62,22 @@ public class JavaScriptAutoCompleter
         this.scope = scope;
         this.dialog = new AutoCompletionDialog<>(editor);
         this.dialog.setCellFactory(option -> option.displayText);
-        Platform.runLater(() -> {
-            try
-            {
-                Gson gson = new Gson();
-                int index = 0;
-                for (Property property : scope.library.interfaces.get("String").getProperties())
-                {
-                    if (property.getName().equals("length"))
-                    {
-                        index = scope.library.interfaces.get("String").getProperties().indexOf(property);
-                        break;
-                    }
-                }
-                byte[] data = gson.toJson(scope.library.interfaces.get("String")).getBytes();
-                Files.write(Paths.get(new File("C:\\Users\\TylersDesktop\\Downloads\\es5.json").getPath()), data);
-            }
-            catch (IOException e) { e.printStackTrace(); }
-        });
+//        Platform.runLater(() -> {
+//            try
+//            {
+//                Gson gson = new Gson();
+//                byte[] data = gson.toJson(scope.library).getBytes();
+//                Files.write(Paths.get(new File("C:\\Users\\TylersDesktop\\Downloads\\es5.json").getPath()), data);
+//            }
+//            catch (IOException e) { e.printStackTrace(); }
+//        });
         this.registerListeners();
     }
 
     private void registerListeners()
     {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
+        System.out.println(dateFormat.format(new Date()));
         System.out.println("load");
         this.editor.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> this.dialog.hide());
         this.editor.addEventHandler(KeyEvent.KEY_RELEASED, event -> {

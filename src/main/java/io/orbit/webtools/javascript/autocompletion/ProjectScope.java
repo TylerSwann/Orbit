@@ -27,11 +27,13 @@ import io.orbit.webtools.javascript.typedefs.parsing.Class;
 import javafx.concurrent.Task;
 import java.io.File;
 import java.io.IOException;
-import java.lang.reflect.Type;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import java.util.Objects;
 import java.util.function.Consumer;
 
 /**
@@ -54,26 +56,61 @@ public class ProjectScope
         this.library = new Scope();
     }
 
+    public ProjectScope(File root, Scope library)
+    {
+        this.library = library;
+    }
+
     public void loadLibrary(File lib, Consumer<Scope> completion)
     {
-        Runnable action = () -> this.readDirectoryAsync(lib, this.library, () -> {
-            this.library.resolve();
-            this.print(this.library.interfaces.get("String"));
-            completion.accept(this.library);
-            isResolved = true;
-            this.onResolveHandlers.forEach(Runnable::run);
-        });
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
+        System.out.println(dateFormat.format(new Date()));
+        Objects.requireNonNull(lib);
+        Runnable action;
+        if (lib.isDirectory())
+        {
+            action = () -> this.readTypeDeclarationAsync(lib, this.library, () -> {
+                this.library.resolve();
+                completion.accept(this.library);
+                isResolved = true;
+                this.onResolveHandlers.forEach(Runnable::run);
+            });
+        }
+        else
+            action = () -> this.readLibraryFileAsync(lib, completion);
+
         if (LanguageService.isOpen())
             action.run();
         else
             LanguageService.addOnOpenListener(action);
     }
 
-    private void readDirectoryAsync(File path, Scope scope, Runnable completion)
+
+    @Deprecated
+    private void readLibraryFileAsync(File file, Consumer<Scope> completion)
+    {
+        if (file == null || file.isDirectory())
+            throw new RuntimeException("Library provided to ProjectScope in readLibraryFileAsync cannot be null or directory!");
+        Task<Integer> readTask = new Task<Integer>() {
+            @Override
+            protected Integer call() throws Exception
+            {
+                Gson gson = new Gson();
+                byte[] data = Files.readAllBytes(Paths.get(file.getPath()));
+                Scope scope = gson.fromJson(new String(data), Scope.class);
+                scope.resolve();
+                completion.accept(scope);
+                return 0;
+            }
+        };
+        LanguageService.execute(readTask);
+    }
+
+    private void readTypeDeclarationAsync(File path, Scope scope, Runnable completion)
     {
         File [] files = path.listFiles();
         if (!path.isDirectory() || files == null)
-            throw new RuntimeException("Library provided to ProjectScope must be a directory containing files!");
+            throw new RuntimeException("Library provided to ProjectScope in readTypeDeclarationAsync must be a directory containing files!");
         Task<Integer> readTask = new Task<Integer>() {
             @Override
             protected Integer call() throws Exception
@@ -89,7 +126,6 @@ public class ProjectScope
         };
         LanguageService.execute(readTask);
     }
-
 
 
     private TypeDeclaration read(File path) throws IOException

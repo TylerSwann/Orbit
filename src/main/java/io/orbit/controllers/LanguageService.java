@@ -79,13 +79,17 @@ public class LanguageService
 
     public static <T> void execute(Task<T> task)
     {
+        task.setOnFailed(event -> event.getSource().getException().printStackTrace());
         service.execute(task);
     }
     public static <T> void execute(Task<T> task, Consumer<WorkerStateEvent> completion)
     {
-        service.execute(task);
-        task.setOnFailed(completion::accept);
         task.setOnSucceeded(completion::accept);
+        task.setOnFailed(event -> {
+            completion.accept(event);
+            event.getSource().getException().printStackTrace();
+        });
+        service.execute(task);
     }
 
     private static void build()

@@ -86,14 +86,9 @@ public class Type
         this.name = declaration.getName();
     }
 
-    public Type() { }
-
     public List<Property> getProperties() { return properties; }
     public List<Method> getMethods() { return methods; }
     public String getName() { return name; }
-    public void setName(String name) { this.name = name; }
+    protected void setName(String name) { this.name = name; }
     public boolean isArray() { return isArray; }
-    public void setArray(boolean array) { isArray = array; }
-    public void setProperties(List<Property> properties) { this.properties = properties; }
-    public void setMethods(List<Method> methods) { this.methods = methods; }
 }

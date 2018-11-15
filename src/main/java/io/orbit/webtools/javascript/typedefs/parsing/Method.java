@@ -30,16 +30,5 @@ import io.orbit.webtools.javascript.typedefs.fragments.TypeDeclaration;
  */
 public class Method extends Function
 {
-    public Method(TypeDeclaration declaration)
-    {
-        super(declaration);
-    }
-
-    public Method() { }
-    @Override
-    public void setReturnType(Type returnType)
-    {
-        super.setReturnType(returnType);
-        returnType.getMethods().add(this);
-    }
+    public Method(TypeDeclaration declaration) { super(declaration); }
 }

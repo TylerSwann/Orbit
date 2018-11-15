@@ -19,6 +19,7 @@
  */
 package io.orbit.webtools.javascript.typedefs.parsing;
 
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -34,7 +35,7 @@ public class FunctionalType extends Type
 
     public FunctionalType(Type returnType, List<Parameter> parameters)
     {
-        super("Function", returnType.getProperties(), returnType.getMethods());
+        super("Function", Collections.emptyList(), Collections.emptyList());
         this.returnType = returnType;
         this.parameters = parameters;
         StringBuilder builder = new StringBuilder();
@@ -50,10 +51,6 @@ public class FunctionalType extends Type
         this.setName(builder.toString());
     }
 
-    public FunctionalType() { }
-
     public List<Parameter> getParameters() { return parameters; }
-    public void setParameters(List<Parameter> parameters) { this.parameters = parameters; }
     public Type getReturnType() { return returnType; }
-    public void setReturnType(Type returnType) { this.returnType = returnType; }
 }

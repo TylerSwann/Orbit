@@ -87,10 +87,10 @@ public class JSOption
         return from(type.getProperties(), type.getMethods());
     }
 
-    static List<JSOption> from(List<Property> properties, List<? extends Function> functions)
+    static List<JSOption> from(List<Property> properties, List<Method> methods)
     {
         List<JSOption> options = new ArrayList<>(fromProperties(properties));
-        options.addAll(fromFunctions(functions));
+        options.addAll(fromFunctions(methods));
         return options;
     }
 

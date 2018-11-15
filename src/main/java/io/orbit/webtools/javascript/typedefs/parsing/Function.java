@@ -34,9 +34,9 @@ import java.util.List;
 public class Function
 {
     private String name;
-    private transient Type returnType;
+    private Type returnType;
     private List<Parameter> parameters = new ArrayList<>();
-    private transient Signature signature;
+    private Signature signature;
 
     public Function(TypeDeclaration declaration)
     {
@@ -46,19 +46,14 @@ public class Function
             this.parameters.add(new Parameter(signature.getParameters()[j]));
     }
 
-    public Function() { }
-
     public void resolve(Scope scope)
     {
         this.returnType = scope.typeOfFragment(this.signature.getType());
         this.parameters.forEach(param -> param.resolve(scope));
     }
-    public void setName(String name) { this.name = name; }
+
     public String getName() { return name; }
-    public void setParameters(List<Parameter> parameters) { this.parameters = parameters; }
-    public List<Parameter> getParameters() { return parameters; }
     public Type getReturnType() { return returnType; }
-    public void setReturnType(Type returnType) { this.returnType = returnType; }
+    public List<Parameter> getParameters() { return parameters; }
     public Signature getSignature() { return signature; }
-    public void setSignature(Signature signature) { this.signature = signature; }
 }

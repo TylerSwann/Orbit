@@ -31,16 +31,14 @@ import io.orbit.webtools.javascript.typedefs.fragments.TypeFragment;
 public class Parameter
 {
     private String name;
+    private TypeFragment typeFragment;
     private Type type;
-    private transient TypeFragment typeFragment;
 
     public Parameter(ParameterFragment fragment)
     {
         this.name = fragment.getName();
         this.typeFragment = fragment.getType();
     }
-
-    public Parameter() { }
 
     public void resolve(Scope scope)
     {
@@ -49,6 +47,4 @@ public class Parameter
 
     public String getName() { return name; }
     public Type getType() { return type; }
-    public void setName(String name) { this.name = name; }
-    public void setType(Type type) { this.type = type; }
 }

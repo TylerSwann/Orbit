@@ -34,8 +34,6 @@ public class Interface extends Type
         super(declaration);
     }
 
-    public Interface() { }
-
     public void resolve(Scope scope)
     {
         this.getProperties().forEach(prop -> prop.resolve(scope));
