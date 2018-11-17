@@ -1,6 +1,7 @@
 package io.orbit.api.autocompletion;
 
 import io.orbit.api.text.CodeEditor;
+import javafx.application.Platform;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -13,6 +14,7 @@ import javafx.scene.control.PopupControl;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.StackPane;
 import javafx.scene.text.Font;
 
 import java.util.List;
@@ -24,8 +26,6 @@ import java.util.function.Function;
  */
 public class AutoCompletionDialog<T> extends PopupControl
 {
-    private ListView<Label> optionsView;
-    private Node owner;
     private static final double xOffset = 20.0;
     private static final double yOffset = 0.0;
 
@@ -40,12 +40,15 @@ public class AutoCompletionDialog<T> extends PopupControl
     public ObservableValue<Optional<T>> selectedOptionProperty() {  return selectedOption;  }
     public Optional<T> getSelectedOption() { return selectedOption.get(); }
 
+    private ListView<Label> optionsView;
+    private Node owner;
+    private AnchorPane root;
+
 
     public AutoCompletionDialog(List<T> options, Node owner)
     {
         this(owner);
         this.options.addAll(options);
-
     }
 
     public AutoCompletionDialog(Node owner)
@@ -58,17 +61,21 @@ public class AutoCompletionDialog<T> extends PopupControl
         double height = 200.0;
         this.setPrefHeight(height);
         this.optionsView.setPrefHeight(height);
-        this.optionsView.setMinWidth(width);
-        this.optionsView.setPrefWidth(ListView.USE_COMPUTED_SIZE);
-        this.setMinWidth(width);
-        this.setMaxWidth(PopupControl.USE_COMPUTED_SIZE);
-        this.optionsView.setMinWidth(width);
+        this.optionsView.setMinWidth(ListView.USE_PREF_SIZE);
+        this.optionsView.setMaxWidth(ListView.USE_PREF_SIZE);
+        this.setMinWidth(PopupControl.USE_PREF_SIZE);
+        this.setMaxHeight(PopupControl.USE_PREF_SIZE);
+        this.optionsView.setPrefWidth(width);
+        this.setPrefWidth(width);
         AnchorPane.setTopAnchor(optionsView, 0.0);
         AnchorPane.setBottomAnchor(optionsView, 0.0);
         AnchorPane.setLeftAnchor(optionsView, 0.0);
-        AnchorPane.setRightAnchor(optionsView, 630.0);
+        AnchorPane.setRightAnchor(optionsView, 0.0);
+        this.root = new AnchorPane();
+        root.setPrefSize(width, height);
+        root.getChildren().add(this.optionsView);
         updateItems();
-        this.getScene().setRoot(this.optionsView);
+        this.getScene().setRoot(root);
         registerListeners();
         this.setStyle("-fx-background-color: transparent;");
         this.optionsView.getStyleClass().add("auto-completion-dialog");
@@ -116,6 +123,21 @@ public class AutoCompletionDialog<T> extends PopupControl
                 }
             }
         });
+        this.options.addListener((ListChangeListener<T>) c -> {
+            double maxWidth = 0.0;
+            for (Label label : this.optionsView.getItems())
+            {
+                double computedWidth = label.getText().length() * label.getFont().getSize();
+                if (computedWidth > maxWidth)
+                    maxWidth = computedWidth;
+            }
+            maxWidth += 100.0;
+            this.root.setPrefWidth(maxWidth / 2.0);
+            if (this.optionsView.getItems().size() > 5)
+                this.root.setPrefHeight(300.0);
+            else
+                this.root.setPrefHeight(200.0);
+        });
     }
 
     private void updateItems()
@@ -124,7 +146,6 @@ public class AutoCompletionDialog<T> extends PopupControl
             this.optionsView.getItems().removeAll(this.optionsView.getItems());
         for (T option : this.options)
         {
-            // Check if cell factory has been created here.
             String text = this.cellFactory == null ? option.toString() : this.cellFactory.apply(option);
             Label label = new Label(text);
             label.setUserData(option);

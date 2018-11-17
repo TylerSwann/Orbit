@@ -17,27 +17,23 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
  */
-package io.orbit.webtools.javascript.typedefs.parsing;
-
-import io.orbit.webtools.javascript.typedefs.fragments.TypeDeclaration;
-
+package io.orbit.webtools.javascript.typedefs.fragments;
 
 /**
  * Created By: Tyler Swann.
- * Date: Friday, Nov 02, 2018
- * Time: 3:31 PM
+ * Date: Friday, Nov 16, 2018
+ * Time: 3:46 PM
  * Website: https://orbiteditor.com
  */
-public class Interface extends Type
+public class InheritedType
 {
-    public Interface(TypeDeclaration declaration)
-    {
-        super(declaration);
-    }
+    private String type;
+    private String name;
 
-    public void resolve(Scope scope)
-    {
-        this.getProperties().forEach(prop -> prop.resolve(scope));
-        this.getMethods().forEach(method -> method.resolve(scope));
-    }
+    public InheritedType() { }
+
+    public String getType() { return type; }
+    public void setType(String type) { this.type = type; }
+    public String getName() { return name; }
+    public void setName(String name) { this.name = name; }
 }

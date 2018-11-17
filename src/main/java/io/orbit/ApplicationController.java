@@ -68,7 +68,7 @@ public class ApplicationController
 
     private void registerListeners()
     {
-        App.addWillLoadHandler(() -> LanguageService.open(OEditorTabPaneController.ACTIVE_EDITOR_CONTROLLER, 3));
+        App.addWillLoadHandler(() -> LanguageService.setActiveControllerProperty(OEditorTabPaneController.ACTIVE_EDITOR_CONTROLLER));
         App.addOnCloseHandler(() -> {
             Stage stage = App.stage();
             Size windowSize = new Size(stage.getWidth(), stage.getHeight());

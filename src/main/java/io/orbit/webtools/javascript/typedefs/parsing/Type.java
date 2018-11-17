@@ -20,6 +20,7 @@
 package io.orbit.webtools.javascript.typedefs.parsing;
 
 import io.orbit.webtools.javascript.typedefs.fragments.TypeDeclaration;
+import javafx.application.Platform;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -42,6 +43,7 @@ public class Type
     private List<Method> methods;
     private String name;
     private boolean isArray = false;
+    private boolean isSorted = false;
 
     public Type(String name, List<Property> properties, List<Method> methods)
     {
@@ -60,8 +62,8 @@ public class Type
 
     protected Type(TypeDeclaration declaration)
     {
-        List<Property> properties = new ArrayList<>();
-        List<Method> methods = new ArrayList<>();
+        this.properties = new ArrayList<>();
+        this.methods = new ArrayList<>();
         for (int i = 0; i < declaration.getChildren().length; i++)
         {
             TypeDeclaration child = declaration.getChildren()[i];
@@ -81,14 +83,47 @@ public class Type
                     break;
             }
         }
-        this.methods = methods;
-        this.properties = properties;
         this.name = declaration.getName();
     }
+
+    public void sort()
+    {
+        this.isSorted = true;
+        Collections.reverse(this.properties);
+        Collections.reverse(this.methods);
+//        this.properties.sort((first, second) -> Boolean.compare(first.isInherited(), second.isInherited()));
+//        this.methods.sort((first, second) -> Boolean.compare(first.isInherited(), second.isInherited()));
+    }
+
+//    private void readMembers(TypeDeclaration declaration, Function<TypeDeclaration, Boolean> filter)
+//    {
+//        for (int i = 0; i < declaration.getChildren().length; i++)
+//        {
+//            TypeDeclaration child = declaration.getChildren()[i];
+//            if (!filter.apply(child))
+//                continue;
+//            switch (child.getKindString())
+//            {
+//                case TypeDefinition.PROPERTY:
+//                    properties.add(new Property(child));
+//                    break;
+//                case TypeDefinition.METHOD:
+//                    methods.add(new Method(child));
+//                    break;
+//                case TypeDefinition.INTERFACE:
+//                case TypeDefinition.VARIABLE:
+//                    System.out.println(String.format("Interface has interface or variable named %s", child.getName()));
+//                    break;
+//                default:
+//                    break;
+//            }
+//        }
+//    }
 
     public List<Property> getProperties() { return properties; }
     public List<Method> getMethods() { return methods; }
     public String getName() { return name; }
     protected void setName(String name) { this.name = name; }
     public boolean isArray() { return isArray; }
+    public boolean isSorted() { return this.isSorted; }
 }

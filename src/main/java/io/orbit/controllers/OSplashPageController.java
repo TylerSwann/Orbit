@@ -75,11 +75,11 @@ public class OSplashPageController
                 part4,
                 part5
         };
-        Arrays.stream(transitions).forEach(it -> it.setDuration(Duration.millis(100)));
+        Arrays.stream(transitions).forEach(it -> it.setDuration(Duration.millis(1000)));
         part1.setOnFinished(event1 -> {
             Platform.runLater(() -> OSplashPageController.updateProgress(0.2, "Performing initial setup..."));
             part2.setOnFinished(event2 -> {
-                Platform.runLater(() -> OSplashPageController.updateProgress(0.4, "Loading Application Files..."));
+                Platform.runLater(() -> OSplashPageController.updateProgress(0.4, "Loading JavaScript Libraries..."));
                 part3.setOnFinished(event3 -> {
                     Platform.runLater(() -> OSplashPageController.updateProgress(0.6, "Loading User Settings..."));
                     part4.setOnFinished(event4 -> {

@@ -19,7 +19,6 @@
  */
 package io.orbit.webtools.javascript.autocompletion;
 
-import com.google.gson.Gson;
 import io.orbit.api.autocompletion.AutoCompletionDialog;
 import io.orbit.api.text.CodeEditor;
 import io.orbit.util.Tuple;
@@ -27,17 +26,9 @@ import io.orbit.webtools.javascript.typedefs.parsing.Method;
 import io.orbit.webtools.javascript.typedefs.parsing.Property;
 import io.orbit.webtools.javascript.typedefs.parsing.Type;
 import io.orbit.webtools.javascript.typedefs.parsing.Variable;
-import javafx.application.Platform;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
-
-import java.io.File;
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import java.util.function.Function;
 import java.util.stream.Collectors;
@@ -62,25 +53,16 @@ public class JavaScriptAutoCompleter
         this.scope = scope;
         this.dialog = new AutoCompletionDialog<>(editor);
         this.dialog.setCellFactory(option -> option.displayText);
-//        Platform.runLater(() -> {
-//            try
-//            {
-//                Gson gson = new Gson();
-//                byte[] data = gson.toJson(scope.library).getBytes();
-//                Files.write(Paths.get(new File("C:\\Users\\TylersDesktop\\Downloads\\es5.json").getPath()), data);
-//            }
-//            catch (IOException e) { e.printStackTrace(); }
-//        });
         this.registerListeners();
     }
 
     private void registerListeners()
     {
-        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
-        System.out.println(dateFormat.format(new Date()));
         System.out.println("load");
         this.editor.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> this.dialog.hide());
         this.editor.addEventHandler(KeyEvent.KEY_RELEASED, event -> {
+            if (event.getCode().isArrowKey())
+                return;
             switch (event.getCode())
             {
                 case ENTER: break;
@@ -175,6 +157,12 @@ public class JavaScriptAutoCompleter
 
     private Tuple<String, Type> lastTypeOfFragment(String text)
     {
+        if (text.contains("=") && !text.contains("==") && !text.contains("==="))
+        {
+            String[] expressions = text.split("=");
+            if (expressions.length > 1)
+                text = expressions[1].trim();
+        }
         String[] pieces = text.split("\\.");
         Type type = Type.ANY;
         if (pieces == null || pieces.length <= 0)
@@ -203,6 +191,8 @@ public class JavaScriptAutoCompleter
                     type = property.getType();
             }
         }
+        if (!type.isSorted())
+            type.sort();
         return new Tuple<>(last, type);
     }
 

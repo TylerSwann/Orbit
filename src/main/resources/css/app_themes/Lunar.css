@@ -623,7 +623,14 @@
     -fx-background: -base-grey;
     -fx-background-color: -base-grey;
     -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.8), 10.0, 0.0, 2.0, 3.0);
+    -fx-background-radius: 3px;
 }
+.auto-completion-dialog .corner
+{
+    -fx-background: -base-grey;
+    -fx-background-color: -base-grey;
+}
+
 .auto-completion-dialog .label
 {
     -fx-text-fill: -text-color;
@@ -631,6 +638,7 @@
 .auto-completion-dialog .list-cell
 {
     -fx-background-color: -base-grey;
+    -fx-background-radius: 3px;
 }
 .auto-completion-dialog .list-cell:selected:focused
 {

@@ -37,6 +37,8 @@ public class Function
     private Type returnType;
     private List<Parameter> parameters = new ArrayList<>();
     private Signature signature;
+    private int priority = 0;
+    private boolean isInherited;
 
     public Function(TypeDeclaration declaration)
     {
@@ -44,6 +46,7 @@ public class Function
         this.signature = declaration.getSignatures()[0];
         for (int j = 0; j < signature.getParameters().length; j++)
             this.parameters.add(new Parameter(signature.getParameters()[j]));
+        this.isInherited = declaration.getInheritedFrom() != null;
     }
 
     public void resolve(Scope scope)
@@ -56,4 +59,7 @@ public class Function
     public Type getReturnType() { return returnType; }
     public List<Parameter> getParameters() { return parameters; }
     public Signature getSignature() { return signature; }
+    public int getPriority() { return priority; }
+    public void setPriority(int priority) { this.priority = priority; }
+    public boolean isInherited() { return isInherited; }
 }

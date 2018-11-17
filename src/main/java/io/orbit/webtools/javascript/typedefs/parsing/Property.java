@@ -34,12 +34,14 @@ public class Property
     private String typeName;
     private Type type;
     private TypeDeclaration declaration;
+    private boolean isInherited;
 
     public Property(TypeDeclaration declaration)
     {
         this.name = declaration.getName();
         this.typeName = declaration.getType().getName();
         this.declaration = declaration;
+        this.isInherited = declaration.getInheritedFrom() != null;
     }
 
     public Property() { }
@@ -54,4 +56,5 @@ public class Property
     public String getName() { return name; }
     public String getTypeName() { return typeName; }
     public Type getType() { return type; }
+    public boolean isInherited() { return isInherited; }
 }

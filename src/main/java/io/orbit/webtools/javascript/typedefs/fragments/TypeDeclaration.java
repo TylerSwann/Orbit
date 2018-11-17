@@ -34,6 +34,7 @@ public class TypeDeclaration extends TypeNode
     private Source[] sources = new Source[0];
     private TypeDeclaration[] children = new TypeDeclaration[0];
     private Signature[] signatures = new Signature[0];
+    private InheritedType inheritedFrom;
 
     public String getKindString() {
         return kindString;
@@ -77,4 +78,6 @@ public class TypeDeclaration extends TypeNode
     public void setSignatures(Signature[] signatures) {
         this.signatures = signatures;
     }
+    public InheritedType getInheritedFrom() { return inheritedFrom; }
+    public void setInheritedFrom(InheritedType inheritedFrom) { this.inheritedFrom = inheritedFrom; }
 }

@@ -53,28 +53,36 @@ public class LanguageService
     private static List<Runnable> onOpenHandlers = new ArrayList<>();
     private static boolean isOpen = false;
     public static boolean isOpen() { return isOpen; }
+    public static void addOnOpenListener(Runnable runnable)
+    {
+        onOpenHandlers.add(runnable);
+    }
 
     private LanguageService(){}
 
-    public static void open(ObservableValue<OCodeEditorController> activeControllerProperty, int threadCount)
+    public static void open(int threadCount)
     {
         if (!isOpen)
         {
             service = Executors.newFixedThreadPool(threadCount);
-            LanguageService.activeControllerProperty =  activeControllerProperty;
             isOpen = true;
+        }
+        else
+            throw new RuntimeException("LanguageService is already open!");
+    }
+
+    public static void setActiveControllerProperty(ObservableValue<OCodeEditorController> activeControllerProperty)
+    {
+        if (isOpen)
+        {
+            LanguageService.activeControllerProperty =  activeControllerProperty;
             onOpenHandlers.forEach(Runnable::run);
             onOpenHandlers.clear();
             onOpenHandlers = null;
             build();
         }
         else
-            throw new RuntimeException("LanguageService is already open!");
-    }
-
-    public static void addOnOpenListener(Runnable runnable)
-    {
-        onOpenHandlers.add(runnable);
+            throw new RuntimeException("LanguageService is must be opened!");
     }
 
     public static <T> void execute(Task<T> task)

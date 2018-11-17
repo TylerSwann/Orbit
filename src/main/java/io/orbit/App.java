@@ -20,6 +20,7 @@
 package io.orbit;
 
 import io.orbit.controllers.AppStage;
+import io.orbit.controllers.LanguageService;
 import io.orbit.controllers.OSplashPageController;
 import io.orbit.plugin.PluginDispatch;
 import javafx.application.Application;
@@ -48,6 +49,7 @@ public class App extends Application
 
     public void start(Stage stage)
     {
+        LanguageService.open( 3);
         System.setProperty("prism.lcdtext", "false");
         System.setProperty("prism.text", "t2k");
         stage.setTitle("Orbit");
